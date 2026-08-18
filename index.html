@@ -56,7 +56,7 @@
       <div class="logo"><img src="https://media.licdn.com/dms/image/v2/D5603AQGUJ2iHF1koLA/profile-displayphoto-scale_400_400/B56ZrfXlc5LQAo-/0/1764684099067?e=1766620800&v=beta&t=dcNbbnnSB8el4FSCmkOmmC91tFZZJylFJkS87S9BlVE" alt="Christopher Neale photo"></div>
       <div>
         <div style="font-weight:800">Christopher Neale</div>
-        <div style="font-size:13px;color:var(--muted)">Data Analyst • Marketing Analytics • ML-driven insights</div>
+        <div style="font-size:13px;color:var(--muted)">Data Science Leader • Applied LLM/RAG Systems • Marketing & CRM Analytics</div>
       </div>
     </div>
     <nav>
@@ -94,7 +94,9 @@
       '/': renderHome,
       '/resume': renderResume,
       '/projects': renderProjects,
-      '/project/this-project': renderSpecificProject,
+      '/project/podflow': renderPodflowCase,
+      '/project/resume-chat': renderChatCase,
+      '/project/recipe-wiz': renderRecipeWizCase,
     }
 
     function setActiveLink(path){
@@ -118,9 +120,9 @@
           <div class="photo"><img src="https://media.licdn.com/dms/image/v2/D5603AQGUJ2iHF1koLA/profile-displayphoto-scale_400_400/B56ZrfXlc5LQAo-/0/1764684099067?e=1766620800&v=beta&t=dcNbbnnSB8el4FSCmkOmmC91tFZZJylFJkS87S9BlVE" alt="Chris Neale"></div>
           <div class="intro">
             <h1>Hi — I'm Christopher Neale</h1>
-            <p>Innovative data analyst with 4+ years delivering marketing analytics, ML-driven insights, and reporting systems. I build models and dashboards that help teams make measurable decisions.</p>
+            <p>Data science leader with 4+ years building and shipping applied AI: LLM-powered chat and RAG systems, agentic workflows, and the marketing analytics infrastructure they sit on top of. I lead cross-functional AI initiatives end to end — from architecture through evaluation to production — and I write the code myself, including with tools like Claude Code.</p>
             <div style="margin-top:12px" class="skills">
-              <div class="skill">Python</div><div class="skill">SQL</div><div class="skill">Tableau</div><div class="skill">Databricks</div><div class="skill">CRM & CDP</div>
+              <div class="skill">LLM / RAG</div><div class="skill">Agentic Workflows (LangGraph)</div><div class="skill">Prompt Engineering</div><div class="skill">Python</div><div class="skill">SQL</div><div class="skill">Tableau</div><div class="skill">CRM & CDP</div>
             </div>
           </div>
         </section>
@@ -129,7 +131,7 @@
           <div>
             <div class="card">
               <div class="section-title">About</div>
-              <p style="color:var(--muted)">I'm focused on applying data science to acquisition, lifecycle marketing, and media performance. I enjoy translating technical models into actions marketing teams can execute.</p>
+              <p style="color:var(--muted)">I lead applied-AI work at the intersection of data science and production engineering: internal RAG chat tools, agentic compliance systems, and the BI infrastructure that grounds them in real data. I care most about the parts that are easy to skip — evaluation, graceful degradation, and making sure an AI system's tradeoffs (latency, cost, reliability) are a deliberate choice, not an accident. This site (copy, retrieval architecture, and eval harnesses included) is itself built end-to-end with Claude Code.</p>
             </div>
 
             <div class="card">
@@ -151,7 +153,7 @@
             <div class="card" style="margin-top:12px">
               <div class="section-title">Skills & Tools</div>
               <div style="color:var(--muted);font-size:14px;line-height:1.6">
-                Tableau · Power BI · GA4 · Python · SQL · Databricks · Scikit-learn · AWS
+                LLM/RAG · LangGraph (Agentic) · Prompt Engineering · Tableau · Power BI · GA4 · Python · SQL · Databricks · Scikit-learn · AWS
               </div>
             </div>
           </aside>
@@ -173,35 +175,48 @@
           <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.03)">
 
           <div class="section-title">Summary</div>
-          <p style="color:var(--muted)">Innovative data analyst with 4+ years of experience delivering high-impact marketing analytics, ML-driven insights, and full-cycle reporting solutions. Skilled in predictive modeling, customer segmentation, CRM optimization, and cross-functional collaboration.</p>
+          <p style="color:var(--muted)">Data science leader with 4+ years of experience taking applied AI from prototype to production: LLM-powered chat tools, RAG systems, and the marketing analytics and BI infrastructure that ground them. I lead cross-functional initiatives, build hands-on (including with AI coding tools like Claude Code), and care as much about evaluation and graceful degradation as I do about the initial build.</p>
 
           <div class="section-title" style="margin-top:12px">Skills & Tools</div>
           <div class="skills" style="margin-bottom:12px">
-            <div class="skill">Tableau</div><div class="skill">Power BI</div><div class="skill">Python</div><div class="skill">SQL</div><div class="skill">Databricks</div><div class="skill">Scikit-learn</div>
+            <div class="skill">LLM / RAG</div><div class="skill">LangGraph (Agentic)</div><div class="skill">Prompt Engineering</div><div class="skill">Tableau</div><div class="skill">Power BI</div><div class="skill">Python</div><div class="skill">SQL</div><div class="skill">Databricks</div><div class="skill">Scikit-learn</div>
           </div>
 
           <div class="section-title">Experience</div>
           <div class="resume-item">
-            <div style="font-weight:700">Senior Manager, Marketing Insights and CRM Analytics — flyExculsive (Raleigh, NC)</div>
+            <div style="font-weight:700">Senior Manager, Marketing Insights and CRM Analytics — flyExclusive (Raleigh, NC)</div>
             <div style="color:var(--muted)">Nov 2025 – Present</div>
+            <ul style="color:var(--muted);margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.6">
+              <li>Engineered an internal two-way contextual AI chat tool on top of a new BI repository, giving senior leadership instant, accurate answers on business outcomes and freeing up analyst time.</li>
+              <li>Built an AI price-comparison tool modeling competitor private jet pricing against retail pricing, letting sales generate accurate personalized proposals in real time.</li>
+              <li>Built API connections between SQL servers and disparate data services into a centralized data repository, replacing legacy systems and enabling the company to terminate its Tableau contract.</li>
+              <li>Led the transition off Webflow to a fully custom site built with Claude Code, improving performance and sales generation.</li>
+            </ul>
           </div>
 
           <div class="resume-item">
             <div style="font-weight:700">Sr. Data Analyst, CRM — TRANZACT (Raleigh, NC)</div>
             <div style="color:var(--muted)">Feb 2025 – Oct 2025</div>
-
+            <ul style="color:var(--muted);margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.6">
+              <li>Developed an agentic RAG system to vet marketing materials, significantly improving CMS (Centers for Medicare &amp; Medicaid Services) approval rates.</li>
+              <li>Built a weighted project-prioritization scoring model combining quantitative and qualitative inputs to guide project managers.</li>
+            </ul>
           </div>
 
           <div class="resume-item">
             <div style="font-weight:700">Email and SMS Analyst — TRANZACT (Raleigh, NC)</div>
             <div style="color:var(--muted)">May 2022 – Feb 2025</div>
-
+            <ul style="color:var(--muted);margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.6">
+              <li>Performance marketing and CRM analytics across Power BI, data lakes, CDP platforms, and SMS/email marketing — the foundation the later RAG and modeling work was built on.</li>
+            </ul>
           </div>
 
           <div class="resume-item">
             <div style="font-weight:700">Email Marketing and Production Associate — American Kennel Club</div>
             <div style="color:var(--muted)">Apr 2021 – May 2022</div>
-
+            <ul style="color:var(--muted);margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.6">
+              <li>First enterprise exposure to data analytics and Tableau — the pivot point from general marketing into data analytics.</li>
+            </ul>
           </div>
 
           <div class="section-title" style="margin-top:12px">Education</div>
@@ -211,35 +226,142 @@
       `
     }
 
-    function renderProjects(){
-      // Structure only — user will fill projects later per instructions
-      document.getElementById('app').innerHTML = `
-        <div class="card">
-          <div class="section-title">Projects (structure)</div>
-          <p style="color:var(--muted)">This page is scaffolded for your projects. Add project cards below — each card should link to a specific project page (private pages recommended for course work when required).</p>
-
-          <div style="display:grid;gap:12px;margin-top:12px">
-            <!-- Example project card structure to duplicate -->
-            <div style="padding:12px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)">
-              <div style="font-weight:700">Project Title</div>
-              <div style="color:var(--muted);font-size:14px">Short description; link to project detail page when ready.</div>
-              <div style="margin-top:8px"><a href="#/project/placeholder" data-link style="color:var(--accent)">Open</a></div>
-            </div>
+    function projectCard(title, blurb, status, href){
+      return `
+        <div style="padding:14px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)">
+          <div style="font-weight:700">${title}</div>
+          <div style="color:var(--muted);font-size:14px;margin-top:4px">${blurb}</div>
+          <div style="margin-top:8px;display:flex;align-items:center;gap:10px">
+            <a href="${href}" data-link style="color:var(--accent)">Read the case study</a>
+            <span style="color:var(--muted);font-size:12px">${status}</span>
           </div>
         </div>
       `
     }
 
-    function renderSpecificProject(){
-      // Leave content blank per request — but keep route ready for linking later.
+    function renderProjects(){
       document.getElementById('app').innerHTML = `
         <div class="card">
-          <div class="section-title">Deployed Model — (page reserved)</div>
-          <p style="color:var(--muted)">This page is reserved for the specific project where your model will be deployed. When you're ready, replace this content with: a plain-language problem description, approach, results, and an interactive widget or iframe to the deployed model.</p>
+          <div class="section-title">Projects</div>
+          <p style="color:var(--muted)">Three applied-AI builds, each with a real architecture behind it — not just a prompt wrapper. Built end-to-end with Claude Code.</p>
 
-          <pre class="note">NOTE: Replace this content with your model demo and non-technical explanation. Keep course work private if required.</pre>
+          <div style="display:grid;gap:12px;margin-top:12px">
+            ${projectCard(
+              'PodFlow — Content Intelligence Pipeline',
+              'Unstructured podcast audio → structured, searchable chapters. Own trained segmentation model + LLM enrichment with a working degradation path.',
+              'Live pipeline, running locally',
+              '#/project/podflow'
+            )}
+            ${projectCard(
+              'Resume Chat — Retrieval-Augmented Q&A',
+              'The "Ask about Chris" widget on this site: chunked retrieval, cosine-ranked context, grounded generation, and an automated eval harness.',
+              'Live on this site',
+              '#/project/resume-chat'
+            )}
+            ${projectCard(
+              'Recipe Wiz — Agentic Meal Planning',
+              'A LangGraph state-machine agent that slot-fills constraints (allergies, diet, budget, prep time) before generating recipes.',
+              'Working agent, public demo in progress',
+              '#/project/recipe-wiz'
+            )}
+          </div>
         </div>
       `
+    }
+
+    function caseStudy({title, subtitle, problem, architecture, tradeoffs, stack, status, link}){
+      const archItems = architecture.map(i => `<li>${i}</li>`).join('')
+      const tradeoffItems = tradeoffs.map(i => `<li>${i}</li>`).join('')
+      return `
+        <div class="card">
+          <div style="font-weight:800;font-size:20px">${title}</div>
+          <div style="color:var(--muted);margin-top:4px">${subtitle}</div>
+
+          <div class="section-title" style="margin-top:18px">Problem</div>
+          <p style="color:var(--muted)">${problem}</p>
+
+          <div class="section-title" style="margin-top:14px">Architecture</div>
+          <ul style="color:var(--muted);margin:0;padding-left:18px;line-height:1.7">${archItems}</ul>
+
+          <div class="section-title" style="margin-top:14px">Tradeoffs</div>
+          <ul style="color:var(--muted);margin:0;padding-left:18px;line-height:1.7">${tradeoffItems}</ul>
+
+          <div class="section-title" style="margin-top:14px">Stack</div>
+          <div class="skills" style="margin-bottom:4px">${stack.map(s => `<div class="skill">${s}</div>`).join('')}</div>
+
+          <div class="section-title" style="margin-top:14px">Status</div>
+          <p style="color:var(--muted)">${status}${link ? ` — ${link}` : ''}</p>
+
+          <div style="margin-top:10px"><a href="#/projects" data-link style="color:var(--accent)">&larr; Back to Projects</a></div>
+        </div>
+      `
+    }
+
+    function renderPodflowCase(){
+      document.getElementById('app').innerHTML = caseStudy({
+        title: 'PodFlow',
+        subtitle: 'Turning unstructured audio into structured content intelligence',
+        problem: 'Podcast episodes are long, unstructured audio with no chapter markers. Finding the 90 seconds a listener actually wants means scrubbing the whole file. The same shape of problem — long unstructured content that needs to become structured, navigable, retrievable intelligence — shows up constantly in legal and business content, not just podcasts.',
+        architecture: [
+          'RSS ingestion pulls episode metadata and audio URLs, deduped and upserted into Postgres (genre/topic/artwork tracked for filtering).',
+          'faster-whisper transcribes full episode audio locally.',
+          'A CNN-BiLSTM boundary-segmentation model I trained myself (not an LLM call) predicts chapter boundaries from audio features — the same feature-extraction pipeline is shared verbatim between training and inference to guarantee train/serve parity.',
+          'A local LLM (Qwen, via llama.cpp) enriches each chapter with a title/description/tags, reading only the transcript text inside that chapter\'s boundaries.',
+          'A Flask API serves random/filtered chapters to a lightweight player frontend.',
+        ],
+        tradeoffs: [
+          'The LLM enrichment step has a documented, working heuristic fallback (first-sentence title + keyword tags) for when the local GGUF fails to load on hardware without AVX-512 — the pipeline degrades gracefully instead of failing the whole batch. This was a deliberate reliability choice, not an afterthought.',
+          'Chapter segmentation uses a purpose-trained small model instead of asking an LLM to find boundaries — cheaper, faster, and more consistent at batch scale than an LLM call per episode.',
+          'Segmentation quality is measured with an offline eval (precision/recall/F1 against 16 human-labeled episodes, boundary-tolerance window) rather than eyeballing outputs. Running it surfaced a real finding, not a clean pass: the model over-segments long-form sports/talk content at its default threshold (aggregate F1 0.11), a different profile than the shorter daily-news episodes it\'s mostly been run against since. Concrete next step: per-content-type threshold tuning — exactly the kind of gap an eval harness is supposed to surface before it becomes a silent quality regression.',
+        ],
+        stack: ['Python', 'Flask', 'PostgreSQL', 'PyTorch', 'faster-whisper', 'llama.cpp', 'Feature Engineering'],
+        status: 'Restored and running locally end-to-end (ingestion → transcription → segmentation → enrichment → serving).',
+        link: '<a href="player.html" style="color:var(--accent)">open the player</a>',
+      })
+    }
+
+    function renderChatCase(){
+      document.getElementById('app').innerHTML = caseStudy({
+        title: 'Resume Chat',
+        subtitle: 'The "Ask about Chris" widget on this site — real retrieval, not a stuffed prompt',
+        problem: 'A visitor should be able to ask a natural-language question about my background and get an accurate, grounded answer — and just as importantly, a clear "I don\'t know, email Chris" when the question is out of scope, instead of a confident hallucination.',
+        architecture: [
+          'My background doc is chunked by section (personal, education, per-employer experience, skills).',
+          'Each chunk gets a TF-IDF vector at server startup; each incoming question gets the same treatment at request time.',
+          'Cosine similarity ranks chunks against the question; only the top-matching chunks (plus an always-included identity chunk) go into the system prompt — real retrieval, not "paste the whole resume every time."',
+          'The grounded prompt goes to an LLM via OpenRouter, server-side only — the API key never reaches the browser.',
+          'An automated eval harness (test set of factual + out-of-scope questions) scores grounding accuracy and refusal behavior on every change, instead of me eyeballing a few chats and calling it done.',
+        ],
+        tradeoffs: [
+          'TF-IDF sparse retrieval instead of dense embeddings: zero extra API dependency or cost for a corpus this size, and it\'s a legitimate retrieval technique on its own — but it won\'t catch semantic matches that share no vocabulary with the question. At production scale with a larger, more varied corpus, I\'d move to dense embeddings against a real vector store (pgvector/Pinecone) for semantic recall; the chunking and ranking interface here is already shaped to make that swap contained.',
+          'Non-streaming responses for simplicity — streaming would feel snappier and is the obvious next iteration.',
+          'Retrieval narrows the prompt to only relevant chunks, which is also a real latency/cost win, not just an architecture nicety.',
+        ],
+        stack: ['Vercel Serverless (Node)', 'OpenRouter', 'TF-IDF / Cosine Retrieval', 'Prompt Engineering', 'Automated Eval Harness'],
+        status: 'Live on this site right now — try the "Ask about Chris" button.',
+        link: '',
+      })
+    }
+
+    function renderRecipeWizCase(){
+      document.getElementById('app').innerHTML = caseStudy({
+        title: 'Recipe Wiz',
+        subtitle: 'An agentic meal-planning assistant built on a LangGraph state machine',
+        problem: 'Generating a good recipe recommendation needs several pieces of information (allergies, diet, dislikes, a specific craving, prep time, budget) that a user won\'t volunteer all at once in one message. The agent needs to gather them conversationally, know when it has enough to act, and stay on-script without feeling like a rigid form.',
+        architecture: [
+          'A LangGraph StateGraph with a typed conversation state (allergies, diet, dislikes, craving, prep time, budget, generated options, flow-completion flag).',
+          'A conditional entry-point router inspects the current state on every turn and dispatches to whichever slot still needs filling (ask_allergies, ask_diet, ask_dislikes, ask_specific_craving, ask_prep_time, ask_budget), or on to generate_recipes once every slot is filled.',
+          'Free-text extraction: each answer is passed to an LLM extraction call that pulls the structured field out of natural language, rather than requiring rigid form input.',
+          'Once the flow is complete, the router recognizes follow-up intent ("more", "different", "another") and re-enters generation instead of restarting the whole slot-filling sequence.',
+        ],
+        tradeoffs: [
+          'A single-node-per-turn graph (each node routes to END and the graph is re-invoked next turn) keeps the state machine simple and lets state persist externally between turns — the right call for a conversational agent versus a long-running multi-step graph.',
+          'LLM-based slot extraction trades some latency/cost for a much better user experience than a rigid multi-step form — a deliberate autonomy-vs-structure tradeoff the JD language for this kind of role calls out directly.',
+        ],
+        stack: ['Python', 'LangGraph', 'Streamlit', 'LLM Structured Extraction'],
+        status: 'The agent itself works end-to-end today. It currently sits behind a Supabase auth/DB layer being stripped out in favor of session-only state, so there isn\'t a public, login-free demo link yet.',
+        link: '',
+      })
     }
 
     // --- Resume chat widget ---

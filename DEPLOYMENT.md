@@ -32,15 +32,24 @@ vercel dev
 ```
 `vercel dev` serves the static files and runs `api/chat.js` locally on the same origin, so the widget works exactly as it will in production.
 
+## Evaluation
+
+Two offline eval harnesses back the two "case studies" that make claims about quality:
+
+- **Resume chat** (`eval/testset.json` + `eval/run-eval.js`): ~18 cases split between factual-grounding questions (checks the reply contains the expected facts) and out-of-scope questions (checks the reply actually deflects instead of hallucinating). Run against a live server:
+  ```
+  vercel dev            # in one terminal
+  npm run eval           # in another — defaults to http://localhost:3000
+  ```
+  Pass `npm run eval -- https://your-deployed-url` to score a live deployment instead of localhost. Set `DEBUG_RETRIEVAL=1` on the server to have `/api/chat` echo back which context chunks it retrieved per question, for spot-checking retrieval quality.
+- **PodFlow chapter segmenter** (`C:\Users\seejn\podcasts\eval_segmenter.py`): boundary-detection precision/recall/F1 against 16 human-labeled episodes. See `podcasts/RUNBOOK.md`.
+
 ## Deferred — Phase 2 (not built in this pass)
 
-Per the original brief's Tasks 3 and 4, scoped out for now by agreement — each needs its own repo and its own architecture decisions:
-
-- **PodFlow** (`C:\Users\seejn\podcasts`) — Flask + Postgres + faster-whisper + llama-cpp-python pipeline with ~10GB of local GGUF model weights. Not viable on free serverless/Render tiers; plan is to get it correctly runnable self-hosted/in Docker first, with a real cloud deploy revisited later once there's a compute target (VPS/GPU box) to target.
-- **Recipe Wiz** (`C:\Users\seejn\recipe_wiz`) — Streamlit app currently wired to Supabase for auth and a persistent recipe CRM. Needs the auth gate and DB layer stripped and replaced with `st.session_state` so it works as a frictionless, no-login public showcase, then a separate repo deployed to Streamlit Cloud.
+- **Recipe Wiz** (`C:\Users\seejn\recipe_wiz`) — Streamlit app currently wired to Supabase for auth and a persistent recipe CRM. Needs the auth gate and DB layer stripped and replaced with `st.session_state` so it works as a frictionless, no-login public showcase, then a separate repo deployed to Streamlit Cloud. The LangGraph agent itself already works — see the case study on the site.
 
 ## Known follow-ups (not blocking, just noted)
 
 - The header/hero photo is hotlinked from a LinkedIn CDN URL with an expiring signed token — it will eventually break. Worth replacing with a self-hosted image at some point.
-- `renderProjects()` / `renderSpecificProject()` in `index.html` are still scaffolded placeholders (pre-existing, not part of this pass) — fill in with real project cards when ready.
 - Chat responses are non-streaming (single JSON reply) for simplicity. Streaming (SSE) would make the widget feel snappier and is a reasonable next enhancement.
+- Retrieval is TF-IDF (sparse vectors) over a hand-chunked markdown doc, not dense embeddings against a real vector DB — the right call at this corpus size (zero extra API dependency), but the first thing to swap out at production scale/variety. See the "Resume Chat" case study on the site for the full tradeoff.
