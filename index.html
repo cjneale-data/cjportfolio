@@ -85,7 +85,7 @@
       '/projects': renderProjects,
       '/project/podflow': renderPodflowCase,
       '/project/resume-chat': renderChatCase,
-      '/project/recipe-wiz': renderRecipeWizCase,
+      '/project/chefai': renderChefAICase,
       '/project/tensorfit': renderTensorfitCase,
       '/project/mushroom-classifier': renderMushroomCase,
     }
@@ -265,10 +265,10 @@
               '#/project/resume-chat'
             )}
             ${projectCard(
-              'Recipe Wiz — Agentic Meal Planning',
+              'ChefAI — Agentic Meal Planning',
               'A LangGraph state-machine agent that slot-fills constraints (allergies, diet, budget, prep time) before generating recipes.',
-              'Working agent, public demo in progress',
-              '#/project/recipe-wiz'
+              'Live public demo',
+              '#/project/chefai'
             )}
           </div>
 
@@ -369,9 +369,9 @@
       })
     }
 
-    function renderRecipeWizCase(){
+    function renderChefAICase(){
       document.getElementById('app').innerHTML = caseStudy({
-        title: 'Recipe Wiz',
+        title: 'ChefAI',
         subtitle: 'An agentic meal-planning assistant built on a LangGraph state machine',
         problem: 'Generating a good recipe recommendation needs several pieces of information (allergies, diet, dislikes, a specific craving, prep time, budget) that a user won\'t volunteer all at once in one message. The agent needs to gather them conversationally, know when it has enough to act, and stay on-script without feeling like a rigid form.',
         architecture: [
@@ -384,9 +384,9 @@
           'A single-node-per-turn graph (each node routes to END and the graph is re-invoked next turn) keeps the state machine simple and lets state persist externally between turns — the right call for a conversational agent versus a long-running multi-step graph.',
           'LLM-based slot extraction trades some latency/cost for a much better user experience than a rigid multi-step form — a deliberate autonomy-vs-structure tradeoff the JD language for this kind of role calls out directly.',
         ],
-        stack: ['Python', 'LangGraph', 'Streamlit', 'LLM Structured Extraction'],
-        status: 'The agent itself works end-to-end today. It currently sits behind a Supabase auth/DB layer being stripped out in favor of session-only state, so there isn\'t a public, login-free demo link yet.',
-        link: '',
+        stack: ['Python', 'LangGraph', 'Streamlit', 'OpenRouter', 'LLM Structured Extraction'],
+        status: 'Live public demo on Streamlit Community Cloud, running on OpenRouter for generation with Supabase behind it for auth and saved-recipe storage.',
+        link: '<a href="https://chefai-noemgucqmarbfwe2euwdsl.streamlit.app/" target="_blank" rel="noopener" style="color:var(--accent)">try it live</a>',
       })
     }
 
