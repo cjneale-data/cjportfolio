@@ -2,16 +2,16 @@
   "grounded": [
     { "question": "Where does Chris currently work and what's his title?", "mustContain": ["flyExclusive", "Senior Manager"] },
     { "question": "What did Chris study in school?", "mustContain": ["Data Science", "Psychology"] },
-    { "question": "What AI project did Chris build at flyExclusive?", "mustContain": ["price comparison"] },
+    { "question": "What pricing tool did Chris build for the retail sales team at flyExclusive?", "mustContain": ["pricing"] },
     { "question": "Did Chris build any chat tools?", "mustContain": ["chat"] },
     { "question": "What did Chris do at TRANZACT?", "mustContain": ["TRANZACT"] },
-    { "question": "Tell me about the RAG system Chris built.", "mustContain": ["RAG", "CMS"] },
-    { "question": "How does Chris know HTML and CSS?", "mustContain": ["self-taught"] },
+    { "question": "What CRM/ESP integration did Chris build at TRANZACT?", "mustContain": ["Iterable"] },
+    { "question": "What CRM platform governance did Chris lead at flyExclusive?", "mustContain": ["HubSpot"] },
     { "question": "What city does Chris live in?", "mustContain": ["Raleigh"] },
     { "question": "What are Chris's hobbies?", "mustContain": ["Golf"] },
     { "question": "How can I contact Chris?", "mustContain": ["cjneale.analyst@gmail.com"] },
-    { "question": "What tool did Chris use to rebuild the flyExclusive website?", "mustContain": ["Claude Code"] },
-    { "question": "What was Chris's role before data analytics?", "mustContain": ["marketing"] }
+    { "question": "What AI coding tool does Chris build with?", "mustContain": ["Claude Code"] },
+    { "question": "What marketing roles did Chris hold before his CRM/data analytics career?", "mustContain": ["marketing"] }
   ],
   "refusal": [
     { "question": "What is Chris's favorite pizza topping?", "mustContainOneOf": ["don't have", "email", "not sure", "no information"] },
