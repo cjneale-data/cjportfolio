@@ -6,10 +6,29 @@
     <title>PodFlow App</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pine: { 200:'#CFE3DA', 400:'#6FB39A', 500:'#3E7864', 600:'#2C5C4C', 700:'#234A3D', 900:'#16291F' },
+                        brass: { 200:'#EAD9BC', 400:'#D3A968', 500:'#A67C3D' }
+                    },
+                    fontFamily: {
+                        sans: ['IBM Plex Sans', 'ui-sans-serif', 'system-ui'],
+                        mono: ['IBM Plex Mono', 'ui-monospace', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            background-color: #111827; 
-            font-family: 'Inter', sans-serif;
+            background-color: #10140D;
+            font-family: 'IBM Plex Sans', sans-serif;
         }
         
         input[type=range] {
@@ -42,9 +61,9 @@
         }
 
         .glass-panel {
-            background: rgba(31, 41, 55, 0.7);
+            background: rgba(16, 20, 13, 0.72);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(111, 179, 154, 0.14);
         }
 
         /* Filter Panel Animation */
@@ -88,7 +107,7 @@
         <div class="flex-1 overflow-y-auto pr-2">
             <div class="mb-6">
                 <label class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-3 block">Genre</label>
-                <select id="genre-select" class="w-full bg-gray-800 border border-gray-700 text-white rounded-lg p-3 text-sm focus:ring-2 focus:ring-purple-500 outline-none">
+                <select id="genre-select" class="w-full bg-gray-800 border border-gray-700 text-white rounded-lg p-3 text-sm focus:ring-2 focus:ring-pine-500 outline-none">
                     <option value="">All Genres</option>
                 </select>
             </div>
@@ -100,17 +119,17 @@
             </div>
         </div>
 
-        <button onclick="applyFilters()" class="w-full bg-purple-600 hover:bg-purple-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-purple-500/30 mt-4">
+        <button onclick="applyFilters()" class="w-full bg-pine-600 hover:bg-pine-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-pine-600/30 mt-4">
             Apply Filters
         </button>
     </div>
 
     <div class="glass-panel w-full max-w-md rounded-3xl p-6 shadow-2xl relative overflow-hidden h-full max-h-[850px] flex flex-col">
         
-        <div id="bg-glow" class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900 to-blue-900 opacity-50 -z-10 transition-colors duration-1000"></div>
+        <div id="bg-glow" class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-pine-900 to-black opacity-40 -z-10 transition-colors duration-1000"></div>
 
         <div class="flex justify-between items-center mb-4 flex-shrink-0">
-            <button onclick="toggleFilterPanel()" class="text-purple-400 hover:text-white transition" title="Filter Content">
+            <button onclick="toggleFilterPanel()" class="text-pine-400 hover:text-white transition" title="Filter Content">
                 <i class="fas fa-sliders-h"></i>
             </button>
             <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Chapter Shuffle</span>
@@ -127,7 +146,7 @@
         <div class="text-center mb-4 flex-shrink-0">
             <h2 id="chapter-title" class="text-xl sm:text-2xl font-bold mb-1 truncate px-2">Loading...</h2>
             <p id="podcast-title" class="text-gray-300 text-sm font-medium mb-1 truncate px-4">Podcast Title</p>
-            <p id="episode-title" class="text-purple-400 text-xs truncate px-8">Episode Title</p>
+            <p id="episode-title" class="text-pine-400 text-xs truncate px-8">Episode Title</p>
             <p id="pub-date" class="text-gray-500 text-[10px] uppercase tracking-wide mt-1">OCT 24, 2025</p>
         </div>
 
@@ -140,13 +159,13 @@
         </div>
 
         <div class="flex justify-between items-center px-4 mb-6 flex-shrink-0">
-            <button id="btn-shuffle" class="text-purple-400 hover:text-purple-300 transition" title="New Random Episode">
+            <button id="btn-shuffle" class="text-pine-400 hover:text-white transition" title="New Random Episode">
                 <i class="fas fa-random"></i>
             </button>
             <button id="btn-prev" class="text-gray-300 hover:text-white text-2xl transition">
                 <i class="fas fa-step-backward"></i>
             </button>
-            <button id="btn-play" class="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition shadow-lg shadow-purple-500/50">
+            <button id="btn-play" class="w-16 h-16 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 transition shadow-lg shadow-pine-500/50">
                 <i class="fas fa-play text-xl ml-1"></i>
             </button>
             <button id="btn-next" class="text-gray-300 hover:text-white text-2xl transition">
@@ -169,7 +188,7 @@
             <div class="flex justify-between items-center">
                 <div id="next-up-text" class="text-xs text-gray-500 truncate w-full">Next: Random Show Shuffle</div>
                 <div id="active-filters" class="flex gap-1 hidden ml-2">
-                    <span class="text-[10px] bg-purple-900 text-purple-200 px-2 py-0.5 rounded-full whitespace-nowrap" id="filter-badge">Filtered</span>
+                    <span class="text-[10px] bg-pine-900 text-pine-200 px-2 py-0.5 rounded-full whitespace-nowrap" id="filter-badge">Filtered</span>
                 </div>
             </div>
         </div>
@@ -190,8 +209,10 @@
         let selectedGenre = "";
         let selectedTopic = "";
 
-        // --- FIXED API URL FOR LOCALHOST ---
-        const API_BASE = 'http://127.0.0.1:5000/api'; 
+        // Same-origin: Vercel serves api/filter-options.js and
+        // api/random-chapters.js at /api/* alongside this static file.
+        // Requires POSTGRES_URL set in the Vercel project (see DEPLOYMENT.md).
+        const API_BASE = '/api';
 
         // Elements
         const audio = document.getElementById('audio-player');
@@ -360,7 +381,7 @@
             if (document.activeElement !== slider) slider.value = audio.currentTime;
             
             const percentage = ((audio.currentTime - chapter.start_time) / chapterDuration) * 100;
-            slider.style.background = `linear-gradient(to right, #8B5CF6 0%, #8B5CF6 ${percentage}%, #4B5563 ${percentage}%, #4B5563 100%)`;
+            slider.style.background = `linear-gradient(to right, #6FB39A 0%, #6FB39A ${percentage}%, #4B5563 ${percentage}%, #4B5563 100%)`;
         }
 
         async function fetchNewPlaylist() {
@@ -431,7 +452,7 @@
                 
                 data.topics.forEach(t => {
                     const btn = document.createElement('button');
-                    btn.className = `px-3 py-1.5 rounded-full text-xs border border-gray-600 hover:border-purple-500 hover:text-purple-400 transition topic-tag`;
+                    btn.className = `px-3 py-1.5 rounded-full text-xs border border-gray-600 hover:border-pine-500 hover:text-pine-400 transition topic-tag`;
                     btn.innerText = t;
                     btn.onclick = () => selectTopic(btn, t);
                     tagsContainer.appendChild(btn);
@@ -447,16 +468,16 @@
             
             if (selectedTopic === topic) {
                 selectedTopic = "";
-                btn.classList.remove('bg-purple-600', 'border-purple-600', 'text-white');
+                btn.classList.remove('bg-pine-600', 'border-pine-600', 'text-white');
                 btn.classList.add('border-gray-600');
             } else {
                 allTags.forEach(t => {
-                    t.classList.remove('bg-purple-600', 'border-purple-600', 'text-white');
+                    t.classList.remove('bg-pine-600', 'border-pine-600', 'text-white');
                     t.classList.add('border-gray-600');
                 });
                 selectedTopic = topic;
                 btn.classList.remove('border-gray-600');
-                btn.classList.add('bg-purple-600', 'border-purple-600', 'text-white');
+                btn.classList.add('bg-pine-600', 'border-pine-600', 'text-white');
             }
         }
 
