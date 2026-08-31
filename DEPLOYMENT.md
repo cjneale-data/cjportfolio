@@ -48,6 +48,83 @@ Two offline eval harnesses back the two "case studies" that make claims about qu
 
 - **Recipe Wiz** (`C:\Users\seejn\recipe_wiz`) — Streamlit app currently wired to Supabase for auth and a persistent recipe CRM. Needs the auth gate and DB layer stripped and replaced with `st.session_state` so it works as a frictionless, no-login public showcase, then a separate repo deployed to Streamlit Cloud. The LangGraph agent itself already works — see the case study on the site.
 
+## PodFlow live data (live, on Neon)
+
+`player.html` here previously called `http://127.0.0.1:5000/api`, which only exists on the
+author's machine — the deployed "Pod Flow App" nav link was non-functional for anyone else.
+Both the client and server sides are now wired to a real hosted database:
+
+- `player.html` calls `/api` (same-origin) instead of localhost.
+- `api/filter-options.js` and `api/random-chapters.js` are Vercel Node functions that port
+  `podcasts/api.py`'s two read-only routes 1:1 (same SQL), reading Neon's `DATABASE_URL`
+  (pooled connection string) via the `pg` package (`package.json`).
+- The Postgres backing all of this is Neon project **podflow-db**
+  (`shiny-breeze-95185714`, org `Christopher` / `org-super-dream-11682509`). Workspace is
+  linked via the Neon CLI (`.neon`, gitignored) — see the `neon`/`neon-postgres` agent
+  skills under `.agents/skills/` for the CLI/MCP workflow.
+- `podcasts/.env` now points `PGHOST`/`PGUSER`/`PGPASSWORD`/`PGDATABASE`/`PGPORT` at Neon's
+  direct (unpooled) endpoint instead of local Postgres — so `db.py`, `api.py`,
+  `check_db.py`, and `app.py`'s SQLAlchemy engine all resolved to Neon with **no code
+  changes**, since psycopg2's default `sslmode=prefer` negotiates SSL automatically.
+  `DATABASE_URL` in Vercel's env vars uses the separate **pooled** (`-pooler`) host, per
+  Neon's guidance (pooled for serverless/web traffic, direct for migrations/session-y
+  scripts).
+- Existing local data (`podcasts`/`episodes`/`chapters` — care was taken to match the real
+  live local schema, which had drifted from `db.py`'s stale `CREATE TABLE` statements:
+  `episodes.duration` is `text` not `integer`, `transcript_json` is `jsonb`, and there's a
+  `unique_episode_guid` constraint) was migrated once via `pg_dump`/`pg_restore` over the
+  direct connection. `chapters2` (an empty, unused leftover table not read by any route) was
+  intentionally not migrated.
+
+The two Windows Scheduled Tasks below write through the same `.env`, so ongoing ingestion
+now lands directly in Neon — local Postgres is no longer the source of truth for the
+deployed site. Local `api.py` + `player.html` in `podcasts/` also now read/write Neon
+directly rather than a separate local DB, so local dev and production share one dataset.
+
+## Keeping podcast data fresh — ongoing automation
+
+The heavy pipeline steps (`ingest_podcasts2.py`, `batch_process.py`'s faster-whisper
+transcription + CNN-BiLSTM segmentation + GGUF-based enrichment) **cannot move to Vercel**:
+Vercel Node functions cap out at low-single-digit-minutes execution time (even Pro/Fluid
+compute), have no persistent disk to cache the ~1GB Qwen GGUF or downloaded audio between
+invocations, and have no GPU/long-lived-process support — `batch_process.py` routinely runs
+for minutes per episode. This isn't a config problem to work around; it's a wrong-tool-for-
+the-job mismatch. Only the two cheap, stateless SQL reads above are Vercel-shaped.
+
+So the pipeline keeps running where it runs today (the author's machine, against Postgres),
+just on a schedule instead of by hand. Ranked options:
+
+1. **Windows Task Scheduler (recommended, and now live)** — zero new infra, uses the existing
+   `podcast_env` venv, works today regardless of whether the hosted-DB step above ever
+   happens (point it at local or hosted Postgres via `.env`). Two tasks are registered on
+   this machine (`Get-ScheduledTask -TaskName "PodFlow Ingest","PodFlow Process"` to check
+   status), both set `MultipleInstances IgnoreNew` (won't stack a second run on top of one
+   still in progress) and `StartWhenAvailable` (catches up if the machine was asleep at the
+   scheduled time):
+   ```
+   PodFlow Ingest   — daily 03:00 — ingest_podcasts2.py
+   PodFlow Process  — daily 04:00 — batch_process.py --days 3 (scoped, not the full backlog)
+   ```
+   (Stagger the start times so ingest finishes before processing starts — adjust based on
+   how long a run actually takes on this machine.) Downside: only runs when the machine is
+   on and awake; if that matters, use a Wake Timer in Task Scheduler's task settings
+   ("Wake the computer to run this task").
+2. **Small always-on Linux VPS + cron** — same scripts, `cron` instead of Task Scheduler,
+   doesn't depend on a personal machine being on. Real dollar cost (~$5-6/mo, e.g.
+   DigitalOcean/Linode droplet) and now something to patch/maintain — worth it only if
+   reliability independent of your laptop matters more than the extra upkeep.
+3. **GitHub Actions scheduled workflow** — technically possible (`on: schedule` cron
+   trigger) but a poor fit here: free-tier runners are ephemeral (no disk cache for the
+   ~1GB GGUF between runs, meaning a slow re-download every trigger), have no GPU, and
+   `faster-whisper` + `llama-cpp-python` compiled dependencies make cold-start setup slow
+   on every run. Usable only if the model weights get hosted somewhere Actions can pull
+   quickly and you're fine with multi-minute job times inside the free minutes quota.
+
+**Bottom line: yes, scheduling a job yourself (option 1) is the right move** — it's not a
+fallback to settle for, it's the actual best fit for this workload. Vercel is correctly
+scoped to the static site + cheap API reads; the ingestion/processing pipeline belongs on a
+schedule wherever Postgres is reachable from, which today is your own machine.
+
 ## Known follow-ups (not blocking, just noted)
 
 - The header/hero photo is hotlinked from a LinkedIn CDN URL with an expiring signed token — it will eventually break. Worth replacing with a self-hosted image at some point.
