@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Christopher Neale</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Tokens mirror index.html's Field Notes system. */
+    :root{
+      --bg:#F5F6F2; --card:#FFFFFF; --ink:#17201B; --muted:#57635A;
+      --accent:#2C5C4C; --on-accent:#FFFFFF; --brass:#A67C3D; --line:#DCE0D8;
+      --glass:rgba(44,92,76,0.05); --adjacent:#8A6A2E; --building:#7A6F8C;
+      --font-display:'Newsreader',Georgia,serif;
+      --font-body:'IBM Plex Sans',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+      --font-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#12160F; --card:#181D15; --ink:#E9ECE4; --muted:#9AA592;
+        --accent:#6FB39A; --on-accent:#0C1310; --brass:#D3A968; --line:#2A322A;
+        --glass:rgba(111,179,154,0.08); --adjacent:#D3A968; --building:#B3A8C6;
+      }
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    @media (prefers-reduced-motion: reduce){ *{animation-duration:.01ms !important;transition-duration:.01ms !important} }
+    a{color:var(--accent);text-decoration-color:var(--line);text-underline-offset:3px}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    h1,h2,h3{font-family:var(--font-display);font-weight:500;color:var(--ink);text-wrap:balance;margin:0}
+    h1{font-size:clamp(28px,4.4vw,40px);font-style:italic;letter-spacing:-0.01em;line-height:1.15}
+
+    header,main,footer{max-width:860px;margin:0 auto;padding-left:24px;padding-right:24px}
+    @media (max-width:520px){header,main,footer{padding-left:16px;padding-right:16px}}
+    header{padding-top:36px}
+    .masthead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:18px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .logo{width:50px;height:50px;border-radius:4px;overflow:hidden;flex-shrink:0;border:1px solid var(--line)}
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand-name{font-family:var(--font-display);font-style:italic;font-size:19px;line-height:1.2}
+    .brand-role{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+    .prepared{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--brass);text-align:right}
+    .prepared strong{display:block;color:var(--ink);font-weight:600;letter-spacing:.03em}
+
+    main{padding-top:8px;padding-bottom:64px;animation:fade-in .25s ease both}
+    @keyframes fade-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+    .card{background:var(--card);padding:22px 24px;border-radius:4px;margin-top:20px;border:1px solid var(--line)}
+    @media (max-width:520px){.card{padding:18px 16px}}
+    .section-title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+    .muted{color:var(--muted)}
+
+    .hero p{color:var(--muted);max-width:66ch;margin:12px 0 0}
+    .ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+    .btn{font-family:var(--font-mono);font-size:12px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;padding:9px 14px;border-radius:3px;border:1px solid var(--line);color:var(--accent);background:var(--bg)}
+    .btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+    .btn:hover{border-color:var(--accent)}
+
+    .legend{display:flex;gap:14px;flex-wrap:wrap;font-family:var(--font-mono);font-size:11px;color:var(--muted);margin:-4px 0 14px}
+    .chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+    .chip::before{content:'';width:7px;height:7px;border-radius:50%;background:currentColor}
+    .chip.direct{color:var(--accent)}
+    .chip.adjacent{color:var(--adjacent)}
+    .chip.building{color:var(--building)}
+    .req{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:6px 22px;padding:14px 0;border-top:1px solid var(--line)}
+    .req:first-of-type{border-top:none;padding-top:4px}
+    .req-need{font-weight:600;font-size:15px;line-height:1.45}
+    .req-need .chip{display:flex;margin-top:6px}
+    .req-evidence{color:var(--muted);font-size:14px;line-height:1.6}
+    .req-evidence a{font-size:13px;font-weight:500;white-space:nowrap}
+    @media (max-width:640px){.req{grid-template-columns:1fr}}
+
+    .entry{border-left:2px solid var(--line);padding:2px 0 2px 16px}
+    .entry+.entry{margin-top:18px}
+    .entry-title{font-weight:600}
+    .entry-blurb{color:var(--muted);font-size:14px;margin-top:4px;line-height:1.55;max-width:64ch}
+    .entry a{font-size:13px;font-weight:500}
+
+    .xp+.xp{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+    .xp-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .xp-head span{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+    ul.tight{color:var(--muted);margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.6}
+
+    .plan{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .plan h3{font-family:var(--font-mono);font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--brass);margin-bottom:6px}
+    .plan ul{margin:0;padding-left:16px;color:var(--muted);font-size:14px;line-height:1.55}
+    .plan li+li{margin-top:6px}
+    @media (max-width:720px){.plan{grid-template-columns:1fr}}
+
+    .skills{display:flex;flex-wrap:wrap;gap:6px}
+    .skill{font-family:var(--font-mono);font-size:11px;padding:4px 9px;border-radius:3px;color:var(--muted);background:var(--glass);border:1px solid var(--line)}
+
+    footer{margin-top:44px;margin-bottom:60px;padding-top:20px;color:var(--muted);border-top:1px solid var(--line);font-size:12px;font-family:var(--font-mono);letter-spacing:.02em}
+    footer p{margin:4px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="masthead">
+      <a class="brand" href="/" style="text-decoration:none;color:inherit">
+        <div class="logo"><img src="/headshot.jpg" alt="Christopher Neale photo"></div>
+        <div>
+          <div class="brand-name">Christopher Neale</div>
+          <div class="brand-role">Marketing Data &amp; Applied AI</div>
+        </div>
+      </a>
+      <div class="prepared" id="prepared"></div>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <footer>
+    <p>© Christopher Neale — Raleigh, NC · <a href="mailto:cjneale.analyst@gmail.com">cjneale.analyst@gmail.com</a> · 984-382-3980</p>
+    <p>This page uses first-party analytics only: no ad pixels, no cookies, no IP storage, and Global Privacy Control is honored. <a href="/#/project/attribution">How it works</a>.</p>
+  </footer>
+
+  <script>
+    const LINKEDIN = 'https://www.linkedin.com/in/christophernealeanalyst/'
+    const STRENGTH_LABEL = {direct: 'Direct experience', adjacent: 'Adjacent / built', building: 'Ramping'}
+
+    function esc(s){
+      return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
+    }
+
+    // /for/<slug> in production (vercel.json rewrite); for.html?job=<slug> for local previews.
+    function currentSlug(){
+      const m = location.pathname.match(/^\/for\/([a-z0-9-]+)\/?$/)
+      return m ? m[1] : new URLSearchParams(location.search).get('job')
+    }
+
+    function renderNotFound(){
+      document.getElementById('app').innerHTML = `
+        <div class="card">
+          <h2>This page isn't available</h2>
+          <p class="muted">The link may have expired. The full portfolio is at <a href="/">the home page</a>.</p>
+        </div>`
+    }
+
+    function render(job){
+      document.title = `Christopher Neale for ${job.company} — ${job.role}`
+      document.getElementById('prepared').innerHTML = `Prepared for<strong>${esc(job.company)} · ${esc(job.role)}</strong>`
+      const subject = encodeURIComponent(`${job.role} at ${job.company}`)
+
+      const reqs = job.requirements.map(r => `
+        <div class="req">
+          <div class="req-need">${esc(r.need)}<span class="chip ${esc(r.strength)}">${STRENGTH_LABEL[r.strength] || ''}</span></div>
+          <div class="req-evidence">${esc(r.evidence)}${r.proof ? ` <a href="${esc(r.proof.href)}">${esc(r.proof.label)} &rarr;</a>` : ''}</div>
+        </div>`).join('')
+
+      const featured = job.featured.map(f => `
+        <div class="entry">
+          <div class="entry-title">${esc(f.title)}</div>
+          <div class="entry-blurb">${esc(f.blurb)}</div>
+          <div style="margin-top:6px"><a href="${esc(f.href)}">See it &rarr;</a></div>
+        </div>`).join('')
+
+      const experience = job.experience.map(x => `
+        <div class="xp">
+          <div class="xp-head"><strong>${esc(x.role)} — ${esc(x.org)}</strong><span>${esc(x.dates)}</span></div>
+          <ul class="tight">${x.bullets.map(b => `<li>${esc(b)}</li>`).join('')}</ul>
+        </div>`).join('')
+
+      const plan = job.plan.map(p => `
+        <div><h3>${esc(p.phase)}</h3><ul>${p.items.map(i => `<li>${esc(i)}</li>`).join('')}</ul></div>`).join('')
+
+      document.getElementById('app').innerHTML = `
+        <section class="card hero">
+          <div class="section-title" style="border:none;padding:0;margin-bottom:10px">For the ${esc(job.company)} hiring team</div>
+          <h1>${esc(job.headline)}</h1>
+          <p>${esc(job.pitch)}</p>
+          <div class="ctas">
+            <a class="btn primary" href="mailto:cjneale.analyst@gmail.com?subject=${subject}">Email Chris</a>
+            <a class="btn" href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn" href="/resumes/${esc(job.slug)}.pdf" download="ChristopherNeale_Resume_${esc(job.company.replace(/[^A-Za-z0-9]+/g, ''))}.pdf">Resume (PDF)</a>
+            <a class="btn" href="/">Ask my resume a question</a>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="section-title">How my background maps to the role</div>
+          <div class="legend">
+            <span class="chip direct">${STRENGTH_LABEL.direct}</span>
+            <span class="chip adjacent">${STRENGTH_LABEL.adjacent}</span>
+            <span class="chip building">${STRENGTH_LABEL.building}</span>
+          </div>
+          ${reqs}
+        </section>
+
+        <section class="card">
+          <div class="section-title">Work worth a look</div>
+          ${featured}
+        </section>
+
+        <section class="card">
+          <div class="section-title">Relevant experience</div>
+          ${experience}
+        </section>
+
+        <section class="card">
+          <div class="section-title">How I'd spend the first 90 days</div>
+          <div class="plan">${plan}</div>
+        </section>
+
+        <section class="card">
+          <div class="section-title">Tools</div>
+          <div class="skills">${job.skills.map(s => `<div class="skill">${esc(s)}</div>`).join('')}</div>
+        </section>`
+    }
+
+    const slug = currentSlug()
+    if (!slug || !/^[a-z0-9-]+$/.test(slug)) {
+      renderNotFound()
+    } else {
+      fetch(`/jobs/${slug}.json`, {cache: 'no-cache'})
+        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+        .then(render)
+        .catch(renderNotFound)
+    }
+  </script>
+  <script src="/track.js" defer></script>
+</body>
+</html>

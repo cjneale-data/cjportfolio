@@ -1,69 +1,18 @@
 // Vercel serverless function (Node runtime). Keeps the OpenRouter key server-side.
-// Retrieval: chunks RESUME_CONTEXT by section, ranks chunks against the question
+// Retrieval: chunks the master career file by section, ranks chunks against the question
 // with TF-IDF cosine similarity, and only sends the top-matching chunks to the
 // model — real (if small-scale) retrieval instead of pasting the whole doc every time.
 
-const RESUME_CONTEXT = `
-# Christopher Neale — Background & Resume Context
+const fs = require('fs')
+const path = require('path')
 
-## Personal
-- Name: Christopher Neale (Data Science & Applied AI Leader)
-- Currently: Senior Manager, Marketing Insights & CRM Analytics at flyExclusive — see Experience section for the full role
-- Location: Raleigh, North Carolina (since 2014); grew up in Landenberg, Pennsylvania (Chester County)
-- Family: Married, one young daughter (Louisa)
-- Contact: cjneale.analyst@gmail.com · 984-382-3980
-- LinkedIn: https://www.linkedin.com/in/christophernealeanalyst/
-- Portfolio: https://cjportfolio-inky.vercel.app
-- Hobbies: Golf (former high-school #1 player; builds custom data-tracking dashboards to analyze his game), American Civil War history
-
-## Summary
-Data science practitioner with 5 years building production data and AI systems, most recently as Senior Manager at flyExclusive. M.S. in Data Science. Builds agentic and LLM-powered systems end to end, from LangGraph state machines to production pipelines, and moves fast from prototype to decisions executives can act on. Self-described "vibe coder" who works with AI coding tools like Claude Code as a core part of his workflow (usually with several terminals open at once).
-
-## Education
-- M.S. in Data Science, Eastern University (Dec 2025) — classes in Machine Learning, Cloud Computing, and Data Analysis
-- B.A. in Psychology, North Carolina State University (May 2018) — research methods and statistical analysis; initially pursued Professional Golf Management before switching majors
-
-## Technical Expertise
-- Applied AI / ML: PyTorch, scikit-learn, XGBoost, local LLM deployment, speech recognition, prompt design, offline model evaluation (precision/recall/F1)
-- Data & Systems: Python, SQL, Databricks, REST APIs (Flask), CRM/CDP architecture, Master Data Management, data pipelines
-- Analytics & Delivery: Tableau, Power BI, GA4, multi-touch attribution, A/B testing, AI-assisted development (Claude Code), executive stakeholder communication
-
-## Experience (most recent first)
-
-### Senior Manager, Marketing Insights & CRM Analytics — flyExclusive, Raleigh, NC (Nov 2025 – Present)
-- Built an autonomous data enrichment pipeline connecting LLM APIs to the CRM database, generating personalized outreach content and powering a lead-scoring model that prioritizes high-value accounts
-- Led a CRM systems transformation (HubSpot governance, scalable data architecture, deduplication workflows, Master Data Management), then redesigned performance dashboards and attribution frameworks connecting marketing activity to acquisition, retention, and high-value segments
-- Shipped a Python pricing tool for the retail sales team that analyzed competitor pricing and directly shaped 2026 pricing strategy
-- Migrated and redesigned the company website off its legacy CMS platform onto a custom-built site with rich data pipelines for active quoting
-- Developed AI proposal and agreement tools enabling the sales team to build company-approved assets quickly at scale
-
-### Sr. Data Analyst, CRM — TRANZACT, Raleigh, NC (May 2022 – Nov 2025)
-- Partnered with commercial and finance leadership on sales performance, attribution, and forecasting analytics; built CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns
-- Ran multi-touch attribution modeling and a structured A/B testing program (50% win rate), improving CTR by 30%
-
-### Additional experience
-- American Kennel Club, Email Marketing Associate (2021–2022)
-- OnPoint, Marketing Manager (2020–2021) — lifecycle marketing, Tableau-driven audience insights, GTM execution with C-suite alignment
-
-## Featured Applied AI Projects
-
-### PodFlow — M.S. Data Science Capstone, Eastern University, 2025
-- Full audio-to-insight pipeline built solo: transcription (faster-Whisper), automatic content segmentation via a trained CNN-BiLSTM model (benchmarked against XGBoost, focal loss for class imbalance), and LLM-based metadata enrichment, served through a REST API to a working web app
-- Built an offline evaluation framework scoring precision/recall/F1 against hand-labeled ground truth, and deployed a local quantized LLM (Qwen2.5 via llama.cpp) with a rules-based fallback for resilience
-- Demo: linked from this site's nav ("Pod Flow App")
-
-### ChefAI — Agentic Meal-Planning Assistant (LangGraph)
-- Conversational meal-planning agent on a LangGraph state machine, with a conditional router that inspects state each turn and dispatches to whichever slot (allergies, diet, dislikes, craving, prep time, budget) still needs filling; LLM-based extraction pulls structured fields from free text
-- Deliberate agent-autonomy-versus-structure tradeoff: accepted added latency/cost from LLM-based slot extraction for a materially better conversational experience than a rigid form, keeping the graph simple with single-node-per-turn routing and externally persisted state
-- Live demo: https://chefai-noemgucqmarbfwe2euwdsl.streamlit.app/
-
-### Resume Chat — this site's "Ask about Chris" widget
-- The chat feature embedded on this portfolio site (the one answering this question): chunks this resume context by section, ranks chunks against the visitor's question with TF-IDF cosine similarity, and only sends the top-matching chunks to the model as grounding — real retrieval, not the whole document stuffed into every prompt
-- Backed by an automated eval harness that checks factual-grounding questions and out-of-scope refusal behavior
-
-## Skills & Tools
-Tableau, Power BI, GA4, Python, SQL, Databricks, Scikit-learn, PyTorch, XGBoost, AWS, CRM & CDP platforms, predictive modeling, customer segmentation, RAG/agentic AI systems, LangGraph, prompt engineering, vector retrieval
-`.trim()
+// Single source of truth: content/career-master.md (also the basis for every
+// tailored resume). HTML comments hold editing notes and open questions for
+// Chris, so they're stripped before anything reaches the model.
+const CAREER_CONTEXT_PATH = path.join(__dirname, '..', 'content', 'career-master.md')
+const RESUME_CONTEXT = fs.readFileSync(CAREER_CONTEXT_PATH, 'utf8')
+  .replace(/<!--[\s\S]*?-->/g, '')
+  .trim()
 
 // --- Chunking: split on ## / ### markdown headers into retrievable sections ---
 function chunkContext(text) {
@@ -80,7 +29,11 @@ function chunkContext(text) {
     }
   }
   if (current) chunks.push(current)
-  return chunks.map((c, i) => ({ id: i, title: c.title, text: c.text.trim() }))
+  // A "## Experience: X" heading followed directly by its ### subsections has
+  // no body of its own — keep it out of the index so it can't take a top-K slot.
+  return chunks
+    .filter(c => c.text.trim().split('\n').length > 1)
+    .map((c, i) => ({ id: i, title: c.title, text: c.text.trim() }))
 }
 
 const CHUNKS = chunkContext(RESUME_CONTEXT)

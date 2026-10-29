@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/chat.js": { "includeFiles": "content/career-master.md" }
+  },
+  "rewrites": [
+    { "source": "/for/:slug", "destination": "/for.html" }
+  ]
+}

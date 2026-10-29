@@ -140,6 +140,7 @@
       '/project/podflow': renderPodflowCase,
       '/project/resume-chat': renderChatCase,
       '/project/chefai': renderChefAICase,
+      '/project/attribution': renderAttributionCase,
       '/project/tensorfit': renderTensorfitCase,
       '/project/mushroom-classifier': renderMushroomCase,
     }
@@ -336,6 +337,12 @@
               'Live public demo',
               '#/project/chefai'
             )}
+            ${projectCard(
+              'Attribution Lab — First-Party Growth Tracking',
+              'This site\'s own tracking stack: UTM and click-ID capture, an enforced event taxonomy, first/last/linear attribution in SQL, data-quality checks, and consent-gated conversion payloads for Google Ads, Meta, TikTok, and LinkedIn.',
+              'Live on this site',
+              '#/project/attribution'
+            )}
           </div>
 
           <div class="section-title" style="margin-top:22px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em">ML Modeling &amp; Data Products</div>
@@ -457,6 +464,32 @@
       })
     }
 
+    function renderAttributionCase(){
+      document.getElementById('app').innerHTML = caseStudy({
+        title: 'Attribution Lab',
+        subtitle: 'First-party growth tracking on this site, from click ID to conversion payload',
+        problem: 'Every growth team runs into the same failure: Google Ads, Meta, the CRM, and the warehouse each report a different number of conversions, because each one defines events, channels, and lookback windows a little differently, and browser pixels lose signal to ad blockers and consent. I wanted to build the whole chain myself at small scale: capture, naming, storage, attribution, and the export back to ad platforms. This site is the test bed, and every personalized page I send to a hiring team is a tagged campaign running through it.',
+        architecture: [
+          'Capture (track.js): on landing, reads UTM parameters and ad click IDs (gclid, gbraid, wbraid, fbclid, ttclid, li_fat_id, msclkid). It builds Meta\'s fbc value at landing, keeps the touch for the session plus a first-touch record, and stamps every event with a client-generated event_id.',
+          'Taxonomy: one event dictionary (page_view, contact_click, outbound_click, chat_message_sent; snake_case, object_action) shared by ingestion and reporting. Unknown events are rejected with a 422 instead of quietly becoming a new spelling of "conversion."',
+          'Ingestion (/api/track): a server-side endpoint that validates against the taxonomy, keeps only declared properties, drops bots, and inserts with ON CONFLICT DO NOTHING on event_id, so retried beacons dedupe. This is the same idea a Conversions API uses to dedupe browser and server events.',
+          'Warehouse: Postgres on Neon, one wide events table indexed for journey queries. A single SQL channel definition (paid click IDs, then UTMs, then referrer) is used by every report, so no two views disagree about what "paid social" means.',
+          'Attribution (/api/attribution): first-touch, last-touch, and linear credit by channel, computed with window functions over each conversion\'s landings in a 30-day lookback. A campaign view shows visits and conversions per utm_campaign, and a data-quality view reports orphan conversions, the untagged share of landings, the opt-out share, and ingest lag.',
+          'Export: consented conversions are joined to the most recent click ID within 90 days and turned into dry-run payloads shaped for Google Ads click conversions (gclid, gbraid, or wbraid, with order_id for dedup), Meta CAPI (fbc plus a shared event_id), the TikTok Events API, and LinkedIn CAPI.',
+        ],
+        tradeoffs: [
+          'Privacy first: Global Privacy Control and Do Not Track drop click IDs at capture, the server refuses to store them without consent, and only consented conversions are exported. No cookies, IP addresses, user agents, or fingerprinting are stored. The price is some lost signal from opted-out visitors, and the quality view reports exactly how much.',
+          'Exports are built but not sent. This site doesn\'t run paid campaigns, so there are no ad accounts to upload to. The payload layer is the hard, error-prone part (formats, timestamps, dedup keys, consent). Adding the API calls is a small final step.',
+          'Conversion value is a placeholder of 1 because a contact click has no revenue. In a subscription product, this is where actual revenue or an early predicted-LTV score would go, so that value-based bidding optimizes for payers instead of sign-ups.',
+          'Rule-based attribution (first, last, linear) rather than data-driven. That is honest at this traffic volume. The path table it builds is the same input a Markov-chain or Shapley model would need once there is enough volume.',
+          'The stats endpoint sits behind a token because campaign names show which companies I\'m applying to. Treating campaign metadata as sensitive is a habit worth keeping.',
+        ],
+        stack: ['JavaScript (first-party tracker)', 'Vercel Serverless (Node)', 'PostgreSQL (Neon)', 'SQL window functions', 'Meta CAPI / Google Ads / TikTok / LinkedIn payloads', 'Consent & GPC'],
+        status: 'Live on this site: every page you load here is an event in it',
+        link: '',
+      })
+    }
+
     function renderTensorfitCase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'TensorFit',
@@ -532,6 +565,7 @@
 
       appendMessage(els.messages, 'user', text)
       chatHistory.push({role: 'user', content: text})
+      if(window.siteTrack) siteTrack('chat_message_sent', {canned: CANNED_PROMPTS.includes(text)})
       const pending = appendMessage(els.messages, 'assistant', 'Thinking…', {pending: true})
 
       try{
@@ -600,5 +634,6 @@
     window.addEventListener('hashchange', router)
     window.addEventListener('load', router)
   </script>
+  <script src="/track.js" defer></script>
 </body>
 </html>

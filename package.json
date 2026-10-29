@@ -3,12 +3,17 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "eval": "node eval/run-eval.js"
+    "eval": "node eval/run-eval.js",
+    "job": "node scripts/jobs.js",
+    "resume": "node scripts/build-resume.js"
   },
   "engines": {
     "node": ">=18"
   },
   "dependencies": {
     "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "docx": "^9.15.0"
   }
 }

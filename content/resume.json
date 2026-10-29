@@ -1,0 +1,107 @@
+{
+  "_note": "Fixed resume structure for scripts/build-resume.js: contact, titles, dates, education, project write-ups, default bullets. The exhaustive fact base is content/career-master.md; tailored bullets in jobs/<slug>.json are drawn from it. Keep the two consistent.",
+  "name": "Christopher Neale",
+  "contact": [
+    "Raleigh, NC",
+    "984-382-3980",
+    "cjneale.analyst@gmail.com"
+  ],
+  "links": [
+    {
+      "label": "linkedin.com/in/christophernealeanalyst",
+      "href": "https://www.linkedin.com/in/christophernealeanalyst/"
+    },
+    {
+      "label": "cjportfolio-inky.vercel.app",
+      "href": "https://cjportfolio-inky.vercel.app"
+    }
+  ],
+  "defaultTitle": "Data Science & Applied AI Leader",
+  "education": [
+    {
+      "school": "Eastern University",
+      "degree": "M.S. in Data Science (Dec 2025)",
+      "detail": "Classes in Machine Learning, Cloud Computing and Data Analysis"
+    },
+    {
+      "school": "North Carolina State University",
+      "degree": "B.A. in Psychology (May 2018)",
+      "detail": null
+    }
+  ],
+  "experience": [
+    {
+      "org": "flyExclusive",
+      "location": "Raleigh, NC",
+      "role": "Senior Manager, Marketing Insights & CRM Analytics",
+      "dates": "Nov 2025 – Present",
+      "bullets": [
+        "Built an autonomous data enrichment pipeline connecting LLM APIs to the CRM database, generating personalized outreach content and powering a lead-scoring model prioritizing high-value accounts.",
+        "Led a CRM systems transformation (HubSpot governance, scalable data architecture, deduplication workflows, Master Data Management), then redesigned performance dashboards and attribution frameworks connecting marketing activity to acquisition, retention, and high-value segments.",
+        "Shipped a Python pricing tool for the retail sales team that analyzed competitor pricing and directly shaped 2026 pricing strategy.",
+        "Migrated the company website off a legacy CMS to a custom-built site with data pipelines for active quoting, and implemented its conversion tracking: Google Tag Manager, Meta Pixel and Conversions API, and Google Ads conversion tracking.",
+        "Set up offline conversion uploads sending downstream CRM outcomes back to ad platforms, so campaigns optimize on qualified leads and sales rather than form fills.",
+        "Developed AI proposal and agreement tools enabling the sales team to build company-approved assets quickly at scale."
+      ]
+    },
+    {
+      "org": "TRANZACT",
+      "location": "Raleigh, NC",
+      "role": "Sr. Data Analyst, CRM",
+      "dates": "May 2022 – Nov 2025",
+      "bullets": [
+        "Partnered with commercial and finance leadership on sales performance, attribution and forecasting analytics.",
+        "Built CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
+        "Ran multi-touch attribution modeling and a structured A/B testing program (50% win rate), improving CTR by 30%."
+      ]
+    }
+  ],
+  "additionalExperience": "American Kennel Club, Email Marketing Associate (Apr 2021 – May 2022): Tableau-driven audience insights and automated customer journeys. OnPoint, Marketing Manager (Oct 2020 – Apr 2021): lifecycle strategy and targeting across email and paid social, with C-suite alignment.",
+  "skillGroups": [
+    {
+      "label": "Applied AI / ML",
+      "items": "PyTorch, scikit-learn, XGBoost, local LLM deployment, speech recognition, prompt design, offline model evaluation (precision/recall/F1)"
+    },
+    {
+      "label": "Data & Systems",
+      "items": "Python, SQL, Databricks, REST APIs (Flask), CRM/CDP architecture, Master Data Management, data pipelines"
+    },
+    {
+      "label": "Analytics & Delivery",
+      "items": "Tableau, Power BI, GA4, multi-touch attribution, A/B testing; AI-assisted development (Claude Code); executive stakeholder communication"
+    }
+  ],
+  "projects": {
+    "attribution-lab": {
+      "name": "Attribution Lab, First-Party Growth Tracking (portfolio site)",
+      "bullets": [
+        "Built first-party tracking end to end: UTM and ad click-ID capture (gclid, gbraid, wbraid, fbclid, ttclid, li_fat_id), an event taxonomy enforced at a server-side ingestion endpoint, and event_id dedup into Postgres (Neon).",
+        "Wrote first-touch, last-touch, and linear attribution in SQL (window functions, 30-day lookback), data-quality checks, and consent-gated offline-conversion payloads for Google Ads, Meta CAPI, TikTok, and LinkedIn; honors Global Privacy Control."
+      ],
+      "link": "https://cjportfolio-inky.vercel.app/#/project/attribution"
+    },
+    "podflow": {
+      "name": "PodFlow, M.S. Data Science Capstone, Eastern University, 2025",
+      "bullets": [
+        "Built a full audio-to-insight pipeline solo: transcription (faster-Whisper), automatic content segmentation via a trained CNN-BiLSTM model (benchmarked against XGBoost, focal loss for class imbalance), and LLM-based metadata enrichment, served through a REST API to a working web app.",
+        "Built an offline evaluation framework scoring precision/recall/F1 against hand-labeled ground truth, and deployed a local quantized LLM (Qwen2.5 via llama.cpp) with a rules-based fallback for resilience."
+      ],
+      "link": "https://cjportfolio-inky.vercel.app/player.html"
+    },
+    "chefai": {
+      "name": "ChefAI, Agentic Meal-Planning Assistant (LangGraph)",
+      "bullets": [
+        "Built a conversational meal-planning agent on a LangGraph state machine, using a conditional router that dispatches to whichever slot (allergies, diet, dislikes, craving, prep time, budget) still needs filling, with LLM-based extraction pulling structured fields from free text.",
+        "Made a deliberate agent-autonomy-versus-structure tradeoff: accepted added latency and cost from LLM-based slot extraction for a materially better conversational experience than a rigid form."
+      ],
+      "link": "https://chefai-noemgucqmarbfwe2euwdsl.streamlit.app/"
+    },
+    "resume-chat": {
+      "name": "Resume Chat, Retrieval-Augmented Q&A (portfolio site)",
+      "bullets": [
+        "Built the site's \"Ask about Chris\" chat: section-chunked retrieval ranked by TF-IDF cosine similarity, grounded generation via OpenRouter, and an automated eval harness scoring factual grounding and out-of-scope refusals."
+      ],
+      "link": "https://cjportfolio-inky.vercel.app"
+    }
+  }
+}

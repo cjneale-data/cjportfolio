@@ -1,0 +1,226 @@
+{
+  "slug": "openart-growth-data-engineer-bb1c",
+  "company": "OpenArt",
+  "role": "Growth Data Engineer",
+  "jobUrl": "https://jobright.ai/jobs/info/b2b_1778872763523_322",
+  "created": "2026-10-29",
+  "headline": "The plumbing between growth spend and growth truth.",
+  "pitch": "Five years on the marketing-data side of consumer and high-value-customer businesses. At flyExclusive I own the conversion plumbing end to end: Google Tag Manager, Meta Pixel and Conversions API, Google Ads conversion tracking, and offline conversion uploads from the CRM back to the ad platforms. Before that came attribution, CRM-to-ESP data syncs, and experimentation at TRANZACT. I write the pipelines myself and build AI products too, so OpenArt's product is one I already think in. This page is wired with the same kind of tracking the role owns.",
+  "requirements": [
+    {
+      "need": "3–5 years in growth data, marketing data engineering, or analytics engineering",
+      "evidence": "5 years in marketing data: Senior Manager, Marketing Insights & CRM Analytics at flyExclusive (now); 3.5 years as Sr. Data Analyst, CRM at TRANZACT, a direct-to-consumer insurance marketer, covering attribution, forecasting, and CRM/ESP integrations; lifecycle and email marketing roles before that.",
+      "strength": "direct",
+      "proof": {
+        "label": "Full resume",
+        "href": "/#/resume"
+      }
+    },
+    {
+      "need": "Marketing attribution: UTM tracking, user journeys, conversion mapping",
+      "evidence": "Ran multi-touch attribution modeling at TRANZACT. At flyExclusive I redesigned the attribution framework that connects marketing activity to acquisition, retention, and high-value segments. On this site I built the full chain: UTM and click-ID capture, session-level touch persistence, and first-touch, last-touch, and linear credit computed in SQL over a 30-day lookback.",
+      "strength": "direct",
+      "proof": {
+        "label": "Attribution Lab case study",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Keep conversion events and naming consistent across product, CRM, and ad platforms",
+      "evidence": "Led flyExclusive's CRM transformation: HubSpot governance, deduplication workflows, and Master Data Management. The Attribution Lab enforces this in code: one event taxonomy (snake_case, object_action) that ingestion validates against, and one SQL channel definition that every report reads from.",
+      "strength": "direct",
+      "proof": {
+        "label": "Event taxonomy",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Audience sync pipelines: push CRM and warehouse data into platforms",
+      "evidence": "Built CRM/ESP integrations at TRANZACT (SQL plus JSON REST APIs) that synced behavioral data into Iterable for 10+ lifecycle campaigns. It's the same pattern as warehouse-to-ad-platform audience sync: modeled segments out, activation platform in, kept fresh on a schedule.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Send offline conversions, revenue, and LTV signals back to ad platforms",
+      "evidence": "At flyExclusive I set up offline conversion uploads that send downstream CRM outcomes (qualified leads and sales that happen after the website visit) back to the ad platforms, so bidding optimizes on business results, not form fills. I also built the lead-scoring model that ranks high-value accounts, which is the kind of value signal value-based bidding needs.",
+      "strength": "direct",
+      "proof": {
+        "label": "Payload layer on this site",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Tracking infrastructure: GTM, pixels, and conversion APIs",
+      "evidence": "At flyExclusive I implemented the new website's tracking in Google Tag Manager, plus the Meta Pixel with the Meta Conversions API (browser and server-side) and Google Ads conversion tracking. On this site I rebuilt the same mechanics from scratch, including client event IDs for browser/server dedup, retry-safe inserts, and Meta's fbc format, so I know what the tags are doing underneath.",
+      "strength": "direct",
+      "proof": {
+        "label": "How it works underneath",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Privacy-safe tracking: Consent Mode, CMP integrations",
+      "evidence": "Consent is a first-class field in the Attribution Lab. Global Privacy Control and Do Not Track drop ad click IDs at capture. The server refuses to store them without consent, and exports only include consented conversions. No IP addresses, user agents, or fingerprinting are stored.",
+      "strength": "adjacent",
+      "proof": {
+        "label": "Privacy design",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Data pipelines and warehousing: SQL, ETL/ELT, BigQuery",
+      "evidence": "SQL every day for five years, plus Databricks, and Postgres pipelines I built and run: PodFlow's ingestion-to-serving pipeline and this site's event warehouse, both on Neon. My warehouse work has been Databricks and Postgres rather than BigQuery, but the SQL carries over directly.",
+      "strength": "direct",
+      "proof": {
+        "label": "PodFlow pipeline",
+        "href": "/#/project/podflow"
+      }
+    },
+    {
+      "need": "Debug attribution discrepancies across ad platforms, CRM, and warehouse",
+      "evidence": "Most discrepancies trace back to identity and definitions: duplicate records, mismatched conversion definitions, and different lookback windows. Deduplication and MDM were the core of the flyExclusive CRM work. The Attribution Lab includes a data-quality view for this: orphan conversions, untagged landing share, opt-out share, and ingest lag.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Marketing and pipeline dashboards",
+      "evidence": "Redesigned flyExclusive's marketing performance dashboards. Tableau, Power BI, and GA4 across every role.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Experimentation and A/B testing (preferred)",
+      "evidence": "Ran TRANZACT's structured A/B testing program: 50% win rate and a 30% lift in CTR.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Python and scripting (preferred)",
+      "evidence": "Python is my main language: an LLM-to-CRM enrichment pipeline, a competitive pricing tool that shaped flyExclusive's 2026 pricing, and PyTorch models trained from scratch.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Consumer product experience (preferred)",
+      "evidence": "TRANZACT and the American Kennel Club were both consumer, direct-response businesses, and flyExclusive's retail sales team sells directly to individual customers.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Mobile attribution (AppsFlyer, Adjust, Branch) and SKAN/ATT (preferred)",
+      "evidence": "No production mobile measurement partner (MMP) work yet. I understand the model: aggregated, delayed, privacy-thresholded postbacks with coarse conversion values. That makes it the same reconciliation problem as web attribution, with less signal. I would ramp on this first.",
+      "strength": "building",
+      "proof": null
+    }
+  ],
+  "featured": [
+    {
+      "title": "Attribution Lab — built for this kind of role",
+      "blurb": "First-party tracking on this site, end to end: UTM and click-ID capture, an event taxonomy enforced at ingestion, first-touch, last-touch, and linear attribution in SQL, data-quality checks, and consent-gated offline-conversion payloads for Google Ads, Meta, TikTok, and LinkedIn.",
+      "href": "/#/project/attribution"
+    },
+    {
+      "title": "PodFlow — data pipeline into Postgres",
+      "blurb": "Ingestion, transcription, a model I trained, and LLM enrichment, landing in Postgres and served through an API. A real pipeline with an offline eval and a fallback path when a stage fails.",
+      "href": "/#/project/podflow"
+    },
+    {
+      "title": "Resume Chat — retrieval with an eval harness",
+      "blurb": "The chat on the home page. Retrieval-augmented answers, plus an automated test set that checks grounding and out-of-scope refusals.",
+      "href": "/#/project/resume-chat"
+    }
+  ],
+  "experience": [
+    {
+      "org": "flyExclusive",
+      "role": "Senior Manager, Marketing Insights & CRM Analytics",
+      "dates": "Nov 2025 – Present",
+      "bullets": [
+        "Implemented conversion tracking for the new company website: Google Tag Manager, Meta Pixel and Conversions API, and Google Ads conversion tracking.",
+        "Set up offline conversion uploads that send downstream CRM outcomes back to ad platforms, so campaigns optimize on qualified leads and sales instead of form fills.",
+        "Redesigned the performance dashboards and attribution framework connecting marketing activity to acquisition, retention, and high-value segments.",
+        "Led a CRM systems transformation: HubSpot governance, scalable data architecture, deduplication workflows, and Master Data Management.",
+        "Built an autonomous enrichment pipeline connecting LLM APIs to the CRM database, powering a lead-scoring model that prioritizes high-value accounts."
+      ]
+    },
+    {
+      "org": "TRANZACT",
+      "role": "Sr. Data Analyst, CRM",
+      "dates": "May 2022 – Nov 2025",
+      "bullets": [
+        "Ran multi-touch attribution modeling and partnered with commercial and finance leadership on attribution, sales performance, and forecasting.",
+        "Built CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
+        "Ran a structured A/B testing program: 50% win rate, 30% CTR improvement."
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "phase": "Days 1–30 · Audit",
+      "items": [
+        "Inventory every tag, pixel, and conversion API call across GTM (web and server), Google Ads, Meta, LinkedIn, and TikTok, and map each one to the product event it represents.",
+        "Write the shared event and conversion dictionary, and flag every place product, CRM, and ad platforms disagree on names or definitions.",
+        "Baseline the health metrics: CAPI/pixel dedup rate, Meta event match quality, Enhanced Conversions coverage, and platform-reported vs. warehouse conversions by channel."
+      ]
+    },
+    {
+      "phase": "Days 31–60 · Fix the signal",
+      "items": [
+        "Land server-side events in BigQuery as the source of truth, and reconcile platform numbers against them on a scheduled discrepancy report.",
+        "Send subscription revenue back to Google Ads and Meta through offline conversion uploads, then an early predicted-LTV signal so bidding optimizes for payers, not just sign-ups.",
+        "Close consent gaps: Consent Mode v2 wired to the CMP, verified per region."
+      ]
+    },
+    {
+      "phase": "Days 61–90 · Scale",
+      "items": [
+        "Warehouse-to-platform audience syncs: high-LTV lookalikes, suppression of current subscribers, and win-back audiences.",
+        "A growth dashboard the team trusts: one CAC, payback, and ROAS view built on the reconciled data.",
+        "Scope mobile measurement (MMP and SKAN conversion-value schema) if the app is a growth channel."
+      ]
+    }
+  ],
+  "resume": {
+    "title": "Marketing Data & Growth Analytics",
+    "summary": "Marketing data practitioner with 5 years building conversion tracking, attribution, CRM data, and experimentation systems for consumer and high-value-customer businesses, most recently as Senior Manager, Marketing Insights & CRM Analytics at flyExclusive. Owns the conversion plumbing end to end: Google Tag Manager, Meta Pixel and CAPI, Google Ads conversion tracking, and offline conversion uploads from the CRM. Builds the pipelines in SQL and Python; M.S. in Data Science with hands-on applied-AI experience.",
+    "skillGroups": [
+      {
+        "label": "Growth & Measurement",
+        "items": "Google Tag Manager, Meta Pixel and Conversions API, Google Ads conversion tracking, offline conversion uploads, multi-touch attribution, UTM and click-ID tracking, event taxonomy design, consent/GPC handling, A/B testing, GA4"
+      },
+      {
+        "label": "Data & Engineering",
+        "items": "SQL (window functions), Python, Postgres, Databricks, REST APIs, data pipelines, CRM/CDP architecture, Master Data Management, HubSpot, Iterable"
+      },
+      {
+        "label": "Analytics & AI",
+        "items": "Tableau, Power BI, LLM pipelines, scikit-learn, XGBoost, AI-assisted development (Claude Code)"
+      }
+    ],
+    "projectsTitle": "Featured Projects",
+    "projects": [
+      "attribution-lab",
+      "podflow"
+    ]
+  },
+  "skills": [
+    "SQL",
+    "Python",
+    "Google Tag Manager",
+    "Meta Pixel & CAPI",
+    "Google Ads conversion tracking",
+    "Offline conversion uploads",
+    "Multi-touch attribution",
+    "UTM & click-ID tracking",
+    "Event taxonomy design",
+    "A/B testing",
+    "Postgres",
+    "Databricks",
+    "GA4",
+    "HubSpot",
+    "Iterable",
+    "Tableau",
+    "Power BI",
+    "LLM pipelines"
+  ]
+}

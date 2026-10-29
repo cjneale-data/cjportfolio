@@ -130,3 +130,31 @@ schedule wherever Postgres is reachable from, which today is your own machine.
 - The header/hero photo is hotlinked from a LinkedIn CDN URL with an expiring signed token — it will eventually break. Worth replacing with a self-hosted image at some point.
 - Chat responses are non-streaming (single JSON reply) for simplicity. Streaming (SSE) would make the widget feel snappier and is a reasonable next enhancement.
 - Retrieval is TF-IDF (sparse vectors) over a hand-chunked markdown doc, not dense embeddings against a real vector DB — the right call at this corpus size (zero extra API dependency), but the first thing to swap out at production scale/variety. See the "Resume Chat" case study on the site for the full tradeoff.
+
+## Attribution Lab (first-party tracking)
+
+`track.js` (loaded by `index.html` and `for.html`) sends events to `api/track.js`, which validates them
+against the taxonomy in `lib/events.js` and writes to a `site_events` table on the same Neon
+`DATABASE_URL`. The table is created lazily on first write (`CREATE TABLE IF NOT EXISTS`).
+Events from `localhost` are logged to the console instead of being sent.
+
+`api/attribution.js` serves `?view=attribution|campaigns|quality|export` and requires
+`STATS_TOKEN` (Vercel env var) as a `Bearer` header or `?token=`. Without it the endpoint returns 503.
+
+## Per-application pages (`/for/<slug>`)
+
+`vercel.json` rewrites `/for/:slug` → `for.html`, which renders `jobs/<slug>.json`. Pages are
+`noindex` and slugs carry a random suffix. Private fit notes live in `applications/` (gitignored).
+Each page links a tailored resume, `resumes/<slug>.pdf`, built with its `.docx` by
+`scripts/build-resume.js` from `content/resume.json` (base facts) plus the job file's `resume` block.
+The PDF step needs LibreOffice locally (`SOFFICE` env var overrides the path).
+
+```
+npm run job -- new "<Company>" "<Role>" <job-url>   # scaffold + print recruiter link
+npm run resume -- <slug>                           # build resumes/<slug>.docx + .pdf (--all for every job)
+npm run job -- check                               # validate every jobs/*.json
+npm run job -- list                                # recruiter links
+```
+
+Workflow details: `.claude/skills/tailor-job/SKILL.md`. Per-application visits:
+`/api/attribution?view=campaigns&token=…` (campaign = slug).
