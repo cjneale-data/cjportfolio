@@ -182,7 +182,7 @@
   ],
   "resume": {
     "title": "Marketing Data & Growth Analytics",
-    "summary": "Marketing data practitioner with 5 years building conversion tracking, attribution, CRM data, and experimentation systems for consumer and high-value-customer businesses, most recently as Senior Manager, Marketing Insights & CRM Analytics at flyExclusive. Owns the conversion plumbing end to end: Google Tag Manager, Meta Pixel and CAPI, Google Ads conversion tracking, and offline conversion uploads from the CRM. Builds the pipelines in SQL and Python; M.S. in Data Science with hands-on applied-AI experience.",
+    "summary": "Marketing data practitioner with 6 years in marketing and data roles, building conversion tracking, attribution, CRM data, and experimentation systems for consumer and high-value-customer businesses, most recently as Senior Manager, Marketing Insights & CRM Analytics at flyExclusive. Owns the conversion plumbing end to end: Google Tag Manager, Meta Pixel and CAPI, Google Ads conversion tracking, and offline conversion uploads from the CRM. Builds the pipelines in SQL and Python; M.S. in Data Science with hands-on applied-AI experience.",
     "skillGroups": [
       {
         "label": "Growth & Measurement",
@@ -199,8 +199,7 @@
     ],
     "projectsTitle": "Featured Projects",
     "projects": [
-      "attribution-lab",
-      "podflow"
+      "attribution-lab"
     ]
   },
   "skills": [

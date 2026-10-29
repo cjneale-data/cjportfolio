@@ -1,5 +1,5 @@
 {
-  "_note": "Fixed resume structure for scripts/build-resume.js: contact, titles, dates, education, project write-ups, default bullets. The exhaustive fact base is content/career-master.md; tailored bullets in jobs/<slug>.json are drawn from it. Keep the two consistent.",
+  "_note": "Fixed resume structure for scripts/build-resume.js: contact, titles, dates, education, project write-ups, default bullets, and the general (non-job-specific) resume. The exhaustive fact base is content/career-master.md; tailored bullets in jobs/<slug>.json are drawn from it. Keep the two consistent.",
   "name": "Christopher Neale",
   "contact": [
     "Raleigh, NC",
@@ -54,9 +54,27 @@
         "Built CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
         "Ran multi-touch attribution modeling and a structured A/B testing program (50% win rate), improving CTR by 30%."
       ]
+    },
+    {
+      "org": "American Kennel Club",
+      "location": "Raleigh, NC",
+      "role": "Email Marketing Associate",
+      "dates": "Apr 2021 – May 2022",
+      "bullets": [
+        "Built Tableau-driven audience insights to optimize email program performance.",
+        "Automated customer journeys with dynamic, segment-driven email content."
+      ]
+    },
+    {
+      "org": "OnPoint",
+      "location": "Raleigh, NC",
+      "role": "Marketing Manager",
+      "dates": "Oct 2020 – Apr 2021",
+      "bullets": [
+        "Led lifecycle strategy and audience targeting across email and paid social, aligning C-suite stakeholders on data-driven marketing execution."
+      ]
     }
   ],
-  "additionalExperience": "American Kennel Club, Email Marketing Associate (Apr 2021 – May 2022): Tableau-driven audience insights and automated customer journeys. OnPoint, Marketing Manager (Oct 2020 – Apr 2021): lifecycle strategy and targeting across email and paid social, with C-suite alignment.",
   "skillGroups": [
     {
       "label": "Applied AI / ML",
@@ -103,5 +121,29 @@
       ],
       "link": "https://cjportfolio-inky.vercel.app"
     }
+  },
+  "general": {
+    "title": "Marketing Data & Applied AI",
+    "summary": "Marketing data and applied-AI practitioner with 6 years across marketing and data roles, most recently Senior Manager, Marketing Insights & CRM Analytics at flyExclusive. Builds the systems that connect marketing to revenue: conversion tracking, offline conversion uploads, attribution, CRM data architecture, and experimentation. Writes the pipelines in SQL and Python and builds LLM-powered tools end to end. M.S. in Data Science.",
+    "skillGroups": [
+      {
+        "label": "Measurement & Growth",
+        "items": "Google Tag Manager, Meta Pixel and Conversions API, Google Ads conversion tracking, offline conversion uploads, multi-touch attribution, A/B testing, GA4, funnel analysis"
+      },
+      {
+        "label": "Data & Systems",
+        "items": "SQL, Python (pandas, scikit-learn), Databricks, Postgres, REST APIs, data pipelines, HubSpot, Iterable, CRM/CDP architecture, Master Data Management"
+      },
+      {
+        "label": "Applied AI & BI",
+        "items": "LLM pipelines, RAG, LangGraph agents, PyTorch, XGBoost, model evaluation, Tableau, Power BI, Claude Code"
+      }
+    ],
+    "projectsTitle": "Featured Projects",
+    "projects": [
+      "attribution-lab",
+      "podflow",
+      "chefai"
+    ]
   }
 }

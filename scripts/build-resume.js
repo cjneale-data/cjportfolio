@@ -6,7 +6,8 @@
 // LibreOffice if it's installed. for.html links the PDF.
 //
 //   node scripts/build-resume.js <slug>     one application
-//   node scripts/build-resume.js --all      every jobs/*.json
+//   node scripts/build-resume.js --general  the non-job-specific resume (resumes/general.*)
+//   node scripts/build-resume.js --all      general + every jobs/*.json
 
 const fs = require('fs')
 const path = require('path')
@@ -24,7 +25,7 @@ const base = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'resume.json'
 const FONT = 'Calibri'
 const NAVY = '2C3E50'
 const pt = n => n * 2 // docx sizes are half-points
-const BODY = pt(9.5)
+const BODY = pt(10)
 
 const SOFFICE_CANDIDATES = [
   process.env.SOFFICE,
@@ -37,7 +38,7 @@ function run(text, opts = {}) {
   return new TextRun({ text, font: FONT, size: BODY, ...opts })
 }
 
-function link(label, href, size = pt(9)) {
+function link(label, href, size = pt(9.5)) {
   return new ExternalHyperlink({ link: href, children: [run(label, { size, color: '1F5FAD', underline: {} })] })
 }
 
@@ -45,7 +46,7 @@ function heading(text) {
   return new Paragraph({
     spacing: { before: 140, after: 60 },
     border: { bottom: { style: BorderStyle.SINGLE, size: 6, color: NAVY, space: 1 } },
-    children: [run(text.toUpperCase(), { bold: true, size: pt(10.5), color: NAVY })],
+    children: [run(text.toUpperCase(), { bold: true, size: pt(11), color: NAVY })],
   })
 }
 
@@ -63,14 +64,14 @@ function build(job) {
   const children = []
 
   children.push(
-    new Paragraph({ alignment: AlignmentType.CENTER, children: [run(base.name.toUpperCase(), { bold: true, size: pt(17), color: NAVY })] }),
-    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 20 }, children: [run(r.title || base.defaultTitle, { bold: true, size: pt(11), color: NAVY })] }),
+    new Paragraph({ alignment: AlignmentType.CENTER, children: [run(base.name.toUpperCase(), { bold: true, size: pt(18), color: NAVY })] }),
+    new Paragraph({ alignment: AlignmentType.CENTER, spacing: { after: 20 }, children: [run(r.title || base.defaultTitle, { bold: true, size: pt(11.5), color: NAVY })] }),
   )
   const contact = []
-  base.contact.forEach(c => contact.push(run(c + '  |  ', { size: pt(9) })))
+  base.contact.forEach(c => contact.push(run(c + '  |  ', { size: pt(9.5) })))
   base.links.forEach((l, i) => {
     contact.push(link(l.label, l.href))
-    if (i < base.links.length - 1) contact.push(run('  |  ', { size: pt(9) }))
+    if (i < base.links.length - 1) contact.push(run('  |  ', { size: pt(9.5) }))
   })
   children.push(new Paragraph({ alignment: AlignmentType.CENTER, children: contact }))
 
@@ -87,17 +88,13 @@ function build(job) {
       spacing: { before: 80, after: 30 },
       tabStops: [{ type: TabStopType.RIGHT, position: 10800 }],
       children: [
-        run(`${x.org}, ${x.location}`, { bold: true, size: pt(10) }),
-        run(`   ${x.role}`, { italics: true, color: NAVY, size: pt(10) }),
-        run(`\t${x.dates}`, { italics: true, color: NAVY, size: pt(10) }),
+        run(`${x.org}, ${x.location}`, { bold: true, size: pt(10.5) }),
+        run(`   ${x.role}`, { italics: true, color: NAVY, size: pt(10.5) }),
+        run(`\t${x.dates}`, { italics: true, color: NAVY, size: pt(10.5) }),
       ],
     }))
     ;(tailored[x.org] || x.bullets).forEach(b => children.push(bullet(b)))
   }
-  children.push(
-    new Paragraph({ spacing: { before: 80, after: 30 }, children: [run('Additional Experience', { bold: true, size: pt(10) })] }),
-    bullet(base.additionalExperience),
-  )
 
   children.push(heading(r.projectsTitle || 'Featured Projects'))
   for (const id of r.projects) {
@@ -143,7 +140,11 @@ function toPdf(docxPath) {
 }
 
 async function buildOne(slug) {
-  const job = JSON.parse(fs.readFileSync(path.join(ROOT, 'jobs', slug + '.json'), 'utf8'))
+  // "general" is the non-job-specific resume: content/resume.json's own
+  // "general" block with every role's default bullets.
+  const job = slug === 'general'
+    ? { slug, company: 'General', resume: base.general, experience: [] }
+    : JSON.parse(fs.readFileSync(path.join(ROOT, 'jobs', slug + '.json'), 'utf8'))
   if (!job.resume) throw new Error(`jobs/${slug}.json has no "resume" block`)
   fs.mkdirSync(OUT_DIR, { recursive: true })
   const docxPath = path.join(OUT_DIR, slug + '.docx')
@@ -156,12 +157,12 @@ async function buildOne(slug) {
 async function main() {
   const arg = process.argv[2]
   if (!arg) {
-    console.error('usage: node scripts/build-resume.js <slug> | --all')
+    console.error('usage: node scripts/build-resume.js <slug> | --all | --general')
     process.exit(1)
   }
   const slugs = arg === '--all'
-    ? fs.readdirSync(path.join(ROOT, 'jobs')).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5))
-    : [arg]
+    ? ['general', ...fs.readdirSync(path.join(ROOT, 'jobs')).filter(f => f.endsWith('.json')).map(f => f.slice(0, -5))]
+    : [arg === '--general' ? 'general' : arg]
   for (const slug of slugs) await buildOne(slug)
 }
 
