@@ -1,8 +1,26 @@
 {
   "functions": {
-    "api/chat.js": { "includeFiles": "content/career-master.md" }
+    "api/chat.js": {
+      "includeFiles": "content/career-master.md"
+    }
   },
   "rewrites": [
-    { "source": "/for/:slug", "destination": "/for.html" }
+    {
+      "source": "/for/:slug",
+      "destination": "/for.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "cjportfolio-inky.vercel.app"
+        }
+      ],
+      "destination": "https://cjneale.xyz/:path*",
+      "permanent": true
+    }
   ]
 }

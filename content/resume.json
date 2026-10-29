@@ -12,8 +12,8 @@
       "href": "https://www.linkedin.com/in/christophernealeanalyst/"
     },
     {
-      "label": "cjportfolio-inky.vercel.app",
-      "href": "https://cjportfolio-inky.vercel.app"
+      "label": "cjneale.xyz",
+      "href": "https://cjneale.xyz"
     }
   ],
   "defaultTitle": "Data Science & Applied AI Leader",
@@ -96,7 +96,7 @@
         "Built first-party tracking end to end: UTM and ad click-ID capture (gclid, gbraid, wbraid, fbclid, ttclid, li_fat_id), an event taxonomy enforced at a server-side ingestion endpoint, and event_id dedup into Postgres (Neon).",
         "Wrote first-touch, last-touch, and linear attribution in SQL (window functions, 30-day lookback), data-quality checks, and consent-gated offline-conversion payloads for Google Ads, Meta CAPI, TikTok, and LinkedIn; honors Global Privacy Control."
       ],
-      "link": "https://cjportfolio-inky.vercel.app/#/project/attribution"
+      "link": "https://cjneale.xyz/#/project/attribution"
     },
     "podflow": {
       "name": "PodFlow, M.S. Data Science Capstone, Eastern University, 2025",
@@ -104,7 +104,7 @@
         "Built a full audio-to-insight pipeline solo: transcription (faster-Whisper), automatic content segmentation via a trained CNN-BiLSTM model (benchmarked against XGBoost, focal loss for class imbalance), and LLM-based metadata enrichment, served through a REST API to a working web app.",
         "Built an offline evaluation framework scoring precision/recall/F1 against hand-labeled ground truth, and deployed a local quantized LLM (Qwen2.5 via llama.cpp) with a rules-based fallback for resilience."
       ],
-      "link": "https://cjportfolio-inky.vercel.app/player.html"
+      "link": "https://cjneale.xyz/player.html"
     },
     "chefai": {
       "name": "ChefAI, Agentic Meal-Planning Assistant (LangGraph)",
@@ -119,7 +119,7 @@
       "bullets": [
         "Built the site's \"Ask about Chris\" chat: section-chunked retrieval ranked by TF-IDF cosine similarity, grounded generation via OpenRouter, and an automated eval harness scoring factual grounding and out-of-scope refusals."
       ],
-      "link": "https://cjportfolio-inky.vercel.app"
+      "link": "https://cjneale.xyz"
     }
   },
   "general": {

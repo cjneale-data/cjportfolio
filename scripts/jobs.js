@@ -15,7 +15,7 @@ const crypto = require('crypto')
 const ROOT = path.join(__dirname, '..')
 const JOBS_DIR = path.join(ROOT, 'jobs')
 const NOTES_DIR = path.join(ROOT, 'applications')
-const SITE_URL = 'https://cjportfolio-inky.vercel.app'
+const SITE_URL = 'https://cjneale.xyz'
 const STRENGTHS = ['direct', 'adjacent', 'building']
 const BASE_RESUME = JSON.parse(fs.readFileSync(path.join(ROOT, 'content', 'resume.json'), 'utf8'))
 

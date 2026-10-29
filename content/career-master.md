@@ -31,7 +31,7 @@ Rules for editing:
 - Family: married, one young daughter (Louisa), with extended family nearby
 - Contact: cjneale.analyst@gmail.com · 984-382-3980
 - LinkedIn: https://www.linkedin.com/in/christophernealeanalyst/
-- Portfolio: https://cjportfolio-inky.vercel.app
+- Portfolio: https://cjneale.xyz
 - Hobbies: golf (former high-school #1 player; builds his own data-tracking dashboards to analyze his game and built TensorFit, a club-fitting analytics platform), fantasy football analytics, American Civil War history (avid reader; deep knowledge of battles, generals, and outcomes)
 <!-- TODO(Chris): open to relocation? remote/hybrid preference? work authorization (US citizen?) — recruiters ask; add only what you're happy for the chat to say. -->
 

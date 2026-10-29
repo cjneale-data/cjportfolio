@@ -198,7 +198,7 @@ module.exports = async function handler(req, res) {
       res.status(200).json({ view, days: +days, ...rows[0] })
     } else if (view === 'export') {
       const { rows } = await pool.query(EXPORT_SQL, params)
-      const siteUrl = process.env.SITE_URL || 'https://cjportfolio-inky.vercel.app'
+      const siteUrl = process.env.SITE_URL || 'https://cjneale.xyz'
       res.status(200).json({ view, days: +days, dry_run: true, conversions: rows.length, payloads: buildExport(rows, siteUrl) })
     } else {
       res.status(400).json({ error: 'Unknown view' })

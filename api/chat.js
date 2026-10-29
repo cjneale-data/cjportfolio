@@ -194,7 +194,7 @@ module.exports = async function handler(req, res) {
   const systemPrompt = buildSystemPrompt(retrieved)
 
   const model = process.env.OPENROUTER_MODEL || DEFAULT_MODEL
-  const siteUrl = process.env.SITE_URL || 'https://christopherneale.dev'
+  const siteUrl = process.env.SITE_URL || 'https://cjneale.xyz'
   const debugRetrieval = process.env.DEBUG_RETRIEVAL === '1'
 
   try {
