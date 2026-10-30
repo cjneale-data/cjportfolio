@@ -3,3 +3,5 @@
 node_modules/
 .neon
 applications/
+.env*
+!.env.local.example

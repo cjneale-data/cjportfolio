@@ -21,6 +21,17 @@
       ],
       "destination": "https://cjneale.xyz/:path*",
       "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.cjneale.xyz"
+        }
+      ],
+      "destination": "https://cjneale.xyz/:path*",
+      "permanent": true
     }
   ]
 }
