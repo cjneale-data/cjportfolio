@@ -13,6 +13,7 @@
       --bg:#F5F6F2; --card:#FFFFFF; --ink:#17201B; --muted:#57635A;
       --accent:#2C5C4C; --on-accent:#FFFFFF; --brass:#A67C3D; --line:#DCE0D8;
       --glass:rgba(44,92,76,0.05);
+      --s1:#14805A; --s2:#C0781A; --s3:#3E6FC6;
       --font-display:'Newsreader',Georgia,serif;
       --font-body:'IBM Plex Sans',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
       --font-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
@@ -22,6 +23,7 @@
         --bg:#12160F; --card:#181D15; --ink:#E9ECE4; --muted:#9AA592;
         --accent:#6FB39A; --on-accent:#0C1310; --brass:#D3A968; --line:#2A322A;
         --glass:rgba(111,179,154,0.08);
+        --s1:#3FA37E; --s2:#C27E22; --s3:#5E8EE0;
       }
     }
     *{box-sizing:border-box}
@@ -101,6 +103,64 @@
     #chat-send{background:var(--accent);color:var(--on-accent);border:none;border-radius:4px;padding:0 18px;font-weight:600;font-family:var(--font-body);cursor:pointer;transition:opacity .15s}
     #chat-send:hover{opacity:.85}
     #chat-send:disabled{opacity:.5;cursor:default}
+
+    /* --- Case-study figures (Attribution Lab) --- */
+    .viz-note{font-family:var(--font-mono);font-size:11px;color:var(--muted);background:var(--glass);border:1px dashed var(--line);border-radius:3px;padding:8px 10px;margin:4px 0 6px}
+    .viz-fig{margin:22px 0 0}
+    .viz-fig h3{font-family:var(--font-body);font-size:14px;font-weight:600;margin:0}
+    .viz-fig .viz-sub{color:var(--muted);font-size:13px;margin:2px 0 12px;max-width:64ch}
+    .viz-fig .viz-take{color:var(--muted);font-size:13px;margin:10px 0 0;max-width:64ch}
+    .viz-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;counter-reset:step}
+    .viz-flow li{position:relative;border:1px solid var(--line);border-radius:4px;padding:10px;background:var(--bg);font-size:12px;color:var(--muted);line-height:1.45;counter-increment:step}
+    .viz-flow li b{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+    .viz-flow li b::before{content:counter(step) ". "}
+    .viz-flow li:not(:last-child)::after{content:'→';position:absolute;right:-8px;top:50%;transform:translate(50%,-50%);color:var(--muted);font-size:12px}
+    .viz-rows{display:grid;grid-template-columns:150px 1fr;gap:6px 12px;align-items:center;font-size:13px}
+    .viz-rows .lbl{color:var(--ink)}
+    .viz-rows .lbl small{display:block;color:var(--muted);font-size:11px;line-height:1.3}
+    .viz-cell{display:flex;align-items:center;gap:8px;min-height:24px;cursor:default}
+    .viz-bar{height:10px;border-radius:0 4px 4px 0;background:var(--muted);opacity:.55;flex:none}
+    .viz-bar.hi{background:var(--accent);opacity:1}
+    .viz-val{font-family:var(--font-mono);font-size:11px;color:var(--muted)}
+    .viz-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);margin-bottom:10px}
+    .viz-legend span{display:inline-flex;align-items:center;gap:6px}
+    .viz-legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+    .viz-journey{list-style:none;margin:0 0 14px;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .viz-journey li{border-top:3px solid var(--line);padding-top:8px;font-size:12px;color:var(--muted);line-height:1.45}
+    .viz-journey li b{display:block;font-family:var(--font-mono);font-size:11px;color:var(--ink);font-weight:500}
+    .viz-journey li.conv{border-top-color:var(--ink)}
+    .viz-rows>*,.viz-models>*{min-width:0}
+    .viz-stack{display:flex;gap:2px;height:22px;flex:1;min-width:0}
+    .viz-stack span{height:100%;min-width:0;display:block;line-height:22px;padding:0 6px;font-family:var(--font-mono);font-size:10px;color:var(--on-accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .viz-stack span:first-child{border-radius:4px 0 0 4px}
+    .viz-stack span:last-child{border-radius:0 4px 4px 0}
+    .viz-models{display:grid;grid-template-columns:130px repeat(3,1fr);gap:4px 12px;align-items:center;font-size:13px}
+    .viz-models .hd{font-family:var(--font-mono);font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);padding-bottom:4px;border-bottom:1px solid var(--line)}
+    .viz-models .ch{font-family:var(--font-mono);font-size:12px;color:var(--ink)}
+    .viz-table{width:100%;border-collapse:collapse;font-size:13px}
+    .viz-table th,.viz-table td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line)}
+    .viz-table th{font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+    .viz-table td.n{font-family:var(--font-mono);text-align:right}
+    .viz-table th.n{text-align:right}
+    .viz-details{margin-top:10px;font-size:13px}
+    .viz-details summary{cursor:pointer;color:var(--accent);font-size:12px;font-family:var(--font-mono)}
+    .viz-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .viz-tile{border:1px solid var(--line);border-radius:4px;padding:10px 12px;background:var(--bg)}
+    .viz-tile .k{font-size:12px;color:var(--muted);line-height:1.35}
+    .viz-tile .v{font-family:var(--font-display);font-size:26px;color:var(--ink);line-height:1.2;margin-top:4px}
+    .viz-tile .d{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
+    .viz-tip{position:fixed;z-index:20;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;line-height:1.4;padding:6px 9px;border-radius:4px;max-width:240px;opacity:0;transition:opacity .1s}
+    @media (max-width:640px){
+      .viz-flow{grid-template-columns:1fr}
+      .viz-flow li:not(:last-child)::after{content:'↓';right:50%;top:auto;bottom:-8px;transform:translate(50%,50%)}
+      .viz-rows{grid-template-columns:1fr;gap:2px}
+      .viz-rows .lbl{margin-top:8px}
+      .viz-journey{grid-template-columns:repeat(2,1fr)}
+      .viz-models{grid-template-columns:repeat(3,1fr)}
+      .viz-models .ch{grid-column:1/-1;margin-top:8px}
+      .viz-models .corner{display:none}
+      .viz-tiles{grid-template-columns:repeat(2,1fr)}
+    }
   </style>
 </head>
 <body>
@@ -368,7 +428,7 @@
       `
     }
 
-    function caseStudy({title, subtitle, problem, architecture, tradeoffs, stack, status, link}){
+    function caseStudy({title, subtitle, problem, visuals, architecture, tradeoffs, stack, status, link}){
       const archItems = architecture.map(i => `<li>${i}</li>`).join('')
       const tradeoffItems = tradeoffs.map(i => `<li>${i}</li>`).join('')
       return `
@@ -379,8 +439,11 @@
 
           <div class="section-title" style="margin-top:26px">Problem</div>
           <p style="color:var(--muted);max-width:68ch">${problem}</p>
-
-          <div class="section-title" style="margin-top:18px">Architecture</div>
+${visuals ? `
+          <div class="section-title" style="margin-top:18px">How it works, in pictures</div>
+          ${visuals}
+` : ''}
+          <div class="section-title" style="margin-top:26px">Architecture</div>
           <ul style="color:var(--muted);margin:0;padding-left:18px;line-height:1.7;max-width:68ch">${archItems}</ul>
 
           <div class="section-title" style="margin-top:18px">Tradeoffs</div>
@@ -464,11 +527,165 @@
       })
     }
 
+    // Illustrative sample data for the Attribution Lab figures. The real numbers
+    // sit behind STATS_TOKEN (campaign names reveal where Chris is applying).
+    const ATTR_SAMPLE = {
+      platforms: [
+        { name: 'Meta Ads Manager', note: '7-day click + 1-day view', n: 74 },
+        { name: 'Google Ads', note: 'includes modeled conversions', n: 61 },
+        { name: 'CRM', note: 'contacts created from the site', n: 52 },
+        { name: 'This pipeline', note: 'deduped on event_id, one channel definition', n: 48, hi: true },
+      ],
+      journeyChannels: [
+        { key: 'paid_social', color: 'var(--s1)' },
+        { key: 'organic_search', color: 'var(--s2)' },
+        { key: 'recruiter_link', color: 'var(--s3)' },
+      ],
+      // 48 conversions over 30 days; each model column sums to 48.
+      models: [
+        { channel: 'recruiter_link', first: 9, last: 21, linear: 15.2 },
+        { channel: 'linkedin_organic', first: 12, last: 7, linear: 9.6 },
+        { channel: 'paid_search', first: 6, last: 8, linear: 7.1 },
+        { channel: 'paid_social', first: 11, last: 3, linear: 6.9 },
+        { channel: 'organic_search', first: 5, last: 4, linear: 4.8 },
+        { channel: 'direct', first: 5, last: 5, linear: 4.4 },
+      ],
+      campaigns: [
+        { campaign: 'acme-analytics-engineer-3f2a', landings: 14, conversions: 3 },
+        { campaign: 'northwind-growth-data-9c1e', landings: 9, conversions: 2 },
+        { campaign: 'globex-marketing-analytics-b7d0', landings: 6, conversions: 0 },
+      ],
+    }
+
+    function attributionVisuals(){
+      const d = ATTR_SAMPLE
+      const bar = (v, max, hi, tip) => `
+        <div class="viz-cell" data-tip="${tip}">
+          <div class="viz-bar${hi ? ' hi' : ''}" style="width:${(v / max * 78).toFixed(1)}%"></div>
+          <span class="viz-val">${v}</span>
+        </div>`
+
+      const pMax = Math.max(...d.platforms.map(p => p.n))
+      const platforms = d.platforms.map(p => `
+        <div class="lbl">${p.name}<small>${p.note}</small></div>
+        ${bar(p.n, pMax, p.hi, `${p.name}: ${p.n} conversions (${p.note})`)}`).join('')
+
+      const color = Object.fromEntries(d.journeyChannels.map(c => [c.key, c.color]))
+      const legend = d.journeyChannels.map(c => `<span><i style="background:${c.color}"></i>${c.key}</span>`).join('')
+      const seg = (key, pct) => `<span style="background:${color[key]};flex:${pct}" data-tip="${key}: ${pct}% of the credit">${key} ${pct}%</span>`
+      const credit = [
+        ['First-touch', seg('paid_social', 100)],
+        ['Last-touch', seg('recruiter_link', 100)],
+        ['Linear', seg('paid_social', 33) + seg('organic_search', 33) + seg('recruiter_link', 33)],
+      ].map(([m, s]) => `<div class="lbl">${m}</div><div class="viz-stack">${s}</div>`).join('')
+
+      const mMax = Math.max(...d.models.flatMap(r => [r.first, r.last, r.linear]))
+      const modelRows = d.models.map(r => `
+        <div class="ch">${r.channel}</div>
+        ${bar(r.first, mMax, true, `${r.channel}, first-touch: ${r.first} conversions`)}
+        ${bar(r.last, mMax, true, `${r.channel}, last-touch: ${r.last} conversions`)}
+        ${bar(r.linear, mMax, true, `${r.channel}, linear: ${r.linear} conversions`)}`).join('')
+      const modelTable = d.models.map(r => `<tr><td>${r.channel}</td><td class="n">${r.first}</td><td class="n">${r.last}</td><td class="n">${r.linear}</td></tr>`).join('')
+
+      const campaigns = d.campaigns.map(c => `<tr><td style="font-family:var(--font-mono);font-size:12px">${c.campaign}</td><td class="n">${c.landings}</td><td class="n">${c.conversions}</td><td class="n">${Math.round(c.conversions / c.landings * 100)}%</td></tr>`).join('')
+
+      return `
+        <div class="viz-note">All figures below use made-up sample data so the shape is easy to see. Real numbers sit behind a token, because campaign names show which companies I'm applying to.</div>
+
+        <div class="viz-fig">
+          <h3>The pipeline</h3>
+          <p class="viz-sub">Five steps, each a separate piece of code on this site.</p>
+          <ol class="viz-flow">
+            <li><b>Capture</b>track.js reads UTMs and ad click IDs on landing</li>
+            <li><b>Validate</b>/api/track rejects unknown events and drops bots</li>
+            <li><b>Store</b>Postgres, deduped on event_id</li>
+            <li><b>Attribute</b>SQL gives each channel credit under three models</li>
+            <li><b>Export</b>Consented conversions shaped for ad platforms</li>
+          </ol>
+        </div>
+
+        <div class="viz-fig">
+          <h3>The problem: one month, four different conversion counts</h3>
+          <p class="viz-sub">Each system counts with its own rules, so none of them agree. The pipeline gives one deduplicated number to reconcile against.</p>
+          <div class="viz-rows">${platforms}</div>
+        </div>
+
+        <div class="viz-fig">
+          <h3>One visitor's path to a conversion</h3>
+          <p class="viz-sub">Three visits over nine days, then a click on "Email Chris." Each attribution model gives the credit to different channels.</p>
+          <ol class="viz-journey">
+            <li><b>Day 1 · paid_social</b>Clicks a Meta ad (fbclid captured)</li>
+            <li><b>Day 4 · organic_search</b>Comes back from a Google search</li>
+            <li><b>Day 9 · recruiter_link</b>Opens a tailored /for/ page</li>
+            <li class="conv"><b>Day 9 · contact_click</b>Conversion, joined to the Day 1 click ID for export</li>
+          </ol>
+          <div class="viz-legend">${legend}</div>
+          <div class="viz-rows">${credit}</div>
+        </div>
+
+        <div class="viz-fig">
+          <h3>Same 48 conversions, three answers</h3>
+          <p class="viz-sub">Credit by channel over 30 days. Each column adds up to 48.</p>
+          <div class="viz-models">
+            <div class="hd corner"></div><div class="hd">First-touch</div><div class="hd">Last-touch</div><div class="hd">Linear</div>
+            ${modelRows}
+          </div>
+          <p class="viz-take">Paid social starts 11 journeys but closes only 3. Judged on last-touch alone, it would look like the first budget to cut.</p>
+          <details class="viz-details">
+            <summary>Show as a table</summary>
+            <table class="viz-table" style="margin-top:8px">
+              <thead><tr><th>Channel</th><th class="n">First</th><th class="n">Last</th><th class="n">Linear</th></tr></thead>
+              <tbody>${modelTable}</tbody>
+            </table>
+          </details>
+        </div>
+
+        <div class="viz-fig">
+          <h3>Campaign view: one row per recruiter link</h3>
+          <p class="viz-sub">Every tailored page gets its own utm_campaign, so I can see when a link is opened and whether it leads to a contact click. The company names here are made up.</p>
+          <table class="viz-table">
+            <thead><tr><th>utm_campaign</th><th class="n">Landings</th><th class="n">Contact clicks</th><th class="n">Rate</th></tr></thead>
+            <tbody>${campaigns}</tbody>
+          </table>
+        </div>
+
+        <div class="viz-fig">
+          <h3>Data-quality checks</h3>
+          <p class="viz-sub">These run next to the reports, so a broken tag shows up here before it skews a decision.</p>
+          <div class="viz-tiles">
+            <div class="viz-tile"><div class="k">Orphan conversions</div><div class="v">0</div><div class="d">conversions with no landing</div></div>
+            <div class="viz-tile"><div class="k">Untagged landings</div><div class="v">18%</div><div class="d">no UTM, click ID, or referrer</div></div>
+            <div class="viz-tile"><div class="k">Opted out</div><div class="v">7%</div><div class="d">GPC or DNT, so click IDs are dropped</div></div>
+            <div class="viz-tile"><div class="k">Ingest lag</div><div class="v">0.9s</div><div class="d">average, from event to row</div></div>
+          </div>
+        </div>
+      `
+    }
+
+    // One shared hover/focus tooltip for any [data-tip] element.
+    const vizTip = document.createElement('div')
+    vizTip.className = 'viz-tip'
+    vizTip.setAttribute('role', 'tooltip')
+    document.body.appendChild(vizTip)
+    function showTip(el, x, y){
+      vizTip.textContent = el.dataset.tip
+      vizTip.style.left = Math.min(x + 12, window.innerWidth - vizTip.offsetWidth - 8) + 'px'
+      vizTip.style.top = (y + 14) + 'px'
+      vizTip.style.opacity = '1'
+    }
+    document.addEventListener('pointermove', e => {
+      const el = e.target.closest && e.target.closest('[data-tip]')
+      if (el) showTip(el, e.clientX, e.clientY)
+      else vizTip.style.opacity = '0'
+    })
+    document.addEventListener('scroll', () => { vizTip.style.opacity = '0' }, { passive: true })
+
     function renderAttributionCase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'Attribution Lab',
         subtitle: 'First-party growth tracking on this site, from click ID to conversion payload',
-        problem: 'Every growth team runs into the same failure: Google Ads, Meta, the CRM, and the warehouse each report a different number of conversions, because each one defines events, channels, and lookback windows a little differently, and browser pixels lose signal to ad blockers and consent. I wanted to build the whole chain myself at small scale: capture, naming, storage, attribution, and the export back to ad platforms. This site is the test bed, and every personalized page I send to a hiring team is a tagged campaign running through it.',
+        visuals: attributionVisuals(),
+        problem:'Every growth team runs into the same failure: Google Ads, Meta, the CRM, and the warehouse each report a different number of conversions, because each one defines events, channels, and lookback windows a little differently, and browser pixels lose signal to ad blockers and consent. I wanted to build the whole chain myself at small scale: capture, naming, storage, attribution, and the export back to ad platforms. This site is the test bed, and every personalized page I send to a hiring team is a tagged campaign running through it.',
         architecture: [
           'Capture (track.js): on landing, reads UTM parameters and ad click IDs (gclid, gbraid, wbraid, fbclid, ttclid, li_fat_id, msclkid). It builds Meta\'s fbc value at landing, keeps the touch for the session plus a first-touch record, and stamps every event with a client-generated event_id.',
           'Taxonomy: one event dictionary (page_view, contact_click, outbound_click, chat_message_sent; snake_case, object_action) shared by ingestion and reporting. Unknown events are rejected with a 422 instead of quietly becoming a new spelling of "conversion."',
