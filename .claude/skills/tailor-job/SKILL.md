@@ -7,7 +7,7 @@ description: Build a personalized recruiter page on the portfolio site for a spe
 
 Every job link Chris gives gets **all three**: a unique route, a tailored web page, and a new resume file. Don't stop until all three exist and `npm run job -- check` passes.
 
-Each application gets an unlisted page at `/for/<slug>`, rendered by `for.html` from `jobs/<slug>.json`, plus a tailored resume at `resumes/<slug>.docx` and `.pdf` built from the same file (the page's "Resume (PDF)" button links it). The recruiter link carries `utm_source=recruiter&utm_campaign=<slug>`, so visits and contact clicks show up per application in the Attribution Lab (`/api/attribution?view=campaigns`).
+Each application gets an unlisted page at `/for/<slug>`, rendered by `for.html` from `jobs/<slug>.json`, plus a tailored resume at `resumes/<slug>.docx` and `.pdf` built from the same file (the page's "Resume (PDF)" button links it). The recruiter link carries `utm_source=recruiter&utm_campaign=<slug>`, so visits and contact clicks show up per application in the private stats endpoint (`/api/attribution?view=campaigns`, behind STATS_TOKEN). These sessions are excluded from the public journeys dashboard; never mention per-application links on public pages.
 
 ## Steps
 
@@ -26,6 +26,6 @@ Each application gets an unlisted page at `/for/<slug>`, rendered by `for.html` 
    No fit scores or odds in this file; it's publicly fetchable.
 5a. **Build the resume.** `npm run resume -- <slug>` writes the .docx and .pdf. Render the PDF and look at it (e.g. `python -I -c "import pymupdf..."` to PNG). Target one page, two at most. Tell Chris the path of the .docx so he can upload it to the application.
 5. **Write the private assessment** in `applications/<slug>.md`: a requirement-by-requirement fit table, gaps, honest callback-odds estimate with reasoning, and the highest-leverage actions (resume edits, referral targets, projects that would close a gap).
-6. **Close gaps with real work when it's worth it.** If a core requirement is missing and a small, honest build on the site would demonstrate it (as the Attribution Lab did for growth/marketing data roles), propose it, build it, and add a case study in `index.html` plus a section in `content/career-master.md` (the chat picks it up automatically) and an entry in `content/resume.json` projects.
+6. **Close gaps with real work when it's worth it.** If a core requirement is missing and a small, honest build on the site would demonstrate it (as the attribution and UTM tracker case studies did for growth/marketing data roles), propose it, build it, and add a case study in `index.html` plus a section in `content/career-master.md` (the chat picks it up automatically) and an entry in `content/resume.json` projects.
 7. **Validate and preview.** `npm run job -- check` must pass. Preview locally at `for.html?job=<slug>` or `vercel dev` → `/for/<slug>`. Check phone width.
 8. **Ship.** Commit on a branch / ask before pushing to `main` (pushing deploys to Vercel). Give Chris the recruiter link from `npm run job -- list`.

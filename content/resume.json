@@ -91,10 +91,10 @@
   ],
   "projects": {
     "attribution-lab": {
-      "name": "Attribution Lab, First-Party Growth Tracking (portfolio site)",
+      "name": "From Attribution to Ad Spend, Budget Allocation Framework (portfolio site)",
       "bullets": [
-        "Built first-party tracking end to end: UTM and ad click-ID capture (gclid, gbraid, wbraid, fbclid, ttclid, li_fat_id), an event taxonomy enforced at a server-side ingestion endpoint, and event_id dedup into Postgres (Neon).",
-        "Wrote first-touch, last-touch, and linear attribution in SQL (window functions, 30-day lookback), data-quality checks, and consent-gated offline-conversion payloads for Google Ads, Meta CAPI, TikTok, and LinkedIn; honors Global Privacy Control."
+        "Built an interactive case study linking attribution to budget: deduplicated conversion counts, first/last/linear/position-based models side by side, lift-test calibration, and a diminishing-returns optimizer that reallocates spend on marginal cost per incremental customer.",
+        "Built a live UTM Journey Tracker: a UTM taxonomy enforced in code, first-party capture with event_id dedup into Postgres (Neon), read-time tag-quality checks, and a real-time dashboard of visitor journeys; honors Global Privacy Control."
       ],
       "link": "https://cjneale.xyz/#/project/attribution"
     },

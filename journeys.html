@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UTM Journey Tracker — Christopher Neale</title>
+  <meta name="description" content="A live dashboard of visitor journeys on this site, built on an enforced UTM taxonomy." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Tokens mirror index.html's Field Notes system. */
+    :root{
+      --bg:#F5F6F2; --card:#FFFFFF; --ink:#17201B; --muted:#57635A;
+      --accent:#2C5C4C; --on-accent:#FFFFFF; --brass:#A67C3D; --line:#DCE0D8;
+      --glass:rgba(44,92,76,0.05); --bad:#B23A3A; --good:#14805A;
+      --font-display:'Newsreader',Georgia,serif;
+      --font-body:'IBM Plex Sans',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+      --font-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --bg:#12160F; --card:#181D15; --ink:#E9ECE4; --muted:#9AA592;
+        --accent:#6FB39A; --on-accent:#0C1310; --brass:#D3A968; --line:#2A322A;
+        --glass:rgba(111,179,154,0.08); --bad:#E07A7A; --good:#3FA37E;
+      }
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    @media (prefers-reduced-motion: reduce){ *{animation-duration:.01ms !important;transition-duration:.01ms !important} }
+    a{color:var(--accent);text-decoration-color:var(--line);text-underline-offset:3px}
+    a:focus-visible,button:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    h1,h2,h3{font-family:var(--font-display);font-weight:500;color:var(--ink);text-wrap:balance;margin:0}
+    h1{font-size:clamp(28px,4.4vw,38px);font-style:italic;letter-spacing:-0.01em;line-height:1.15}
+    h2{font-size:21px}
+    code{font-family:var(--font-mono);font-size:.9em}
+
+    header,main,footer{max-width:920px;margin:0 auto;padding-left:24px;padding-right:24px}
+    @media (max-width:520px){header,main,footer{padding-left:16px;padding-right:16px}}
+    header{padding-top:36px}
+    .masthead{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:18px}
+    .brand{display:flex;gap:14px;align-items:center;text-decoration:none;color:inherit}
+    .logo{width:50px;height:50px;border-radius:4px;overflow:hidden;flex-shrink:0;border:1px solid var(--line)}
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    .brand-name{font-family:var(--font-display);font-style:italic;font-size:19px;line-height:1.2}
+    .brand-role{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+    nav{display:flex;gap:2px;flex-wrap:wrap}
+    nav a{font-family:var(--font-mono);font-size:12px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:7px 10px}
+    nav a:hover{color:var(--ink)}
+
+    main{padding-top:8px;padding-bottom:64px}
+    .card{background:var(--card);padding:22px 24px;border-radius:4px;margin-top:20px;border:1px solid var(--line)}
+    @media (max-width:520px){.card{padding:18px 16px}}
+    .section-title{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+    .muted{color:var(--muted)}
+    .lede{color:var(--muted);max-width:68ch;margin:10px 0 0}
+    .small{font-size:13px}
+
+    .toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .live{font-family:var(--font-mono);font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+    .live .dot{width:8px;height:8px;border-radius:50%;background:var(--good);animation:pulse 2s ease-in-out infinite}
+    .live.off .dot{background:var(--muted);animation:none}
+    .live.err .dot{background:var(--bad);animation:none}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .seg{display:inline-flex;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+    .seg button{font-family:var(--font-mono);font-size:12px;background:var(--bg);color:var(--muted);border:none;padding:6px 12px;cursor:pointer}
+    .seg button+button{border-left:1px solid var(--line)}
+    .seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+
+    /* Link builder */
+    .builder{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    @media (max-width:760px){.builder{grid-template-columns:repeat(2,1fr)}}
+    .builder label{display:flex;flex-direction:column;gap:4px;font-family:var(--font-mono);font-size:11px;letter-spacing:.04em;color:var(--muted);min-width:0}
+    .builder select{font-family:var(--font-mono);font-size:12px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:3px;padding:7px 8px;width:100%;min-width:0}
+    .url{margin-top:14px;font-family:var(--font-mono);font-size:12px;line-height:1.7;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:10px 12px;word-break:break-all}
+    .url .p{border-radius:2px;padding:1px 3px}
+    .url .p.src{background:rgba(20,128,90,.14)} .url .p.med{background:rgba(192,120,26,.16)}
+    .url .p.cmp{background:rgba(62,111,198,.15)} .url .p.cnt{background:rgba(138,91,191,.15)}
+    .url .p.bad{background:rgba(178,58,58,.16)}
+    .check{margin-top:8px;font-size:13px}
+    .check.ok{color:var(--good)} .check.no{color:var(--bad)}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+    .btn{font-family:var(--font-mono);font-size:12px;letter-spacing:.03em;text-transform:uppercase;text-decoration:none;padding:9px 14px;border-radius:3px;border:1px solid var(--line);color:var(--accent);background:var(--bg);cursor:pointer}
+    .btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+    .btn:hover{border-color:var(--accent)}
+
+    /* KPIs */
+    .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+    @media (max-width:760px){.tiles{grid-template-columns:repeat(2,1fr)}}
+    .tile{border:1px solid var(--line);border-radius:4px;padding:10px 12px;background:var(--bg);min-width:0}
+    .tile .k{font-size:12px;color:var(--muted);line-height:1.35}
+    .tile .v{font-family:var(--font-display);font-size:28px;line-height:1.2;margin-top:4px}
+    .tile .d{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
+
+    /* Breakdown */
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media (max-width:760px){.two{grid-template-columns:1fr}}
+    .rows{display:grid;grid-template-columns:140px 1fr;gap:6px 12px;align-items:center;font-size:13px}
+    .rows>*{min-width:0}
+    .cell{display:flex;align-items:center;gap:8px;min-height:22px}
+    .bar{height:10px;border-radius:0 4px 4px 0;background:var(--accent);flex:none;min-width:2px}
+    .val{font-family:var(--font-mono);font-size:11px;color:var(--muted);white-space:nowrap}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+    th{font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+    td.n,th.n{text-align:right;font-family:var(--font-mono)}
+    td.mono{font-family:var(--font-mono);font-size:12px;word-break:break-word}
+    .empty{color:var(--muted);font-size:13px;padding:8px 0}
+
+    /* Journeys */
+    .feed{display:flex;flex-direction:column;gap:10px}
+    .sess{border:1px solid var(--line);border-left:3px solid var(--line);border-radius:4px;padding:10px 12px;background:var(--bg)}
+    .sess.you{border-left-color:var(--brass)}
+    .sess.conv{border-left-color:var(--accent)}
+    .sess.fresh{animation:flash 1.6s ease}
+    @keyframes flash{from{background:var(--glass);box-shadow:0 0 0 2px var(--accent)}to{box-shadow:none}}
+    .sess-head{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;font-size:12px;color:var(--muted)}
+    .sess-head .who{font-family:var(--font-mono);color:var(--ink);font-weight:600}
+    .badge{font-family:var(--font-mono);font-size:10px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);border-radius:2px;padding:1px 5px;color:var(--muted)}
+    .badge.you{border-color:var(--brass);color:var(--brass)}
+    .badge.ok{border-color:var(--good);color:var(--good)}
+    .badge.bad{border-color:var(--bad);color:var(--bad)}
+    .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .chip{font-family:var(--font-mono);font-size:11px;background:var(--card);border:1px solid var(--line);border-radius:3px;padding:2px 6px;color:var(--ink);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .chip i{font-style:normal;color:var(--muted)}
+    .path{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;margin-top:8px;font-size:12px;list-style:none;padding:0}
+    .path li{display:inline-flex;align-items:center;gap:6px}
+    .path li:not(:last-child)::after{content:'→';color:var(--muted)}
+    .path span{padding:2px 6px;border-radius:3px;background:var(--card);border:1px solid var(--line)}
+    .path .conversion span{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+    .path .engage span,.path .outbound span{border-style:dashed}
+    .issues{font-size:12px;color:var(--bad);margin-top:6px}
+
+    .vocab{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media (max-width:760px){.vocab{grid-template-columns:1fr}}
+    .rule-list{margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.7}
+    .anatomy{display:flex;flex-wrap:wrap;gap:4px;font-family:var(--font-mono);font-size:13px;margin:8px 0}
+    .anatomy span{padding:4px 8px;border-radius:3px;background:var(--glass);border:1px solid var(--line);text-align:center}
+    .anatomy small{display:block;font-size:10px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+
+    footer{margin-top:44px;margin-bottom:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;font-family:var(--font-mono)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="masthead">
+      <a class="brand" href="/">
+        <div class="logo"><img src="headshot.jpg" alt="Christopher Neale photo"></div>
+        <div>
+          <div class="brand-name">Christopher Neale</div>
+          <div class="brand-role">Data Science &amp; Applied AI Leader</div>
+        </div>
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#/projects">Projects</a>
+        <a href="/#/project/utm-journeys">Case study</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="section-title" style="margin:0 0 10px;padding:0;border:none">Live dashboard</div>
+      <h1>UTM Journey Tracker</h1>
+      <p class="lede">Every visit to this site is captured with its UTM parameters, checked against a written UTM taxonomy, and stitched into a session journey. This page reads the live event table every few seconds. Nothing here is sample data.</p>
+      <div class="toolbar">
+        <span class="live" id="live"><span class="dot"></span><span id="live-text">Connecting…</span></span>
+        <div class="seg" role="group" aria-label="Time range">
+          <button type="button" data-range="24h" aria-pressed="false">24 hours</button>
+          <button type="button" data-range="7d" aria-pressed="true">7 days</button>
+          <button type="button" data-range="30d" aria-pressed="false">30 days</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">Try it: build a tagged link</div>
+      <p class="muted small" style="margin:0 0 14px;max-width:68ch">Pick values from the taxonomy and open the link. It starts a new session in a new tab, and that session shows up in the feed below within a few seconds, marked <b>You</b>. Then try the messy link to see how off-taxonomy tags get flagged.</p>
+      <div class="builder">
+        <label>utm_source<select id="b-source"></select></label>
+        <label>utm_medium<select id="b-medium"></select></label>
+        <label>utm_campaign<select id="b-campaign"></select></label>
+        <label>utm_content<select id="b-content"></select></label>
+        <label>Landing page<select id="b-page">
+          <option value="/">Home</option>
+          <option value="/#/projects">Projects</option>
+          <option value="/#/resume">Resume</option>
+        </select></label>
+      </div>
+      <div class="url" id="b-url" aria-live="polite"></div>
+      <div class="check" id="b-check"></div>
+      <div class="actions">
+        <a class="btn primary" id="b-open" href="/" target="_blank" rel="noopener">Open tagged link</a>
+        <button class="btn" type="button" id="b-copy">Copy link</button>
+        <button class="btn" type="button" id="b-messy">Try a messy link</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">Summary</div>
+      <div class="tiles" id="tiles"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">Visitor journeys, newest first</div>
+      <div class="feed" id="feed"><div class="empty">Loading…</div></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">Where sessions come from</div>
+      <div class="two">
+        <div>
+          <h2 style="font-size:16px;font-family:var(--font-body);font-weight:600;margin-bottom:10px">Sessions by channel</h2>
+          <div class="rows" id="channels"></div>
+          <p class="muted small" style="margin:10px 0 0">Channel comes from the ad click ID first, then utm_medium, then the referrer. Untagged visits with no referrer are Direct.</p>
+        </div>
+        <div>
+          <h2 style="font-size:16px;font-family:var(--font-body);font-weight:600;margin-bottom:10px">Source / medium</h2>
+          <div id="sourcemed"></div>
+          <h2 style="font-size:16px;font-family:var(--font-body);font-weight:600;margin:18px 0 10px">Campaigns</h2>
+          <div id="campaigns"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">Tag quality</div>
+      <p class="muted small" style="margin:0 0 10px;max-width:68ch">Tags are stored exactly as they arrive and checked at read time. A bad tag is flagged, not dropped, so fixing the taxonomy re-classifies old traffic instead of losing it.</p>
+      <div id="issues"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">The taxonomy</div>
+      <p class="muted small" style="margin:0 0 6px;max-width:68ch">Every campaign name breaks into the same four parts, so a report can group by quarter or objective without a lookup table:</p>
+      <div class="anatomy">
+        <span>2026<small>year</small></span><span>q4<small>quarter</small></span><span>_awareness<small>objective</small></span><span>_portfolio_launch<small>descriptor</small></span>
+      </div>
+      <div class="vocab" id="vocab"></div>
+      <h2 style="font-size:16px;font-family:var(--font-body);font-weight:600;margin:20px 0 8px">Rules</h2>
+      <ul class="rule-list" id="rules"></ul>
+      <ul class="rule-list">
+        <li>Internal links are never tagged. A UTM on an internal link would start a new attribution touch and erase the real source.</li>
+        <li>No personal data in UTMs: no names, emails, or IDs. They end up in URLs, logs, and screenshots.</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Christopher Neale — Raleigh, NC · First-party analytics only: no ad pixels, no cookies, no IP storage. Global Privacy Control is honored.</div>
+  </footer>
+
+  <script>
+    const POLL_MS = 5000
+    let range = '7d'
+    let taxonomy = null
+    let seen = null
+    let lastOk = null
+    let timer = null
+
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))
+    const pct = (a, b) => b ? Math.round(a / b * 100) + '%' : '—'
+    const ISSUE_TEXT = {}
+
+    function myId(){
+      try { return localStorage.getItem('st_aid') || '' } catch(e) { return '' }
+    }
+
+    function ago(iso){
+      const s = Math.max(0, Math.round((Date.now() - new Date(iso)) / 1000))
+      if (s < 60) return s + 's ago'
+      if (s < 3600) return Math.round(s / 60) + 'm ago'
+      if (s < 86400) return Math.round(s / 3600) + 'h ago'
+      return Math.round(s / 86400) + 'd ago'
+    }
+
+    // --- Live status ---
+    function setLive(state, text){
+      const el = document.getElementById('live')
+      el.className = 'live' + (state === 'ok' ? '' : ' ' + state)
+      document.getElementById('live-text').textContent = text
+    }
+    setInterval(() => {
+      if (lastOk && !document.hidden) setLive('ok', 'Live · updated ' + ago(lastOk))
+    }, 1000)
+
+    // --- Data ---
+    async function load(){
+      clearTimeout(timer)
+      try {
+        const me = myId()
+        const res = await fetch(`/api/journeys?range=${range}${me ? '&me=' + encodeURIComponent(me) : ''}`, {cache: 'no-store'})
+        const data = await res.json().catch(() => ({}))
+        if (data.taxonomy && !taxonomy) initTaxonomy(data.taxonomy)
+        if (!res.ok) throw new Error(data.error || 'Request failed')
+        lastOk = new Date().toISOString()
+        setLive('ok', 'Live · updated just now')
+        render(data)
+      } catch (err) {
+        setLive('err', 'Live data unavailable: ' + err.message)
+        if (!seen) document.getElementById('feed').innerHTML = '<div class="empty">The event table could not be reached. Try again in a minute.</div>'
+      }
+      if (!document.hidden) timer = setTimeout(load, POLL_MS)
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) { clearTimeout(timer); setLive('off', 'Paused while this tab is hidden') }
+      else load()
+    })
+
+    document.querySelectorAll('[data-range]').forEach(b => b.addEventListener('click', () => {
+      range = b.dataset.range
+      document.querySelectorAll('[data-range]').forEach(x => x.setAttribute('aria-pressed', String(x === b)))
+      seen = null
+      load()
+    }))
+
+    // --- Render ---
+    function render(d){
+      const s = d.summary
+      document.getElementById('tiles').innerHTML = [
+        ['Sessions', s.sessions, `${s.visitors} visitors`],
+        ['Tagged', pct(s.tagged_sessions, s.sessions), `${s.tagged_sessions} sessions with UTMs`],
+        ['Follow the taxonomy', pct(s.valid_sessions, s.tagged_sessions), `${s.valid_sessions} of ${s.tagged_sessions} tagged`],
+        ['Converted', pct(s.converted_sessions, s.sessions), `${s.converted_sessions} sessions clicked contact`],
+        ['Pages per session', s.pages_per_session, 'average'],
+      ].map(([k, v, dd]) => `<div class="tile"><div class="k">${k}</div><div class="v">${esc(v)}</div><div class="d">${esc(dd)}</div></div>`).join('')
+
+      renderFeed(d.sessions, d.truncated)
+
+      const max = Math.max(1, ...s.by_channel.map(r => r.sessions))
+      document.getElementById('channels').innerHTML = s.by_channel.length ? s.by_channel.map(r => `
+        <div>${esc(r.key)}</div>
+        <div class="cell"><div class="bar" style="width:${(r.sessions / max * 72).toFixed(1)}%"></div><span class="val">${r.sessions} · ${r.conversions} conv.</span></div>`).join('')
+        : '<div class="empty">No sessions in this range yet.</div>'
+
+      const table = (rows, label) => rows.length ? `<table><thead><tr><th>${label}</th><th class="n">Sessions</th><th class="n">Conv.</th></tr></thead><tbody>${
+        rows.map(r => `<tr><td class="mono">${esc(r.key)}</td><td class="n">${r.sessions}</td><td class="n">${r.conversions}</td></tr>`).join('')}</tbody></table>`
+        : '<div class="empty">No tagged sessions in this range.</div>'
+      document.getElementById('sourcemed').innerHTML = table(s.by_source_medium, 'source / medium')
+      document.getElementById('campaigns').innerHTML = table(s.by_campaign, 'utm_campaign')
+
+      const issues = Object.entries(s.issues).sort((a, b) => b[1] - a[1])
+      document.getElementById('issues').innerHTML = issues.length
+        ? `<table><thead><tr><th>Rule broken</th><th class="n">Sessions</th></tr></thead><tbody>${
+            issues.map(([code, n]) => `<tr><td>${esc(ISSUE_TEXT[code] || code)}</td><td class="n">${n}</td></tr>`).join('')}</tbody></table>`
+        : `<div class="empty">${s.tagged_sessions ? 'Every tagged session in this range follows the taxonomy.' : 'No tagged sessions in this range yet. The messy link above will add one.'}</div>`
+    }
+
+    function renderFeed(sessions, truncated){
+      const fresh = seen ? sessions.filter(x => !seen.has(x.id + x.last_at)).map(x => x.id) : []
+      seen = new Set(sessions.map(x => x.id + x.last_at))
+      const feed = document.getElementById('feed')
+      if (!sessions.length) {
+        feed.innerHTML = '<div class="empty">No sessions in this range yet. Open a tagged link above to create one.</div>'
+        return
+      }
+      feed.innerHTML = sessions.map(x => {
+        const t = x.touch
+        const chips = [
+          ['source', t.source], ['medium', t.medium], ['campaign', t.campaign], ['content', t.content],
+          ['referrer', !t.source ? t.referrer : null], ['ad click', t.ad_click],
+        ].filter(c => c[1]).map(([k, v]) => `<span class="chip"><i>${k}</i> ${esc(v)}</span>`).join('')
+        const q = x.quality.status === 'valid' ? '<span class="badge ok">Follows taxonomy</span>'
+          : x.quality.status === 'invalid' ? '<span class="badge bad">Tag issues</span>' : ''
+        const steps = x.steps.map(st => `<li class="${st.kind}"><span>${esc(st.label)}</span></li>`).join('')
+          + (x.more_steps ? `<li><span>+${x.more_steps} more</span></li>` : '')
+        const cls = ['sess', x.is_you ? 'you' : '', x.converted ? 'conv' : '', fresh.includes(x.id) ? 'fresh' : ''].join(' ')
+        return `
+          <article class="${cls}">
+            <div class="sess-head">
+              <span class="who">${esc(x.visitor)}</span>
+              ${x.is_you ? '<span class="badge you">You</span>' : ''}
+              ${x.returning ? '<span class="badge">Returning</span>' : '<span class="badge">New</span>'}
+              <span>${esc(x.channel)}</span>
+              <span>· ${ago(x.last_at)}</span>
+              ${q}
+            </div>
+            ${chips ? `<div class="chips">${chips}</div>` : ''}
+            <ol class="path">${steps}</ol>
+            ${x.quality.issues.length ? `<div class="issues">${x.quality.issues.map(c => esc(ISSUE_TEXT[c] || c)).join(' ')}</div>` : ''}
+          </article>`
+      }).join('') + (truncated ? '<div class="empty">Showing the most recent events only.</div>' : '')
+    }
+
+    // --- Taxonomy + link builder ---
+    function initTaxonomy(tx){
+      taxonomy = tx
+      tx.RULES.forEach(r => { ISSUE_TEXT[r.code] = r.text })
+      document.getElementById('rules').innerHTML = tx.RULES
+        .filter((r, i, all) => all.findIndex(o => o.text === r.text) === i)
+        .map(r => `<li>${esc(r.text)}</li>`).join('')
+
+      const srcRows = Object.entries(tx.SOURCES).map(([k, v]) => `<tr><td class="mono">${k}</td><td class="mono">${v.mediums.join(', ')}</td></tr>`).join('')
+      const medRows = Object.entries(tx.MEDIUMS).map(([k, v]) => `<tr><td class="mono">${k}</td><td>${esc(v.label)}</td><td>${esc(v.channel)}</td></tr>`).join('')
+      const cmpRows = Object.entries(tx.CAMPAIGNS).map(([k, v]) => `<tr><td class="mono">${k}</td><td>${esc(v)}</td></tr>`).join('')
+      const cntRows = Object.entries(tx.CONTENTS).map(([k, v]) => `<tr><td class="mono">${k}</td><td>${esc(v)}</td></tr>`).join('')
+      document.getElementById('vocab').innerHTML = `
+        <div><table><thead><tr><th>utm_source</th><th>allowed mediums</th></tr></thead><tbody>${srcRows}</tbody></table></div>
+        <div><table><thead><tr><th>utm_medium</th><th>meaning</th><th>channel</th></tr></thead><tbody>${medRows}</tbody></table></div>
+        <div><table><thead><tr><th>registered utm_campaign</th><th>purpose</th></tr></thead><tbody>${cmpRows}</tbody></table></div>
+        <div><table><thead><tr><th>utm_content</th><th>creative</th></tr></thead><tbody>${cntRows}</tbody></table></div>`
+
+      const opts = (el, entries, selected) => {
+        el.innerHTML = entries.map(([v, label]) => `<option value="${esc(v)}"${v === selected ? ' selected' : ''}>${esc(label)}</option>`).join('')
+      }
+      const $ = id => document.getElementById(id)
+      opts($('b-source'), Object.keys(tx.SOURCES).map(k => [k, k]), 'linkedin')
+      opts($('b-campaign'), Object.keys(tx.CAMPAIGNS).map(k => [k, k]), '2026q4_awareness_utm_lab_demo')
+      opts($('b-content'), Object.keys(tx.CONTENTS).map(k => [k, k]), 'text_link')
+      const syncMedium = () => {
+        const allowed = tx.SOURCES[$('b-source').value].mediums
+        opts($('b-medium'), allowed.map(k => [k, k]), allowed.includes($('b-medium').value) ? $('b-medium').value : allowed[allowed.length - 1])
+      }
+      syncMedium()
+      $('b-source').addEventListener('change', () => { syncMedium(); buildLink() })
+      ;['b-medium', 'b-campaign', 'b-content', 'b-page'].forEach(id => $(id).addEventListener('change', () => buildLink()))
+      $('b-messy').addEventListener('click', () => buildLink({
+        utm_source: 'Facebook', utm_medium: 'social', utm_campaign: 'Fall Promo', utm_content: 'cta_button',
+      }))
+      $('b-copy').addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText($('b-open').href); $('b-copy').textContent = 'Copied' }
+        catch(e) { $('b-copy').textContent = 'Copy failed' }
+        setTimeout(() => { $('b-copy').textContent = 'Copy link' }, 1500)
+      })
+      buildLink()
+    }
+
+    function buildLink(override){
+      const $ = id => document.getElementById(id)
+      const params = override || {
+        utm_source: $('b-source').value, utm_medium: $('b-medium').value,
+        utm_campaign: $('b-campaign').value, utm_content: $('b-content').value,
+      }
+      const page = $('b-page').value
+      const hash = page.includes('#') ? page.slice(page.indexOf('#')) : ''
+      const qs = new URLSearchParams(params).toString()
+      const href = `${location.origin}/?${qs}${hash}`
+      $('b-open').href = href
+
+      const cls = {utm_source: 'src', utm_medium: 'med', utm_campaign: 'cmp', utm_content: 'cnt'}
+      const issues = checkLocal(params)
+      $('b-url').innerHTML = esc(location.origin + '/?') + Object.entries(params).map(([k, v]) =>
+        `<span class="p ${override ? 'bad' : cls[k]}">${esc(k)}=${esc(encodeURIComponent(v))}</span>`).join('&amp;') + esc(hash)
+      const chk = $('b-check')
+      chk.className = 'check ' + (issues.length ? 'no' : 'ok')
+      chk.textContent = issues.length
+        ? 'Breaks the taxonomy: ' + issues.map(c => ISSUE_TEXT[c]).join(' ')
+        : 'Follows the taxonomy. Every value comes from the controlled lists.'
+    }
+
+    // Browser copy of the server's check, used only to preview the builder's link.
+    function checkLocal(p){
+      const tx = taxonomy, out = []
+      const n = v => String(v).trim().toLowerCase().replace(/[\s-]+/g, '_')
+      if (Object.values(p).some(v => n(v) !== v)) out.push('case')
+      const s = n(p.utm_source), m = n(p.utm_medium), c = n(p.utm_campaign)
+      if (!tx.SOURCES[s]) out.push('unknown_source')
+      if (!tx.MEDIUMS[m]) out.push('unknown_medium')
+      if (tx.SOURCES[s] && tx.MEDIUMS[m] && !tx.SOURCES[s].mediums.includes(m)) out.push('pair')
+      if (!new RegExp(tx.CAMPAIGN_PATTERN).test(c)) out.push('campaign_pattern')
+      else if (!tx.CAMPAIGNS[c]) out.push('campaign_unregistered')
+      return out
+    }
+
+    load()
+  </script>
+  <script src="/track.js" defer></script>
+</body>
+</html>

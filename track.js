@@ -1,5 +1,5 @@
 // First-party event tracking for this site — the client half of the
-// "Attribution Lab" case study (see #/project/attribution and api/track.js).
+// UTM Journey Tracker (see #/project/utm-journeys, api/track.js, and journeys.html).
 //
 // What it does:
 //   - Captures UTM params and ad-platform click IDs on landing, keeps a

@@ -21,17 +21,17 @@
       "evidence": "Ran multi-touch attribution modeling at TRANZACT. At flyExclusive I redesigned the attribution framework that connects marketing activity to acquisition, retention, and high-value segments. On this site I built the full chain: UTM and click-ID capture, session-level touch persistence, and first-touch, last-touch, and linear credit computed in SQL over a 30-day lookback.",
       "strength": "direct",
       "proof": {
-        "label": "Attribution Lab case study",
+        "label": "Attribution to ad spend",
         "href": "/#/project/attribution"
       }
     },
     {
       "need": "Keep conversion events and naming consistent across product, CRM, and ad platforms",
-      "evidence": "Led flyExclusive's CRM transformation: HubSpot governance, deduplication workflows, and Master Data Management. The Attribution Lab enforces this in code: one event taxonomy (snake_case, object_action) that ingestion validates against, and one SQL channel definition that every report reads from.",
+      "evidence": "Led flyExclusive's CRM transformation: HubSpot governance, deduplication workflows, and Master Data Management. This site enforces it in code: one event taxonomy (snake_case, object_action) that ingestion validates against, a UTM taxonomy checked on every landing, and one channel definition that every report reads from.",
       "strength": "direct",
       "proof": {
-        "label": "Event taxonomy",
-        "href": "/#/project/attribution"
+        "label": "UTM taxonomy, live",
+        "href": "/#/project/utm-journeys"
       }
     },
     {
@@ -45,7 +45,7 @@
       "evidence": "At flyExclusive I set up offline conversion uploads that send downstream CRM outcomes (qualified leads and sales that happen after the website visit) back to the ad platforms, so bidding optimizes on business results, not form fills. I also built the lead-scoring model that ranks high-value accounts, which is the kind of value signal value-based bidding needs.",
       "strength": "direct",
       "proof": {
-        "label": "Payload layer on this site",
+        "label": "Closing the loop",
         "href": "/#/project/attribution"
       }
     },
@@ -55,16 +55,16 @@
       "strength": "direct",
       "proof": {
         "label": "How it works underneath",
-        "href": "/#/project/attribution"
+        "href": "/#/project/utm-journeys"
       }
     },
     {
       "need": "Privacy-safe tracking: Consent Mode, CMP integrations",
-      "evidence": "Consent is a first-class field in the Attribution Lab. Global Privacy Control and Do Not Track drop ad click IDs at capture. The server refuses to store them without consent, and exports only include consented conversions. No IP addresses, user agents, or fingerprinting are stored.",
+      "evidence": "Consent is a first-class field in this site's tracking. Global Privacy Control and Do Not Track drop ad click IDs at capture. The server refuses to store them without consent, and exports only include consented conversions. No IP addresses, user agents, or fingerprinting are stored.",
       "strength": "adjacent",
       "proof": {
         "label": "Privacy design",
-        "href": "/#/project/attribution"
+        "href": "/#/project/utm-journeys"
       }
     },
     {
@@ -78,7 +78,7 @@
     },
     {
       "need": "Debug attribution discrepancies across ad platforms, CRM, and warehouse",
-      "evidence": "Most discrepancies trace back to identity and definitions: duplicate records, mismatched conversion definitions, and different lookback windows. Deduplication and MDM were the core of the flyExclusive CRM work. The Attribution Lab includes a data-quality view for this: orphan conversions, untagged landing share, opt-out share, and ingest lag.",
+      "evidence": "Most discrepancies trace back to identity and definitions: duplicate records, mismatched conversion definitions, and different lookback windows. Deduplication and MDM were the core of the flyExclusive CRM work. This site's tracker includes a tag-quality report for this: every landing is checked against the UTM taxonomy and failures are counted by rule.",
       "strength": "direct",
       "proof": null
     },
@@ -115,9 +115,14 @@
   ],
   "featured": [
     {
-      "title": "Attribution Lab — built for this kind of role",
-      "blurb": "First-party tracking on this site, end to end: UTM and click-ID capture, an event taxonomy enforced at ingestion, first-touch, last-touch, and linear attribution in SQL, data-quality checks, and consent-gated offline-conversion payloads for Google Ads, Meta, TikTok, and LinkedIn.",
+      "title": "From Attribution to Ad Spend",
+      "blurb": "How I turn overlapping platform credit into a budget decision: count conversions once, compare attribution models, calibrate with lift tests, and reallocate on the cost of the next incremental customer. Includes an interactive budget model.",
       "href": "/#/project/attribution"
+    },
+    {
+      "title": "UTM Journey Tracker — live",
+      "blurb": "A UTM taxonomy enforced in code and a real-time dashboard of visitor journeys on this site: landing touch, pages, conversions, channel grouping, and tag-quality checks.",
+      "href": "/#/project/utm-journeys"
     },
     {
       "title": "PodFlow — data pipeline into Postgres",

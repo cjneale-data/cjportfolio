@@ -123,14 +123,20 @@ Rules for editing:
 
 ## Projects
 
-### Attribution Lab — first-party growth tracking on this portfolio site (2026)
-- Built this site's own marketing-measurement stack end to end.
-- A first-party tracker captures UTM parameters and ad click IDs (gclid, gbraid, wbraid, fbclid, ttclid, li_fat_id, msclkid) and builds Meta's fbc value at landing.
-- A server-side endpoint validates every event against one event taxonomy (snake_case object_action names), keeps only declared properties, filters bots, and dedupes on a client-generated event_id before writing to Postgres (Neon).
-- Computes first-touch, last-touch, and linear attribution by channel in SQL with window functions over a 30-day lookback, plus per-campaign and data-quality views (orphan conversions, untagged traffic share, consent opt-out share, ingest lag).
-- Builds consent-gated, dry-run offline-conversion payloads for Google Ads (click conversions), Meta CAPI, the TikTok Events API, and LinkedIn CAPI.
-- Honors Global Privacy Control and Do Not Track; stores no IPs or cookies.
-- Case study: the "Attribution Lab" page under Projects on the portfolio.
+### From Attribution to Ad Spend — worked framework on the portfolio site (2026)
+- A case study showing how he connects marketing attribution to budget decisions, worked through on an illustrative example (a hypothetical subscription brand spending $100k a month across five paid channels). The numbers are made up; the method is how he works.
+- Five steps: define one conversion and its value (revenue or predicted LTV, not sign-ups); unify the data so conversions are counted once with one channel definition built on a UTM taxonomy; compare first-touch, last-touch, linear, and position-based attribution side by side; calibrate with lift tests (geo holdouts, conversion-lift studies, ghost-ad holdouts) to measure each channel's incremental effect; reallocate budget toward the lowest marginal cost per incremental customer using diminishing-returns curves, in capped monthly steps.
+- Shows why platform dashboards over-count (each platform claims every conversion it touched), and how last-touch over-credits brand search and retargeting while under-crediting demand-creating channels like paid social.
+- Includes an interactive budget model: pick an attribution model and see the budget it recommends and how many incremental customers that plan gains or loses.
+- Case study: "From Attribution to Ad Spend" under Projects on the portfolio.
+
+### UTM Journey Tracker — live on the portfolio site (2026)
+- A UTM taxonomy written as code: controlled lists of sources and mediums, allowed source/medium pairs, a campaign naming pattern ({year}{quarter}_{objective}_{descriptor}), a campaign registry, and a creative list for utm_content.
+- A first-party tracker captures UTMs, ad click IDs, and referrer on landing and keeps the touch for the session. A server-side endpoint validates event names, filters bots, and dedupes on a client-generated event_id before writing to Postgres (Neon).
+- Every landing is checked against the taxonomy at read time; bad tags are flagged and counted by rule rather than dropped. One channel grouping (click ID, then utm_medium, then referrer) is used by every view.
+- A public real-time dashboard shows sessions stitched into visitor journeys (landing touch, pages, conversion), channel and source/medium breakdowns, and a tag-quality report. Visitors can build a tagged link and watch their own session appear.
+- Privacy: honors Global Privacy Control and Do Not Track; no cookies, IP addresses, or fingerprinting; the public dashboard shows only taxonomy values and hashed visitor IDs.
+- Live dashboard: the "Live Journeys" link in the site nav.
 
 ### PodFlow — content intelligence pipeline (M.S. capstone, Eastern University, 2025)
 - Full audio-to-insight pipeline built solo: RSS ingestion into Postgres, transcription with faster-Whisper, and automatic chapter segmentation via a CNN-BiLSTM model he trained (benchmarked against XGBoost, focal loss for class imbalance).

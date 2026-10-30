@@ -13,7 +13,7 @@
       --bg:#F5F6F2; --card:#FFFFFF; --ink:#17201B; --muted:#57635A;
       --accent:#2C5C4C; --on-accent:#FFFFFF; --brass:#A67C3D; --line:#DCE0D8;
       --glass:rgba(44,92,76,0.05);
-      --s1:#14805A; --s2:#C0781A; --s3:#3E6FC6;
+      --s1:#14805A; --s2:#C0781A; --s3:#3E6FC6; --s4:#8A5BBF; --s5:#B5475F; --loss:#B23A3A;
       --font-display:'Newsreader',Georgia,serif;
       --font-body:'IBM Plex Sans',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
       --font-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
@@ -23,7 +23,7 @@
         --bg:#12160F; --card:#181D15; --ink:#E9ECE4; --muted:#9AA592;
         --accent:#6FB39A; --on-accent:#0C1310; --brass:#D3A968; --line:#2A322A;
         --glass:rgba(111,179,154,0.08);
-        --s1:#3FA37E; --s2:#C27E22; --s3:#5E8EE0;
+        --s1:#3FA37E; --s2:#C27E22; --s3:#5E8EE0; --s4:#9C7AD6; --s5:#D0607A; --loss:#E07A7A;
       }
     }
     *{box-sizing:border-box}
@@ -149,13 +149,26 @@
     .viz-tile .k{font-size:12px;color:var(--muted);line-height:1.35}
     .viz-tile .v{font-family:var(--font-display);font-size:26px;color:var(--ink);line-height:1.2;margin-top:4px}
     .viz-tile .d{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
+    .viz-journey.six{grid-template-columns:repeat(6,1fr)}
+    .viz-pair .viz-cell{min-height:18px}
+    .viz-pair .lbl{padding-top:2px}
+    .viz-tabs{display:flex;flex-wrap:wrap;gap:6px}
+    .viz-tab{font-family:var(--font-mono);font-size:12px;background:var(--bg);color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:6px 10px;cursor:pointer}
+    .viz-tab:hover{border-color:var(--accent);color:var(--ink)}
+    .viz-tab[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+    .viz-swatch{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px;vertical-align:0}
+    .viz-table td.loss{color:var(--loss);font-weight:600}
+    .viz-table td.loss::after{content:' ▲';font-size:9px}
+    .viz-table td.chg.up{color:var(--accent)}
+    .viz-table td.chg.down{color:var(--muted)}
+    .viz-table-wrap{overflow-x:auto}
     .viz-tip{position:fixed;z-index:20;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;line-height:1.4;padding:6px 9px;border-radius:4px;max-width:240px;opacity:0;transition:opacity .1s}
     @media (max-width:640px){
       .viz-flow{grid-template-columns:1fr}
       .viz-flow li:not(:last-child)::after{content:'↓';right:50%;top:auto;bottom:-8px;transform:translate(50%,50%)}
       .viz-rows{grid-template-columns:1fr;gap:2px}
       .viz-rows .lbl{margin-top:8px}
-      .viz-journey{grid-template-columns:repeat(2,1fr)}
+      .viz-journey,.viz-journey.six{grid-template-columns:repeat(2,1fr)}
       .viz-models{grid-template-columns:repeat(3,1fr)}
       .viz-models .ch{grid-column:1/-1;margin-top:8px}
       .viz-models .corner{display:none}
@@ -178,6 +191,7 @@
         <a href="#/resume" data-link>Resume</a>
         <a href="#/projects" data-link>Projects</a>
         <a href="player.html">Pod Flow App</a>
+        <a href="journeys.html">Live Journeys</a>
         <a href="https://chefai-noemgucqmarbfwe2euwdsl.streamlit.app/" target="_blank" rel="noopener">ChefAI</a>
       </nav>
     </div>
@@ -201,6 +215,7 @@
       '/project/resume-chat': renderChatCase,
       '/project/chefai': renderChefAICase,
       '/project/attribution': renderAttributionCase,
+      '/project/utm-journeys': renderUtmCase,
       '/project/tensorfit': renderTensorfitCase,
       '/project/mushroom-classifier': renderMushroomCase,
     }
@@ -397,11 +412,21 @@
               'Live public demo',
               '#/project/chefai'
             )}
+          </div>
+
+          <div class="section-title" style="margin-top:22px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em">Marketing Analytics</div>
+          <div style="display:grid;gap:12px;margin-top:10px">
             ${projectCard(
-              'Attribution Lab — First-Party Growth Tracking',
-              'This site\'s own tracking stack: UTM and click-ID capture, an enforced event taxonomy, first/last/linear attribution in SQL, data-quality checks, and consent-gated conversion payloads for Google Ads, Meta, TikTok, and LinkedIn.',
-              'Live on this site',
+              'From Attribution to Ad Spend',
+              'A worked framework for turning overlapping platform credit into a budget decision: dedupe, compare attribution models, calibrate with lift tests, and reallocate on the cost of the next incremental customer. Includes an interactive budget model.',
+              'Worked example, illustrative data',
               '#/project/attribution'
+            )}
+            ${projectCard(
+              'UTM Journey Tracker',
+              'A UTM taxonomy enforced in code, plus a real-time dashboard of visitor journeys on this site: landing touch, pages, conversions, channel grouping, and tag-quality checks. Build a tagged link and watch your own session appear.',
+              'Live on this site',
+              '#/project/utm-journeys'
             )}
           </div>
 
@@ -428,7 +453,7 @@
       `
     }
 
-    function caseStudy({title, subtitle, problem, visuals, architecture, tradeoffs, stack, status, link}){
+    function caseStudy({title, subtitle, problem, visuals, approachTitle, architecture, tradeoffs, stack, status, link}){
       const archItems = architecture.map(i => `<li>${i}</li>`).join('')
       const tradeoffItems = tradeoffs.map(i => `<li>${i}</li>`).join('')
       return `
@@ -443,7 +468,7 @@ ${visuals ? `
           <div class="section-title" style="margin-top:18px">How it works, in pictures</div>
           ${visuals}
 ` : ''}
-          <div class="section-title" style="margin-top:26px">Architecture</div>
+          <div class="section-title" style="margin-top:26px">${approachTitle || 'Architecture'}</div>
           <ul style="color:var(--muted);margin:0;padding-left:18px;line-height:1.7;max-width:68ch">${archItems}</ul>
 
           <div class="section-title" style="margin-top:18px">Tradeoffs</div>
@@ -527,139 +552,208 @@ ${visuals ? `
       })
     }
 
-    // Illustrative sample data for the Attribution Lab figures. The real numbers
-    // sit behind STATS_TOKEN (campaign names reveal where Chris is applying).
-    const ATTR_SAMPLE = {
-      platforms: [
-        { name: 'Meta Ads Manager', note: '7-day click + 1-day view', n: 74 },
-        { name: 'Google Ads', note: 'includes modeled conversions', n: 61 },
-        { name: 'CRM', note: 'contacts created from the site', n: 52 },
-        { name: 'This pipeline', note: 'deduped on event_id, one channel definition', n: 48, hi: true },
+    // Worked example for the attribution case study. A hypothetical subscription
+    // brand: $100k/month across five paid channels, 1,000 new subscribers a month,
+    // each worth $250 in lifetime value. Made-up numbers, real method.
+    const ATTR = {
+      value: 250,
+      total: 1000,
+      channels: [
+        { key: 'brand',     label: 'Search, brand terms', color: 'var(--s2)', spend: 10000 },
+        { key: 'nonbrand',  label: 'Search, non-brand',   color: 'var(--s3)', spend: 25000 },
+        { key: 'meta',      label: 'Meta ads',            color: 'var(--s1)', spend: 35000 },
+        { key: 'tiktok',    label: 'TikTok ads',          color: 'var(--s5)', spend: 15000 },
+        { key: 'retarget',  label: 'Retargeting display', color: 'var(--s4)', spend: 15000 },
       ],
-      journeyChannels: [
-        { key: 'paid_social', color: 'var(--s1)' },
-        { key: 'organic_search', color: 'var(--s2)' },
-        { key: 'recruiter_link', color: 'var(--s3)' },
-      ],
-      // 48 conversions over 30 days; each model column sums to 48.
+      // Subscribers credited to each paid channel, in channel order. Email and
+      // organic take the rest of the 1,000; they have no media budget to move.
       models: [
-        { channel: 'recruiter_link', first: 9, last: 21, linear: 15.2 },
-        { channel: 'linkedin_organic', first: 12, last: 7, linear: 9.6 },
-        { channel: 'paid_search', first: 6, last: 8, linear: 7.1 },
-        { channel: 'paid_social', first: 11, last: 3, linear: 6.9 },
-        { channel: 'organic_search', first: 5, last: 4, linear: 4.8 },
-        { channel: 'direct', first: 5, last: 5, linear: 4.4 },
+        { key: 'last',     label: 'Last-touch',     plan: 'last-touch plan', credit: [300, 170, 120, 40, 150] },
+        { key: 'first',    label: 'First-touch',    plan: 'first-touch plan', credit: [60, 200, 300, 150, 30] },
+        { key: 'linear',   label: 'Linear',         plan: 'linear plan', credit: [170, 180, 200, 90, 110] },
+        { key: 'position', label: 'Position-based', plan: 'position-based plan', credit: [180, 185, 215, 95, 95] },
+        { key: 'lift',     label: 'Calibrated by lift tests', plan: 'lift-test-calibrated plan', credit: [45, 150, 230, 85, 25] },
       ],
-      campaigns: [
-        { campaign: 'acme-analytics-engineer-3f2a', landings: 14, conversions: 3 },
-        { campaign: 'northwind-growth-data-9c1e', landings: 9, conversions: 2 },
-        { campaign: 'globex-marketing-analytics-b7d0', landings: 6, conversions: 0 },
+      tests: ['Geo holdout on brand terms', 'Geo split test', 'Meta conversion lift study', 'TikTok conversion lift study', 'Ghost-ad holdout'],
+      platforms: [
+        { name: 'Google Ads', note: 'brand + non-brand search', n: 610 },
+        { name: 'Meta Ads Manager', note: '7-day click, 1-day view', n: 520 },
+        { name: 'Retargeting platform', note: 'counts view-throughs', n: 260 },
+        { name: 'TikTok Ads Manager', note: '7-day click, 1-day view', n: 210 },
       ],
     }
 
+    // Budget model: each channel has diminishing returns, subs = k * spend^0.6.
+    // The optimizer equalizes marginal cost per subscriber across channels
+    // (bisection on the shadow price), with no channel moving more than ±40%
+    // in one month, holding total spend fixed.
+    const CURVE = 0.6, GUARDRAIL = 0.4
+    function allocate(credit){
+      const spend = ATTR.channels.map(c => c.spend)
+      const total = spend.reduce((a, b) => a + b)
+      const k = credit.map((v, i) => v / Math.pow(spend[i], CURVE))
+      const at = lambda => k.map((ki, i) => Math.min(spend[i] * (1 + GUARDRAIL),
+        Math.max(spend[i] * (1 - GUARDRAIL), Math.pow(CURVE * ki / lambda, 1 / (1 - CURVE)))))
+      let lo = 1e-6, hi = 100
+      for (let i = 0; i < 100; i++) {
+        const mid = Math.sqrt(lo * hi)
+        if (at(mid).reduce((a, b) => a + b) > total) lo = mid
+        else hi = mid
+      }
+      return at(Math.sqrt(lo * hi)).map(s => Math.round(s / 500) * 500)
+    }
+    // Judge every plan by what the lift tests say each channel really adds.
+    function incrementalSubs(plan){
+      const lift = ATTR.models.find(m => m.key === 'lift').credit
+      return plan.reduce((sum, s, i) => sum + lift[i] / Math.pow(ATTR.channels[i].spend, CURVE) * Math.pow(s, CURVE), 0)
+    }
+
+    const usd = n => '$' + Math.round(n).toLocaleString('en-US')
+
     function attributionVisuals(){
-      const d = ATTR_SAMPLE
-      const bar = (v, max, hi, tip) => `
+      const d = ATTR
+      const bar = (v, max, hi, tip, label) => `
         <div class="viz-cell" data-tip="${tip}">
           <div class="viz-bar${hi ? ' hi' : ''}" style="width:${(v / max * 78).toFixed(1)}%"></div>
-          <span class="viz-val">${v}</span>
+          <span class="viz-val">${label || v}</span>
         </div>`
 
-      const pMax = Math.max(...d.platforms.map(p => p.n))
+      const claimed = d.platforms.reduce((a, p) => a + p.n, 0)
+      const pMax = claimed
       const platforms = d.platforms.map(p => `
         <div class="lbl">${p.name}<small>${p.note}</small></div>
-        ${bar(p.n, pMax, p.hi, `${p.name}: ${p.n} conversions (${p.note})`)}`).join('')
+        ${bar(p.n, pMax, false, `${p.name} reports ${p.n} conversions (${p.note})`)}`).join('') + `
+        <div class="lbl"><b>Sum of platforms</b><small>what a dashboard that adds them up shows</small></div>
+        ${bar(claimed, pMax, false, `Platforms together claim ${claimed}`)}
+        <div class="lbl"><b>New subscribers</b><small>counted once, in the billing system</small></div>
+        ${bar(d.total, pMax, true, `${d.total} subscribers actually signed up`)}`
 
-      const color = Object.fromEntries(d.journeyChannels.map(c => [c.key, c.color]))
-      const legend = d.journeyChannels.map(c => `<span><i style="background:${c.color}"></i>${c.key}</span>`).join('')
-      const seg = (key, pct) => `<span style="background:${color[key]};flex:${pct}" data-tip="${key}: ${pct}% of the credit">${key} ${pct}%</span>`
+      const ch = Object.fromEntries(d.channels.map(c => [c.key, c]))
+      const seg = (key, pct) => `<span style="background:${ch[key].color};flex:${pct}" data-tip="${ch[key].label}: ${pct}% of the credit">${pct}%</span>`
+      const path = ['tiktok', 'meta', 'nonbrand', 'retarget', 'brand']
       const credit = [
-        ['First-touch', seg('paid_social', 100)],
-        ['Last-touch', seg('recruiter_link', 100)],
-        ['Linear', seg('paid_social', 33) + seg('organic_search', 33) + seg('recruiter_link', 33)],
+        ['First-touch', seg('tiktok', 100)],
+        ['Last-touch', seg('brand', 100)],
+        ['Linear', path.map(k => seg(k, 20)).join('')],
+        ['Position-based', seg('tiktok', 40) + seg('meta', 6.7) + seg('nonbrand', 6.7) + seg('retarget', 6.7) + seg('brand', 40)],
       ].map(([m, s]) => `<div class="lbl">${m}</div><div class="viz-stack">${s}</div>`).join('')
+      const legend = path.map(k => `<span><i style="background:${ch[k].color}"></i>${ch[k].label}</span>`).join('')
 
-      const mMax = Math.max(...d.models.flatMap(r => [r.first, r.last, r.linear]))
-      const modelRows = d.models.map(r => `
-        <div class="ch">${r.channel}</div>
-        ${bar(r.first, mMax, true, `${r.channel}, first-touch: ${r.first} conversions`)}
-        ${bar(r.last, mMax, true, `${r.channel}, last-touch: ${r.last} conversions`)}
-        ${bar(r.linear, mMax, true, `${r.channel}, linear: ${r.linear} conversions`)}`).join('')
-      const modelTable = d.models.map(r => `<tr><td>${r.channel}</td><td class="n">${r.first}</td><td class="n">${r.last}</td><td class="n">${r.linear}</td></tr>`).join('')
+      const last = d.models[0].credit, lift = d.models[4].credit
+      const cMax = Math.max(...last, ...lift)
+      const calib = d.channels.map((c, i) => `
+        <div class="lbl">${c.label}<small>${d.tests[i]}</small></div>
+        <div>
+          ${bar(last[i], cMax, false, `${c.label}: last-touch credits ${last[i]} subscribers`, `${last[i]} credited`)}
+          ${bar(lift[i], cMax, true, `${c.label}: the lift test measured ${lift[i]} subscribers that would not have happened without it`, `${lift[i]} incremental`)}
+        </div>`).join('')
 
-      const campaigns = d.campaigns.map(c => `<tr><td style="font-family:var(--font-mono);font-size:12px">${c.campaign}</td><td class="n">${c.landings}</td><td class="n">${c.conversions}</td><td class="n">${Math.round(c.conversions / c.landings * 100)}%</td></tr>`).join('')
+      const tabs = d.models.map((m, i) => `<button type="button" class="viz-tab" data-model="${m.key}" aria-pressed="${i === 0}">${m.label}</button>`).join('')
 
       return `
-        <div class="viz-note">All figures below use made-up sample data so the shape is easy to see. Real numbers sit behind a token, because campaign names show which companies I'm applying to.</div>
+        <div class="viz-note">Worked example on made-up numbers: a subscription brand spending $100k a month across five paid channels, getting 1,000 new subscribers a month worth $250 each in lifetime value. The numbers are invented; the method is the one I use.</div>
 
         <div class="viz-fig">
-          <h3>The pipeline</h3>
-          <p class="viz-sub">Five steps, each a separate piece of code on this site.</p>
+          <h3>The framework</h3>
+          <p class="viz-sub">Five steps from "every platform claims the sale" to a budget I can defend.</p>
           <ol class="viz-flow">
-            <li><b>Capture</b>track.js reads UTMs and ad click IDs on landing</li>
-            <li><b>Validate</b>/api/track rejects unknown events and drops bots</li>
-            <li><b>Store</b>Postgres, deduped on event_id</li>
-            <li><b>Attribute</b>SQL gives each channel credit under three models</li>
-            <li><b>Export</b>Consented conversions shaped for ad platforms</li>
+            <li><b>Define</b>One conversion and what it's worth: revenue or predicted lifetime value, not sign-ups</li>
+            <li><b>Unify</b>Count conversions once, with one channel definition built on a UTM taxonomy</li>
+            <li><b>Attribute</b>Run several models side by side and read where they disagree</li>
+            <li><b>Calibrate</b>Use lift tests to measure what each channel actually adds</li>
+            <li><b>Reallocate</b>Move budget toward the cheapest extra subscriber, in capped steps</li>
           </ol>
         </div>
 
         <div class="viz-fig">
-          <h3>The problem: one month, four different conversion counts</h3>
-          <p class="viz-sub">Each system counts with its own rules, so none of them agree. The pipeline gives one deduplicated number to reconcile against.</p>
+          <h3>Step 2: the platforms claim ${claimed.toLocaleString('en-US')} conversions. The business got ${d.total.toLocaleString('en-US')}.</h3>
+          <p class="viz-sub">Each ad platform counts every conversion it touched, inside its own lookback window. A subscriber who saw a TikTok ad, clicked a Meta ad, and searched the brand name is counted three times.</p>
           <div class="viz-rows">${platforms}</div>
+          <p class="viz-take">Adding up platform dashboards over-credits paid media by ${Math.round((claimed / d.total - 1) * 100)}%. The starting point is one deduplicated count from the business's own system, with every visit tagged the same way so it can be traced to a channel.</p>
         </div>
 
         <div class="viz-fig">
-          <h3>One visitor's path to a conversion</h3>
-          <p class="viz-sub">Three visits over nine days, then a click on "Email Chris." Each attribution model gives the credit to different channels.</p>
-          <ol class="viz-journey">
-            <li><b>Day 1 · paid_social</b>Clicks a Meta ad (fbclid captured)</li>
-            <li><b>Day 4 · organic_search</b>Comes back from a Google search</li>
-            <li><b>Day 9 · recruiter_link</b>Opens a tailored /for/ page</li>
-            <li class="conv"><b>Day 9 · contact_click</b>Conversion, joined to the Day 1 click ID for export</li>
+          <h3>Step 3: one subscriber, four ways to split the credit</h3>
+          <p class="viz-sub">Five ad touches over ten days, then a subscription. Each attribution model is a different rule for dividing that one subscriber among the channels.</p>
+          <ol class="viz-journey six">
+            <li><b>Day 1 · TikTok</b>Watches a video ad</li>
+            <li><b>Day 3 · Meta</b>Clicks an Instagram ad</li>
+            <li><b>Day 6 · Search</b>Googles the product category</li>
+            <li><b>Day 9 · Retargeting</b>Sees a banner, doesn't click</li>
+            <li><b>Day 10 · Brand search</b>Googles the brand name</li>
+            <li class="conv"><b>Day 10 · Subscribes</b>$250 lifetime value</li>
           </ol>
           <div class="viz-legend">${legend}</div>
           <div class="viz-rows">${credit}</div>
+          <p class="viz-take">Last-touch hands everything to brand search, the step where the buyer had already decided. First-touch hands everything to the TikTok ad that started it. Neither tells you what would have happened without the ad.</p>
         </div>
 
         <div class="viz-fig">
-          <h3>Same 48 conversions, three answers</h3>
-          <p class="viz-sub">Credit by channel over 30 days. Each column adds up to 48.</p>
-          <div class="viz-models">
-            <div class="hd corner"></div><div class="hd">First-touch</div><div class="hd">Last-touch</div><div class="hd">Linear</div>
-            ${modelRows}
-          </div>
-          <p class="viz-take">Paid social starts 11 journeys but closes only 3. Judged on last-touch alone, it would look like the first budget to cut.</p>
-          <details class="viz-details">
-            <summary>Show as a table</summary>
-            <table class="viz-table" style="margin-top:8px">
-              <thead><tr><th>Channel</th><th class="n">First</th><th class="n">Last</th><th class="n">Linear</th></tr></thead>
-              <tbody>${modelTable}</tbody>
-            </table>
-          </details>
+          <h3>Step 4: lift tests show what each channel really adds</h3>
+          <p class="viz-sub">A lift test holds a channel back from a random group of people or regions and counts the difference in subscribers. That difference is the channel's incremental effect, which no attribution model can see on its own.</p>
+          <div class="viz-legend"><span><i style="background:var(--muted);opacity:.55"></i>Credited by last-touch</span><span><i style="background:var(--accent)"></i>Incremental, per lift test</span></div>
+          <div class="viz-rows viz-pair">${calib}</div>
+          <p class="viz-take">Brand search and retargeting mostly catch people who were going to subscribe anyway. Meta and TikTok create demand that other channels later get the credit for.</p>
         </div>
 
         <div class="viz-fig">
-          <h3>Campaign view: one row per recruiter link</h3>
-          <p class="viz-sub">Every tailored page gets its own utm_campaign, so I can see when a link is opened and whether it leads to a contact click. The company names here are made up.</p>
-          <table class="viz-table">
-            <thead><tr><th>utm_campaign</th><th class="n">Landings</th><th class="n">Contact clicks</th><th class="n">Rate</th></tr></thead>
-            <tbody>${campaigns}</tbody>
-          </table>
-        </div>
-
-        <div class="viz-fig">
-          <h3>Data-quality checks</h3>
-          <p class="viz-sub">These run next to the reports, so a broken tag shows up here before it skews a decision.</p>
-          <div class="viz-tiles">
-            <div class="viz-tile"><div class="k">Orphan conversions</div><div class="v">0</div><div class="d">conversions with no landing</div></div>
-            <div class="viz-tile"><div class="k">Untagged landings</div><div class="v">18%</div><div class="d">no UTM, click ID, or referrer</div></div>
-            <div class="viz-tile"><div class="k">Opted out</div><div class="v">7%</div><div class="d">GPC or DNT, so click IDs are dropped</div></div>
-            <div class="viz-tile"><div class="k">Ingest lag</div><div class="v">0.9s</div><div class="d">average, from event to row</div></div>
+          <h3>Step 5: the model you trust decides where the money goes</h3>
+          <p class="viz-sub">Pick a model. The table shows each channel's cost per subscriber under it and the budget it would recommend for next month: same $100k total, spend moved toward the cheapest extra subscriber, no channel changed by more than 40%. Each plan is then scored against what the lift tests say each channel really adds.</p>
+          <div class="viz-tabs" role="group" aria-label="Attribution model">${tabs}</div>
+          <div id="attr-decision"></div>
+          <div style="margin-top:18px">
+            <h3 style="font-size:13px">Extra subscribers next month under each model's plan</h3>
+            <p class="viz-sub" style="margin-bottom:8px">Today's budget produces 535 subscribers that wouldn't have happened without ads.</p>
+            <div class="viz-rows" id="attr-outcomes"></div>
           </div>
         </div>
       `
+    }
+
+    function wireAttribution(){
+      const root = document.getElementById('attr-decision')
+      if (!root) return
+      const base = incrementalSubs(ATTR.channels.map(c => c.spend))
+      const results = ATTR.models.map(m => ({ m, plan: allocate(m.credit) }))
+      results.forEach(r => { r.subs = incrementalSubs(r.plan) })
+      const oMax = Math.max(...results.map(r => r.subs))
+
+      function show(key){
+        const { m, plan, subs } = results.find(r => r.m.key === key)
+        const rows = ATTR.channels.map((c, i) => {
+          const cpa = c.spend / m.credit[i]
+          const change = plan[i] - c.spend
+          const dir = change > 0 ? 'up' : change < 0 ? 'down' : ''
+          return `<tr>
+            <td><i class="viz-swatch" style="background:${c.color}"></i>${c.label}</td>
+            <td class="n">${usd(c.spend)}</td>
+            <td class="n">${m.credit[i]}</td>
+            <td class="n${cpa > ATTR.value ? ' loss' : ''}">${usd(cpa)}</td>
+            <td class="n">${usd(plan[i])}</td>
+            <td class="n chg ${dir}">${change > 0 ? '+' : change < 0 ? '−' : ''}${change ? usd(Math.abs(change)) : '—'}</td>
+          </tr>`
+        }).join('')
+        const delta = Math.round(subs - base)
+        const verdict = delta < 0
+          ? `The ${m.plan} would lose about ${-delta} incremental subscribers a month, roughly ${usd(-delta * ATTR.value * 12)} a year in lifetime value, on the same spend.`
+          : `The ${m.plan} would add about ${delta} incremental subscribers a month, roughly ${usd(delta * ATTR.value * 12)} a year in lifetime value, on the same spend.`
+        root.innerHTML = `
+          <div class="viz-table-wrap"><table class="viz-table" style="margin-top:12px">
+            <thead><tr><th>Channel</th><th class="n">Spend now</th><th class="n">Credited subs</th><th class="n">Cost per sub</th><th class="n">Next month</th><th class="n">Change</th></tr></thead>
+            <tbody>${rows}</tbody>
+          </table></div>
+          <p class="viz-take">Costs above $${ATTR.value} (marked ▲) cost more than a subscriber is worth. ${verdict}</p>`
+        document.getElementById('attr-outcomes').innerHTML = results.map(r => `
+          <div class="lbl">${r.m.label}</div>
+          <div class="viz-cell" data-tip="${r.m.label}: ${Math.round(r.subs)} incremental subscribers (today: ${Math.round(base)})">
+            <div class="viz-bar${r.m.key === key ? ' hi' : ''}" style="width:${(r.subs / oMax * 70).toFixed(1)}%"></div>
+            <span class="viz-val">${Math.round(r.subs)} (${r.subs >= base ? '+' : '−'}${Math.abs(Math.round(r.subs - base))})</span>
+          </div>`).join('')
+        document.querySelectorAll('.viz-tab').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.model === key)))
+      }
+
+      document.querySelectorAll('.viz-tab').forEach(b => b.addEventListener('click', () => show(b.dataset.model)))
+      show('last')
     }
 
     // One shared hover/focus tooltip for any [data-tip] element.
@@ -682,28 +776,54 @@ ${visuals ? `
 
     function renderAttributionCase(){
       document.getElementById('app').innerHTML = caseStudy({
-        title: 'Attribution Lab',
-        subtitle: 'First-party growth tracking on this site, from click ID to conversion payload',
+        title: 'From Attribution to Ad Spend',
+        subtitle: 'How I decide where the next marketing dollar goes, worked through on an example $100k/month budget',
         visuals: attributionVisuals(),
-        problem:'Every growth team runs into the same failure: Google Ads, Meta, the CRM, and the warehouse each report a different number of conversions, because each one defines events, channels, and lookback windows a little differently, and browser pixels lose signal to ad blockers and consent. I wanted to build the whole chain myself at small scale: capture, naming, storage, attribution, and the export back to ad platforms. This site is the test bed, and every personalized page I send to a hiring team is a tagged campaign running through it.',
+        problem: 'Attribution only matters because it moves money. Every ad platform takes credit for the same customer, so their dashboards add up to far more conversions than the business actually got. Pick the wrong model and you will confidently cut the channels that create demand and fund the ones that just catch it. This case study walks through how I get from overlapping, self-reported credit to a budget decision I can defend: count once, compare models, check them against experiments, then reallocate on the cost of the next extra customer.',
+        approachTitle: 'Approach',
         architecture: [
-          'Capture (track.js): on landing, reads UTM parameters and ad click IDs (gclid, gbraid, wbraid, fbclid, ttclid, li_fat_id, msclkid). It builds Meta\'s fbc value at landing, keeps the touch for the session plus a first-touch record, and stamps every event with a client-generated event_id.',
-          'Taxonomy: one event dictionary (page_view, contact_click, outbound_click, chat_message_sent; snake_case, object_action) shared by ingestion and reporting. Unknown events are rejected with a 422 instead of quietly becoming a new spelling of "conversion."',
-          'Ingestion (/api/track): a server-side endpoint that validates against the taxonomy, keeps only declared properties, drops bots, and inserts with ON CONFLICT DO NOTHING on event_id, so retried beacons dedupe. This is the same idea a Conversions API uses to dedupe browser and server events.',
-          'Warehouse: Postgres on Neon, one wide events table indexed for journey queries. A single SQL channel definition (paid click IDs, then UTMs, then referrer) is used by every report, so no two views disagree about what "paid social" means.',
-          'Attribution (/api/attribution): first-touch, last-touch, and linear credit by channel, computed with window functions over each conversion\'s landings in a 30-day lookback. A campaign view shows visits and conversions per utm_campaign, and a data-quality view reports orphan conversions, the untagged share of landings, the opt-out share, and ingest lag.',
-          'Export: consented conversions are joined to the most recent click ID within 90 days and turned into dry-run payloads shaped for Google Ads click conversions (gclid, gbraid, or wbraid, with order_id for dedup), Meta CAPI (fbc plus a shared event_id), the TikTok Events API, and LinkedIn CAPI.',
+          '<b>Define the conversion and its value.</b> One conversion event, fired with the same event ID from the browser and the server so platforms can dedupe it, and valued at revenue or predicted lifetime value. Optimizing cost per sign-up funds the channels that bring cheap, low-value customers.',
+          '<b>Unify the data.</b> Platform-reported numbers are inputs, not the truth. Conversions are counted once from the business\'s own system, and every visit is classified with one channel definition (ad click IDs first, then UTMs, then the referrer). That only works with a UTM taxonomy that every team follows; see the <a href="#/project/utm-journeys" data-link>UTM Journey Tracker</a>.',
+          '<b>Attribute.</b> Build a touch-path table in SQL (window functions over each conversion\'s touches in a 30-day lookback) and compute first-touch, last-touch, linear, and position-based credit side by side. The gaps between models are information: a channel that is strong first-touch and weak last-touch is starting journeys, not closing them.',
+          '<b>Calibrate.</b> Run lift tests where the models and the platforms disagree most and the spend is largest: geo holdouts for search, conversion-lift studies for social, ghost-ad holdouts for retargeting. Use the measured incremental effect to scale each channel\'s credit, or as priors in a media mix model.',
+          '<b>Reallocate.</b> Fit a diminishing-returns curve per channel and move budget toward whichever channel produces the next incremental customer most cheaply, until those costs roughly even out. Cap each month\'s move, then re-measure.',
+          '<b>Close the loop.</b> Send the deduplicated, value-weighted conversions back to the ad platforms (offline conversion uploads, Conversions APIs) so their bidding algorithms optimize toward the same definition of success the budget uses.',
         ],
         tradeoffs: [
-          'Privacy first: Global Privacy Control and Do Not Track drop click IDs at capture, the server refuses to store them without consent, and only consented conversions are exported. No cookies, IP addresses, user agents, or fingerprinting are stored. The price is some lost signal from opted-out visitors, and the quality view reports exactly how much.',
-          'Exports are built but not sent. This site doesn\'t run paid campaigns, so there are no ad accounts to upload to. The payload layer is the hard, error-prone part (formats, timestamps, dedup keys, consent). Adding the API calls is a small final step.',
-          'Conversion value is a placeholder of 1 because a contact click has no revenue. In a subscription product, this is where actual revenue or an early predicted-LTV score would go, so that value-based bidding optimizes for payers instead of sign-ups.',
-          'Rule-based attribution (first, last, linear) rather than data-driven. That is honest at this traffic volume. The path table it builds is the same input a Markov-chain or Shapley model would need once there is enough volume.',
-          'The stats endpoint sits behind a token because campaign names show which companies I\'m applying to. Treating campaign metadata as sensitive is a habit worth keeping.',
+          'Data-driven attribution (Markov chains, Shapley values) is a better split than fixed rules once there is enough volume, but it is still observational: it divides credit among the touches that happened and cannot say what would have happened without the ad. That is why experiments are the calibration layer instead of one more model.',
+          'Lift tests cost money and time, since holdout groups give up conversions. I prioritize them where spend is large and the models disagree most, and re-test on a schedule rather than treating one result as permanent.',
+          'Response curves are estimates, and they get less reliable far from the spend levels you have actually run. Capping monthly moves (±40% here) keeps the plan inside the range the data supports.',
+          'Signal loss from consent choices, iOS, and ad blockers widens the gap between platforms and the backend. First-party, server-side capture with consent narrows it. Tracking people who opted out does not.',
         ],
-        stack: ['JavaScript (first-party tracker)', 'Vercel Serverless (Node)', 'PostgreSQL (Neon)', 'SQL window functions', 'Meta CAPI / Google Ads / TikTok / LinkedIn payloads', 'Consent & GPC'],
-        status: 'Live on this site: every page you load here is an event in it',
-        link: '',
+        stack: ['SQL (window functions)', 'Python', 'Experiment design (geo holdouts, conversion lift)', 'Media mix modeling', 'Budget optimization', 'Conversions APIs', 'UTM taxonomy'],
+        status: 'A worked framework on illustrative numbers. The measurement layer underneath it (UTM capture, a single channel definition, session journeys) runs live on this site',
+        link: '<a href="#/project/utm-journeys" data-link>see the UTM Journey Tracker</a>',
+      })
+      wireAttribution()
+    }
+
+    function renderUtmCase(){
+      document.getElementById('app').innerHTML = caseStudy({
+        title: 'UTM Journey Tracker',
+        subtitle: 'A UTM taxonomy enforced in code, and a live dashboard of every visitor\'s journey through this site',
+        problem: 'UTMs are the cheapest attribution data a marketing team has, and usually the messiest. One person tags a link "Facebook", another "facebook", a third "fb"; one campaign is "Fall Promo" and the next is "2026-q4-fall". Each variation becomes its own row in every report, so channel totals are wrong before any attribution model runs. I wanted to show the fix end to end on this site: a written taxonomy, tooling that makes the right link the easy one to build, checks that catch bad tags, and a real-time view of where visitors come from and what they do next.',
+        architecture: [
+          'Taxonomy as code (lib/utm-taxonomy.js): a controlled list of sources, the mediums each source may pair with (meta can be paid_social or organic_social, never email), a campaign naming pattern of {year}{quarter}_{objective}_{descriptor}, a registry of live campaigns, and a list of creatives for utm_content. The dashboard reads this same file, so the documentation cannot drift from the checks.',
+          'Capture (track.js): on landing, reads the UTMs, ad click IDs, and referrer, and keeps that touch for the whole session, so a contact click three pages later is still tied to the campaign that brought the visitor in. Internal links are never tagged.',
+          'Ingestion (/api/track): validates event names against an event dictionary, drops bots, and dedupes retries on a client-generated event ID. UTMs are stored exactly as they arrive.',
+          'Read-time checks: each session\'s landing is tested against the taxonomy (case, unknown source or medium, invalid pairing, off-pattern or unregistered campaign). Bad tags are flagged and counted, not dropped, so fixing the taxonomy re-classifies old traffic.',
+          'Channel grouping: ad click ID first, then utm_medium, then the referrer, then Direct. One rule used by every view, so "Paid Social" means the same thing everywhere.',
+          'Live dashboard (/journeys.html + /api/journeys): polls every five seconds and shows sessions stitched into journeys (landing touch, pages, conversion), channel and source/medium breakdowns, and a tag-quality report. A link builder lets you make a tagged link and watch your own session appear.',
+        ],
+        tradeoffs: [
+          'Validate at read time instead of rejecting at write time. A rejected tag is lost traffic; a flagged tag can be fixed later. The tag-quality table makes the cost of bad tagging visible instead of hiding it.',
+          'A campaign registry adds a step before launch, but it is what separates a real campaign from a one-off someone typed by hand, and it gives every campaign an owner and a purpose.',
+          'Polling every five seconds instead of a WebSocket stream: at this traffic level it looks the same, it is simpler to run on serverless functions, and it pauses when the tab is hidden.',
+          'The dashboard is public, so it only shows values that are in the taxonomy. Anything else is replaced with a label, search keywords (utm_term) and click ID values are never shown, and visitor IDs are short hashes. No cookies, IP addresses, or fingerprinting, and Global Privacy Control is honored.',
+        ],
+        stack: ['JavaScript (first-party tracker)', 'Vercel Serverless (Node)', 'PostgreSQL (Neon)', 'UTM taxonomy & governance', 'Channel grouping', 'Real-time dashboard'],
+        status: 'Live on this site. Every page you have viewed here is already in it',
+        link: '<a href="journeys.html">open the live dashboard</a>',
       })
     }
 
