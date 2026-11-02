@@ -1,0 +1,216 @@
+{
+  "slug": "netapp-gtm-revenue-operations-manager-effc",
+  "company": "NetApp",
+  "role": "GTM Revenue Operations Manager",
+  "jobUrl": "https://careers.netapp.com/job/-/-/27600/101570104656?jobPipeline=limtedlistings",
+  "created": "2026-11-02",
+  "headline": "A forecast leadership can trust, built on CRM data that doesn't need re-checking.",
+  "pitch": "I've spent six years on the data side of revenue: turning CRM records, pipeline, and campaign data into numbers that sales, finance, and executive leadership make decisions on. At flyExclusive I own CRM architecture and governance for the sales organization (lifecycle stages, required fields, ownership rules, deduplication, Master Data Management) and redesigned the performance dashboards leadership reviews. At TRANZACT I partnered with commercial and finance leadership on sales performance and forecasting analytics that guided investment and field-activity planning. I also build the AI tools that take manual work off the sales team, from an LLM enrichment and lead-scoring pipeline wired into the CRM to proposal and agreement tools that keep documents on-standard at scale. I live in Raleigh, a short drive from the RTP office.",
+  "requirements": [
+    {
+      "need": "Coordinate the monthly forecasting cycle and improve accuracy through pipeline hygiene, quote discipline, and CRM stage alignment",
+      "evidence": "At TRANZACT I partnered with commercial and finance leadership on sales performance and forecasting analytics, and built forecasting models for paid-media strategy that fed executive recommendations on acquisition and pipeline growth. At flyExclusive I designed and enforced the CRM's lifecycle stages, required fields, and ownership rules, which is the hygiene a forecast rolls up from. I also built the AI proposal and agreement tools that keep what the sales team sends company-approved and consistent.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Ensure CRM processes support forecasting and executive visibility",
+      "evidence": "Led flyExclusive's CRM transformation on HubSpot: governance, a scalable data architecture, deduplication workflows, and Master Data Management. The goal was a single source of truth for the sales organization that reporting and lead scoring can rely on. My CRM platform work has been HubSpot rather than Salesforce; the stage, field, and ownership design carries over, and I would ramp on Salesforce's object model first.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Solid understanding of forecasting, pipeline management, and CRM processes",
+      "evidence": "Forecasting analytics with commercial and finance leadership at TRANZACT; CRM governance and an LLM-powered lead-scoring model that prioritizes high-value accounts for the sales team at flyExclusive.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Analytical problem-solving: turn data into insights",
+      "evidence": "Shipped a Python competitive-pricing app for flyExclusive's retail sales team that directly informed the 2026 pricing tables and strategy. Ran TRANZACT's A/B testing program (50% win rate, 30% CTR improvement) and its multi-touch attribution modeling. On this site, a worked framework shows how I turn overlapping, conflicting numbers into a single budget decision.",
+      "strength": "direct",
+      "proof": {
+        "label": "Attribution to ad spend",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Support the GTM operating cadence and executive forums (QBRs, Executive MBRs) with KPI tracking",
+      "evidence": "Redesigned flyExclusive's retail performance dashboards so leadership can see marketing's contribution through the funnel. At TRANZACT I translated commercial data into executive recommendations on acquisition and pipeline growth. Tableau and Power BI across roles.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Executive-ready communication",
+      "evidence": "Recommendations to commercial, finance, and C-suite stakeholders at TRANZACT, flyExclusive, and OnPoint. The attribution case study on this site is written the way I'd brief an executive: the decision first, the method behind it, and what changes if an assumption is wrong.",
+      "strength": "direct",
+      "proof": {
+        "label": "Worked example",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Identify AI-enabled ways to reduce manual forecast preparation and spreadsheet work",
+      "evidence": "Building AI tools for the sales organization is part of my current role: an autonomous pipeline that connects LLM APIs to the CRM database for enrichment and lead scoring, conversational reporting interfaces that give teams on-demand answers from the data, and AI proposal and agreement tools. The chat on this site's home page is the same pattern in public: grounded answers from one source of truth, with an eval harness that checks them.",
+      "strength": "direct",
+      "proof": {
+        "label": "Grounded AI answers",
+        "href": "/#/project/resume-chat"
+      }
+    },
+    {
+      "need": "Work with Business Systems and Data teams so the right data is available",
+      "evidence": "I sit between the CRM, the website, the warehouse, and the ad platforms at flyExclusive and build the pipelines between them myself (SQL, Python, REST APIs). At TRANZACT I engineered CRM/ESP integrations syncing behavioral data into Iterable for 10+ lifecycle campaigns. On this site, one set of definitions is enforced in code and every report reads from it.",
+      "strength": "direct",
+      "proof": {
+        "label": "Definitions enforced in code",
+        "href": "/#/project/utm-journeys"
+      }
+    },
+    {
+      "need": "5+ years in Revenue Operations, Sales Operations, Business Operations, or a related field supporting GTM cadences",
+      "evidence": "Six years in marketing and data roles that support the sales organization: CRM data analytics, forecasting, and sales performance at TRANZACT, then owning CRM architecture and sales tools at flyExclusive. My titles have been CRM analytics and marketing insights rather than RevOps, so the cadence ownership is the part I'd grow into.",
+      "strength": "adjacent",
+      "proof": {
+        "label": "Full resume",
+        "href": "/#/resume"
+      }
+    },
+    {
+      "need": "Hands-on fluency with GTM tools (Salesforce, Aviso, Snowflake, Revenue Intelligence platforms)",
+      "evidence": "Hands-on with HubSpot, Iterable, Databricks, Postgres, Tableau, Power BI, and SQL daily. I haven't run Salesforce, Aviso, or Snowflake in production. Snowflake is close to the Databricks and Postgres SQL I write now; for Salesforce and the Revenue Intelligence tool I'd start by learning how NetApp's stages and forecast categories are configured.",
+      "strength": "building",
+      "proof": null
+    },
+    {
+      "need": "Comfort with ambiguity and a service-oriented approach",
+      "evidence": "Most of what I've built started as an open-ended request from a sales or commercial team: the pricing app, the proposal tools, the CRM cleanup. I scope the problem with the people who'll use the result and ship something they adopt.",
+      "strength": "direct",
+      "proof": null
+    }
+  ],
+  "featured": [
+    {
+      "title": "From Attribution to Ad Spend",
+      "blurb": "How I turn overlapping, conflicting numbers into one decision leadership can act on: count each outcome once, compare models side by side, check them against tests, and recommend changes in capped steps. Includes an interactive model.",
+      "href": "/#/project/attribution"
+    },
+    {
+      "title": "UTM Journey Tracker — live",
+      "blurb": "Data hygiene enforced in code: one controlled taxonomy, every record checked against it, failures counted by rule instead of silently dropped, and one definition every report reads from. The same discipline a forecast needs from CRM stages.",
+      "href": "/#/project/utm-journeys"
+    },
+    {
+      "title": "Resume Chat — grounded AI answers",
+      "blurb": "The chat on the home page answers questions from a single source of truth and is tested by an automated eval harness. It's the pattern I'd use to cut manual forecast prep: ask the data, get a checked answer.",
+      "href": "/#/project/resume-chat"
+    }
+  ],
+  "experience": [
+    {
+      "org": "flyExclusive",
+      "role": "Senior Manager, Marketing Insights & CRM Analytics",
+      "dates": "Nov 2025 – Present",
+      "bullets": [
+        "Led a CRM systems transformation on HubSpot for the sales organization: lifecycle stages, required fields, ownership rules, deduplication workflows, and Master Data Management, creating a single source of truth for reporting and lead scoring.",
+        "Redesigned retail performance dashboards so leadership can see marketing's contribution through the funnel, and built conversational reporting interfaces giving cross-functional teams on-demand data.",
+        "Shipped a Python competitive-pricing app for the retail sales team that directly informed the 2026 pricing tables and strategy.",
+        "Engineered an autonomous pipeline connecting LLM APIs to the CRM database, powering a lead-scoring model that prioritizes high-value accounts for sales.",
+        "Developed AI proposal and agreement tools that let the sales team produce company-approved documents quickly and consistently at scale."
+      ]
+    },
+    {
+      "org": "TRANZACT",
+      "role": "Sr. Data Analyst, CRM",
+      "dates": "May 2022 – Nov 2025",
+      "bullets": [
+        "Partnered with commercial and finance leadership on sales performance, attribution, and forecasting analytics that guided strategic investment and field-activity planning.",
+        "Built measurement frameworks and forecasting models for paid-media strategy, translating commercial data into executive recommendations on acquisition and pipeline growth.",
+        "Engineered CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns while protecting data integrity for commercial reporting.",
+        "Ran a structured A/B testing program: 50% test win rate and a 30% CTR improvement."
+      ]
+    },
+    {
+      "org": "American Kennel Club",
+      "role": "Email Marketing Associate",
+      "dates": "Apr 2021 – May 2022",
+      "bullets": [
+        "Built Tableau-driven audience insights to optimize email program performance."
+      ]
+    },
+    {
+      "org": "OnPoint",
+      "role": "Marketing Manager",
+      "dates": "Oct 2020 – Apr 2021",
+      "bullets": [
+        "Led lifecycle strategy and targeting across email and paid social, building alignment with C-suite stakeholders on data-driven execution."
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "phase": "Days 1–30 · Learn the cycle",
+      "items": [
+        "Shadow one full monthly forecast cycle and map every step: who submits, which Salesforce stages and forecast categories roll up, where the Revenue Intelligence tool's call differs from the rep call, and which spreadsheets get rebuilt by hand.",
+        "Baseline forecast accuracy by segment and stage, and size the hygiene problems behind the misses: stale close dates, deals sitting in the wrong stage, quotes that don't match the opportunity.",
+        "Sit in on the QBR and Executive MBR prep to learn which KPIs leadership actually uses and where the follow-through breaks down."
+      ]
+    },
+    {
+      "phase": "Days 31–60 · Fix the inputs",
+      "items": [
+        "Agree stage entry and exit criteria with sales leadership and Business Systems, then put them in the CRM as required fields and validation, not a slide.",
+        "Ship a weekly pipeline-hygiene report (stale, mis-staged, and quote-mismatched deals by owner) so issues are fixed before the forecast call, not during it.",
+        "Become the go-to power user for the Revenue Intelligence tool and run short enablement for managers on the views that replace their spreadsheets."
+      ]
+    },
+    {
+      "phase": "Days 61–90 · Automate and scale",
+      "items": [
+        "Automate the most manual piece of forecast prep with an AI-assisted pull from Salesforce and Snowflake, checked against the prior manual output before it replaces it.",
+        "Standardize the QBR and MBR KPI pack so every forum reads from the same definitions, with an action log that tracks follow-through between meetings.",
+        "Report forecast accuracy month over month against the baseline, and propose the next operating-model change based on where error remains."
+      ]
+    }
+  ],
+  "resume": {
+    "title": "Revenue & CRM Operations Analytics",
+    "summary": "CRM and revenue analytics leader with 6 years supporting sales, finance, and commercial leadership, most recently Senior Manager, Marketing Insights & CRM Analytics at flyExclusive, owning CRM architecture and governance for the sales organization. Builds the forecasting, pipeline, and performance reporting leadership decides on, and the AI tools that take manual work off sales teams. Works hands-on in SQL and Python; M.S. in Data Science.",
+    "skillGroups": [
+      {
+        "label": "Revenue & CRM Ops",
+        "items": "Forecasting, pipeline management, CRM governance (lifecycle stages, required fields, ownership rules), HubSpot, Master Data Management, deduplication, lead scoring, executive dashboards, executive stakeholder communication"
+      },
+      {
+        "label": "Data & Analytics",
+        "items": "SQL, Python (pandas, scikit-learn), Databricks, Postgres, REST APIs, data pipelines, Tableau, Power BI, multi-touch attribution, A/B testing, Iterable"
+      },
+      {
+        "label": "AI & Automation",
+        "items": "LLM pipelines connected to CRM data, conversational reporting, RAG, AI-assisted development (Claude Code)"
+      }
+    ],
+    "projectsTitle": "Featured Projects",
+    "projects": [
+      "attribution-to-ad-spend"
+    ]
+  },
+  "skills": [
+    "Forecasting",
+    "Pipeline management",
+    "CRM governance",
+    "HubSpot",
+    "SQL",
+    "Executive dashboards",
+    "Tableau",
+    "Power BI",
+    "Python",
+    "Master Data Management",
+    "Lead scoring",
+    "Databricks",
+    "LLM pipelines",
+    "Conversational reporting",
+    "A/B testing",
+    "Multi-touch attribution"
+  ]
+}
