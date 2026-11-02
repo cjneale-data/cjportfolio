@@ -190,7 +190,6 @@
         <a href="#/" data-link>Home</a>
         <a href="#/resume" data-link>Resume</a>
         <a href="#/projects" data-link>Projects</a>
-        <a href="player.html">Pod Flow App</a>
         <a href="journeys.html">Live Journeys</a>
         <a href="https://chefai-noemgucqmarbfwe2euwdsl.streamlit.app/" target="_blank" rel="noopener">ChefAI</a>
       </nav>
@@ -355,7 +354,7 @@
               <li>Built a pipeline on my own that turns podcast audio into titled chapters: transcription (Whisper), a CNN-BiLSTM model I trained to find topic changes (compared against XGBoost), and AI-written titles, served through an API to a web player.</li>
               <li>Tested it against hand-labeled episodes (precision, recall, F1) and ran a small local LLM (Qwen2.5) with a simple fallback if it fails.</li>
             </ul>
-            <div style="margin-top:4px"><a href="player.html" style="color:var(--accent)">open the player</a></div>
+            <div style="margin-top:4px"><a href="#/project/podflow" data-link style="color:var(--accent)">how it was built</a></div>
           </div>
           <div class="resume-item">
             <div style="font-weight:700">ChefAI — Agentic Meal-Planning Assistant (LangGraph)</div>
@@ -504,7 +503,7 @@ ${visuals ? `
         ],
         stack: ['Python', 'Flask', 'PostgreSQL', 'PyTorch', 'Whisper', 'llama.cpp'],
         status: 'Running end to end on my machine',
-        link: '<a href="player.html" style="color:var(--accent)">open the player</a>',
+        link: '',
       })
     }
 

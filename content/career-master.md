@@ -141,9 +141,9 @@ Rules for editing:
 ### PodFlow — content intelligence pipeline (M.S. capstone, Eastern University, 2025)
 - Full audio-to-insight pipeline built solo: RSS ingestion into Postgres, transcription with faster-Whisper, and automatic chapter segmentation via a CNN-BiLSTM model he trained (benchmarked against XGBoost, focal loss for class imbalance).
 - LLM-based chapter enrichment (titles, descriptions, tags) with a local quantized LLM (Qwen2.5 via llama.cpp) and a rules-based fallback when the model can't load.
-- Served through a REST API (Flask originally; now Vercel functions on Neon Postgres) to a working web player.
+- Served through a REST API to a web player.
 - Offline evaluation framework scoring precision/recall/F1 against 16 hand-labeled episodes. The eval surfaced that the model over-segments long-form talk content at its default threshold (aggregate F1 0.11), so the next step is per-content-type threshold tuning.
-- Demo: the "Pod Flow App" link in the site nav.
+- The working app currently runs on his machine only; there is no public demo. The write-up is the "PodFlow" case study under Projects on the portfolio.
 
 ### ChefAI — agentic meal-planning assistant (LangGraph)
 - Conversational meal-planning agent on a LangGraph state machine. A conditional router inspects state each turn and dispatches to whichever slot (allergies, diet, dislikes, craving, prep time, budget) still needs filling.

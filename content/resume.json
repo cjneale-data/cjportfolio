@@ -110,7 +110,7 @@
         "Built a full audio-to-insight pipeline solo, from RSS ingestion into Postgres: transcription (faster-Whisper), automatic content segmentation via a trained CNN-BiLSTM model (benchmarked against XGBoost, focal loss for class imbalance), and LLM-based metadata enrichment, served through a REST API to a working web app.",
         "Created an offline evaluation framework scoring precision/recall/F1 against 16 hand-labeled episodes, and deployed a local quantized LLM (Qwen2.5 via llama.cpp) with a rules-based fallback for resilience."
       ],
-      "link": "https://cjneale.xyz/player.html"
+      "link": "https://cjneale.xyz/#/project/podflow"
     },
     "chefai": {
       "name": "ChefAI, Agentic Meal-Planning Assistant (LangGraph)",
