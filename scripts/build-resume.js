@@ -58,6 +58,18 @@ function bullet(text) {
   })
 }
 
+// A tailored resume's portfolio link goes to that application's /for/<slug>
+// page, not the site root. Same tags as the recruiter link (scripts/jobs.js)
+// plus utm_content=resume, so resume clicks are counted per application.
+const SITE_URL = 'https://cjneale.xyz'
+const isSiteRoot = href => href.replace(/\/+$/, '') === SITE_URL
+function jobPageLink(slug) {
+  return {
+    label: `cjneale.xyz/for/${slug}`,
+    href: `${SITE_URL}/for/${slug}?utm_source=recruiter&utm_medium=referral&utm_campaign=${slug}&utm_content=resume`,
+  }
+}
+
 function build(job) {
   const r = job.resume
   const tailored = Object.fromEntries((job.experience || []).map(x => [x.org, x.bullets]))
@@ -69,11 +81,20 @@ function build(job) {
   )
   const contact = []
   base.contact.forEach(c => contact.push(run(c + '  |  ', { size: pt(9.5) })))
-  base.links.forEach((l, i) => {
+  // The job page URL is too long for the contact line, so it gets its own.
+  const tailoredPage = job.slug !== 'general'
+  const links = tailoredPage ? base.links.filter(l => !isSiteRoot(l.href)) : base.links
+  links.forEach((l, i) => {
     contact.push(link(l.label, l.href))
-    if (i < base.links.length - 1) contact.push(run('  |  ', { size: pt(9.5) }))
+    if (i < links.length - 1) contact.push(run('  |  ', { size: pt(9.5) }))
   })
   children.push(new Paragraph({ alignment: AlignmentType.CENTER, children: contact }))
+  if (tailoredPage) {
+    const p = jobPageLink(job.slug)
+    children.push(new Paragraph({ alignment: AlignmentType.CENTER, children: [
+      run(`Portfolio prepared for ${job.company}:  `, { size: pt(9.5) }), link(p.label, p.href),
+    ] }))
+  }
 
   children.push(heading('Summary'), new Paragraph({ spacing: { after: 20 }, children: [run(r.summary)] }))
 

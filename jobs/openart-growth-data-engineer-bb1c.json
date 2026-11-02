@@ -144,7 +144,7 @@
         "Implemented conversion tracking for the new company website: Google Tag Manager, Meta Pixel and Conversions API, and Google Ads conversion tracking.",
         "Set up offline conversion uploads that send downstream CRM outcomes back to ad platforms, so campaigns optimize on qualified leads and sales instead of form fills.",
         "Redesigned the performance dashboards and attribution framework connecting marketing activity to acquisition, retention, and high-value segments.",
-        "Led a CRM systems transformation: HubSpot governance, scalable data architecture, deduplication workflows, and Master Data Management.",
+        "Led a HubSpot CRM transformation: governance, data architecture, deduplication workflows, and Master Data Management.",
         "Built an autonomous enrichment pipeline connecting LLM APIs to the CRM database, powering a lead-scoring model that prioritizes high-value accounts."
       ]
     },
@@ -187,7 +187,7 @@
   ],
   "resume": {
     "title": "Marketing Data & Growth Analytics",
-    "summary": "Marketing data practitioner with 6 years in marketing and data roles, building conversion tracking, attribution, CRM data, and experimentation systems for consumer and high-value-customer businesses, most recently as Senior Manager, Marketing Insights & CRM Analytics at flyExclusive. Owns the conversion plumbing end to end: Google Tag Manager, Meta Pixel and CAPI, Google Ads conversion tracking, and offline conversion uploads from the CRM. Builds the pipelines in SQL and Python; M.S. in Data Science.",
+    "summary": "Marketing data practitioner with 6 years building conversion tracking, attribution, CRM data, and experimentation systems, most recently as Senior Manager, Marketing Insights & CRM Analytics at flyExclusive. Owns the conversion plumbing end to end: Google Tag Manager, Meta Pixel and CAPI, Google Ads conversion tracking, and offline conversion uploads from the CRM. Builds the pipelines in SQL and Python; M.S. in Data Science.",
     "skillGroups": [
       {
         "label": "Growth & Measurement",
