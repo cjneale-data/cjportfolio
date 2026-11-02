@@ -12,19 +12,21 @@ const path = require('path')
 const baseUrl = process.argv[2] || process.env.EVAL_BASE_URL || 'http://localhost:3000'
 const testset = JSON.parse(fs.readFileSync(path.join(__dirname, 'testset.json'), 'utf8'))
 
-async function ask(question) {
+// A case with "job" asks as if from that /for/<slug> page.
+async function ask(question, job) {
   const start = Date.now()
   const res = await fetch(`${baseUrl}/api/chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ messages: [{ role: 'user', content: question }] })
+    body: JSON.stringify({ messages: [{ role: 'user', content: question }], job })
   })
   const data = await res.json().catch(() => ({}))
   return { reply: (data.reply || '').toLowerCase(), latencyMs: Date.now() - start, ok: res.ok }
 }
 
-function checkGrounded(reply, mustContain) {
-  return mustContain.every(phrase => reply.includes(phrase.toLowerCase()))
+function checkGrounded(reply, c) {
+  return c.mustContain.every(phrase => reply.includes(phrase.toLowerCase())) &&
+    (c.mustNotContain || []).every(phrase => !reply.includes(phrase.toLowerCase()))
 }
 
 function checkRefusal(reply, mustContainOneOf) {
@@ -36,7 +38,7 @@ async function runCategory(name, cases, checkFn, extractExpected) {
   let passed = 0
   const latencies = []
   for (const c of cases) {
-    const { reply, latencyMs, ok } = await ask(c.question)
+    const { reply, latencyMs, ok } = await ask(c.question, c.job)
     latencies.push(latencyMs)
     const pass = ok && checkFn(reply, extractExpected(c))
     if (pass) passed++
@@ -50,16 +52,18 @@ async function runCategory(name, cases, checkFn, extractExpected) {
 
 async function main() {
   console.log(`Running chat eval against ${baseUrl}`)
-  const grounded = await runCategory('Grounded (factual)', testset.grounded, checkGrounded, c => c.mustContain)
+  const grounded = await runCategory('Grounded (factual)', testset.grounded, checkGrounded, c => c)
   const refusal = await runCategory('Refusal (out-of-scope)', testset.refusal, checkRefusal, c => c.mustContainOneOf)
+  const jobPage = await runCategory('Job page (per-application)', testset.job || [], checkGrounded, c => c)
 
-  const totalPassed = grounded.passed + refusal.passed
-  const totalCases = grounded.total + refusal.total
+  const totalPassed = grounded.passed + refusal.passed + jobPage.passed
+  const totalCases = grounded.total + refusal.total + jobPage.total
   const pct = Math.round((totalPassed / totalCases) * 100)
 
   console.log(`\n=== SUMMARY ===`)
   console.log(`Grounded: ${grounded.passed}/${grounded.total}`)
   console.log(`Refusal:  ${refusal.passed}/${refusal.total}`)
+  console.log(`Job page: ${jobPage.passed}/${jobPage.total}`)
   console.log(`Overall:  ${totalPassed}/${totalCases} (${pct}%)`)
 
   if (totalPassed < totalCases) process.exitCode = 1

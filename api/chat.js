@@ -147,7 +147,12 @@ function retrieveChunks(query, topK) {
 
 function buildSystemPrompt(retrievedChunks) {
   const context = retrievedChunks.map(c => c.text).join('\n\n')
+  // The model's training cutoff can make recent dates look like the future
+  // (it called a finished Dec 2025 degree "expected"), so give it today.
+  const today = new Date().toISOString().slice(0, 10)
   return `You are the AI assistant embedded on Christopher Neale's personal portfolio site. You answer visitor questions about Chris's professional background, skills, and experience, using ONLY the context below as your source of truth.
+
+Today's date is ${today}. Anything dated before today has already happened: finished degrees are completed, not expected.
 
 Rules:
 - Be concise, friendly, and professional — a few sentences per answer, not an essay.
@@ -157,6 +162,55 @@ Rules:
 
 CONTEXT:
 ${context}`
+}
+
+// --- Per-application mode: /for/<slug> pages send their slug, and the chat
+// argues the fit for that role using the job's requirement map (already
+// written from the master file, so it adds no new facts). ---
+const JOBS_DIR = path.join(__dirname, '..', 'jobs')
+const jobCache = new Map()
+
+function loadJob(slug) {
+  if (typeof slug !== 'string' || !/^[a-z0-9-]{1,100}$/.test(slug)) return null
+  if (jobCache.has(slug)) return jobCache.get(slug)
+  let job = null
+  try {
+    job = JSON.parse(fs.readFileSync(path.join(JOBS_DIR, slug + '.json'), 'utf8'))
+  } catch { /* unknown slug: fall back to the general chat */ }
+  jobCache.set(slug, job)
+  return job
+}
+
+function buildJobBrief(job) {
+  const lines = [`Role: ${job.role} at ${job.company}`]
+  if (job.pitch) lines.push(`Chris's pitch for this role (written in his voice): ${job.pitch}`)
+  lines.push('', 'What the role asks for, and Chris\'s evidence (strength: direct = done it in a job; adjacent = built it or close to it; building = still ramping):')
+  for (const r of job.requirements || []) lines.push(`- ${r.need} [${r.strength}]: ${r.evidence}`)
+  if (job.featured && job.featured.length) {
+    lines.push('', 'Work most relevant to this role (all on cjneale.xyz):')
+    for (const f of job.featured) lines.push(`- ${f.title}: ${f.blurb}`)
+  }
+  if (job.plan && job.plan.length) {
+    lines.push('', 'His 90-day plan for this role:')
+    for (const p of job.plan) lines.push(`- ${p.phase}: ${p.items.join(' ')}`)
+  }
+  return lines.join('\n')
+}
+
+function buildJobPrompt(retrievedChunks, job) {
+  return `${buildSystemPrompt(retrievedChunks)}
+
+THIS CONVERSATION IS ON CHRIS'S APPLICATION PAGE FOR ${job.company.toUpperCase()}.
+The visitor is most likely a recruiter or hiring manager at ${job.company} deciding whether to interview Chris for ${job.role}. Answer like a well-prepared advocate who knows both Chris and this role:
+- Connect every answer to what ${job.company} needs. Lead with the most relevant evidence for ${job.role}, name the specific tools, systems, and numbers, and say in one plain clause why it matters for this role.
+- Prefer concrete proof over adjectives. Never use hype or filler words ("perfect", "perfectly", "extensive", "significant", "passionate", "strong background"); let the specifics make the case.
+- Keep it to one short paragraph, or two when the question asks for a full picture.
+- On a requirement marked [building], be honest that it is a gap, then say what transfers and how he'd ramp. Candor about a small gap makes the rest more credible.
+- When it helps, point to a project on the site or end with a short next step (for example, emailing Chris at cjneale.analyst@gmail.com to set up a conversation). Don't do this every time.
+- The brief below is written in Chris's first person; still speak about him in the third person. The same fact rules apply: use only the context and this brief.
+
+APPLICATION BRIEF:
+${buildJobBrief(job)}`
 }
 
 const DEFAULT_MODEL = 'openai/gpt-4o-mini'
@@ -191,7 +245,8 @@ module.exports = async function handler(req, res) {
 
   const latestQuestion = cleaned[cleaned.length - 1].content
   const retrieved = retrieveChunks(latestQuestion, TOP_K_CHUNKS)
-  const systemPrompt = buildSystemPrompt(retrieved)
+  const job = loadJob(body.job)
+  const systemPrompt = job ? buildJobPrompt(retrieved, job) : buildSystemPrompt(retrieved)
 
   const model = process.env.OPENROUTER_MODEL || DEFAULT_MODEL
   const siteUrl = process.env.SITE_URL || 'https://cjneale.xyz'
@@ -230,7 +285,10 @@ module.exports = async function handler(req, res) {
     }
 
     const payload = { reply: reply.trim() }
-    if (debugRetrieval) payload.retrievedChunks = retrieved.map(c => c.title)
+    if (debugRetrieval) {
+      payload.retrievedChunks = retrieved.map(c => c.title)
+      payload.job = job ? job.slug : null
+    }
     res.status(200).json(payload)
   } catch (err) {
     console.error('Chat handler error', err)

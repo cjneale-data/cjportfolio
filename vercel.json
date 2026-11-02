@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/chat.js": {
-      "includeFiles": "content/career-master.md"
+      "includeFiles": "{content/career-master.md,jobs/*.json}"
     }
   },
   "rewrites": [

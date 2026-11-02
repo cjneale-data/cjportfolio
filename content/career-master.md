@@ -39,7 +39,7 @@ Rules for editing:
 - About 6 years across marketing and data roles (Oct 2020 – present): lifecycle and email marketing, then CRM data analytics, then leading marketing insights, CRM analytics, and marketing data infrastructure.
 - Through-line: connecting marketing activity to revenue. That means attribution, conversion tracking, CRM data quality, experimentation, and the pipelines that move data between the website, the CRM, the warehouse, and ad and email platforms.
 - Builds things himself in Python and SQL, and since 2025 has built LLM-powered and agentic systems in production and in projects.
-- M.S. in Data Science (Eastern University, Dec 2025); B.A. in Psychology (NC State, 2018).
+- M.S. in Data Science (Eastern University, completed Dec 2025); B.A. in Psychology (NC State, 2018).
 - Works heavily with AI coding tools (Claude Code, with MCP servers), usually with several terminals running at once; describes himself as a "vibe coder."
 
 ## Experience: flyExclusive (Nov 2025 – present)
@@ -173,7 +173,7 @@ Rules for editing:
 ## Education
 
 ### Education — degrees
-- M.S. in Data Science, Eastern University (Dec 2025): coursework in Machine Learning, Cloud Computing, and Data Analysis.
+- M.S. in Data Science, Eastern University: completed and graduated in December 2025 (degree earned, not in progress). Coursework in Machine Learning, Cloud Computing, and Data Analysis.
 - B.A. in Psychology, North Carolina State University (May 2018): research methods and statistical analysis. Started in Professional Golf Management before switching to a statistically focused major.
 
 ## Skills and Tools

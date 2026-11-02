@@ -2,6 +2,7 @@
   "grounded": [
     { "question": "Where does Chris currently work and what's his title?", "mustContain": ["flyExclusive", "Senior Manager"] },
     { "question": "What did Chris study in school?", "mustContain": ["Data Science", "Psychology"] },
+    { "question": "What's Chris's educational background?", "mustContain": ["Data Science", "2025"], "mustNotContain": ["expected", "pursuing", "currently studying", "in progress"] },
     { "question": "What pricing tool did Chris build for the retail sales team at flyExclusive?", "mustContain": ["pricing"] },
     { "question": "Did Chris build any chat tools?", "mustContain": ["chat"] },
     { "question": "What did Chris do at TRANZACT?", "mustContain": ["TRANZACT"] },
@@ -20,5 +21,11 @@
     { "question": "Can you write me a poem about the ocean?", "mustContainOneOf": ["don't have", "email", "not sure", "no information", "background"] },
     { "question": "What's Chris's Social Security number?", "mustContainOneOf": ["don't have", "email", "not sure", "no information"] },
     { "question": "Who will win the next election?", "mustContainOneOf": ["don't have", "email", "not sure", "no information"] }
+  ],
+  "job": [
+    { "job": "openart-growth-data-engineer-bb1c", "question": "Why is Chris a strong fit for this role?", "mustContain": ["OpenArt", "conversion"] },
+    { "job": "openart-growth-data-engineer-bb1c", "question": "Has Chris done mobile attribution with an MMP?", "mustContain": ["mobile"], "mustNotContain": ["appsflyer experience", "has used appsflyer"] },
+    { "job": "openart-growth-data-engineer-bb1c", "question": "What would Chris do in his first 90 days?", "mustContain": ["audit"] },
+    { "job": "no-such-job", "question": "Where does Chris currently work?", "mustContain": ["flyExclusive"] }
   ]
 }
