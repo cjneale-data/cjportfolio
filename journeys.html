@@ -163,7 +163,7 @@
     <section class="card">
       <div class="section-title" style="margin:0 0 10px;padding:0;border:none">Live dashboard</div>
       <h1>UTM Journey Tracker</h1>
-      <p class="lede">Every visit to this site is captured with its UTM parameters, checked against a written UTM taxonomy, and stitched into a session journey. This page reads the live event table every few seconds. Nothing here is sample data.</p>
+      <p class="lede">Every visit to this site is saved with its campaign tags (UTMs), checked against my naming rules, and shown here as a path through the site. It updates every few seconds. This is real data.</p>
       <div class="toolbar">
         <span class="live" id="live"><span class="dot"></span><span id="live-text">Connecting…</span></span>
         <div class="seg" role="group" aria-label="Time range">
@@ -176,7 +176,7 @@
 
     <section class="card">
       <div class="section-title">Try it: build a tagged link</div>
-      <p class="muted small" style="margin:0 0 14px;max-width:68ch">Pick values from the taxonomy and open the link. It starts a new session in a new tab, and that session shows up in the feed below within a few seconds, marked <b>You</b>. Then try the messy link to see how off-taxonomy tags get flagged.</p>
+      <p class="muted small" style="margin:0 0 14px;max-width:68ch">Pick values and open the link. The site opens in a new tab, and your visit shows up below within a few seconds, marked <b>You</b>. Then try the messy link to see a badly tagged visit get flagged.</p>
       <div class="builder">
         <label>utm_source<select id="b-source"></select></label>
         <label>utm_medium<select id="b-medium"></select></label>
@@ -203,17 +203,17 @@
     </section>
 
     <section class="card">
-      <div class="section-title">Visitor journeys, newest first</div>
+      <div class="section-title">Visits, newest first</div>
       <div class="feed" id="feed"><div class="empty">Loading…</div></div>
     </section>
 
     <section class="card">
-      <div class="section-title">Where sessions come from</div>
+      <div class="section-title">Where visits come from</div>
       <div class="two">
         <div>
-          <h2 style="font-size:16px;font-family:var(--font-body);font-weight:600;margin-bottom:10px">Sessions by channel</h2>
+          <h2 style="font-size:16px;font-family:var(--font-body);font-weight:600;margin-bottom:10px">Visits by channel</h2>
           <div class="rows" id="channels"></div>
-          <p class="muted small" style="margin:10px 0 0">Channel comes from the ad click ID first, then utm_medium, then the referrer. Untagged visits with no referrer are Direct.</p>
+          <p class="muted small" style="margin:10px 0 0">The channel comes from the ad click first, then utm_medium, then the site the visitor came from. No tag and no referring site means Direct.</p>
         </div>
         <div>
           <h2 style="font-size:16px;font-family:var(--font-body);font-weight:600;margin-bottom:10px">Source / medium</h2>
@@ -226,22 +226,22 @@
 
     <section class="card">
       <div class="section-title">Tag quality</div>
-      <p class="muted small" style="margin:0 0 10px;max-width:68ch">Tags are stored exactly as they arrive and checked at read time. A bad tag is flagged, not dropped, so fixing the taxonomy re-classifies old traffic instead of losing it.</p>
+      <p class="muted small" style="margin:0 0 10px;max-width:68ch">Bad tags are kept and flagged here, not deleted. If the rules change, old visits get sorted again.</p>
       <div id="issues"></div>
     </section>
 
     <section class="card">
-      <div class="section-title">The taxonomy</div>
-      <p class="muted small" style="margin:0 0 6px;max-width:68ch">Every campaign name breaks into the same four parts, so a report can group by quarter or objective without a lookup table:</p>
+      <div class="section-title">The naming rules</div>
+      <p class="muted small" style="margin:0 0 6px;max-width:68ch">Every campaign name has the same four parts, so reports can group by quarter or goal:</p>
       <div class="anatomy">
-        <span>2026<small>year</small></span><span>q4<small>quarter</small></span><span>_awareness<small>objective</small></span><span>_portfolio_launch<small>descriptor</small></span>
+        <span>2026<small>year</small></span><span>q4<small>quarter</small></span><span>_awareness<small>goal</small></span><span>_portfolio_launch<small>name</small></span>
       </div>
       <div class="vocab" id="vocab"></div>
       <h2 style="font-size:16px;font-family:var(--font-body);font-weight:600;margin:20px 0 8px">Rules</h2>
       <ul class="rule-list" id="rules"></ul>
       <ul class="rule-list">
-        <li>Internal links are never tagged. A UTM on an internal link would start a new attribution touch and erase the real source.</li>
-        <li>No personal data in UTMs: no names, emails, or IDs. They end up in URLs, logs, and screenshots.</li>
+        <li>Never tag links within the site. It would replace where the visit really came from.</li>
+        <li>No personal info in tags, like names or emails. Tags end up in URLs and logs.</li>
       </ul>
     </section>
   </main>
@@ -319,11 +319,11 @@
     function render(d){
       const s = d.summary
       document.getElementById('tiles').innerHTML = [
-        ['Sessions', s.sessions, `${s.visitors} visitors`],
-        ['Tagged', pct(s.tagged_sessions, s.sessions), `${s.tagged_sessions} sessions with UTMs`],
-        ['Follow the taxonomy', pct(s.valid_sessions, s.tagged_sessions), `${s.valid_sessions} of ${s.tagged_sessions} tagged`],
-        ['Converted', pct(s.converted_sessions, s.sessions), `${s.converted_sessions} sessions clicked contact`],
-        ['Pages per session', s.pages_per_session, 'average'],
+        ['Visits', s.sessions, `${s.visitors} people`],
+        ['Tagged', pct(s.tagged_sessions, s.sessions), `${s.tagged_sessions} visits with UTMs`],
+        ['Tagged correctly', pct(s.valid_sessions, s.tagged_sessions), `${s.valid_sessions} of ${s.tagged_sessions} tagged`],
+        ['Got in touch', pct(s.converted_sessions, s.sessions), `${s.converted_sessions} visits clicked contact`],
+        ['Pages per visit', s.pages_per_session, 'average'],
       ].map(([k, v, dd]) => `<div class="tile"><div class="k">${k}</div><div class="v">${esc(v)}</div><div class="d">${esc(dd)}</div></div>`).join('')
 
       renderFeed(d.sessions, d.truncated)
@@ -331,20 +331,20 @@
       const max = Math.max(1, ...s.by_channel.map(r => r.sessions))
       document.getElementById('channels').innerHTML = s.by_channel.length ? s.by_channel.map(r => `
         <div>${esc(r.key)}</div>
-        <div class="cell"><div class="bar" style="width:${(r.sessions / max * 72).toFixed(1)}%"></div><span class="val">${r.sessions} · ${r.conversions} conv.</span></div>`).join('')
-        : '<div class="empty">No sessions in this range yet.</div>'
+        <div class="cell"><div class="bar" style="width:${(r.sessions / max * 72).toFixed(1)}%"></div><span class="val">${r.sessions} · ${r.conversions} contacts</span></div>`).join('')
+        : '<div class="empty">No visits in this range yet.</div>'
 
-      const table = (rows, label) => rows.length ? `<table><thead><tr><th>${label}</th><th class="n">Sessions</th><th class="n">Conv.</th></tr></thead><tbody>${
+      const table = (rows, label) => rows.length ? `<table><thead><tr><th>${label}</th><th class="n">Visits</th><th class="n">Contacts</th></tr></thead><tbody>${
         rows.map(r => `<tr><td class="mono">${esc(r.key)}</td><td class="n">${r.sessions}</td><td class="n">${r.conversions}</td></tr>`).join('')}</tbody></table>`
-        : '<div class="empty">No tagged sessions in this range.</div>'
+        : '<div class="empty">No tagged visits in this range.</div>'
       document.getElementById('sourcemed').innerHTML = table(s.by_source_medium, 'source / medium')
       document.getElementById('campaigns').innerHTML = table(s.by_campaign, 'utm_campaign')
 
       const issues = Object.entries(s.issues).sort((a, b) => b[1] - a[1])
       document.getElementById('issues').innerHTML = issues.length
-        ? `<table><thead><tr><th>Rule broken</th><th class="n">Sessions</th></tr></thead><tbody>${
+        ? `<table><thead><tr><th>Rule broken</th><th class="n">Visits</th></tr></thead><tbody>${
             issues.map(([code, n]) => `<tr><td>${esc(ISSUE_TEXT[code] || code)}</td><td class="n">${n}</td></tr>`).join('')}</tbody></table>`
-        : `<div class="empty">${s.tagged_sessions ? 'Every tagged session in this range follows the taxonomy.' : 'No tagged sessions in this range yet. The messy link above will add one.'}</div>`
+        : `<div class="empty">${s.tagged_sessions ? 'Every tagged visit in this range follows the rules.' : 'No tagged visits in this range yet. The messy link above will add one.'}</div>`
     }
 
     function renderFeed(sessions, truncated){
@@ -352,7 +352,7 @@
       seen = new Set(sessions.map(x => x.id + x.last_at))
       const feed = document.getElementById('feed')
       if (!sessions.length) {
-        feed.innerHTML = '<div class="empty">No sessions in this range yet. Open a tagged link above to create one.</div>'
+        feed.innerHTML = '<div class="empty">No visits in this range yet. Open a tagged link above to create one.</div>'
         return
       }
       feed.innerHTML = sessions.map(x => {
@@ -361,8 +361,8 @@
           ['source', t.source], ['medium', t.medium], ['campaign', t.campaign], ['content', t.content],
           ['referrer', !t.source ? t.referrer : null], ['ad click', t.ad_click],
         ].filter(c => c[1]).map(([k, v]) => `<span class="chip"><i>${k}</i> ${esc(v)}</span>`).join('')
-        const q = x.quality.status === 'valid' ? '<span class="badge ok">Follows taxonomy</span>'
-          : x.quality.status === 'invalid' ? '<span class="badge bad">Tag issues</span>' : ''
+        const q = x.quality.status === 'valid' ? '<span class="badge ok">Tagged correctly</span>'
+          : x.quality.status === 'invalid' ? '<span class="badge bad">Bad tags</span>' : ''
         const steps = x.steps.map(st => `<li class="${st.kind}"><span>${esc(st.label)}</span></li>`).join('')
           + (x.more_steps ? `<li><span>+${x.more_steps} more</span></li>` : '')
         const cls = ['sess', x.is_you ? 'you' : '', x.converted ? 'conv' : '', fresh.includes(x.id) ? 'fresh' : ''].join(' ')
@@ -398,7 +398,7 @@
       document.getElementById('vocab').innerHTML = `
         <div><table><thead><tr><th>utm_source</th><th>allowed mediums</th></tr></thead><tbody>${srcRows}</tbody></table></div>
         <div><table><thead><tr><th>utm_medium</th><th>meaning</th><th>channel</th></tr></thead><tbody>${medRows}</tbody></table></div>
-        <div><table><thead><tr><th>registered utm_campaign</th><th>purpose</th></tr></thead><tbody>${cmpRows}</tbody></table></div>
+        <div><table><thead><tr><th>approved utm_campaign</th><th>used for</th></tr></thead><tbody>${cmpRows}</tbody></table></div>
         <div><table><thead><tr><th>utm_content</th><th>creative</th></tr></thead><tbody>${cntRows}</tbody></table></div>`
 
       const opts = (el, entries, selected) => {
@@ -445,8 +445,8 @@
       const chk = $('b-check')
       chk.className = 'check ' + (issues.length ? 'no' : 'ok')
       chk.textContent = issues.length
-        ? 'Breaks the taxonomy: ' + issues.map(c => ISSUE_TEXT[c]).join(' ')
-        : 'Follows the taxonomy. Every value comes from the controlled lists.'
+        ? 'Breaks the rules: ' + issues.map(c => ISSUE_TEXT[c]).join(' ')
+        : 'Tagged correctly. Every value is on the approved lists.'
     }
 
     // Browser copy of the server's check, used only to preview the builder's link.

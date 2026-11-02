@@ -239,9 +239,9 @@
       document.getElementById('app').innerHTML = `
         <div class="card chat-embed" id="chat-embed">
           <div class="chat-embed-header">
-            <div class="section-title" style="margin:0 0 8px;padding:0;border:none">Live demo — retrieval-augmented</div>
+            <div class="section-title" style="margin:0 0 8px;padding:0;border:none">Live demo</div>
             <h2>Ask about Chris</h2>
-            <p>Grounded answers about his background — real chunked retrieval behind this, not just a stuffed prompt. Try a question:</p>
+            <p>Ask about my work. Answers come only from my resume and notes. <a href="#/project/resume-chat" data-link>How it works</a></p>
           </div>
           <div class="chat-prompts" id="chat-prompts"></div>
           <div id="chat-messages"></div>
@@ -254,8 +254,8 @@
         <section class="hero card">
           <div class="photo"><img src="headshot.jpg" alt="Chris Neale"></div>
           <div class="intro">
-            <h1>Hi — I'm Christopher Neale</h1>
-            <p>Data science leader with 4+ years building and shipping applied AI: LLM-powered chat and RAG systems, agentic workflows, and the marketing analytics infrastructure they sit on top of. I lead cross-functional AI initiatives end to end — from architecture through evaluation to production — and I write the code myself, including with tools like Claude Code.</p>
+            <h1>Hi, I'm Chris Neale</h1>
+            <p>I lead data science and applied AI work. I build AI tools like chatbots and agents, and the marketing data systems they run on: tracking, attribution, and CRM data. I plan the work, write the code, and test it before it ships.</p>
             <div style="margin-top:12px" class="skills">
               <div class="skill">LLM / RAG</div><div class="skill">Agentic Workflows (LangGraph)</div><div class="skill">Prompt Engineering</div><div class="skill">Python</div><div class="skill">SQL</div><div class="skill">Tableau</div><div class="skill">CRM & CDP</div>
             </div>
@@ -266,12 +266,12 @@
           <div>
             <div class="card">
               <div class="section-title">About</div>
-              <p style="color:var(--muted)">I lead applied-AI work at the intersection of data science and production engineering: internal RAG chat tools, agentic compliance systems, and the BI infrastructure that grounds them in real data. I care most about the parts that are easy to skip — evaluation, graceful degradation, and making sure an AI system's tradeoffs (latency, cost, reliability) are a deliberate choice, not an accident. This site (copy, retrieval architecture, and eval harnesses included) is itself built end-to-end with Claude Code.</p>
+              <p style="color:var(--muted)">Most of my work connects marketing data to decisions: which ads are working, which leads to call first, what to charge. Lately that means AI tools: chat that answers from company data, agents that check documents, and pipelines that enrich the CRM. I care most about testing. Before anything ships, I want to know how well it works and what it does when something breaks. I built this site with Claude Code.</p>
             </div>
 
             <div class="card">
               <div class="section-title">Interests & Hobbies</div>
-              <p style="color:var(--muted)">I love using data to over analyze my golf game and my fantasy football teams — enough that I built a full club-fitting analytics platform as a side project. See <a href="#/project/tensorfit" data-link style="color:var(--accent)">TensorFit</a> under Projects.</p>
+              <p style="color:var(--muted)">I use data to over-analyze my golf game and my fantasy football teams. The golf habit turned into a side project: <a href="#/project/tensorfit" data-link style="color:var(--accent)">TensorFit</a>.</p>
             </div>
           </div>
 
@@ -352,16 +352,16 @@
           <div class="resume-item">
             <div style="font-weight:700">PodFlow — M.S. Data Science Capstone, Eastern University, 2025</div>
             <ul style="color:var(--muted);margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.6">
-              <li>Built a full audio-to-insight pipeline solo: transcription (faster-Whisper), automatic content segmentation via a trained CNN-BiLSTM model (benchmarked against XGBoost, focal loss for class imbalance), and LLM-based metadata enrichment, served through a REST API to a working web app.</li>
-              <li>Built an offline evaluation framework scoring precision/recall/F1 against hand-labeled ground truth, and deployed a local quantized LLM (Qwen2.5 via llama.cpp) with a rules-based fallback for resilience.</li>
+              <li>Built a pipeline on my own that turns podcast audio into titled chapters: transcription (Whisper), a CNN-BiLSTM model I trained to find topic changes (compared against XGBoost), and AI-written titles, served through an API to a web player.</li>
+              <li>Tested it against hand-labeled episodes (precision, recall, F1) and ran a small local LLM (Qwen2.5) with a simple fallback if it fails.</li>
             </ul>
             <div style="margin-top:4px"><a href="player.html" style="color:var(--accent)">open the player</a></div>
           </div>
           <div class="resume-item">
             <div style="font-weight:700">ChefAI — Agentic Meal-Planning Assistant (LangGraph)</div>
             <ul style="color:var(--muted);margin:6px 0 0;padding-left:18px;font-size:14px;line-height:1.6">
-              <li>Built a conversational meal-planning agent on a LangGraph state machine, using a conditional router that inspects state each turn and dispatches to whichever slot (allergies, diet, dislikes, craving, prep time, budget) still needs filling, with LLM-based extraction pulling structured fields from free text.</li>
-              <li>Made a deliberate agent-autonomy-versus-structure tradeoff: accepted added latency and cost from LLM-based slot extraction for a materially better conversational experience than a rigid form, keeping the graph simple with single-node-per-turn routing and externally persisted state.</li>
+              <li>Built a meal-planning chatbot on LangGraph that asks for allergies, diet, dislikes, cravings, time, and budget one question at a time, using an LLM to pull answers out of normal replies.</li>
+              <li>Chose a natural conversation over a rigid form, accepting a little more cost and delay per reply.</li>
             </ul>
             <div style="margin-top:4px"><a href="https://chefai-noemgucqmarbfwe2euwdsl.streamlit.app/" target="_blank" rel="noopener" style="color:var(--accent)">try it live</a></div>
           </div>
@@ -390,25 +390,25 @@
       document.getElementById('app').innerHTML = `
         <div class="card">
           <div class="section-title">Projects</div>
-          <p style="color:var(--muted)">Applied AI builds with real architecture behind them, plus the ML modeling fundamentals underneath — not just prompt wrappers. Built end-to-end with Claude Code.</p>
+          <p style="color:var(--muted)">Things I've built. Most are live, so you can try them.</p>
 
           <div class="section-title" style="margin-top:18px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em">Applied AI &amp; Production Systems</div>
           <div style="display:grid;gap:12px;margin-top:10px">
             ${projectCard(
               'PodFlow — Content Intelligence Pipeline',
-              'Unstructured podcast audio → structured, searchable chapters. Own trained segmentation model + LLM enrichment with a working degradation path.',
-              'Live pipeline, running locally',
+              'Turns long podcast episodes into short, searchable chapters. A model I trained finds where the topic changes, then an AI model titles each chapter.',
+              'Runs on my machine',
               '#/project/podflow'
             )}
             ${projectCard(
               'Resume Chat — Retrieval-Augmented Q&A',
-              'The "Ask about Chris" widget on this site: chunked retrieval, cosine-ranked context, grounded generation, and an automated eval harness.',
+              'The chat on the home page. It finds the parts of my notes that match your question and answers only from those. Test questions check that it gets facts right and admits when it doesn\'t know.',
               'Live on this site',
               '#/project/resume-chat'
             )}
             ${projectCard(
               'ChefAI — Agentic Meal Planning',
-              'A LangGraph state-machine agent that slot-fills constraints (allergies, diet, budget, prep time) before generating recipes.',
+              'A meal-planning chatbot. It asks about allergies, diet, budget, and time, one question at a time, then suggests recipes.',
               'Live public demo',
               '#/project/chefai'
             )}
@@ -418,13 +418,13 @@
           <div style="display:grid;gap:12px;margin-top:10px">
             ${projectCard(
               'From Attribution to Ad Spend',
-              'A worked framework for turning overlapping platform credit into a budget decision: dedupe, compare attribution models, calibrate with lift tests, and reallocate on the cost of the next incremental customer. Includes an interactive budget model.',
-              'Worked example, illustrative data',
+              'Ad platforms all take credit for the same sale. This walks through how I figure out which ads really work and where the budget should go. Interactive, with made-up numbers.',
+              'Example with made-up numbers',
               '#/project/attribution'
             )}
             ${projectCard(
               'UTM Journey Tracker',
-              'A UTM taxonomy enforced in code, plus a real-time dashboard of visitor journeys on this site: landing touch, pages, conversions, channel grouping, and tag-quality checks. Build a tagged link and watch your own session appear.',
+              'Naming rules for campaign links, checked in code, plus a live dashboard of how visitors move through this site. Make a tagged link and watch your own visit show up.',
               'Live on this site',
               '#/project/utm-journeys'
             )}
@@ -434,19 +434,19 @@
           <div style="display:grid;gap:12px;margin-top:10px">
             ${projectCard(
               'TensorFit — Golf Club-Fitting Platform',
-              'Full-stack SaaS: normalizes shot data from 8 launch-monitor brands, real dispersion/consistency statistics, and a documented shadow-mode ML rollout plan.',
-              'Rules engine live, ML models designed not yet trained',
+              'A golf club-fitting app. It reads shot data from 8 launch-monitor brands, scores consistency, and suggests club changes.',
+              'Rules engine works; ML models planned',
               '#/project/tensorfit'
             )}
             ${projectCard(
               'Mushroom Toxicity Classifier',
-              'Binary neural net on 116 one-hot features, class-weighted for imbalance, with a full-vs-PCA-reduced ablation comparing accuracy and training time.',
-              'M.S. Data Science capstone',
+              'A neural network that predicts whether a mushroom is poisonous, plus a test of what shrinking the data with PCA really costs.',
+              'M.S. Data Science project',
               '#/project/mushroom-classifier'
             )}
             <div class="entry">
               <div class="entry-title">Applied ML Coursework</div>
-              <div class="entry-blurb" style="max-width:none">Four more hands-on projects from the M.S. program: face detection &amp; recognition (MTCNN + transfer learning on a frozen VGGFace network), a class-imbalance classifier (COVID-19 diagnosis, before/after class weighting), a PCA-vs-t-SNE cluster visualization comparison, and end-to-end model deployment via Flask (train → pickle → serve). Instructor-provided scaffolding on some of the plumbing/plotting code — the modeling and interpretation is mine.</div>
+              <div class="entry-blurb" style="max-width:none">Four more school projects: face recognition, a classifier for lopsided data, a comparison of two ways to visualize clusters (PCA and t-SNE), and serving a model through a web API. Some starter code came from the instructor; the modeling is mine.</div>
             </div>
           </div>
         </div>
@@ -462,19 +462,19 @@
           <h2 style="font-size:26px">${title}</h2>
           <div style="color:var(--muted);margin-top:6px;font-size:15px;max-width:60ch">${subtitle}</div>
 
-          <div class="section-title" style="margin-top:26px">Problem</div>
+          <div class="section-title" style="margin-top:26px">The problem</div>
           <p style="color:var(--muted);max-width:68ch">${problem}</p>
 ${visuals ? `
-          <div class="section-title" style="margin-top:18px">How it works, in pictures</div>
+          <div class="section-title" style="margin-top:18px">The example</div>
           ${visuals}
 ` : ''}
-          <div class="section-title" style="margin-top:26px">${approachTitle || 'Architecture'}</div>
+          <div class="section-title" style="margin-top:26px">${approachTitle || 'How it works'}</div>
           <ul style="color:var(--muted);margin:0;padding-left:18px;line-height:1.7;max-width:68ch">${archItems}</ul>
 
-          <div class="section-title" style="margin-top:18px">Tradeoffs</div>
+          <div class="section-title" style="margin-top:18px">Choices I made</div>
           <ul style="color:var(--muted);margin:0;padding-left:18px;line-height:1.7;max-width:68ch">${tradeoffItems}</ul>
 
-          <div class="section-title" style="margin-top:18px">Stack</div>
+          <div class="section-title" style="margin-top:18px">Built with</div>
           <div class="skills" style="margin-bottom:4px">${stack.map(s => `<div class="skill">${s}</div>`).join('')}</div>
 
           <div class="section-title" style="margin-top:18px">Status</div>
@@ -488,22 +488,22 @@ ${visuals ? `
     function renderPodflowCase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'PodFlow',
-        subtitle: 'Turning unstructured audio into structured content intelligence',
-        problem: 'Podcast episodes are long, unstructured audio with no chapter markers. Finding the 90 seconds a listener actually wants means scrubbing the whole file. The same shape of problem — long unstructured content that needs to become structured, navigable, retrievable intelligence — shows up constantly in legal and business content, not just podcasts.',
+        subtitle: 'Turning long podcast episodes into short, searchable chapters',
+        problem: 'Podcasts don\'t have chapters. To find the part you want, you scrub through an hour of audio. I wanted to split episodes into chapters automatically and give each one a title.',
         architecture: [
-          'RSS ingestion pulls episode metadata and audio URLs, deduped and upserted into Postgres (genre/topic/artwork tracked for filtering).',
-          'faster-whisper transcribes full episode audio locally.',
-          'A CNN-BiLSTM boundary-segmentation model I trained myself (not an LLM call) predicts chapter boundaries from audio features — the same feature-extraction pipeline is shared verbatim between training and inference to guarantee train/serve parity.',
-          'A local LLM (Qwen, via llama.cpp) enriches each chapter with a title/description/tags, reading only the transcript text inside that chapter\'s boundaries.',
-          'A Flask API serves random/filtered chapters to a lightweight player frontend.',
+          'Pulls new episodes from podcast feeds into Postgres.',
+          'Transcribes the audio with Whisper.',
+          'A model I trained (a CNN-BiLSTM) finds where the topic changes. Those points become the chapter breaks.',
+          'A small AI model running on my machine writes a title and tags for each chapter, using only that chapter\'s text.',
+          'An API sends the chapters to a simple web player.',
         ],
         tradeoffs: [
-          'The LLM enrichment step has a documented, working heuristic fallback (first-sentence title + keyword tags) for when the local GGUF fails to load on hardware without AVX-512 — the pipeline degrades gracefully instead of failing the whole batch. This was a deliberate reliability choice, not an afterthought.',
-          'Chapter segmentation uses a purpose-trained small model instead of asking an LLM to find boundaries — cheaper, faster, and more consistent at batch scale than an LLM call per episode.',
-          'Segmentation quality is measured with an offline eval (precision/recall/F1 against 16 human-labeled episodes, boundary-tolerance window) rather than eyeballing outputs. Running it surfaced a real finding, not a clean pass: the model over-segments long-form sports/talk content at its default threshold (aggregate F1 0.11), a different profile than the shorter daily-news episodes it\'s mostly been run against since. Concrete next step: per-content-type threshold tuning — exactly the kind of gap an eval harness is supposed to surface before it becomes a silent quality regression.',
+          'I trained a small model to find chapter breaks instead of asking an LLM. It\'s faster, cheaper, and gives the same answer every time.',
+          'If the AI model can\'t load, the pipeline falls back to a simple rule (the first sentence becomes the title) and keeps going.',
+          'I tested the chapter breaks against 16 episodes I labeled by hand. The model did badly on long talk shows (F1 of 0.11) because it splits them too often. The next step is tuning it separately for each kind of show.',
         ],
-        stack: ['Python', 'Flask', 'PostgreSQL', 'PyTorch', 'faster-whisper', 'llama.cpp', 'Feature Engineering'],
-        status: 'Restored and running locally end-to-end (ingestion → transcription → segmentation → enrichment → serving).',
+        stack: ['Python', 'Flask', 'PostgreSQL', 'PyTorch', 'Whisper', 'llama.cpp'],
+        status: 'Running end to end on my machine',
         link: '<a href="player.html" style="color:var(--accent)">open the player</a>',
       })
     }
@@ -511,22 +511,21 @@ ${visuals ? `
     function renderChatCase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'Resume Chat',
-        subtitle: 'The "Ask about Chris" widget on this site — real retrieval, not a stuffed prompt',
-        problem: 'A visitor should be able to ask a natural-language question about my background and get an accurate, grounded answer — and just as importantly, a clear "I don\'t know, email Chris" when the question is out of scope, instead of a confident hallucination.',
+        subtitle: 'The chat on the home page',
+        problem: 'I wanted visitors to ask about my background and get correct answers. Just as important, when the answer isn\'t in my notes, it should say so and point them to my email instead of making something up.',
         architecture: [
-          'My background doc is chunked by section (personal, education, per-employer experience, skills).',
-          'Each chunk gets a TF-IDF vector at server startup; each incoming question gets the same treatment at request time.',
-          'Cosine similarity ranks chunks against the question; only the top-matching chunks (plus an always-included identity chunk) go into the system prompt — real retrieval, not "paste the whole resume every time."',
-          'The grounded prompt goes to an LLM via OpenRouter, server-side only — the API key never reaches the browser.',
-          'An automated eval harness (test set of factual + out-of-scope questions) scores grounding accuracy and refusal behavior on every change, instead of me eyeballing a few chats and calling it done.',
+          'My background notes are split into sections: jobs, education, skills, and projects.',
+          'For each question, it finds the sections that share the most words with it (TF-IDF and cosine similarity).',
+          'Only those sections go to the AI model, with instructions to answer from them alone.',
+          'The AI call runs on the server, so the API key never reaches the browser.',
+          'A set of test questions runs after every change and checks two things: does it get the facts right, and does it refuse what it can\'t answer?',
         ],
         tradeoffs: [
-          'TF-IDF sparse retrieval instead of dense embeddings: zero extra API dependency or cost for a corpus this size, and it\'s a legitimate retrieval technique on its own — but it won\'t catch semantic matches that share no vocabulary with the question. At production scale with a larger, more varied corpus, I\'d move to dense embeddings against a real vector store (pgvector/Pinecone) for semantic recall; the chunking and ranking interface here is already shaped to make that swap contained.',
-          'Non-streaming responses for simplicity — streaming would feel snappier and is the obvious next iteration.',
-          'Retrieval narrows the prompt to only relevant chunks, which is also a real latency/cost win, not just an architecture nicety.',
+          'Word matching instead of embeddings. It\'s free and fast for this much text, but it misses questions that use different words for the same thing. With more content I\'d switch to embeddings.',
+          'Answers show up all at once instead of streaming in. Streaming is the next improvement.',
         ],
-        stack: ['Vercel Serverless (Node)', 'OpenRouter', 'TF-IDF / Cosine Retrieval', 'Prompt Engineering', 'Automated Eval Harness'],
-        status: 'Live at the top of the Home page right now — try the canned prompts or ask your own question.',
+        stack: ['Node (Vercel)', 'OpenRouter', 'TF-IDF retrieval', 'Automated tests'],
+        status: 'Live at the top of the home page',
         link: '',
       })
     }
@@ -534,20 +533,20 @@ ${visuals ? `
     function renderChefAICase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'ChefAI',
-        subtitle: 'An agentic meal-planning assistant built on a LangGraph state machine',
-        problem: 'Generating a good recipe recommendation needs several pieces of information (allergies, diet, dislikes, a specific craving, prep time, budget) that a user won\'t volunteer all at once in one message. The agent needs to gather them conversationally, know when it has enough to act, and stay on-script without feeling like a rigid form.',
+        subtitle: 'A meal-planning chatbot built with LangGraph',
+        problem: 'To suggest a good recipe, the bot needs six things: allergies, diet, dislikes, what you\'re craving, how much time you have, and your budget. People don\'t say all of that at once, so the bot has to ask one question at a time and know when it has enough.',
         architecture: [
-          'A LangGraph StateGraph with a typed conversation state (allergies, diet, dislikes, craving, prep time, budget, generated options, flow-completion flag).',
-          'A conditional entry-point router inspects the current state on every turn and dispatches to whichever slot still needs filling (ask_allergies, ask_diet, ask_dislikes, ask_specific_craving, ask_prep_time, ask_budget), or on to generate_recipes once every slot is filled.',
-          'Free-text extraction: each answer is passed to an LLM extraction call that pulls the structured field out of natural language, rather than requiring rigid form input.',
-          'Once the flow is complete, the router recognizes follow-up intent ("more", "different", "another") and re-enters generation instead of restarting the whole slot-filling sequence.',
+          'The conversation runs on a LangGraph state machine that tracks which of the six answers it still needs.',
+          'Each turn, it checks what\'s missing and asks for that next. Once it has everything, it suggests recipes.',
+          'An AI model reads each reply and pulls out the answer, so people can type normally instead of filling out a form.',
+          'After the recipes, "more" or "something different" gets new ideas without starting over.',
         ],
         tradeoffs: [
-          'A single-node-per-turn graph (each node routes to END and the graph is re-invoked next turn) keeps the state machine simple and lets state persist externally between turns — the right call for a conversational agent versus a long-running multi-step graph.',
-          'LLM-based slot extraction trades some latency/cost for a much better user experience than a rigid multi-step form — a deliberate autonomy-vs-structure tradeoff the JD language for this kind of role calls out directly.',
+          'Reading each reply with an AI model is a little slower and costs a little more than a form, but the conversation feels natural.',
+          'Each turn runs one step and saves where it left off, which keeps the logic simple.',
         ],
-        stack: ['Python', 'LangGraph', 'Streamlit', 'OpenRouter', 'LLM Structured Extraction'],
-        status: 'Live public demo on Streamlit Community Cloud, running on OpenRouter for generation with Supabase behind it for auth and saved-recipe storage.',
+        stack: ['Python', 'LangGraph', 'Streamlit', 'OpenRouter', 'Supabase'],
+        status: 'Live demo on Streamlit, with Supabase for logins and saved recipes',
         link: '<a href="https://chefai-noemgucqmarbfwe2euwdsl.streamlit.app/" target="_blank" rel="noopener" style="color:var(--accent)">try it live</a>',
       })
     }
@@ -645,36 +644,36 @@ ${visuals ? `
         <div class="lbl">${c.label}<small>${d.tests[i]}</small></div>
         <div>
           ${bar(last[i], cMax, false, `${c.label}: last-touch credits ${last[i]} subscribers`, `${last[i]} credited`)}
-          ${bar(lift[i], cMax, true, `${c.label}: the lift test measured ${lift[i]} subscribers that would not have happened without it`, `${lift[i]} incremental`)}
+          ${bar(lift[i], cMax, true, `${c.label}: the lift test measured ${lift[i]} subscribers that would not have happened without it`, `${lift[i]} really added`)}
         </div>`).join('')
 
       const tabs = d.models.map((m, i) => `<button type="button" class="viz-tab" data-model="${m.key}" aria-pressed="${i === 0}">${m.label}</button>`).join('')
 
       return `
-        <div class="viz-note">Worked example on made-up numbers: a subscription brand spending $100k a month across five paid channels, getting 1,000 new subscribers a month worth $250 each in lifetime value. The numbers are invented; the method is the one I use.</div>
+        <div class="viz-note">Made-up example: a subscription company spends $100k a month on five ad channels and gets 1,000 new subscribers a month. Each subscriber is worth $250.</div>
 
         <div class="viz-fig">
           <h3>The framework</h3>
-          <p class="viz-sub">Five steps from "every platform claims the sale" to a budget I can defend.</p>
+          <p class="viz-sub">Five steps. Steps 2 to 5 are shown below.</p>
           <ol class="viz-flow">
-            <li><b>Define</b>One conversion and what it's worth: revenue or predicted lifetime value, not sign-ups</li>
-            <li><b>Unify</b>Count conversions once, with one channel definition built on a UTM taxonomy</li>
-            <li><b>Attribute</b>Run several models side by side and read where they disagree</li>
-            <li><b>Calibrate</b>Use lift tests to measure what each channel actually adds</li>
-            <li><b>Reallocate</b>Move budget toward the cheapest extra subscriber, in capped steps</li>
+            <li><b>Define</b>Pick the result that counts and what it's worth</li>
+            <li><b>Count once</b>One count of sales, from the company's own records</li>
+            <li><b>Compare</b>Split the credit a few different ways</li>
+            <li><b>Test</b>Measure what each channel really adds</li>
+            <li><b>Move money</b>Shift budget a step at a time</li>
           </ol>
         </div>
 
         <div class="viz-fig">
-          <h3>Step 2: the platforms claim ${claimed.toLocaleString('en-US')} conversions. The business got ${d.total.toLocaleString('en-US')}.</h3>
-          <p class="viz-sub">Each ad platform counts every conversion it touched, inside its own lookback window. A subscriber who saw a TikTok ad, clicked a Meta ad, and searched the brand name is counted three times.</p>
+          <h3>Step 2: the ad platforms claim ${claimed.toLocaleString('en-US')} sign-ups. There were ${d.total.toLocaleString('en-US')}.</h3>
+          <p class="viz-sub">Each platform counts every sign-up its ads touched. Someone who saw a TikTok ad, clicked a Meta ad, and then searched the brand gets counted three times.</p>
           <div class="viz-rows">${platforms}</div>
-          <p class="viz-take">Adding up platform dashboards over-credits paid media by ${Math.round((claimed / d.total - 1) * 100)}%. The starting point is one deduplicated count from the business's own system, with every visit tagged the same way so it can be traced to a channel.</p>
+          <p class="viz-take">Adding up the platform reports overstates ads by ${Math.round((claimed / d.total - 1) * 100)}%. So I start from the company's own count.</p>
         </div>
 
         <div class="viz-fig">
-          <h3>Step 3: one subscriber, four ways to split the credit</h3>
-          <p class="viz-sub">Five ad touches over ten days, then a subscription. Each attribution model is a different rule for dividing that one subscriber among the channels.</p>
+          <h3>Step 3: one sign-up, four ways to split the credit</h3>
+          <p class="viz-sub">Five ads over ten days, then a sign-up. Each attribution model splits the credit differently.</p>
           <ol class="viz-journey six">
             <li><b>Day 1 · TikTok</b>Watches a video ad</li>
             <li><b>Day 3 · Meta</b>Clicks an Instagram ad</li>
@@ -685,25 +684,25 @@ ${visuals ? `
           </ol>
           <div class="viz-legend">${legend}</div>
           <div class="viz-rows">${credit}</div>
-          <p class="viz-take">Last-touch hands everything to brand search, the step where the buyer had already decided. First-touch hands everything to the TikTok ad that started it. Neither tells you what would have happened without the ad.</p>
+          <p class="viz-take">Last-touch gives it all to the brand search at the end, when the person had already decided. First-touch gives it all to the TikTok ad at the start. Neither tells you whether the ads made a difference.</p>
         </div>
 
         <div class="viz-fig">
-          <h3>Step 4: lift tests show what each channel really adds</h3>
-          <p class="viz-sub">A lift test holds a channel back from a random group of people or regions and counts the difference in subscribers. That difference is the channel's incremental effect, which no attribution model can see on its own.</p>
-          <div class="viz-legend"><span><i style="background:var(--muted);opacity:.55"></i>Credited by last-touch</span><span><i style="background:var(--accent)"></i>Incremental, per lift test</span></div>
+          <h3>Step 4: tests show what each channel really adds</h3>
+          <p class="viz-sub">A lift test turns a channel off for a random group of people or regions and compares sign-ups. The gap is what that channel really added.</p>
+          <div class="viz-legend"><span><i style="background:var(--muted);opacity:.55"></i>Credited by last-touch</span><span><i style="background:var(--accent)"></i>Really added, per the test</span></div>
           <div class="viz-rows viz-pair">${calib}</div>
-          <p class="viz-take">Brand search and retargeting mostly catch people who were going to subscribe anyway. Meta and TikTok create demand that other channels later get the credit for.</p>
+          <p class="viz-take">Brand search and retargeting mostly reach people who would have signed up anyway. Meta and TikTok bring in new people, and other channels get the credit.</p>
         </div>
 
         <div class="viz-fig">
-          <h3>Step 5: the model you trust decides where the money goes</h3>
-          <p class="viz-sub">Pick a model. The table shows each channel's cost per subscriber under it and the budget it would recommend for next month: same $100k total, spend moved toward the cheapest extra subscriber, no channel changed by more than 40%. Each plan is then scored against what the lift tests say each channel really adds.</p>
+          <h3>Step 5: the model you pick moves the money</h3>
+          <p class="viz-sub">Pick a model to see the budget it would set for next month. Same $100k, and no channel changes by more than 40%. Then each plan is scored against the test results.</p>
           <div class="viz-tabs" role="group" aria-label="Attribution model">${tabs}</div>
           <div id="attr-decision"></div>
           <div style="margin-top:18px">
-            <h3 style="font-size:13px">Extra subscribers next month under each model's plan</h3>
-            <p class="viz-sub" style="margin-bottom:8px">Today's budget produces 535 subscribers that wouldn't have happened without ads.</p>
+            <h3 style="font-size:13px">Sign-ups the ads really add next month, by plan</h3>
+            <p class="viz-sub" style="margin-bottom:8px">Today's budget brings in 535 sign-ups that wouldn't happen without ads.</p>
             <div class="viz-rows" id="attr-outcomes"></div>
           </div>
         </div>
@@ -735,14 +734,14 @@ ${visuals ? `
         }).join('')
         const delta = Math.round(subs - base)
         const verdict = delta < 0
-          ? `The ${m.plan} would lose about ${-delta} incremental subscribers a month, roughly ${usd(-delta * ATTR.value * 12)} a year in lifetime value, on the same spend.`
-          : `The ${m.plan} would add about ${delta} incremental subscribers a month, roughly ${usd(delta * ATTR.value * 12)} a year in lifetime value, on the same spend.`
+          ? `The ${m.plan} loses about ${-delta} real sign-ups a month on the same spend. That's about ${usd(-delta * ATTR.value * 12)} a year.`
+          : `The ${m.plan} adds about ${delta} real sign-ups a month on the same spend. That's about ${usd(delta * ATTR.value * 12)} a year.`
         root.innerHTML = `
           <div class="viz-table-wrap"><table class="viz-table" style="margin-top:12px">
-            <thead><tr><th>Channel</th><th class="n">Spend now</th><th class="n">Credited subs</th><th class="n">Cost per sub</th><th class="n">Next month</th><th class="n">Change</th></tr></thead>
+            <thead><tr><th>Channel</th><th class="n">Spend now</th><th class="n">Credited sign-ups</th><th class="n">Cost each</th><th class="n">Next month</th><th class="n">Change</th></tr></thead>
             <tbody>${rows}</tbody>
           </table></div>
-          <p class="viz-take">Costs above $${ATTR.value} (marked ▲) cost more than a subscriber is worth. ${verdict}</p>`
+          <p class="viz-take">Costs above $${ATTR.value} (▲) are more than a subscriber is worth. ${verdict}</p>`
         document.getElementById('attr-outcomes').innerHTML = results.map(r => `
           <div class="lbl">${r.m.label}</div>
           <div class="viz-cell" data-tip="${r.m.label}: ${Math.round(r.subs)} incremental subscribers (today: ${Math.round(base)})">
@@ -777,26 +776,24 @@ ${visuals ? `
     function renderAttributionCase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'From Attribution to Ad Spend',
-        subtitle: 'How I decide where the next marketing dollar goes, worked through on an example $100k/month budget',
+        subtitle: 'How I decide which ads are working and where the budget should go',
         visuals: attributionVisuals(),
-        problem: 'Attribution only matters because it moves money. Every ad platform takes credit for the same customer, so their dashboards add up to far more conversions than the business actually got. Pick the wrong model and you will confidently cut the channels that create demand and fund the ones that just catch it. This case study walks through how I get from overlapping, self-reported credit to a budget decision I can defend: count once, compare models, check them against experiments, then reallocate on the cost of the next extra customer.',
-        approachTitle: 'Approach',
+        problem: 'Every ad platform takes credit for the same customer, so their reports add up to more sales than the business actually made. If you trust the wrong numbers, you cut the ads that bring in new people and keep the ones that only show up at the end. Here is how I sort it out, step by step, on a made-up example.',
+        approachTitle: 'Doing this for real',
         architecture: [
-          '<b>Define the conversion and its value.</b> One conversion event, fired with the same event ID from the browser and the server so platforms can dedupe it, and valued at revenue or predicted lifetime value. Optimizing cost per sign-up funds the channels that bring cheap, low-value customers.',
-          '<b>Unify the data.</b> Platform-reported numbers are inputs, not the truth. Conversions are counted once from the business\'s own system, and every visit is classified with one channel definition (ad click IDs first, then UTMs, then the referrer). That only works with a UTM taxonomy that every team follows; see the <a href="#/project/utm-journeys" data-link>UTM Journey Tracker</a>.',
-          '<b>Attribute.</b> Build a touch-path table in SQL (window functions over each conversion\'s touches in a 30-day lookback) and compute first-touch, last-touch, linear, and position-based credit side by side. The gaps between models are information: a channel that is strong first-touch and weak last-touch is starting journeys, not closing them.',
-          '<b>Calibrate.</b> Run lift tests where the models and the platforms disagree most and the spend is largest: geo holdouts for search, conversion-lift studies for social, ghost-ad holdouts for retargeting. Use the measured incremental effect to scale each channel\'s credit, or as priors in a media mix model.',
-          '<b>Reallocate.</b> Fit a diminishing-returns curve per channel and move budget toward whichever channel produces the next incremental customer most cheaply, until those costs roughly even out. Cap each month\'s move, then re-measure.',
-          '<b>Close the loop.</b> Send the deduplicated, value-weighted conversions back to the ad platforms (offline conversion uploads, Conversions APIs) so their bidding algorithms optimize toward the same definition of success the budget uses.',
+          'Count each sale once, from the company\'s own records, and tag every visit the same way so it can be traced to a channel. (See the <a href="#/project/utm-journeys" data-link>UTM Journey Tracker</a>.)',
+          'Value each sale by what the customer is worth, not just the sign-up. Otherwise the budget drifts toward cheap, low-value customers.',
+          'Compare attribution models side by side in SQL. Where they disagree is where to look closer.',
+          'Run lift tests where the models disagree most and the spend is biggest.',
+          'Move the budget a step at a time, measure again, and send real sales back to the ad platforms so their bidding learns from them.',
         ],
         tradeoffs: [
-          'Data-driven attribution (Markov chains, Shapley values) is a better split than fixed rules once there is enough volume, but it is still observational: it divides credit among the touches that happened and cannot say what would have happened without the ad. That is why experiments are the calibration layer instead of one more model.',
-          'Lift tests cost money and time, since holdout groups give up conversions. I prioritize them where spend is large and the models disagree most, and re-test on a schedule rather than treating one result as permanent.',
-          'Response curves are estimates, and they get less reliable far from the spend levels you have actually run. Capping monthly moves (±40% here) keeps the plan inside the range the data supports.',
-          'Signal loss from consent choices, iOS, and ad blockers widens the gap between platforms and the backend. First-party, server-side capture with consent narrows it. Tracking people who opted out does not.',
+          'Lift tests cost money, because the held-back group signs up less. So I test where the budget is big and the answer is unclear.',
+          'The spend curves are estimates. That\'s why no channel moves more than 40% in a month.',
+          'Fancier models (Markov chains, Shapley values) split credit better, but they still can\'t tell you what would happen without an ad. Only a test can.',
         ],
-        stack: ['SQL (window functions)', 'Python', 'Experiment design (geo holdouts, conversion lift)', 'Media mix modeling', 'Budget optimization', 'Conversions APIs', 'UTM taxonomy'],
-        status: 'A worked framework on illustrative numbers. The measurement layer underneath it (UTM capture, a single channel definition, session journeys) runs live on this site',
+        stack: ['SQL', 'Python', 'Lift testing', 'Media mix modeling', 'Budget planning'],
+        status: 'An example with made-up numbers. The tracking it depends on runs live on this site',
         link: '<a href="#/project/utm-journeys" data-link>see the UTM Journey Tracker</a>',
       })
       wireAttribution()
@@ -805,24 +802,23 @@ ${visuals ? `
     function renderUtmCase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'UTM Journey Tracker',
-        subtitle: 'A UTM taxonomy enforced in code, and a live dashboard of every visitor\'s journey through this site',
-        problem: 'UTMs are the cheapest attribution data a marketing team has, and usually the messiest. One person tags a link "Facebook", another "facebook", a third "fb"; one campaign is "Fall Promo" and the next is "2026-q4-fall". Each variation becomes its own row in every report, so channel totals are wrong before any attribution model runs. I wanted to show the fix end to end on this site: a written taxonomy, tooling that makes the right link the easy one to build, checks that catch bad tags, and a real-time view of where visitors come from and what they do next.',
+        subtitle: 'Clean campaign links, and a live view of how people move through this site',
+        problem: 'UTM tags on a link tell you where a visit came from, but only if everyone tags links the same way. One person writes "Facebook", another "facebook", another "fb", and the report shows three channels instead of one. I set up naming rules, a tool that builds correct links, checks that catch bad ones, and a live dashboard.',
         architecture: [
-          'Taxonomy as code (lib/utm-taxonomy.js): a controlled list of sources, the mediums each source may pair with (meta can be paid_social or organic_social, never email), a campaign naming pattern of {year}{quarter}_{objective}_{descriptor}, a registry of live campaigns, and a list of creatives for utm_content. The dashboard reads this same file, so the documentation cannot drift from the checks.',
-          'Capture (track.js): on landing, reads the UTMs, ad click IDs, and referrer, and keeps that touch for the whole session, so a contact click three pages later is still tied to the campaign that brought the visitor in. Internal links are never tagged.',
-          'Ingestion (/api/track): validates event names against an event dictionary, drops bots, and dedupes retries on a client-generated event ID. UTMs are stored exactly as they arrive.',
-          'Read-time checks: each session\'s landing is tested against the taxonomy (case, unknown source or medium, invalid pairing, off-pattern or unregistered campaign). Bad tags are flagged and counted, not dropped, so fixing the taxonomy re-classifies old traffic.',
-          'Channel grouping: ad click ID first, then utm_medium, then the referrer, then Direct. One rule used by every view, so "Paid Social" means the same thing everywhere.',
-          'Live dashboard (/journeys.html + /api/journeys): polls every five seconds and shows sessions stitched into journeys (landing touch, pages, conversion), channel and source/medium breakdowns, and a tag-quality report. A link builder lets you make a tagged link and watch your own session appear.',
+          'The naming rules live in one code file: the allowed sources, which mediums go with each source, a pattern for campaign names (like 2026q4_awareness_portfolio_launch), and a list of approved campaigns.',
+          'When someone lands on the site, a small script keeps their tags for the whole visit, so a contact click three pages later still links back to the campaign.',
+          'Every visit is saved to Postgres. Bots and duplicates are dropped.',
+          'Each visit\'s tags are checked against the rules. Bad tags are flagged, not thrown away.',
+          'One rule sorts every visit into a channel: the ad click first, then the UTM medium, then the site the visitor came from.',
+          'The dashboard shows each visit as a path through the site and updates every 5 seconds.',
         ],
         tradeoffs: [
-          'Validate at read time instead of rejecting at write time. A rejected tag is lost traffic; a flagged tag can be fixed later. The tag-quality table makes the cost of bad tagging visible instead of hiding it.',
-          'A campaign registry adds a step before launch, but it is what separates a real campaign from a one-off someone typed by hand, and it gives every campaign an owner and a purpose.',
-          'Polling every five seconds instead of a WebSocket stream: at this traffic level it looks the same, it is simpler to run on serverless functions, and it pauses when the tab is hidden.',
-          'The dashboard is public, so it only shows values that are in the taxonomy. Anything else is replaced with a label, search keywords (utm_term) and click ID values are never shown, and visitor IDs are short hashes. No cookies, IP addresses, or fingerprinting, and Global Privacy Control is honored.',
+          'Bad tags are flagged instead of rejected. No traffic is lost, and old visits get re-sorted when the rules change.',
+          'The dashboard checks for new data every 5 seconds instead of holding a live connection. At this traffic level it looks the same and is simpler to run.',
+          'The dashboard is public, so it only shows values from the approved lists. Search terms and ad click IDs are never shown, and no cookies or IP addresses are stored.',
         ],
-        stack: ['JavaScript (first-party tracker)', 'Vercel Serverless (Node)', 'PostgreSQL (Neon)', 'UTM taxonomy & governance', 'Channel grouping', 'Real-time dashboard'],
-        status: 'Live on this site. Every page you have viewed here is already in it',
+        stack: ['JavaScript', 'Node (Vercel)', 'PostgreSQL', 'UTM naming rules', 'Live dashboard'],
+        status: 'Live. Your visit to this page is already in it',
         link: '<a href="journeys.html">open the live dashboard</a>',
       })
     }
@@ -830,22 +826,22 @@ ${visuals ? `
     function renderTensorfitCase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'TensorFit',
-        subtitle: 'A golf club-fitting SaaS — real analytics today, a designed ML rollout for tomorrow',
-        problem: 'Club fitters compare launch-monitor data across shots and clubs by feel, using whatever export format their specific device happens to produce. There\'s no shared schema across brands, no consistent way to score session-to-session consistency, and no path from "rules of thumb" to a data-driven recommendation without a lot of upfront ML risk.',
+        subtitle: 'A golf club-fitting app: working analytics now, ML planned',
+        problem: 'Club fitters compare shot data mostly by feel, and every launch monitor exports data in its own format. There\'s no common way to line up shots across devices or score how consistent a golfer is.',
         architecture: [
-          'A dedicated parser per launch-monitor brand (Garmin R10, Rapsodo MLM2PRO, TrackMan, FlightScope, Foresight, SkyTrak, Uneekor, Full Swing) normalizes each vendor\'s raw export into one canonical shot schema.',
-          'A stdlib-only statistics module computes dispersion ellipses, a 0-100 consistency score, and Mahalanobis-style (diagonal-covariance) outlier detection per session — real applied statistics, not a wrapper around a library.',
-          'A physics-informed rules engine recommends shaft/head fitting changes per club category, keyed on swing speed, spin, launch angle, and dispersion.',
-          'A documented ML strategy (three-model plan: a target predictor, a component-outcome regressor, an improvement classifier) lays out cold-start via a physics simulator, an explicit tree-vs-neural-net tradeoff, and a shadow-mode rollout: the ML model runs silently alongside the rules engine, both responses logged, and only replaces it once it\'s measurably outperforming rules on the metrics that matter.',
-          'FastAPI/Python backend, React + TypeScript frontend, Supabase for auth/data.',
+          'A reader for each of 8 launch-monitor brands turns their exports into one standard format.',
+          'Stats for each session: how spread out the shots are, a 0 to 100 consistency score, and outlier detection.',
+          'A rules engine suggests shaft and club head changes based on swing speed, spin, launch angle, and spread.',
+          'A written plan for three ML models, and for running them quietly next to the rules until they prove they\'re better.',
+          'FastAPI backend, React frontend, Supabase for logins and data.',
         ],
         tradeoffs: [
-          'Honest status: the rules engine described above is live and is explicitly documented in its own code as "the Phase 1 stand-in for the XGBoost models specified in the brief" — the ML models are designed in detail, not yet trained or shipped. I\'d rather show a credible, specific rollout plan than claim a model that isn\'t there.',
-          'Shadow-mode deployment (run the new model silently, compare against the incumbent on live traffic, promote only once it wins) is the same production-ML-governance pattern that matters for any system replacing a human or rules-based judgment call, not just golf.',
-          'A rules engine as the interim system, rather than shipping a weak first-cut model, keeps the product usable and trustworthy while the data needed to train a good model accumulates — sequencing product usability against ML maturity deliberately, not by accident.',
+          'The ML models are designed but not trained yet. The rules engine is what runs today.',
+          'Rules come first so the app is useful while the data builds up. A weak first model would hurt trust.',
+          'When the models are ready, they\'ll run in the background next to the rules and only take over once they do better on real sessions.',
         ],
-        stack: ['FastAPI', 'Python', 'React', 'TypeScript', 'Supabase', 'Applied Statistics', 'ML Rollout Planning'],
-        status: 'Rules engine and data-ingestion pipeline working end-to-end; ML models are fully designed (see docs/ml-plan.md) but not yet trained.',
+        stack: ['Python', 'FastAPI', 'React', 'TypeScript', 'Supabase', 'Statistics'],
+        status: 'Data import, stats, and the rules engine work end to end. The ML models are planned, not trained',
         link: '',
       })
     }
@@ -853,20 +849,20 @@ ${visuals ? `
     function renderMushroomCase(){
       document.getElementById('app').innerHTML = caseStudy({
         title: 'Mushroom Toxicity Classifier',
-        subtitle: 'M.S. Data Science capstone — a full modeling workflow with a deliberate dimensionality-reduction ablation',
-        problem: 'Predict whether a mushroom is poisonous or edible from 22 categorical physical attributes (odor, cap shape, gill color, spore print color, habitat, and so on) — the classic UCI Agaricus-Lepiota dataset — and understand what a standard dimensionality-reduction step actually costs and buys you on a real classification task.',
+        subtitle: 'A school project: a neural network, and a test of what shrinking the data costs',
+        problem: 'Predict whether a mushroom is poisonous from 22 traits like smell, cap shape, and gill color, using the classic UCI mushroom dataset. I also wanted to see what PCA, a common way to shrink the number of inputs, really costs in accuracy and saves in time.',
         architecture: [
-          'Renamed and cleaned the raw single-letter-coded columns, one-hot encoded all 22 categorical features (116 resulting features), label-encoded the target.',
-          'Trained a Keras binary classifier (64 → 32 → 1 dense layers, sigmoid output) with class-weighted loss ({0: 1.0, 1: 0.01}) to correct for label imbalance in the dataset.',
-          'Applied PCA retaining 95% of variance, reducing 116 features down to 40, then retrained an architecturally identical network on the reduced feature set.',
-          'Compared both models directly: parameter/connection count, training time, and classification accuracy via confusion matrices — with my own written analysis of why the numbers moved the way they did, not just the plots.',
+          'Cleaned the data and turned the 22 traits into 116 yes/no columns.',
+          'Trained a small neural network in Keras, weighting the classes because one is much rarer than the other.',
+          'Shrank the 116 columns to 40 with PCA and trained the same network again.',
+          'Compared size, training time, and accuracy, and wrote up why each one changed.',
         ],
         tradeoffs: [
-          'This is a single-notebook academic exercise, not a deployed system — the value is the complete, correctly-reasoned workflow (encode → model → handle imbalance → reduce dimensionality → re-evaluate) and the ablation discipline of actually comparing full-feature vs. reduced-feature models rather than assuming PCA "obviously helps."',
-          'Class-weighting instead of resampling to handle imbalance keeps the full dataset in play and lets the loss function do the correction — the right default when you don\'t have a strong reason to throw data away.',
+          'It\'s a notebook, not a deployed app. The point was the full process and a fair comparison.',
+          'I weighted the classes instead of throwing away data to balance them.',
         ],
-        stack: ['Python', 'TensorFlow / Keras', 'scikit-learn', 'PCA', 'One-Hot Encoding'],
-        status: 'Complete, evaluated end-to-end in a single notebook. Not deployed — see the "Applied ML Coursework" note on the Projects page for a deployment example from the same program.',
+        stack: ['Python', 'Keras', 'scikit-learn', 'PCA'],
+        status: 'Done in one notebook. Not deployed',
         link: '',
       })
     }
