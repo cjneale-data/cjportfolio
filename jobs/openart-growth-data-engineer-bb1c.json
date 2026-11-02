@@ -153,8 +153,8 @@
       "role": "Sr. Data Analyst, CRM",
       "dates": "May 2022 – Nov 2025",
       "bullets": [
-        "Ran multi-touch attribution modeling and partnered with commercial and finance leadership on attribution, sales performance, and forecasting.",
-        "Built CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
+        "Ran multi-touch attribution modeling and partnered with commercial and finance leadership on sales performance and forecasting.",
+        "Engineered CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
         "Ran a structured A/B testing program: 50% win rate, 30% CTR improvement."
       ]
     }
@@ -187,7 +187,7 @@
   ],
   "resume": {
     "title": "Marketing Data & Growth Analytics",
-    "summary": "Marketing data practitioner with 6 years in marketing and data roles, building conversion tracking, attribution, CRM data, and experimentation systems for consumer and high-value-customer businesses, most recently as Senior Manager, Marketing Insights & CRM Analytics at flyExclusive. Owns the conversion plumbing end to end: Google Tag Manager, Meta Pixel and CAPI, Google Ads conversion tracking, and offline conversion uploads from the CRM. Builds the pipelines in SQL and Python; M.S. in Data Science with hands-on applied-AI experience.",
+    "summary": "Marketing data practitioner with 6 years in marketing and data roles, building conversion tracking, attribution, CRM data, and experimentation systems for consumer and high-value-customer businesses, most recently as Senior Manager, Marketing Insights & CRM Analytics at flyExclusive. Owns the conversion plumbing end to end: Google Tag Manager, Meta Pixel and CAPI, Google Ads conversion tracking, and offline conversion uploads from the CRM. Builds the pipelines in SQL and Python; M.S. in Data Science.",
     "skillGroups": [
       {
         "label": "Growth & Measurement",
@@ -204,7 +204,8 @@
     ],
     "projectsTitle": "Featured Projects",
     "projects": [
-      "attribution-lab"
+      "attribution-to-ad-spend",
+      "utm-journey-tracker"
     ]
   },
   "skills": [

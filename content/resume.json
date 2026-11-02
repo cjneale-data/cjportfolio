@@ -36,12 +36,12 @@
       "role": "Senior Manager, Marketing Insights & CRM Analytics",
       "dates": "Nov 2025 – Present",
       "bullets": [
-        "Built an autonomous data enrichment pipeline connecting LLM APIs to the CRM database, generating personalized outreach content and powering a lead-scoring model prioritizing high-value accounts.",
-        "Led a CRM systems transformation (HubSpot governance, scalable data architecture, deduplication workflows, Master Data Management), then redesigned performance dashboards and attribution frameworks connecting marketing activity to acquisition, retention, and high-value segments.",
-        "Shipped a Python pricing tool for the retail sales team that analyzed competitor pricing and directly shaped 2026 pricing strategy.",
         "Migrated the company website off a legacy CMS to a custom-built site with data pipelines for active quoting, and implemented its conversion tracking: Google Tag Manager, Meta Pixel and Conversions API, and Google Ads conversion tracking.",
         "Set up offline conversion uploads sending downstream CRM outcomes back to ad platforms, so campaigns optimize on qualified leads and sales rather than form fills.",
-        "Developed AI proposal and agreement tools enabling the sales team to build company-approved assets quickly at scale."
+        "Led a CRM systems transformation on HubSpot: governance, scalable data architecture, deduplication workflows, and Master Data Management, creating a single source of truth for the sales organization.",
+        "Redesigned performance dashboards and attribution frameworks connecting marketing activity to acquisition, retention, and high-value segments.",
+        "Engineered an autonomous enrichment pipeline connecting LLM APIs to the CRM database, generating personalized outreach content and powering a lead-scoring model that prioritizes high-value accounts.",
+        "Shipped sales tools: a Python competitive-pricing app that directly shaped 2026 pricing strategy, and AI proposal and agreement tools that produce company-approved documents at scale."
       ]
     },
     {
@@ -50,9 +50,9 @@
       "role": "Sr. Data Analyst, CRM",
       "dates": "May 2022 – Nov 2025",
       "bullets": [
-        "Partnered with commercial and finance leadership on sales performance, attribution and forecasting analytics.",
-        "Built CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
-        "Ran multi-touch attribution modeling and a structured A/B testing program (50% win rate), improving CTR by 30%."
+        "Ran a structured A/B testing program for segmentation and campaign optimization: 50% test win rate and a 30% CTR improvement.",
+        "Engineered CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
+        "Ran multi-touch attribution modeling and partnered with commercial and finance leadership on sales performance and forecasting, turning results into investment recommendations."
       ]
     },
     {
@@ -61,7 +61,7 @@
       "role": "Email Marketing Associate",
       "dates": "Apr 2021 – May 2022",
       "bullets": [
-        "Built Tableau-driven audience insights to optimize email program performance.",
+        "Developed Tableau-driven audience insights to optimize email program performance.",
         "Automated customer journeys with dynamic, segment-driven email content."
       ]
     },
@@ -90,19 +90,25 @@
     }
   ],
   "projects": {
-    "attribution-lab": {
+    "attribution-to-ad-spend": {
       "name": "From Attribution to Ad Spend, Budget Allocation Framework (portfolio site)",
       "bullets": [
-        "Built an interactive case study linking attribution to budget: deduplicated conversion counts, first/last/linear/position-based models side by side, lift-test calibration, and a diminishing-returns optimizer that reallocates spend on marginal cost per incremental customer.",
-        "Built a live UTM Journey Tracker: a UTM taxonomy enforced in code, first-party capture with event_id dedup into Postgres (Neon), read-time tag-quality checks, and a real-time dashboard of visitor journeys; honors Global Privacy Control."
+        "Designed a five-step framework linking attribution to budget (illustrative data): deduplicated conversions, four attribution models compared, lift-test calibration, and reallocation on marginal cost per incremental customer."
       ],
       "link": "https://cjneale.xyz/#/project/attribution"
+    },
+    "utm-journey-tracker": {
+      "name": "UTM Journey Tracker, Live First-Party Tracking (portfolio site)",
+      "bullets": [
+        "Built a UTM taxonomy enforced in code and a first-party tracker that dedupes events into Postgres (Neon), flags bad tags at read time, and feeds a real-time journey dashboard; honors Global Privacy Control, with no cookies or IP storage."
+      ],
+      "link": "https://cjneale.xyz/#/project/utm-journeys"
     },
     "podflow": {
       "name": "PodFlow, M.S. Data Science Capstone, Eastern University, 2025",
       "bullets": [
-        "Built a full audio-to-insight pipeline solo: transcription (faster-Whisper), automatic content segmentation via a trained CNN-BiLSTM model (benchmarked against XGBoost, focal loss for class imbalance), and LLM-based metadata enrichment, served through a REST API to a working web app.",
-        "Built an offline evaluation framework scoring precision/recall/F1 against hand-labeled ground truth, and deployed a local quantized LLM (Qwen2.5 via llama.cpp) with a rules-based fallback for resilience."
+        "Built a full audio-to-insight pipeline solo, from RSS ingestion into Postgres: transcription (faster-Whisper), automatic content segmentation via a trained CNN-BiLSTM model (benchmarked against XGBoost, focal loss for class imbalance), and LLM-based metadata enrichment, served through a REST API to a working web app.",
+        "Created an offline evaluation framework scoring precision/recall/F1 against 16 hand-labeled episodes, and deployed a local quantized LLM (Qwen2.5 via llama.cpp) with a rules-based fallback for resilience."
       ],
       "link": "https://cjneale.xyz/player.html"
     },
@@ -141,7 +147,8 @@
     ],
     "projectsTitle": "Featured Projects",
     "projects": [
-      "attribution-lab",
+      "attribution-to-ad-spend",
+      "utm-journey-tracker",
       "podflow",
       "chefai"
     ]

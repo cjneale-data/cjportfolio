@@ -77,7 +77,9 @@ function build(job) {
 
   children.push(heading('Summary'), new Paragraph({ spacing: { after: 20 }, children: [run(r.summary)] }))
 
-  children.push(heading('Technical Expertise'))
+  // "Skills" rather than "Technical Expertise": ATS parsers and recruiter
+  // skill filters key on the standard heading.
+  children.push(heading('Skills'))
   for (const g of r.skillGroups || base.skillGroups) {
     children.push(new Paragraph({ spacing: { after: 30 }, children: [run(g.label + ': ', { bold: true }), run(g.items)] }))
   }
@@ -113,7 +115,7 @@ function build(job) {
 
   return new Document({
     creator: base.name,
-    title: `${base.name} — Resume — ${job.company}`,
+    title: job.slug === 'general' ? `${base.name} — Resume` : `${base.name} — Resume — ${job.company}`,
     styles: { default: { document: { run: { font: FONT, size: BODY } } } },
     numbering: {
       config: [{
