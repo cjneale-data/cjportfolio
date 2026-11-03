@@ -48,7 +48,27 @@ Rules for editing:
 - Title: Senior Manager, Marketing Insights & CRM Analytics, flyExclusive, Raleigh, NC (Nov 2025 – present).
 - flyExclusive is a private aviation company (jet charter, fractional, and jet-card programs) with a retail sales team selling to high-value individual customers.
 - Owns marketing data operations: CRM (HubSpot) architecture and governance, website tracking and conversion infrastructure, attribution and performance reporting, and AI tools for the sales organization.
-<!-- TODO(Chris): team size / direct reports? who you report to (CMO? VP Marketing?) — "Senior Manager" reads stronger with scope. -->
+- Also interim manager of the retail sales team (about $10M in monthly sales revenue) since about May 2026.
+- HubSpot Enterprise: has used every hub included in the HubSpot Enterprise package.
+<!-- TODO(Chris): team size of the retail sales team you manage? who you report to (CMO? VP Marketing? CRO?) -->
+
+### flyExclusive — interim leadership of the retail sales team
+- Since about May 2026 (roughly six months as of Nov 2026), has also served as interim manager of flyExclusive's retail sales team, which does roughly $10M in sales revenue per month.
+- This is in addition to his marketing insights and CRM analytics role, so he runs the sales team on the same systems and data he builds for it.
+
+### flyExclusive — sales and marketing onboarding
+- Onboarded 10 new sales reps and 5 new marketing team members to HubSpot: CRM process, data standards, and the tools the team uses day to day.
+<!-- TODO(Chris): any ramp numbers (time to first deal, time to productivity) or adoption metrics? -->
+
+### flyExclusive — GTM tool consolidation and replacement
+- Replaced Tableau and Airtable at flyExclusive, consolidating reporting and operational data onto fewer tools.
+- Currently leading the replacement of HubSpot with an internal tool built in-house.
+<!-- TODO(Chris): what replaced Tableau and Airtable? cost savings from each replacement? why the move off HubSpot (cost, flexibility)? Check you're OK with the chat saying the HubSpot replacement publicly. -->
+
+### flyExclusive — billing and payments integrations
+- Hands-on experience with Stripe Billing.
+- Currently building a Plaid integration (bank-account connectivity for payments).
+<!-- TODO(Chris): was Stripe Billing at flyExclusive or elsewhere? what did you set up (subscriptions, invoicing, webhooks into the CRM)? what is the Plaid integration for? -->
 
 ### flyExclusive — website migration, conversion tracking, and ad-platform data
 - Migrated and redesigned the company website off its legacy CMS onto a custom-built site, with data pipelines feeding active quoting (quote requests flow into the CRM).
@@ -186,7 +206,9 @@ Rules for editing:
 
 ### Skills — data engineering and systems
 - SQL (daily for years; window functions), Python (pandas, scikit-learn), Databricks, PostgreSQL (Neon), REST APIs (JSON; Flask), data pipelines and integrations
-- CRM/CDP architecture, HubSpot (governance, architecture), Iterable, Master Data Management, identity resolution, deduplication, data hygiene
+- CRM/CDP architecture, HubSpot Enterprise (every hub in the Enterprise package; governance, architecture, user onboarding), Iterable, Master Data Management, identity resolution, deduplication, data hygiene
+- Billing and payments: Stripe Billing; Plaid integration (in progress)
+- GTM tool consolidation: replaced Tableau and Airtable; leading a HubSpot-to-internal-tool replacement
 
 ### Skills — AI and machine learning
 - LLM application development: RAG/retrieval, agentic workflows (LangGraph), structured extraction, prompt design, LLM APIs (OpenRouter), local LLM deployment (llama.cpp)
@@ -194,5 +216,5 @@ Rules for editing:
 - AI-assisted development: Claude Code with MCP servers, AI agent workflows, Gen AI production automation
 
 ### Skills — analytics, BI, and delivery
-- Tableau, Power BI, executive dashboards, executive stakeholder communication, cross-functional partnership with sales, finance, and commercial leadership
+- Tableau, Power BI, executive dashboards, executive stakeholder communication, sales team leadership (interim manager, retail sales), cross-functional partnership with sales, finance, and commercial leadership
 - Web: Vercel serverless (Node), Streamlit, FastAPI, React/TypeScript (projects)

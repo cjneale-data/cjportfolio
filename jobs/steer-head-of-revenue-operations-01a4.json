@@ -4,12 +4,12 @@
   "role": "Head of Revenue Operations",
   "jobUrl": "https://www.linkedin.com/jobs/view/4485338628/",
   "created": "2026-11-03",
-  "headline": "One HubSpot that Marketing, Sales, CS, and Finance all trust, with AI doing the manual work.",
-  "pitch": "I run the systems and data under a revenue team. At flyExclusive I own HubSpot architecture and governance for the sales organization: lifecycle stages, required fields, ownership rules, deduplication, and Master Data Management. I also replaced the company's legacy website platform with a custom site that feeds quote requests straight into the CRM. I build the AI tools that take manual work off the team myself, including an LLM pipeline wired into the CRM that enriches records and scores leads, conversational reporting so teams can ask the data questions, and proposal and agreement tools that keep documents on-standard. Before that, at TRANZACT, I did attribution, forecasting, and experimentation with commercial and finance leadership. The common thread is tying every marketing and sales touch to revenue in a way Finance will sign off on.",
+  "headline": "One HubSpot that Marketing, Sales, CS, and Finance all trust, a leaner stack, and AI doing the manual work.",
+  "pitch": "I run the systems, data, and, for the last six months, the people of a revenue team. At flyExclusive I own HubSpot Enterprise architecture and governance across every hub, and I've also been interim manager of the retail sales team, which does roughly $10M in sales a month. I've replaced Tableau and Airtable, I'm leading the move from HubSpot to an in-house tool, and I've onboarded 10 sales reps and 5 marketers onto the CRM. I build the AI that takes manual work off the team myself: an LLM pipeline wired into the CRM for enrichment and lead scoring, conversational reporting, and proposal and agreement tools that keep documents on-standard. Before that, at TRANZACT, I did attribution, forecasting, and experimentation with commercial and finance leadership.",
   "requirements": [
     {
       "need": "Deep HubSpot expertise; own and architect core revenue systems",
-      "evidence": "Led flyExclusive's CRM transformation on HubSpot: governance (properties, required fields, ownership rules, lifecycle stages), a scalable data architecture, deduplication workflows, and Master Data Management, giving the sales organization a single source of truth. I also built the integrations around it: website quote requests flow into the CRM, and CRM outcomes flow back to the ad platforms as offline conversions.",
+      "evidence": "I've used every hub in HubSpot's Enterprise package. At flyExclusive I led the CRM transformation: governance (properties, required fields, ownership rules, lifecycle stages), a scalable data architecture, deduplication workflows, and Master Data Management, giving the sales organization a single source of truth. I also built the integrations around it: website quote requests flow into the CRM, and CRM outcomes flow back to ad platforms as offline conversions.",
       "strength": "direct",
       "proof": null
     },
@@ -53,14 +53,20 @@
       }
     },
     {
+      "need": "Lead, hire, and mentor two direct reports",
+      "evidence": "Interim manager of flyExclusive's retail sales team for the last six months, a team doing roughly $10M in monthly sales, alongside my own CRM and analytics role.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
       "need": "Track record of evaluating, consolidating, or replacing GTM software",
-      "evidence": "Migrated flyExclusive's website off its legacy CMS onto a custom-built site wired into the CRM and ad platforms, and consolidated duplicate CRM records into one governed system. A formal tool-stack audit and vendor consolidation across a full RevTech stack would be new scope for me.",
-      "strength": "adjacent",
+      "evidence": "At flyExclusive I replaced Tableau and Airtable, migrated the website off its legacy CMS onto a custom site wired into the CRM, and I'm now leading the replacement of HubSpot with an in-house tool. Every replacement starts with the same question Steer is asking: consolidate before adding spend.",
+      "strength": "direct",
       "proof": null
     },
     {
       "need": "5–8+ years in RevOps, Sales Ops, GTM Systems, or Revenue Enablement, leading teams or major initiatives",
-      "evidence": "Six years in marketing and data roles that support sales and revenue, leading major initiatives like flyExclusive's HubSpot transformation and website migration. My titles have been CRM analytics and marketing insights, not RevOps.",
+      "evidence": "Six years in marketing and data roles that support sales and revenue. For the last six months I've also been interim manager of flyExclusive's retail sales team (roughly $10M in monthly sales), on top of leading major initiatives like the HubSpot transformation and tool consolidation. My formal titles have been CRM analytics and marketing insights rather than RevOps.",
       "strength": "adjacent",
       "proof": {
         "label": "Full resume",
@@ -69,14 +75,14 @@
     },
     {
       "need": "Billing or subscription platform experience (Chargebee), including revenue recognition",
-      "evidence": "I haven't run Chargebee or a billing platform. My route in would be the data model: map how Chargebee subscriptions, plan changes, and invoices sync to HubSpot deals and companies, then reconcile MRR between the two with Finance before building reports on top of it.",
-      "strength": "building",
+      "evidence": "I've worked hands-on with Stripe Billing and I'm building a Plaid integration now. I haven't run Chargebee or owned revenue recognition. My route in is the data model: map how Chargebee subscriptions, plan changes, and invoices sync to HubSpot deals and companies, then reconcile MRR with Finance before building reports on top.",
+      "strength": "adjacent",
       "proof": null
     },
     {
       "need": "Own or influence new-hire ramp time and onboarding metrics",
-      "evidence": "I haven't owned ramp metrics. What I've built that bears on it: the AI proposal and agreement tools let new reps produce on-standard documents without memorizing the rules, and a grounded knowledge base (the pattern in this site's chat) is the obvious tool for cutting ramp time.",
-      "strength": "building",
+      "evidence": "I onboarded 10 new sales reps and 5 new marketing team members onto HubSpot at flyExclusive, and as interim sales manager I see ramp from the manager's side. The AI proposal and agreement tools let new reps produce on-standard documents without memorizing the rules, and a grounded knowledge base (the pattern in this site's chat) is how I'd cut ramp time further. I haven't yet tracked ramp as a formal metric.",
+      "strength": "direct",
       "proof": null
     },
     {
@@ -109,11 +115,12 @@
       "role": "Senior Manager, Marketing Insights & CRM Analytics",
       "dates": "Nov 2025 – Present",
       "bullets": [
-        "Led a HubSpot systems transformation for sales: governance (lifecycle stages, required fields, ownership rules), deduplication workflows, and Master Data Management, creating one source of truth for reporting and lead scoring.",
-        "Engineered an autonomous pipeline connecting LLM APIs to the CRM database, generating personalized outreach content and powering a lead-scoring model that prioritizes high-value accounts.",
-        "Built AI proposal and agreement tools and conversational reporting, giving sales and cross-functional teams on-standard documents and on-demand data.",
-        "Replaced the legacy website CMS with a custom site feeding quote requests into the CRM, with conversion tracking (GTM, Meta CAPI, Google Ads) and offline conversion uploads of CRM outcomes.",
-        "Redesigned retail performance dashboards and attribution frameworks showing marketing's contribution through the funnel; shipped a Python pricing app that informed 2026 pricing."
+        "Interim manager of the retail sales team (~$10M in monthly sales revenue) for six months, alongside the CRM role.",
+        "Led a HubSpot Enterprise transformation across all hubs: governance, deduplication, and Master Data Management for one source of truth; onboarded 10 sales reps and 5 marketers.",
+        "Consolidated the GTM stack: replaced Tableau and Airtable, and now leading the move from HubSpot to an in-house tool.",
+        "Engineered an autonomous pipeline connecting LLM APIs to the CRM database, generating personalized outreach and powering a lead-scoring model that prioritizes high-value accounts.",
+        "Built AI proposal and agreement tools and conversational reporting for on-standard documents and on-demand data.",
+        "Replaced the legacy website CMS with a custom site feeding quote requests into the CRM, with conversion tracking and offline conversion uploads; redesigned funnel dashboards and attribution frameworks."
       ]
     },
     {
@@ -122,7 +129,7 @@
       "dates": "May 2022 – Nov 2025",
       "bullets": [
         "Partnered with commercial and finance leadership on sales performance, multi-touch attribution, and forecasting models, translating results into executive recommendations on acquisition and pipeline growth.",
-        "Engineered CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns while protecting data integrity for commercial reporting.",
+        "Engineered CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
         "Ran a structured A/B testing program: 50% test win rate and a 30% CTR improvement."
       ]
     },
@@ -139,7 +146,7 @@
       "role": "Marketing Manager",
       "dates": "Oct 2020 – Apr 2021",
       "bullets": [
-        "Led lifecycle strategy and targeting across email and paid social, building alignment with C-suite stakeholders on data-driven execution."
+        "Led lifecycle strategy and targeting across email and paid social, aligning C-suite stakeholders."
       ]
     }
   ],
@@ -147,7 +154,7 @@
     {
       "phase": "Days 1–30 · Map the stack and the money",
       "items": [
-        "Inventory every RevTech tool, its owner, cost, and what data it writes to HubSpot; flag overlaps and anything nobody can name an owner for.",
+        "Inventory every RevTech tool, its owner, cost, and what data it writes to HubSpot; flag overlaps and anything nobody can name an owner for. I've done this kind of consolidation before, replacing Tableau and Airtable at flyExclusive.",
         "Trace how a shop moves from lead to paying subscriber to renewal across HubSpot and Chargebee, and reconcile MRR between the two with Finance.",
         "Meet each team lead (Marketing, Sales, CS, Finance, Partnerships) and my two direct reports to list the reports they rebuild by hand and the numbers they argue about."
       ]
@@ -171,19 +178,19 @@
   ],
   "resume": {
     "title": "Revenue Operations, CRM Systems & AI Automation",
-    "summary": "Revenue systems and analytics leader with 6 years supporting sales, marketing, and finance; currently owns HubSpot architecture and governance for flyExclusive's sales organization. Builds funnel dashboards, attribution, and forecasting, plus the AI automation (LLM enrichment, lead scoring, knowledge tools) that removes manual work. Hands-on in SQL and Python; M.S. in Data Science.",
+    "summary": "Revenue systems leader with 6 years supporting sales, marketing, and finance; owns HubSpot Enterprise at flyExclusive and serves as interim manager of a ~$10M/month retail sales team. Consolidates the GTM stack, builds funnel dashboards and forecasting, and ships AI automation that removes manual work. Hands-on in SQL and Python; M.S. in Data Science.",
     "skillGroups": [
       {
         "label": "Revenue Ops & CRM",
-        "items": "HubSpot (architecture, governance, lifecycle stages, workflows), Master Data Management, deduplication, lead scoring, funnel analysis, forecasting, multi-touch attribution, offline conversion uploads, executive dashboards"
+        "items": "HubSpot Enterprise (all hubs: architecture, governance, workflows, onboarding), GTM tool consolidation, sales team leadership, Stripe Billing, Master Data Management, lead scoring, funnel analysis, forecasting, attribution"
       },
       {
         "label": "AI & Automation",
-        "items": "LLM pipelines connected to CRM data, RAG knowledge bases, conversational reporting, AI document tools, Claude Code with MCP servers, REST API integrations"
+        "items": "LLM pipelines on CRM data, RAG knowledge bases, conversational reporting, AI document tools, Claude Code"
       },
       {
         "label": "Data & BI",
-        "items": "SQL, Python (pandas, scikit-learn), Databricks, Postgres, Tableau, Power BI, A/B testing, Iterable, Google Tag Manager"
+        "items": "SQL, Python (pandas, scikit-learn), Databricks, Postgres, Tableau, Power BI, A/B testing, Iterable, Plaid, REST APIs"
       }
     ],
     "projectsTitle": "Featured Projects",
@@ -193,8 +200,10 @@
     ]
   },
   "skills": [
-    "HubSpot",
+    "HubSpot Enterprise",
     "CRM governance",
+    "GTM tool consolidation",
+    "Sales team leadership",
     "AI automation",
     "LLM pipelines",
     "Knowledge bases (RAG)",
@@ -203,10 +212,10 @@
     "SQL",
     "Forecasting",
     "Lead scoring",
+    "Stripe Billing",
     "Multi-touch attribution",
     "Master Data Management",
     "Python",
-    "Tableau",
     "Power BI",
     "A/B testing"
   ]
