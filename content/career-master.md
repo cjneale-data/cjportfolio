@@ -46,7 +46,7 @@ Rules for editing:
 
 ### flyExclusive — role overview
 - Title: Senior Manager, Marketing Insights & CRM Analytics, flyExclusive, Raleigh, NC (Nov 2025 – present).
-- flyExclusive is a private aviation company (jet charter, fractional, and jet-card programs) with a retail sales team selling to high-value individual customers.
+- flyExclusive is a fast-growing private aviation company (jet charter, fractional, and jet-card programs) with a retail sales team selling to high-value individual customers.
 - Owns marketing data operations: CRM (HubSpot) architecture and governance, website tracking and conversion infrastructure, attribution and performance reporting, and AI tools for the sales organization.
 - Also interim manager of the retail sales team (about $10M in monthly sales revenue) since about May 2026.
 - HubSpot Enterprise: has used every hub included in the HubSpot Enterprise package.

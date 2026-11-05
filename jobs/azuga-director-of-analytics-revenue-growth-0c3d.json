@@ -1,0 +1,198 @@
+{
+  "slug": "azuga-director-of-analytics-revenue-growth-0c3d",
+  "company": "Azuga",
+  "role": "Director of Analytics, Revenue Growth",
+  "jobUrl": "https://www.linkedin.com/jobs/view/4484568601/",
+  "created": "2026-11-05",
+  "headline": "One set of revenue numbers that Sales, Marketing, CS, Product, and Finance all forecast from.",
+  "pitch": "I build the revenue data foundation that a go-to-market team runs on, and then I use it. At flyExclusive I own HubSpot Enterprise architecture and governance, the attribution and funnel dashboards leadership reviews, and an LLM pipeline that enriches CRM records and scores leads to prioritize high-value accounts. For the last six months I've also run the retail sales team on an interim basis, which does about $10M in sales a month. I've consolidated our stack along the way, replacing Tableau and Airtable. Before that, at TRANZACT, I partnered with commercial and finance leadership on attribution, forecasting, and an A/B testing program that guided investment. I'm based in Raleigh, in the Eastern time zone.",
+  "requirements": [
+    {
+      "need": "Build integrated data models, shared metric definitions, reporting, and full-funnel forecasts",
+      "evidence": "At flyExclusive I designed the CRM data architecture (lifecycle stages, required fields, ownership rules, deduplication, Master Data Management) that reporting, attribution, and lead scoring all read from, and built the pipelines between the website, CRM, warehouse, and ad platforms in SQL and Python. At TRANZACT I built forecasting models and measurement frameworks with commercial and finance leadership. On this site, one channel definition is enforced in code and every view reads from it.",
+      "strength": "direct",
+      "proof": {
+        "label": "Shared definitions in code",
+        "href": "/#/project/utm-journeys"
+      }
+    },
+    {
+      "need": "Data models and BI capabilities across multiple functions, including beyond Sales",
+      "evidence": "My work has served marketing, sales, finance, and leadership: funnel and attribution dashboards for leadership, conversational reporting interfaces that give cross-functional teams on-demand answers, behavioral-data syncs into Iterable powering 10+ lifecycle campaigns, and forecasting with finance at TRANZACT. Tools: SQL, Python, Databricks, Postgres, Tableau, Power BI.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Lead revenue intelligence and funnel strategy across acquisition, expansion, renewal, and retention",
+      "evidence": "I built attribution frameworks at flyExclusive connecting marketing activity to acquisition, retention, and high-value segments, and redesigned the retail performance dashboards to show contribution through the funnel. As interim manager of the retail sales team I use that funnel daily. At TRANZACT I ran multi-touch attribution and lifecycle analytics. Expansion and renewal motions in a SaaS business would be new territory for me.",
+      "strength": "direct",
+      "proof": {
+        "label": "Attribution to budget",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Develop stage-specific ideal customer profiles and turn insights into growth strategy",
+      "evidence": "I built an LLM-powered lead-scoring model at flyExclusive that prioritizes high-value accounts for the sales team, and attribution work that identifies high-value audience segments. At TRANZACT I ran segmentation and an A/B testing program (50% win rate, 30% CTR improvement) that turned those segments into campaign changes.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Measure revenue initiatives and report performance, forecasts, and insights to executives",
+      "evidence": "At TRANZACT I translated commercial data into executive recommendations on acquisition and pipeline growth. At flyExclusive I run the leadership-facing performance dashboards and the sales team's numbers. I haven't presented at the board level yet.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Turn data and competitive intelligence into positioning, messaging, and enablement content",
+      "evidence": "I shipped a Python competitive-pricing app for flyExclusive's retail sales team that analyzes competitor and market pricing and directly informed the 2026 pricing tables and strategy. I also built AI proposal and agreement tools that put approved messaging in every rep's hands, and onboarded 10 sales reps and 5 marketers onto the CRM.",
+      "strength": "adjacent",
+      "proof": null
+    },
+    {
+      "need": "Experience with revenue operations systems (Salesforce, CPQ, Gong, Dialpad AI)",
+      "evidence": "Deep in HubSpot Enterprise (every hub), plus Stripe Billing, Iterable, and a Plaid integration I'm building now. I'm also leading flyExclusive's move from HubSpot to an in-house tool. I haven't run Salesforce, CPQ, Gong, or Dialpad in production; the data modeling transfers, and I'd ramp on Azuga's Salesforce objects and Gong call data first.",
+      "strength": "adjacent",
+      "proof": null
+    },
+    {
+      "need": "Coordinate cross-functional initiatives, timelines, and handoffs",
+      "evidence": "Led flyExclusive's website migration, HubSpot transformation, and Tableau and Airtable replacements across marketing, sales, and leadership, while managing the retail sales team on an interim basis.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "10+ years in revenue intelligence, BI, analytics, RevOps, or growth strategy; scaling a SaaS business with $50M+ ARR",
+      "evidence": "Six years across marketing, CRM analytics, and revenue systems, most recently at fast-growing flyExclusive, and before that at TRANZACT. My experience is in private aviation and direct-to-consumer insurance, not SaaS, and short of the ten years asked for. What I'd bring instead is hands-on building: I write the SQL, Python, and AI pipelines myself.",
+      "strength": "building",
+      "proof": {
+        "label": "Full resume",
+        "href": "/#/resume"
+      }
+    }
+  ],
+  "featured": [
+    {
+      "title": "From Attribution to Ad Spend",
+      "blurb": "How I turn conflicting channel numbers into one decision: count each sale once, compare attribution models side by side, check them against lift tests, and reallocate budget in capped steps. Includes an interactive model.",
+      "href": "/#/project/attribution"
+    },
+    {
+      "title": "UTM Journey Tracker — live",
+      "blurb": "Shared metric definitions enforced in code: one controlled taxonomy, every record checked against it, failures counted by rule, and one channel grouping every report reads from.",
+      "href": "/#/project/utm-journeys"
+    },
+    {
+      "title": "Resume Chat — grounded AI answers",
+      "blurb": "Answers come from one source of truth, retrieved by section and checked by an automated eval harness. It's the pattern for giving every team self-serve answers from the revenue data.",
+      "href": "/#/project/resume-chat"
+    }
+  ],
+  "experience": [
+    {
+      "org": "flyExclusive",
+      "role": "Senior Manager, Marketing Insights & CRM Analytics",
+      "dates": "Nov 2025 – Present",
+      "bullets": [
+        "Built measurement and attribution frameworks and redesigned funnel dashboards connecting marketing activity to acquisition, retention, and high-value segments for leadership.",
+        "Led a HubSpot Enterprise data architecture overhaul: lifecycle stages, required fields, deduplication, and Master Data Management, creating one source of truth for reporting and scoring.",
+        "Engineered an LLM pipeline wired into the CRM that enriches records and powers a lead-scoring model prioritizing high-value accounts.",
+        "Shipped a Python competitive-pricing app analyzing competitor and market pricing that directly informed 2026 pricing strategy.",
+        "Interim manager of the retail sales team (~$10M in monthly sales) for six months; consolidated the stack by replacing Tableau and Airtable."
+      ]
+    },
+    {
+      "org": "TRANZACT",
+      "role": "Sr. Data Analyst, CRM",
+      "dates": "May 2022 – Nov 2025",
+      "bullets": [
+        "Partnered with commercial and finance leadership on sales performance, multi-touch attribution, and forecasting models, translating results into executive recommendations on acquisition and pipeline growth.",
+        "Engineered CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
+        "Ran a structured A/B testing program for segmentation: 50% test win rate and a 30% CTR improvement."
+      ]
+    },
+    {
+      "org": "American Kennel Club",
+      "role": "Email Marketing Associate",
+      "dates": "Apr 2021 – May 2022",
+      "bullets": [
+        "Built Tableau-driven audience insights and automated customer journeys with dynamic, segment-driven email content."
+      ]
+    },
+    {
+      "org": "OnPoint",
+      "role": "Marketing Manager",
+      "dates": "Oct 2020 – Apr 2021",
+      "bullets": [
+        "Led lifecycle strategy and targeting across email and paid social, aligning C-suite stakeholders."
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "phase": "Days 1–30 · One set of numbers",
+      "items": [
+        "Inventory every revenue metric each team reports (pipeline, bookings, ARR, churn, expansion) and where its definition differs between Sales, Marketing, CS, Product, and Finance.",
+        "Map the data flow from Salesforce, CPQ, Gong, and Dialpad into the warehouse and BI layer, and note which reports are rebuilt by hand.",
+        "Baseline the current forecast against actuals by segment and lifecycle stage."
+      ]
+    },
+    {
+      "phase": "Days 31–60 · Shared foundation",
+      "items": [
+        "Publish shared metric definitions signed off by each function, and build the integrated data model they all read from.",
+        "Ship one full-funnel view (acquisition, expansion, renewal, retention) with the biggest leak per segment called out.",
+        "Draft stage-specific ICPs from closed-won, expansion, and churn data, and review them with Sales and Product."
+      ]
+    },
+    {
+      "phase": "Days 61–90 · Insights into action",
+      "items": [
+        "Stand up a full-funnel forecast and report its accuracy month over month.",
+        "Turn the ICP and competitive findings into briefs and talk tracks with Product Marketing and Sales Ops, and measure their effect on win rates.",
+        "Deliver the first executive revenue review built entirely from the shared model."
+      ]
+    }
+  ],
+  "resume": {
+    "title": "Revenue Analytics & Growth Intelligence",
+    "summary": "Revenue analytics leader with 6 years building the data, attribution, and forecasting behind go-to-market decisions, most recently at fast-growing flyExclusive, owning HubSpot Enterprise architecture and serving as interim manager of a ~$10M/month retail sales team. Builds shared data models, funnel dashboards, and AI-driven lead scoring hands-on in SQL and Python. M.S. in Data Science.",
+    "skillGroups": [
+      {
+        "label": "Revenue Intelligence",
+        "items": "Full-funnel analytics, forecasting, multi-touch attribution, lead scoring, segmentation, competitive pricing analysis, A/B testing, executive dashboards, sales team leadership"
+      },
+      {
+        "label": "Data & BI",
+        "items": "SQL, Python (pandas, scikit-learn), Databricks, Postgres, data modeling, Master Data Management, Tableau, Power BI, REST APIs"
+      },
+      {
+        "label": "Systems & AI",
+        "items": "HubSpot Enterprise (all hubs), Iterable, Stripe Billing, LLM pipelines on CRM data, RAG, conversational reporting, Claude Code"
+      }
+    ],
+    "projectsTitle": "Featured Projects",
+    "projects": [
+      "attribution-to-ad-spend",
+      "utm-journey-tracker"
+    ]
+  },
+  "skills": [
+    "Revenue analytics",
+    "Full-funnel forecasting",
+    "Data modeling",
+    "SQL",
+    "Multi-touch attribution",
+    "Lead scoring",
+    "Executive dashboards",
+    "Python",
+    "HubSpot Enterprise",
+    "Competitive pricing analysis",
+    "Tableau",
+    "Power BI",
+    "Databricks",
+    "A/B testing",
+    "LLM pipelines",
+    "Master Data Management"
+  ]
+}
