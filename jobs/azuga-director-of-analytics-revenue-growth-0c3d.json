@@ -5,11 +5,11 @@
   "jobUrl": "https://www.linkedin.com/jobs/view/4484568601/",
   "created": "2026-11-05",
   "headline": "One set of revenue numbers that Sales, Marketing, CS, Product, and Finance all forecast from.",
-  "pitch": "I build the revenue data foundation that a go-to-market team runs on, and then I use it. At flyExclusive I own HubSpot Enterprise architecture and governance, the attribution and funnel dashboards leadership reviews, and an LLM pipeline that enriches CRM records and scores leads to prioritize high-value accounts. For the last six months I've also run the retail sales team on an interim basis, which does about $10M in sales a month. I've consolidated our stack along the way, replacing Tableau and Airtable. Before that, at TRANZACT, I partnered with commercial and finance leadership on attribution, forecasting, and an A/B testing program that guided investment. I'm based in Raleigh, in the Eastern time zone, and I lived and worked in India for two years and speak conversational Hindi, so the travel to your team there is a plus for me.",
+  "pitch": "I build the revenue data foundation a go-to-market team runs on, and then I use it. At flyExclusive I report to the Chief Commercial Officer and own HubSpot Enterprise architecture and governance, the attribution and funnel dashboards leadership reviews, and an LLM pipeline that has enriched about 500,000 CRM records and scores leads (personalized outreach gets a 150% better response rate). At the start of H2 2026 I re-forecast sales for the rest of the year, and actuals have tracked much closer to my numbers than to the original plan. Since May 2026 I've also been interim manager of the retail sales team, about 20 reps doing roughly $10M a month. Before that, at TRANZACT, I partnered with commercial and finance leadership on attribution, forecasting, and testing. I'm based in Raleigh, in the Eastern time zone, and I lived and worked in India for two years and speak conversational Hindi, so the travel to your team there is a plus for me.",
   "requirements": [
     {
       "need": "Build integrated data models, shared metric definitions, reporting, and full-funnel forecasts",
-      "evidence": "At flyExclusive I designed the CRM data architecture (lifecycle stages, required fields, ownership rules, deduplication, Master Data Management) that reporting, attribution, and lead scoring all read from, and built the pipelines between the website, CRM, warehouse, and ad platforms in SQL and Python. At TRANZACT I built forecasting models and measurement frameworks with commercial and finance leadership. On this site, one channel definition is enforced in code and every view reads from it.",
+      "evidence": "At flyExclusive I designed the CRM data architecture that reporting, attribution, and lead scoring all read from: about 300 contact properties consolidated to 100 governed sources of truth, lifecycle stages, deduplication, and Master Data Management. I run the ETL and daily jobs on Azure (Databricks at TRANZACT). In H2 2026 I re-forecast sales in the financial plan, and actuals have tracked much closer to my revision than to the original plan. On this site, one channel definition is enforced in code and every view reads from it.",
       "strength": "direct",
       "proof": {
         "label": "Shared definitions in code",
@@ -18,13 +18,13 @@
     },
     {
       "need": "Data models and BI capabilities across multiple functions, including beyond Sales",
-      "evidence": "My work has served marketing, sales, finance, and leadership: funnel and attribution dashboards for leadership, conversational reporting interfaces that give cross-functional teams on-demand answers, behavioral-data syncs into Iterable powering 10+ lifecycle campaigns, and forecasting with finance at TRANZACT. Tools: SQL, Python, Databricks, Postgres, Tableau, Power BI.",
+      "evidence": "My work serves marketing, sales, finance, and leadership: funnel and attribution dashboards, and conversational reporting that the entire executive leadership team and sales team use for on-demand answers. At TRANZACT I synced behavioral data into Iterable for 10+ lifecycle campaigns, forecast with finance, and delivered analytics to partner insurance carriers. I replaced Tableau and Airtable with tools I built myself.",
       "strength": "direct",
       "proof": null
     },
     {
       "need": "Lead revenue intelligence and funnel strategy across acquisition, expansion, renewal, and retention",
-      "evidence": "I built attribution frameworks at flyExclusive connecting marketing activity to acquisition, retention, and high-value segments, and redesigned the retail performance dashboards to show contribution through the funnel. As interim manager of the retail sales team I use that funnel daily. At TRANZACT I ran multi-touch attribution and lifecycle analytics. Expansion and renewal motions in a SaaS business would be new territory for me.",
+      "evidence": "I built attribution frameworks at flyExclusive connecting marketing activity to acquisition, retention, and high-value segments, and I manage ~$300K a month in digital ad spend through our agency. As interim manager of the ~20-person retail sales team I use that funnel daily, and I run decision analytics on contract concessions. Expansion and renewal motions in a SaaS business would be new territory for me.",
       "strength": "direct",
       "proof": {
         "label": "Attribution to budget",
@@ -33,31 +33,31 @@
     },
     {
       "need": "Develop stage-specific ideal customer profiles and turn insights into growth strategy",
-      "evidence": "I built an LLM-powered lead-scoring model at flyExclusive that prioritizes high-value accounts for the sales team, and attribution work that identifies high-value audience segments. At TRANZACT I ran segmentation and an A/B testing program (50% win rate, 30% CTR improvement) that turned those segments into campaign changes.",
+      "evidence": "I built lead routing (product leads to the reps most experienced selling them, round robin for the rest) and an LLM-powered lead-scoring model that prioritizes high-value accounts; personalized outreach from it gets a 150% better response rate. At TRANZACT I ran segmentation and an A/B testing program (50% win rate, 30% CTR improvement).",
       "strength": "direct",
       "proof": null
     },
     {
       "need": "Measure revenue initiatives and report performance, forecasts, and insights to executives",
-      "evidence": "At TRANZACT I translated commercial data into executive recommendations on acquisition and pipeline growth. At flyExclusive I run the leadership-facing performance dashboards and the sales team's numbers. I haven't presented at the board level yet.",
+      "evidence": "I present build priorities to flyExclusive's Chief Commercial Officer monthly and run the leadership dashboards and the sales team's numbers. When sales leadership wanted to email the biggest list possible despite a \"Bad\" domain reputation, I made the data case for engaged, opted-in contacts only, and open rates doubled. At TRANZACT I translated commercial data into executive recommendations. I haven't presented at the board level yet.",
       "strength": "direct",
       "proof": null
     },
     {
       "need": "Turn data and competitive intelligence into positioning, messaging, and enablement content",
-      "evidence": "I shipped a Python competitive-pricing app for flyExclusive's retail sales team that analyzes competitor and market pricing and directly informed the 2026 pricing tables and strategy. I also built AI proposal and agreement tools that put approved messaging in every rep's hands, and onboarded 10 sales reps and 5 marketers onto the CRM.",
+      "evidence": "I shipped a Python competitive-pricing app for flyExclusive's retail sales team that directly informed the 2026 pricing tables and strategy. I built AI proposal and agreement tools that put approved messaging in every rep's hands and save 1 to 2 hours per lead, and I run biweekly office hours to train the sales team.",
       "strength": "adjacent",
       "proof": null
     },
     {
       "need": "Experience with revenue operations systems (Salesforce, CPQ, Gong, Dialpad AI)",
-      "evidence": "Deep in HubSpot Enterprise (every hub), plus Stripe Billing, Iterable, and a Plaid integration I'm building now. I'm also leading flyExclusive's move from HubSpot to an in-house tool. I haven't run Salesforce, CPQ, Gong, or Dialpad in production; the data modeling transfers, and I'd ramp on Azuga's Salesforce objects and Gong call data first.",
+      "evidence": "Deep in HubSpot Enterprise (every hub), plus Marketo, Iterable, a CDP, BigQuery, Stripe Billing, and a Plaid integration I'm building now. I'm leading flyExclusive's move from HubSpot to an in-house tool. I haven't run Salesforce, CPQ, Gong, or Dialpad in production; the data modeling transfers, and I'd ramp on Azuga's Salesforce objects and Gong call data first.",
       "strength": "adjacent",
       "proof": null
     },
     {
       "need": "Coordinate cross-functional initiatives, timelines, and handoffs",
-      "evidence": "Led flyExclusive's website migration, HubSpot transformation, and Tableau and Airtable replacements across marketing, sales, and leadership, while managing the retail sales team on an interim basis.",
+      "evidence": "Led flyExclusive's website migration, HubSpot transformation, and Tableau and Airtable replacements across marketing, sales, and leadership while managing the sales team. Every build starts with a PRD and sign-off, and I run the work in Microsoft Planner with named reviewers and deadlines. I own a ~$500K-a-year marketing tools budget.",
       "strength": "direct",
       "proof": null
     },
@@ -100,11 +100,11 @@
       "role": "Senior Manager, Marketing Insights & CRM Analytics",
       "dates": "Nov 2025 – Present",
       "bullets": [
-        "Built measurement and attribution frameworks and redesigned funnel dashboards connecting marketing activity to acquisition, retention, and high-value segments for leadership.",
-        "Led a HubSpot Enterprise data architecture overhaul: lifecycle stages, required fields, deduplication, and Master Data Management, creating one source of truth for reporting and scoring.",
-        "Engineered an LLM pipeline wired into the CRM that enriches records and powers a lead-scoring model prioritizing high-value accounts.",
-        "Shipped a Python competitive-pricing app analyzing competitor and market pricing that directly informed 2026 pricing strategy.",
-        "Interim manager of the retail sales team (~$10M in monthly sales) for six months; consolidated the stack by replacing Tableau and Airtable."
+        "Interim manager of the ~20-person retail sales team (~$10M/month) since May 2026; report to the Chief Commercial Officer.",
+        "Built attribution frameworks and funnel dashboards; conversational reporting is used by the full executive team and sales team.",
+        "Re-forecast H2 2026 sales in the financial plan; actuals have tracked much closer to the revision than the original plan.",
+        "Built an LLM pipeline that enriched ~500K CRM records and powers lead scoring; personalized outreach got a 150% better response rate.",
+        "Led a HubSpot Enterprise overhaul (~300 to 100 governed properties, MDM, lead routing); shipped a competitive-pricing app behind 2026 pricing."
       ]
     },
     {
@@ -161,7 +161,7 @@
   ],
   "resume": {
     "title": "Revenue Analytics & Growth Intelligence",
-    "summary": "Revenue analytics leader with 6 years building the data, attribution, and forecasting behind go-to-market decisions, most recently at fast-growing flyExclusive, owning HubSpot Enterprise architecture and serving as interim manager of a ~$10M/month retail sales team. Builds shared data models, funnel dashboards, and AI-driven lead scoring hands-on in SQL and Python. M.S. in Data Science.",
+    "summary": "Revenue analytics leader with 6 years building the data, attribution, and forecasting behind go-to-market decisions. At fast-growing flyExclusive, reports to the Chief Commercial Officer, owns HubSpot Enterprise architecture and a ~$500K tools budget, and is interim manager of a 20-person, ~$10M/month sales team. Builds data models, forecasts, and AI lead scoring hands-on in SQL and Python. M.S. in Data Science.",
     "skillGroups": [
       {
         "label": "Revenue Intelligence",
@@ -169,11 +169,11 @@
       },
       {
         "label": "Data & BI",
-        "items": "SQL, Python (pandas, scikit-learn), Databricks, Postgres, data modeling, Master Data Management, Tableau, Power BI, REST APIs"
+        "items": "SQL, Python (pandas, scikit-learn), Azure, Databricks, BigQuery, Postgres, data modeling, ETL, Master Data Management, Tableau, Power BI"
       },
       {
         "label": "Systems & AI",
-        "items": "HubSpot Enterprise (all hubs), Iterable, Stripe Billing, LLM pipelines on CRM data, RAG, conversational reporting, Claude Code"
+        "items": "HubSpot Enterprise (all hubs), Marketo, Iterable, Stripe Billing, LLM pipelines on CRM data, RAG, conversational reporting, Claude Code"
       }
     ],
     "projectsTitle": "Featured Projects",
