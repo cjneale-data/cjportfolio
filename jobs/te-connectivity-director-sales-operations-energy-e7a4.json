@@ -5,23 +5,23 @@
   "jobUrl": "https://careers.te.com/job/Director%2C-Sales-Operations-Energy-%28Hybrid-in-Fuquay-Varina%2C-NC-or-Remote%2C-US%29/161406-en_US",
   "created": "2026-11-08",
   "headline": "Pricing, forecasting, and sales tools the Energy team trusts, run from one set of commercial data.",
-  "pitch": "I run sales operations from the data up, and I also run a sales team. At flyExclusive I own the CRM (HubSpot Enterprise) architecture and governance, the performance dashboards leadership reviews, and the sales tools the reps use every day. I built the Python competitive-pricing app that set our 2026 pricing tables, and AI proposal and agreement tools so every quote goes out company-approved. Since May 2026 I've also been interim manager of the retail sales team, which does about $10M in sales a month, and I onboarded 10 new reps onto our CRM process. Before that, at TRANZACT, I partnered with commercial and finance leadership on sales performance and forecasting. I'm based in Raleigh, close to the Fuquay-Varina site.",
+  "pitch": "I run sales operations from the data up, and I also run a sales team. At flyExclusive I report to the Chief Commercial Officer and own the CRM (HubSpot Enterprise), the performance dashboards leadership reviews, and the sales tools reps use every day. I built the Python competitive-pricing app behind our 2026 pricing tables, run the decision analytics on contract concessions, and built AI proposal and agreement tools that save reps 1 to 2 hours per lead. At the start of H2 2026 I re-forecast sales for the rest of the year, and actuals have tracked much closer to my numbers than to the original plan. Since May 2026 I've also been interim manager of the retail sales team, about 20 reps doing roughly $10M in sales a month. I'm based in Raleigh, close to the Fuquay-Varina site, and the travel works for me.",
   "requirements": [
     {
       "need": "Lead pricing governance and pricing analytics to find margin opportunities and leakage",
-      "evidence": "I built and shipped a Python competitive-pricing web app for flyExclusive's retail sales team that analyzes competitor and market pricing. It directly informed the 2026 pricing tables and strategy. I also built AI proposal and agreement tools so reps can only send company-approved terms, which keeps pricing consistent across the team.",
+      "evidence": "I built and shipped a Python competitive-pricing web app for flyExclusive's retail sales team that analyzes competitor and market pricing; it directly informed the 2026 pricing tables and strategy. I also run the decision analytics on sales concessions in contracts, which is where margin leaks. My AI proposal and agreement tools mean reps can only send company-approved terms.",
       "strength": "direct",
       "proof": null
     },
     {
       "need": "Own sales forecasting and pipeline management with Sales Leadership",
-      "evidence": "At TRANZACT I built forecasting models and measurement frameworks with commercial and finance leadership, and turned them into executive recommendations on pipeline growth. At flyExclusive I redesigned the retail performance dashboards leadership uses to see the funnel, and I manage that pipeline myself as interim sales manager.",
+      "evidence": "At the start of H2 2026 I revised flyExclusive's financial plan with new sales projections for the rest of the year, and actuals have tracked much closer to my revision than to the original plan. At TRANZACT I built forecasting models with commercial and finance leadership. As interim sales manager I review the pipeline with the team myself.",
       "strength": "direct",
       "proof": null
     },
     {
       "need": "Sales enablement tools, training, and CRM effectiveness",
-      "evidence": "I led flyExclusive's HubSpot Enterprise transformation (governance, required fields, ownership rules, lifecycle stages, deduplication, Master Data Management) and onboarded 10 new sales reps and 5 marketers onto it. I built an LLM pipeline that enriches CRM records, writes personalized outreach, and scores leads so reps work the highest-value accounts first.",
+      "evidence": "I led flyExclusive's HubSpot Enterprise transformation (cut ~300 contact properties to ~100 governed ones, deduplication, Master Data Management, lead routing by product expertise with a round robin for the rest) and onboarded 10 sales reps and 5 marketers onto it. I run biweekly office hours for the sales team: a planned lesson, then open questions. My LLM pipeline enriched ~500,000 CRM records, and personalized outreach got a 150% better response rate.",
       "strength": "direct",
       "proof": null
     },
@@ -36,7 +36,7 @@
     },
     {
       "need": "Support sales targets, KPIs, and performance metrics",
-      "evidence": "As interim manager of a ~$10M/month retail sales team, I work to targets and track rep performance on the dashboards I built. At TRANZACT I partnered with commercial and finance leadership on sales performance analytics that guided investment and field-activity planning.",
+      "evidence": "As interim manager of a ~20-person retail sales team doing ~$10M a month, I work to targets and track rep performance on the dashboards I built. At TRANZACT I partnered with commercial and finance leadership on sales performance analytics that guided investment and field-activity planning.",
       "strength": "direct",
       "proof": null
     },
@@ -50,8 +50,14 @@
       }
     },
     {
+      "need": "Collaboration, decision-making, and influence without direct authority",
+      "evidence": "flyExclusive's sending domain was rated \"Bad\" in Google Postmaster, so marketing email was going to spam, while sales leadership wanted to mail the biggest list possible. I made the case for trimming to engaged, opted-in contacts, and open rates doubled. I write a PRD and get sign-off before every build, and present build priorities to the Chief Commercial Officer monthly.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
       "need": "Oversee quoting, order management, backlog visibility, and customer service processes",
-      "evidence": "I rebuilt flyExclusive's website with data pipelines that feed quote requests straight into the CRM, and the proposal and agreement tools standardize what goes out. I haven't run an order-management or backlog process for manufactured products; I'd learn TE's order-to-delivery flow with Supply Chain and Customer Service first.",
+      "evidence": "I rebuilt flyExclusive's website with pipelines that feed quote requests straight into the CRM, the proposal tools standardize what goes out, and I'm now building a billing integration into the CRM and our mobile app. I haven't run order management or backlog for manufactured products; I'd learn TE's order-to-delivery flow with Supply Chain and Customer Service first.",
       "strength": "adjacent",
       "proof": null
     },
@@ -63,7 +69,7 @@
     },
     {
       "need": "10+ years in sales operations or commercial excellence; distributor-based or multi-channel sales",
-      "evidence": "Six years across marketing, CRM analytics, and sales operations, including running a sales team. My work has been in private aviation and direct-to-consumer insurance, not industrial or distributor channels. I'd make up ground by building the tools and analysis myself in SQL and Python rather than waiting on IT.",
+      "evidence": "Six years across marketing, CRM analytics, and sales operations, including running a 20-person sales team. I support flyExclusive's charter-broker sales channel, and at TRANZACT I delivered analytics and reports to the insurance carriers we partnered with. Industrial distributors would be new; I'd learn TE's channel data (POS, inventory, special pricing) first.",
       "strength": "building",
       "proof": {
         "label": "Full resume",
@@ -94,11 +100,11 @@
       "role": "Senior Manager, Marketing Insights & CRM Analytics",
       "dates": "Nov 2025 – Present",
       "bullets": [
-        "Interim manager of the retail sales team (~$10M in monthly sales) since May 2026, running it on the CRM, dashboards, and tools I built.",
-        "Shipped a Python competitive-pricing app analyzing competitor and market pricing that directly informed the 2026 pricing tables and strategy.",
-        "Built AI proposal and agreement tools so the sales team produces company-approved proposals and agreements quickly and consistently.",
-        "Led a HubSpot Enterprise transformation (governance, lifecycle stages, deduplication, Master Data Management) and onboarded 10 sales reps and 5 marketers onto it.",
-        "Built an LLM pipeline into the CRM powering lead scoring for high-value accounts; replaced Tableau and Airtable."
+        "Interim manager of the ~20-person retail sales team (~$10M in monthly sales) since May 2026; report to the Chief Commercial Officer.",
+        "Built a Python competitive-pricing app that set the 2026 pricing tables, and run decision analytics on contract concessions.",
+        "Re-forecast H2 2026 sales in the financial plan; actuals have tracked much closer to the revision than the original plan.",
+        "Built AI proposal and agreement tools that save reps 1–2 hours per lead and keep every document company-approved.",
+        "Led a HubSpot Enterprise overhaul (300 to 100 properties, MDM, lead routing), onboarded 10 reps, and run biweekly team training."
       ]
     },
     {
@@ -106,7 +112,8 @@
       "role": "Sr. Data Analyst, CRM",
       "dates": "May 2022 – Nov 2025",
       "bullets": [
-        "Partnered with commercial and finance leadership on sales performance, attribution, and forecasting analytics that guided investment and field-activity planning.",
+        "Partnered with commercial and finance leadership on sales performance, attribution, and forecasting that guided investment and field-activity planning.",
+        "Delivered client-facing analytics and reports to partner insurance carriers.",
         "Ran a structured A/B testing program for segmentation: 50% test win rate and a 30% CTR improvement."
       ]
     },
@@ -155,15 +162,15 @@
   ],
   "resume": {
     "title": "Sales Operations & Commercial Analytics",
-    "summary": "Sales operations and commercial analytics leader with 6 years across CRM, pricing, forecasting, and sales enablement, currently interim manager of a ~$10M/month retail sales team at flyExclusive. Built the competitive-pricing app behind 2026 pricing, AI proposal and agreement tools, and the CRM governance and dashboards the sales organization runs on. Hands-on in SQL and Python; M.S. in Data Science.",
+    "summary": "Sales operations and commercial analytics leader with 6 years across CRM, pricing, forecasting, and sales enablement, currently interim manager of a 20-person, ~$10M/month sales team at flyExclusive, reporting to the Chief Commercial Officer. Built the pricing app behind 2026 pricing, concession analytics, the H2 sales re-forecast, and AI proposal tools that save reps 1–2 hours per lead. M.S. in Data Science.",
     "skillGroups": [
       {
         "label": "Sales Operations",
-        "items": "Pricing analytics, sales forecasting, pipeline management, sales enablement and onboarding, proposal standardization, KPIs and performance dashboards, segmentation, sales team leadership"
+        "items": "Pricing analytics and concessions, sales forecasting, pipeline management, sales enablement and training, lead routing, proposal standardization, KPIs and dashboards, sales team leadership, broker channel"
       },
       {
         "label": "CRM & Data",
-        "items": "HubSpot Enterprise (all hubs; governance, architecture), Master Data Management, deduplication, SQL, Python, Databricks, Tableau, Power BI, Stripe Billing"
+        "items": "HubSpot Enterprise (all hubs; governance, architecture), Master Data Management, SQL, Python, Azure, Databricks, ETL, Tableau, Power BI, Stripe Billing"
       },
       {
         "label": "Analytics & AI",

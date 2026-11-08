@@ -33,7 +33,8 @@ Rules for editing:
 - LinkedIn: https://www.linkedin.com/in/christophernealeanalyst/
 - Portfolio: https://cjneale.xyz
 - Hobbies: golf (former high-school #1 player; builds his own data-tracking dashboards to analyze his game and built TensorFit, a club-fitting analytics platform), fantasy football analytics, American Civil War history (avid reader; deep knowledge of battles, generals, and outcomes)
-<!-- TODO(Chris): open to relocation? remote/hybrid preference? work authorization (US citizen?) — recruiters ask; add only what you're happy for the chat to say. -->
+<!-- PRIVATE (not confirmed OK for the chat to say): not open to relocation; open to travel incl. 25–50%. -->
+<!-- TODO(Chris): work authorization (US citizen?) — recruiters ask; add only what you're happy for the chat to say. -->
 
 ## Career Summary
 - About 6 years across marketing and data roles (Oct 2020 – present): lifecycle and email marketing, then CRM data analytics, then leading marketing insights, CRM analytics, and marketing data infrastructure.
@@ -48,27 +49,53 @@ Rules for editing:
 - Title: Senior Manager, Marketing Insights & CRM Analytics, flyExclusive, Raleigh, NC (Nov 2025 – present).
 - flyExclusive is a fast-growing private aviation company (jet charter, fractional, and jet-card programs) with a retail sales team selling to high-value individual customers.
 - Owns marketing data operations: CRM (HubSpot) architecture and governance, website tracking and conversion infrastructure, attribution and performance reporting, and AI tools for the sales organization.
-- Also interim manager of the retail sales team (about $10M in monthly sales revenue) since about May 2026.
+- Also interim manager of the retail sales team (about 20 reps, about $10M in monthly sales revenue) since about May 2026.
+- Reports to the Chief Commercial Officer.
 - HubSpot Enterprise: has used every hub included in the HubSpot Enterprise package.
-<!-- TODO(Chris): team size of the retail sales team you manage? who you report to (CMO? VP Marketing? CRO?) -->
+- Budget: manages a marketing tools budget of about $500K a year and digital ad spend of about $300K a month.
+<!-- TODO(Chris): confirm both budgets are at flyExclusive (assumed). -->
 
 ### flyExclusive — interim leadership of the retail sales team
-- Since about May 2026 (roughly six months as of Nov 2026), has also served as interim manager of flyExclusive's retail sales team, which does roughly $10M in sales revenue per month.
+- Since about May 2026 (roughly six months as of Nov 2026), has also served as interim manager of flyExclusive's retail sales team, about 20 people, which does roughly $10M in sales revenue per month.
 - This is in addition to his marketing insights and CRM analytics role, so he runs the sales team on the same systems and data he builds for it.
+- Also works with the flyExclusive team that sells through charter brokers (the broker channel).
+
+### flyExclusive — sales forecasting and pricing concessions
+- At the start of H2 2026, revised flyExclusive's financial plan with new sales projections for the rest of 2026. So far, actual results have tracked much closer to his revised projections than to the original plan.
+- Manages decision analytics on sales concessions in contracts (analyzing the discounts and concessions reps give, to inform approval decisions).
+<!-- TODO(Chris): you wrote "80% closer to my forecast" — what exactly is 80%? (e.g. forecast error cut by 80% vs. original plan, or actuals within X% of forecast). Any result from the concessions analysis (margin recovered, concession rate change)? -->
 
 ### flyExclusive — sales and marketing onboarding
 - Onboarded 10 new sales reps and 5 new marketing team members to HubSpot: CRM process, data standards, and the tools the team uses day to day.
+- Runs biweekly office hours for the sales team: a planned lesson, then an open forum for questions on the CRM and the other tools he owns. This is how he drives adoption of new systems and AI tools.
 <!-- TODO(Chris): any ramp numbers (time to first deal, time to productivity) or adoption metrics? -->
 
+### flyExclusive — how he runs projects and sets priorities
+- Writes a PRD (product requirements document) before every build and gets sign-off before building.
+- Customer-facing marketing builds go through an initial build, then an iterative internal review process.
+- Manages tasks in Microsoft Planner, assigning reviewers and deadlines.
+- Presents the most pressing build needs and priorities to the Chief Commercial Officer monthly.
+- Manages the outside marketing agency that handles all of flyExclusive's digital ad buying.
+
+### flyExclusive — email deliverability turnaround (change management)
+- flyExclusive's sending domain reputation was rated "Bad" in Google Postmaster Tools, so marketing email was landing in spam. Sales leadership wanted to send as many emails as possible to the largest possible list.
+- He made the case for trimming the list to engaged contacts with a saved subscription preference, and won the argument.
+- Result: the channel became much more effective, and email open rates doubled (2x).
+
+### flyExclusive — privacy, consent, and compliant marketing lists
+- Manages the website's cookie consent and privacy policy updates.
+- Cleaned a CRM list of about 500,000 contacts down to about 85,000 that could be sent marketing email compliantly.
+
 ### flyExclusive — GTM tool consolidation and replacement
-- Replaced Tableau and Airtable at flyExclusive, consolidating reporting and operational data onto fewer tools.
+- Replaced Tableau and Airtable at flyExclusive with tools he built himself using agentic coding (AI coding tools). The new systems cost little beyond cloud hosting, so the license costs went away.
 - Currently leading the replacement of HubSpot with an internal tool built in-house.
-<!-- TODO(Chris): what replaced Tableau and Airtable? cost savings from each replacement? why the move off HubSpot (cost, flexibility)? Check you're OK with the chat saying the HubSpot replacement publicly. -->
+<!-- TODO(Chris): license dollars saved from dropping Tableau and Airtable? why the move off HubSpot (cost, flexibility)? Check you're OK with the chat saying the HubSpot replacement publicly. -->
 
 ### flyExclusive — billing and payments integrations
 - Hands-on experience with Stripe Billing.
 - Currently building a Plaid integration (bank-account connectivity for payments).
-<!-- TODO(Chris): was Stripe Billing at flyExclusive or elsewhere? what did you set up (subscriptions, invoicing, webhooks into the CRM)? what is the Plaid integration for? -->
+- Currently building a billing integration into the CRM and the flyExclusive mobile app.
+<!-- TODO(Chris): was Stripe Billing at flyExclusive or elsewhere? what is the Plaid integration for? -->
 
 ### flyExclusive — website migration, conversion tracking, and ad-platform data
 - Migrated and redesigned the company website off its legacy CMS onto a custom-built site, with data pipelines feeding active quoting (quote requests flow into the CRM).
@@ -87,23 +114,27 @@ Rules for editing:
 - Led a CRM systems transformation on HubSpot: designed and enforced governance (properties, required fields, ownership rules, lifecycle stages), built a scalable data architecture, created deduplication workflows, and set up Master Data Management (MDM).
 - Goal and result: a single source of truth for the sales organization, with clean, deduplicated records that reporting, attribution, and lead scoring can rely on.
 - Identity resolution and data hygiene: merging duplicate contacts and companies and standardizing records across sources.
-<!-- TODO(Chris): record counts (contacts deduped, % duplicates removed), adoption numbers, time saved for reps. -->
+- Consolidated about 300 contact properties down to about 100 governed properties that act as the sources of truth in the CRM.
+- Built lead routing: leads for certain products go to the reps with the most experience selling that product; other new leads go to a round robin.
+<!-- TODO(Chris): record counts (contacts deduped, % duplicates removed), time saved for reps. -->
 
 ### flyExclusive — attribution and performance dashboards
 - Built new measurement and attribution frameworks connecting marketing activity to customer acquisition, retention, and high-value audience segments.
 - Redesigned retail performance dashboards so leadership can see marketing's contribution through the funnel.
-- Architected integrated marketing data operations and conversational reporting interfaces (ask-a-question style access to data), giving cross-functional teams on-demand data and insights.
+- Architected integrated marketing data operations and conversational reporting interfaces (ask-a-question style access to data), giving cross-functional teams on-demand data and insights. The conversational reporting is used by the entire executive leadership team (ELT) and the whole sales team.
+- Data platform: Azure at flyExclusive; he builds and runs the ETL and daily data jobs.
 <!-- TODO(Chris): which BI tool at flyExclusive? attribution model used? channels covered? -->
 
 ### flyExclusive — LLM enrichment pipeline and lead scoring
 - Engineered an autonomous data enrichment pipeline that connects LLM APIs directly to the CRM database.
 - It generates hyper-personalized outreach content, such as dynamic subject lines and cold openers, for sales outreach.
 - It powers an intelligent lead-scoring model that prioritizes high-value accounts for the sales team.
-<!-- TODO(Chris): which LLM/API, volume of records enriched, lift in reply/meeting rates, how the scoring model works (rules vs ML, features). -->
+- Scale and results: enriched about 500,000 CRM records. Personalized emails got a 150% better response rate than non-personalized ones, and reps spend much less time personalizing cold outreach by hand.
+<!-- TODO(Chris): which LLM/API, how the scoring model works (rules vs ML, features). -->
 
 ### flyExclusive — pricing tool and sales AI tools
 - Shipped a Python-based competitive pricing web app for the retail sales team that analyzes competitor and market pricing. It directly informed the 2026 pricing tables and strategy.
-- Developed AI proposal and agreement tools that let the sales team build company-approved proposals and agreements quickly and consistently at scale.
+- Developed AI proposal and agreement tools that let the sales team build company-approved proposals and agreements quickly and consistently at scale. They save the sales team 1 to 2 hours per lead.
 
 ## Experience: TRANZACT (May 2022 – Nov 2025)
 
@@ -111,6 +142,12 @@ Rules for editing:
 - Title: Sr. Data Analyst, CRM, TRANZACT, Raleigh, NC (May 2022 – Nov 2025, about 3.5 years).
 - TRANZACT is a direct-to-consumer insurance marketing company.
 - Partnered with commercial and finance leadership on sales performance, marketing attribution, and forecasting analytics that guided strategic investment and field-activity planning.
+- Client-facing work: delivered analytics and reports to the insurance carriers TRANZACT partners with.
+- Data platform: Databricks; built and ran ETL and daily data jobs.
+
+### TRANZACT — HIPAA and protected health data
+- TRANZACT sells health and Medicare insurance, so CRM data included protected health information (PHI).
+- Worked under HIPAA rules in the CRM data: decided what could be used for analytics and marketing and what had to be anonymized.
 
 ### TRANZACT — CRM/ESP integrations and lifecycle data
 - Engineered CRM and ESP data integrations using SQL and JSON REST APIs, syncing behavioral data into Iterable.
@@ -136,6 +173,10 @@ Rules for editing:
 - Raleigh, NC. Led lifecycle strategy and targeting across email and paid social.
 - Championed data-driven marketing execution and built alignment with C-suite stakeholders.
 <!-- TODO(Chris): older resumes say "GTM execution" here. Is that go-to-market or Google Tag Manager? Recruiters for growth-data roles will read it as Tag Manager. -->
+
+### International nonprofit internship
+- Interned for an international nonprofit and lived outside the US for two years, working closely with international colleagues.
+<!-- TODO(Chris): organization, country, years, and what you did there. -->
 
 ### Golf industry — Professional Golf Management internships (college)
 - At NC State, initially studied Professional Golf Management, including industry internships, before switching to a statistically focused psychology major.
@@ -205,8 +246,8 @@ Rules for editing:
 - Privacy-aware tracking: consent gating, Global Privacy Control
 
 ### Skills — data engineering and systems
-- SQL (daily for years; window functions), Python (pandas, scikit-learn), Databricks, PostgreSQL (Neon), REST APIs (JSON; Flask), data pipelines and integrations
-- CRM/CDP architecture, HubSpot Enterprise (every hub in the Enterprise package; governance, architecture, user onboarding), Iterable, Master Data Management, identity resolution, deduplication, data hygiene
+- SQL (daily for years; window functions), Python (pandas, scikit-learn), Databricks, Azure, BigQuery, PostgreSQL (Neon), ETL and scheduled daily jobs, REST APIs (JSON; Flask), data pipelines and integrations
+- CRM/CDP architecture (has used a CDP), HubSpot Enterprise (every hub in the Enterprise package; governance, architecture, user onboarding), Marketo, Iterable, Master Data Management, identity resolution, deduplication, data hygiene
 - Billing and payments: Stripe Billing; Plaid integration (in progress)
 - GTM tool consolidation: replaced Tableau and Airtable; leading a HubSpot-to-internal-tool replacement
 

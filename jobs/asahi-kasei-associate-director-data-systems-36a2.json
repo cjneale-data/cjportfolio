@@ -5,17 +5,17 @@
   "jobUrl": "https://akamerica.wd501.myworkdayjobs.com/aka/job/Cary-NC/Associate-Director--Data-Systems_R5903-1",
   "created": "2026-11-08",
   "headline": "Governed commercial master data that Sales, Marketing, Market Access, and Patient Services can all trust.",
-  "pitch": "I build and govern commercial data systems, and I do the hands-on work myself. At flyExclusive I led a CRM data transformation on HubSpot Enterprise: governance rules, a scalable data architecture, deduplication and identity resolution, and Master Data Management, so the sales organization works from one source of truth. I own the pipelines between the website, CRM, warehouse, and ad platforms, and the dashboards leadership reviews. At TRANZACT I engineered CRM and ESP integrations in SQL and REST APIs that fed 10+ lifecycle campaigns, and ran attribution and forecasting with commercial and finance leadership. I'm in Raleigh, a short drive from Cary.",
+  "pitch": "I build and govern commercial data systems, and I do the hands-on work myself. At flyExclusive I led a CRM data transformation on HubSpot Enterprise: governance rules, about 300 contact properties consolidated to 100 governed sources of truth, deduplication, identity resolution, and Master Data Management. I run the ETL and daily data jobs on Azure, manage the outside agency that runs our digital ad buying, and built conversational reporting that the whole executive team and sales team use. Before that, at TRANZACT, a health and Medicare insurance marketer, I worked with CRM data under HIPAA, deciding what could be used for analytics and marketing and what had to be anonymized, and ran ETL on Databricks. I'm in Raleigh, a short drive from Cary.",
   "requirements": [
     {
       "need": "Lead MDM initiatives so customer and master data are accurate and governed",
-      "evidence": "At flyExclusive I set up Master Data Management on HubSpot Enterprise with deduplication workflows, identity resolution (merging duplicate contacts and companies across sources), and enforced governance on properties, required fields, ownership rules, and lifecycle stages. My records have been B2C and B2B customers rather than HCPs, HCOs, and payers.",
+      "evidence": "At flyExclusive I set up Master Data Management on HubSpot Enterprise: consolidated about 300 contact properties down to 100 governed sources of truth, built deduplication workflows and identity resolution (merging duplicate contacts and companies across sources), and enforced ownership rules and lifecycle stages. My records have been consumer and business customers rather than HCPs, HCOs, and payers.",
       "strength": "direct",
       "proof": null
     },
     {
       "need": "Define data definitions, business rules, stewardship processes, and data-quality controls",
-      "evidence": "I wrote flyExclusive's CRM governance standards and ownership rules. On this site I built a taxonomy enforced in code: every record is checked against controlled values at read time, and failures are flagged and counted by rule instead of silently dropped. That's a data-quality control with a visible report.",
+      "evidence": "I wrote flyExclusive's CRM governance standards and ownership rules, and cleaned a list of about 500,000 contacts down to the ~85,000 that could be marketed to compliantly. On this site I built a taxonomy enforced in code: every record is checked against controlled values, and failures are flagged and counted by rule instead of silently dropped.",
       "strength": "direct",
       "proof": {
         "label": "Data-quality rules in code",
@@ -30,7 +30,7 @@
     },
     {
       "need": "Enterprise data warehousing, ETL, and cloud platforms (Snowflake, Databricks, AWS)",
-      "evidence": "I use Databricks and Postgres, write SQL daily, and build pipelines and integrations in Python and REST APIs. My M.S. in Data Science included Cloud Computing. I haven't run Snowflake, AWS, or Zaidyn in production.",
+      "evidence": "I build and run the ETL and daily data jobs on Azure at flyExclusive, and did the same on Databricks at TRANZACT. SQL daily, plus Python pipelines and REST API integrations, and I've worked in BigQuery. I haven't run Snowflake, AWS, or Zaidyn in production.",
       "strength": "direct",
       "proof": {
         "label": "Pipeline build (PodFlow)",
@@ -39,13 +39,13 @@
     },
     {
       "need": "BI tools (Power BI, Tableau) and SQL, Python, R",
-      "evidence": "Tableau at the American Kennel Club and since; Power BI; SQL and Python (pandas, scikit-learn) daily. I redesigned flyExclusive's retail performance dashboards and built conversational reporting so teams can ask questions of the data directly.",
+      "evidence": "Tableau and Power BI; SQL and Python (pandas, scikit-learn) daily. I redesigned flyExclusive's leadership dashboards and built conversational reporting that the entire executive leadership team and sales team use to ask questions of the data directly. I replaced Tableau and Airtable with tools I built myself.",
       "strength": "direct",
       "proof": null
     },
     {
       "need": "Partner with Sales Ops/BI, Marketing, Sales and IT; lead cross-functional projects such as segmentation and omnichannel performance",
-      "evidence": "I sit between marketing, sales, and leadership at flyExclusive, and manage the retail sales team on an interim basis. At TRANZACT I partnered with commercial and finance leadership, ran segmentation and an A/B testing program (50% win rate, 30% CTR improvement), and measured multi-channel campaign performance with multi-touch attribution.",
+      "evidence": "I report to flyExclusive's Chief Commercial Officer, present build priorities monthly, and have managed the ~20-person retail sales team on an interim basis. When sales leadership wanted to email the biggest list possible despite a \"Bad\" domain reputation, I made the case for engaged, opted-in contacts only, and open rates doubled. At TRANZACT I ran segmentation, multi-touch attribution, and an A/B testing program (50% win rate, 30% CTR improvement), and delivered analytics to partner carriers.",
       "strength": "direct",
       "proof": {
         "label": "Attribution framework",
@@ -54,7 +54,7 @@
     },
     {
       "need": "Understanding of data automation and AI-driven analytics",
-      "evidence": "I built an autonomous LLM enrichment pipeline wired into flyExclusive's CRM that powers lead scoring, and the retrieval-augmented chat on this site with an automated eval harness. I build with AI coding tools daily.",
+      "evidence": "I built an LLM enrichment pipeline wired into flyExclusive's CRM that has enriched about 500,000 records and powers lead scoring; personalized outreach from it gets a 150% better response rate. On this site I built a retrieval-augmented chat with an automated eval harness. I build with AI coding tools daily.",
       "strength": "direct",
       "proof": {
         "label": "Grounded AI chat",
@@ -63,13 +63,13 @@
     },
     {
       "need": "Manage the commercial data managed service provider and data vendors",
-      "evidence": "I've selected and replaced tools (Tableau, Airtable, now HubSpot) and implemented vendor integrations (Iterable, Meta, Google Ads, Stripe, Plaid). I haven't managed an outsourced data team against service levels; I'd set scope, SLAs, and an issue log in the first month.",
+      "evidence": "At flyExclusive I manage the outside marketing agency that handles all of our digital ad buying (about $300K a month) and a ~$500K-a-year marketing tools budget. I write a PRD and get sign-off before every build, and run work in Microsoft Planner with named reviewers and deadlines. An outsourced data team would be new; I'd set scope, SLAs, and an issue log in the first month.",
       "strength": "adjacent",
       "proof": null
     },
     {
       "need": "4+ years in pharma commercial data; syndicated data (IQVIA, Symphony, MMIT, specialty pharmacy, 852/867); HIPAA and GDPR",
-      "evidence": "This is my main gap. My six years of commercial data work are in private aviation and insurance. The structures are similar (customer master, sales and channel data, reconciliation), and I'd learn the syndicated datasets and the 852/867 distributor feeds first, starting with how each reconciles to shipments and the CRM.",
+      "evidence": "I've worked under HIPAA: at TRANZACT, a health and Medicare insurance marketer, I decided what CRM data could be used for analytics and marketing and what had to be anonymized. I haven't worked in pharma or with syndicated data (IQVIA, Symphony, MMIT, 852/867). The structures are familiar (customer master, channel data, reconciliation), and I'd learn each feed and how it reconciles to shipments and the CRM first.",
       "strength": "building",
       "proof": {
         "label": "Full resume",
@@ -100,10 +100,11 @@
       "role": "Senior Manager, Marketing Insights & CRM Analytics",
       "dates": "Nov 2025 – Present",
       "bullets": [
-        "Led a CRM data transformation on HubSpot Enterprise: governance standards, scalable data architecture, deduplication, identity resolution, and Master Data Management, creating one source of truth for the sales organization.",
-        "Consolidated the stack (replaced Tableau and Airtable) and am leading a HubSpot-to-in-house migration; built website-to-CRM quoting pipelines.",
-        "Redesigned leadership dashboards and built conversational reporting for on-demand data.",
-        "Engineered an LLM enrichment pipeline on the CRM database powering lead scoring; onboarded 10 reps and 5 marketers to data standards."
+        "Led a HubSpot Enterprise data transformation: governance standards, ~300 contact properties consolidated to 100, deduplication, identity resolution, and Master Data Management.",
+        "Run ETL and daily data jobs on Azure; replaced Tableau and Airtable with self-built tools and am leading a HubSpot-to-in-house migration.",
+        "Built conversational reporting used by the full executive team and sales team; manage the agency running ~$300K/month in digital ads.",
+        "Cleaned a 500K-contact list to ~85K compliantly marketable records; manage cookie consent and privacy policy updates.",
+        "Built an LLM pipeline that enriched ~500K CRM records and powers lead scoring (150% better response on personalized outreach)."
       ]
     },
     {
@@ -111,8 +112,9 @@
       "role": "Sr. Data Analyst, CRM",
       "dates": "May 2022 – Nov 2025",
       "bullets": [
-        "Engineered CRM/ESP data integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns while protecting data integrity for commercial reporting.",
-        "Ran a structured A/B testing program for segmentation: 50% test win rate and a 30% CTR improvement."
+        "Worked with health-insurance CRM data under HIPAA, setting what could be used for analytics and marketing and what had to be anonymized.",
+        "Ran ETL and daily jobs on Databricks; built CRM/ESP integrations (SQL, REST APIs) into Iterable for 10+ lifecycle campaigns.",
+        "Delivered analytics and reports to partner insurance carriers; ran A/B testing (50% win rate, 30% CTR lift)."
       ]
     },
     {
@@ -160,15 +162,15 @@
   ],
   "resume": {
     "title": "Commercial Data Systems & Governance",
-    "summary": "Commercial data leader with 6 years building and governing CRM data, integrations, and analytics, most recently leading a HubSpot Enterprise data transformation with Master Data Management, deduplication, and governance at flyExclusive. Builds pipelines and data-quality controls hands-on in SQL, Python, Databricks, and REST APIs, and delivers BI and AI-driven analytics to sales, marketing, and leadership. M.S. in Data Science.",
+    "summary": "Commercial data leader with 6 years building and governing CRM data, integrations, and analytics, including HIPAA-governed health-insurance data at TRANZACT. At flyExclusive, led a HubSpot Enterprise data transformation with Master Data Management, runs ETL on Azure, and manages agency and tool budgets. Hands-on in SQL, Python, Databricks, and REST APIs; M.S. in Data Science.",
     "skillGroups": [
       {
         "label": "Data Management & Governance",
-        "items": "Master Data Management, data governance, identity resolution, deduplication, data-quality controls, business rules and definitions, data architecture, vendor and tool migrations"
+        "items": "Master Data Management, data governance, HIPAA data handling and anonymization, privacy and consent, identity resolution, deduplication, data-quality controls, vendor and agency management"
       },
       {
         "label": "Data Engineering & BI",
-        "items": "SQL, Python (pandas, scikit-learn), Databricks, Postgres, ETL and data pipelines, REST APIs, Power BI, Tableau, HubSpot Enterprise, Iterable"
+        "items": "SQL, Python (pandas, scikit-learn), Azure, Databricks, BigQuery, Postgres, ETL and daily jobs, REST APIs, Power BI, Tableau, HubSpot Enterprise, Marketo, Iterable"
       },
       {
         "label": "Commercial Analytics & AI",
@@ -178,13 +180,16 @@
     "projectsTitle": "Featured Projects",
     "projects": [
       "utm-journey-tracker",
-      "podflow"
+      "resume-chat"
     ]
   },
   "skills": [
     "Master Data Management",
     "Data governance",
     "Data-quality controls",
+    "Vendor management",
+    "Azure",
+    "HIPAA data handling",
     "SQL",
     "Python",
     "Databricks",
