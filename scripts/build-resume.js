@@ -134,6 +134,15 @@ function build(job) {
     if (e.detail) children.push(new Paragraph({ indent: { left: 360 }, spacing: { after: 20 }, children: [run(e.detail)] }))
   }
 
+  // Optional per-job lines (e.g. international experience) that matter for
+  // one posting but aren't a job worth listing under Experience.
+  if (Array.isArray(r.additional) && r.additional.length) {
+    children.push(heading('Additional'))
+    for (const a of r.additional) {
+      children.push(new Paragraph({ spacing: { after: 20 }, children: [run(a.label + ': ', { bold: true }), run(a.text)] }))
+    }
+  }
+
   return new Document({
     creator: base.name,
     title: job.slug === 'general' ? `${base.name} — Resume` : `${base.name} — Resume — ${job.company}`,
