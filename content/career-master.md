@@ -174,11 +174,11 @@ Rules for editing:
 - Championed data-driven marketing execution and built alignment with C-suite stakeholders.
 <!-- TODO(Christopher): older resumes say "GTM execution" here. Is that go-to-market or Google Tag Manager? Recruiters for growth-data roles will read it as Tag Manager. -->
 
-### International experience — two years living and working in India
-- Lived and worked in India for two years as an international intern with a nonprofit, working day to day alongside local colleagues and community members.
-- Learned the local language while there.
+### International experience — living and working in India (2018–2020)
+- Lived and worked in India from 2018 to 2020 (two years) as an international intern with a nonprofit, working day to day alongside local colleagues and community members.
+- Speaks conversational Hindi, learned while living there.
 - Comfortable with international travel and with working across cultures and time zones, including with teams in India.
-<!-- PRIVATE: the organization was Cru. Christopher doesn't want it listed as a job on resumes; use it only as international experience. TODO(Christopher): which years, which language, and how well you speak it now (conversational? basic?). -->
+<!-- PRIVATE: the organization was Cru. Christopher doesn't want it listed as a job on resumes; use it only as international experience. -->
 
 ### Golf industry — Professional Golf Management internships (college)
 - At NC State, initially studied Professional Golf Management, including industry internships, before switching to a statistically focused psychology major.

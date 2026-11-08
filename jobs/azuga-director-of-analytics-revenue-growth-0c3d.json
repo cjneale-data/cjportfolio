@@ -5,7 +5,7 @@
   "jobUrl": "https://www.linkedin.com/jobs/view/4484568601/",
   "created": "2026-11-05",
   "headline": "One set of revenue numbers that Sales, Marketing, CS, Product, and Finance all forecast from.",
-  "pitch": "I build the revenue data foundation that a go-to-market team runs on, and then I use it. At flyExclusive I own HubSpot Enterprise architecture and governance, the attribution and funnel dashboards leadership reviews, and an LLM pipeline that enriches CRM records and scores leads to prioritize high-value accounts. For the last six months I've also run the retail sales team on an interim basis, which does about $10M in sales a month. I've consolidated our stack along the way, replacing Tableau and Airtable. Before that, at TRANZACT, I partnered with commercial and finance leadership on attribution, forecasting, and an A/B testing program that guided investment. I'm based in Raleigh, in the Eastern time zone, and I lived and worked in India for two years, so the travel to your team there is a plus for me.",
+  "pitch": "I build the revenue data foundation that a go-to-market team runs on, and then I use it. At flyExclusive I own HubSpot Enterprise architecture and governance, the attribution and funnel dashboards leadership reviews, and an LLM pipeline that enriches CRM records and scores leads to prioritize high-value accounts. For the last six months I've also run the retail sales team on an interim basis, which does about $10M in sales a month. I've consolidated our stack along the way, replacing Tableau and Airtable. Before that, at TRANZACT, I partnered with commercial and finance leadership on attribution, forecasting, and an A/B testing program that guided investment. I'm based in Raleigh, in the Eastern time zone, and I lived and worked in India for two years and speak conversational Hindi, so the travel to your team there is a plus for me.",
   "requirements": [
     {
       "need": "Build integrated data models, shared metric definitions, reporting, and full-funnel forecasts",
@@ -63,7 +63,7 @@
     },
     {
       "need": "Up to 20% travel to India, Tennessee, and customer locations",
-      "evidence": "Glad to travel. I lived and worked in India for two years, working day to day alongside local colleagues and learning the language, so I'm comfortable working in person with Azuga's team there and across time zones.",
+      "evidence": "Glad to travel. I lived and worked in India from 2018 to 2020, working day to day alongside local colleagues, and I speak conversational Hindi, so I'm comfortable working in person with Azuga's team there and across time zones.",
       "strength": "direct",
       "proof": null
     },
@@ -184,7 +184,7 @@
     "additional": [
       {
         "label": "International",
-        "text": "Lived and worked in India for two years with an international nonprofit; learned the local language."
+        "text": "Lived and worked in India (2018–2020) with an international nonprofit; conversational Hindi."
       }
     ]
   },
