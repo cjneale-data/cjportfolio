@@ -1,0 +1,201 @@
+{
+  "slug": "schneider-electric-marketing-operations-ai-leader-5680",
+  "company": "Schneider Electric",
+  "role": "Software & Services Marketing Operations & AI Leader",
+  "jobUrl": "https://careers.se.com/jobs/139332?lang=en-us",
+  "created": "2026-11-08",
+  "headline": "AI use cases that ship and get adopted, on top of one trusted view of marketing and commercial performance.",
+  "pitch": "I turn AI into working tools that teams actually use, and I build the data foundation those tools depend on. At flyExclusive I engineered an LLM pipeline wired into the CRM that enriches records, writes personalized outreach, and scores leads; built AI proposal and agreement tools the sales team uses to produce approved documents at scale; and built conversational reporting so teams can ask questions of the data directly. Underneath that, I led a HubSpot Enterprise transformation (governance, data standards, deduplication, Master Data Management) and redesigned the attribution and performance dashboards leadership reviews. I've run several of these programs at once while also serving as interim manager of a ~$10M/month sales team. I'm based in Raleigh, one of the role's listed locations, and I have an M.S. in Data Science.",
+  "requirements": [
+    {
+      "need": "AI acumen: translate AI capabilities into practical business use cases and measurable outcomes",
+      "evidence": "At flyExclusive I've shipped several AI use cases into daily work: an autonomous LLM enrichment pipeline connected to the CRM that generates personalized subject lines and openers and powers lead scoring; AI proposal and agreement tools for the sales team; and conversational reporting interfaces. On this site I built a retrieval-augmented chat with an automated eval harness that checks grounding and refusals. I build with Claude Code and MCP servers every day.",
+      "strength": "direct",
+      "proof": {
+        "label": "Grounded AI chat",
+        "href": "/#/project/resume-chat"
+      }
+    },
+    {
+      "need": "Define and drive the AI roadmap: productivity, customer insights, content, personalization, decision-making",
+      "evidence": "My AI work at flyExclusive already spans those categories: content and personalization (LLM-written outreach), decision-making (lead scoring, the competitive-pricing app that set 2026 pricing), productivity (proposal and agreement tools), and insights (conversational reporting). I've also built agentic systems (a LangGraph agent) and local LLM deployments outside work.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Unified data and analytics framework with trusted reporting and end-to-end performance visibility",
+      "evidence": "I led flyExclusive's CRM data transformation (governance, scalable architecture, deduplication, MDM) to create a single source of truth, and built attribution frameworks and funnel dashboards that show marketing's contribution through to revenue. On this site, one channel definition is enforced in code and every report reads from it.",
+      "strength": "direct",
+      "proof": {
+        "label": "One definition, enforced in code",
+        "href": "/#/project/utm-journeys"
+      }
+    },
+    {
+      "need": "Integrated dashboards and analytics across the portfolio",
+      "evidence": "Redesigned flyExclusive's retail performance dashboards for leadership; Tableau and Power BI; SQL, Python, and Databricks. At TRANZACT I ran multi-touch attribution and forecasting with commercial and finance leadership.",
+      "strength": "direct",
+      "proof": {
+        "label": "Attribution framework",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Scalable operating models, governance, data standards, and processes",
+      "evidence": "I designed and enforced flyExclusive's CRM governance (properties, required fields, ownership rules, lifecycle stages) and onboarded 10 sales reps and 5 marketers onto the standards. At TRANZACT I set up the A/B testing framework and continuous-improvement protocols (50% test win rate, 30% CTR improvement).",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Workflow automation and emerging technology for efficiency and scale",
+      "evidence": "Automated enrichment and outreach drafting with LLMs, automated proposal generation, and consolidated the stack by replacing Tableau and Airtable. I'm now leading the replacement of HubSpot with an in-house tool. At TRANZACT I automated behavioral-data syncs into Iterable for 10+ lifecycle campaigns.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Lead large-scale cross-functional transformation with strong program management across multiple initiatives",
+      "evidence": "In my first year at flyExclusive I ran a website migration, the HubSpot transformation, two tool replacements, and the AI sales tools in parallel across marketing, sales, and leadership, and now the HubSpot-to-in-house migration. These were company-wide for a fast-growing business, not global-enterprise scale.",
+      "strength": "adjacent",
+      "proof": null
+    },
+    {
+      "need": "Executive presence; influence stakeholders across a global, matrixed organization",
+      "evidence": "I've presented recommendations to commercial and finance leadership at TRANZACT and aligned C-suite stakeholders at OnPoint. I haven't worked in a global matrix yet; I'd start by mapping owners and decision rights across the Software & Services regions.",
+      "strength": "adjacent",
+      "proof": null
+    },
+    {
+      "need": "Significant experience; software, SaaS, or services background preferred",
+      "evidence": "Six years across marketing, CRM analytics, and AI, in private aviation and insurance rather than software. I bring the hands-on side the posting asks to measure: AI adoption, data quality, and automation I built myself.",
+      "strength": "building",
+      "proof": {
+        "label": "Full resume",
+        "href": "/#/resume"
+      }
+    }
+  ],
+  "featured": [
+    {
+      "title": "Resume Chat — grounded AI answers",
+      "blurb": "Retrieval-augmented chat over one source of truth, served server-side, with an automated eval harness for grounding and refusals. How I'd make AI trustworthy enough to adopt.",
+      "href": "/#/project/resume-chat"
+    },
+    {
+      "title": "UTM Journey Tracker — live",
+      "blurb": "Governance and data standards written as code, a data-quality report that counts every rule failure, and a real-time performance dashboard.",
+      "href": "/#/project/utm-journeys"
+    },
+    {
+      "title": "From Attribution to Ad Spend",
+      "blurb": "End-to-end performance visibility turned into a decision: four attribution models compared, calibrated with lift tests, and turned into a budget plan.",
+      "href": "/#/project/attribution"
+    }
+  ],
+  "experience": [
+    {
+      "org": "flyExclusive",
+      "role": "Senior Manager, Marketing Insights & CRM Analytics",
+      "dates": "Nov 2025 – Present",
+      "bullets": [
+        "Engineered an autonomous LLM pipeline connected to the CRM that generates personalized outreach and powers a lead-scoring model prioritizing high-value accounts.",
+        "Shipped AI proposal and agreement tools and a Python competitive-pricing app that directly informed 2026 pricing strategy.",
+        "Led a HubSpot Enterprise transformation (governance, data standards, deduplication, Master Data Management) and onboarded 10 reps and 5 marketers onto it.",
+        "Built attribution frameworks, leadership dashboards, and conversational reporting interfaces giving teams on-demand data.",
+        "Ran parallel transformation programs (website migration, Tableau and Airtable replacement, HubSpot-to-in-house migration) while serving as interim manager of a ~$10M/month sales team."
+      ]
+    },
+    {
+      "org": "TRANZACT",
+      "role": "Sr. Data Analyst, CRM",
+      "dates": "May 2022 – Nov 2025",
+      "bullets": [
+        "Partnered with commercial and finance leadership on attribution and forecasting, translating results into executive investment recommendations.",
+        "Automated CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
+        "Built a structured A/B testing framework with continuous-improvement protocols: 50% test win rate and a 30% CTR improvement."
+      ]
+    },
+    {
+      "org": "American Kennel Club",
+      "role": "Email Marketing Associate",
+      "dates": "Apr 2021 – May 2022",
+      "bullets": [
+        "Built Tableau-driven audience insights and automated customer journeys with dynamic content."
+      ]
+    },
+    {
+      "org": "OnPoint",
+      "role": "Marketing Manager",
+      "dates": "Oct 2020 – Apr 2021",
+      "bullets": [
+        "Led lifecycle strategy across email and paid social, aligning C-suite stakeholders on data-driven execution."
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "phase": "Days 1–30 · Map the portfolio",
+      "items": [
+        "Meet Marketing, Commercial Ops, RevOps, Digital, IT, and Customer Success leads; list every transformation program with its owner, milestone, and status.",
+        "Map the systems and data sources behind Software & Services reporting, and where definitions conflict between teams and regions.",
+        "Collect AI ideas already in flight or requested, and baseline the time teams spend on manual reporting and content work."
+      ]
+    },
+    {
+      "phase": "Days 31–60 · Foundation and first wins",
+      "items": [
+        "Publish one program dashboard (priorities, milestones, owners, risks) and a monthly review cadence with leadership.",
+        "Agree shared metric definitions and data standards, and start a data-quality scorecard.",
+        "Prioritize the AI roadmap by value and effort, and launch two pilots with clear success measures (for example, content drafting and insight summaries on pipeline data)."
+      ]
+    },
+    {
+      "phase": "Days 61–90 · Scale and measure",
+      "items": [
+        "Ship the first integrated performance dashboard across the portfolio.",
+        "Report AI pilot results (hours saved, adoption, quality) and decide which to scale globally, with training and governance.",
+        "Roll out standardized processes and templates for the next wave of automation."
+      ]
+    }
+  ],
+  "resume": {
+    "title": "Marketing Operations, Data & Applied AI",
+    "summary": "Marketing operations and applied-AI leader with 6 years building the data, governance, and AI tools behind commercial teams, most recently at flyExclusive: LLM pipelines on CRM data, AI proposal tools, conversational reporting, and a HubSpot Enterprise data transformation with Master Data Management. Runs several transformation programs at once and measures them on adoption, data quality, and business impact. M.S. in Data Science.",
+    "skillGroups": [
+      {
+        "label": "AI & Automation",
+        "items": "AI use-case design, LLM pipelines on CRM data, RAG, agentic workflows (LangGraph), AI content and personalization, workflow automation, model evaluation, Claude Code with MCP"
+      },
+      {
+        "label": "Data, Analytics & Governance",
+        "items": "Data governance and standards, Master Data Management, unified reporting, executive dashboards, multi-touch attribution, forecasting, SQL, Python, Databricks, Tableau, Power BI"
+      },
+      {
+        "label": "Operations & Transformation",
+        "items": "Program management, stack consolidation and migration, HubSpot Enterprise (all hubs), Iterable, process design, user onboarding and adoption, A/B testing"
+      }
+    ],
+    "projectsTitle": "Featured Projects",
+    "projects": [
+      "resume-chat",
+      "utm-journey-tracker"
+    ]
+  },
+  "skills": [
+    "AI roadmap and use cases",
+    "LLM pipelines",
+    "Workflow automation",
+    "Data governance",
+    "Unified reporting",
+    "Executive dashboards",
+    "Program management",
+    "Master Data Management",
+    "RAG",
+    "Agentic workflows",
+    "SQL",
+    "Python",
+    "HubSpot Enterprise",
+    "Multi-touch attribution",
+    "Tableau",
+    "Power BI"
+  ]
+}
