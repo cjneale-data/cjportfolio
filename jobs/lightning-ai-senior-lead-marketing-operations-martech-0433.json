@@ -1,0 +1,201 @@
+{
+  "slug": "lightning-ai-senior-lead-marketing-operations-martech-0433",
+  "company": "Lightning AI",
+  "role": "Senior Lead, Marketing Operations & MarTech",
+  "jobUrl": "https://job-boards.greenhouse.io/lightningai/jobs/8019786003",
+  "created": "2026-11-08",
+  "headline": "A marketing stack where every signup, usage event, and deal lands in one governed record, and attribution the CMO can defend.",
+  "pitch": "I build marketing technology from the tag to the CRM to the warehouse, and I write the code myself. At flyExclusive I own HubSpot Enterprise (every hub) architecture and governance, implemented our tracking in Google Tag Manager, the Meta Pixel and Conversions API, and Google Ads conversion tracking, and set up offline conversion uploads so campaigns optimize on qualified leads and sales rather than form fills. I built the attribution frameworks and dashboards leadership uses, and an LLM pipeline that enriches CRM records and scores leads. I've also consolidated the stack, replacing Tableau and Airtable, and I'm leading the move from HubSpot to an in-house tool. I build with AI every day (Claude Code with MCP servers), so Lightning's audience is one I know.",
+  "requirements": [
+    {
+      "need": "Own the marketing operations roadmap and tech stack: integrate marketing automation, CRM, data warehouse, and PLG tools",
+      "evidence": "At flyExclusive I own the marketing data stack: HubSpot Enterprise, the website and its quoting pipelines into the CRM, tag management, and ad-platform conversion feeds. At TRANZACT I built CRM and ESP integrations with SQL and JSON REST APIs that synced behavioral data into Iterable for 10+ lifecycle campaigns. My warehouse work has been in Databricks and Postgres rather than Snowflake or BigQuery.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Evaluate, buy, implement, and optimize MarTech and vendor relationships",
+      "evidence": "I replaced Tableau and Airtable at flyExclusive to consolidate reporting and operational data, and I'm leading the replacement of HubSpot with an internal tool built in-house. I've implemented GTM, Meta CAPI, Google Ads conversion tracking, Stripe Billing, and a Plaid integration.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Data governance, hygiene, privacy compliance (GDPR, CCPA), and enrichment",
+      "evidence": "I led flyExclusive's CRM governance (properties, required fields, ownership rules, lifecycle stages), deduplication workflows, identity resolution, and Master Data Management. I built an autonomous LLM enrichment pipeline into the CRM. My live tracker on this site honors Global Privacy Control and Do Not Track and stores no cookies or IP addresses. I haven't owned a formal GDPR program across regions.",
+      "strength": "direct",
+      "proof": {
+        "label": "Privacy-aware tracker",
+        "href": "/#/project/utm-journeys"
+      }
+    },
+    {
+      "need": "Lead routing, scoring models, funnel stages, and SLA tracking with SalesOps and RevOps",
+      "evidence": "I designed flyExclusive's lifecycle stages and ownership rules in HubSpot and built a lead-scoring model, powered by LLM enrichment, that prioritizes high-value accounts. As interim manager of the retail sales team (~$10M in monthly sales) I sit on both sides of the marketing-to-sales handoff.",
+      "strength": "direct",
+      "proof": null
+    },
+    {
+      "need": "Multi-touch attribution, dashboards, and executive reporting on pipeline and ROI",
+      "evidence": "At TRANZACT I ran multi-touch attribution modeling and built measurement and forecasting frameworks for paid media, presented as executive recommendations. At flyExclusive I built the attribution frameworks and leadership dashboards. My case study compares four attribution models, calibrates them with lift tests, and reallocates budget, with an interactive model.",
+      "strength": "direct",
+      "proof": {
+        "label": "Attribution to budget",
+        "href": "/#/project/attribution"
+      }
+    },
+    {
+      "need": "Technical depth in APIs, webhooks, data warehousing, and data governance",
+      "evidence": "I write the integrations myself: JSON REST APIs into Iterable at TRANZACT; server-side Conversions API and offline conversion uploads at flyExclusive; on this site, a serverless endpoint that validates events, filters bots, and dedupes on an event ID before writing to Postgres. SQL and Python daily.",
+      "strength": "direct",
+      "proof": {
+        "label": "Live tracker",
+        "href": "/#/project/utm-journeys"
+      }
+    },
+    {
+      "need": "Connect product usage data to marketing automation for conversion and expansion; support PLG and sales-assisted motions",
+      "evidence": "At TRANZACT I synced behavioral data from the data side into Iterable to drive lifecycle campaigns, which is the same pattern as pushing product-usage events into marketing automation. My work has been sales-assisted (flyExclusive) and direct-to-consumer (TRANZACT); a self-serve PLG funnel would be new, and I'd start by mapping Lightning's signup-to-paid events.",
+      "strength": "adjacent",
+      "proof": null
+    },
+    {
+      "need": "Marketo, Salesforce, Bizible, Snowflake or BigQuery",
+      "evidence": "My depth is HubSpot Enterprise, Iterable, Databricks, and Postgres. I haven't run Marketo, Salesforce, or Bizible in production. The data models are the same objects (leads, contacts, accounts, campaigns, touches), and I'd ramp on Lightning's instance first.",
+      "strength": "adjacent",
+      "proof": null
+    },
+    {
+      "need": "Hire, mentor, and lead a team; manage budget; operate across regions; 10+ years",
+      "evidence": "I've managed flyExclusive's retail sales team as interim manager since May 2026 and onboarded 10 reps and 5 marketers. I have six years in marketing and data roles, short of ten, and I haven't managed a marketing budget or a multi-region team yet.",
+      "strength": "building",
+      "proof": {
+        "label": "Full resume",
+        "href": "/#/resume"
+      }
+    }
+  ],
+  "featured": [
+    {
+      "title": "UTM Journey Tracker — live",
+      "blurb": "A first-party tracker I built: a UTM taxonomy enforced in code, server-side validation and deduplication into Postgres, privacy controls, and a real-time journey dashboard. Tag a link and watch your own session appear.",
+      "href": "/#/project/utm-journeys"
+    },
+    {
+      "title": "From Attribution to Ad Spend",
+      "blurb": "Four attribution models side by side, calibrated with lift tests, then turned into a budget plan. Includes an interactive model.",
+      "href": "/#/project/attribution"
+    },
+    {
+      "title": "Resume Chat — grounded AI answers",
+      "blurb": "Retrieval-augmented chat over one source of truth, served server-side, with an automated eval harness for grounding and refusals.",
+      "href": "/#/project/resume-chat"
+    }
+  ],
+  "experience": [
+    {
+      "org": "flyExclusive",
+      "role": "Senior Manager, Marketing Insights & CRM Analytics",
+      "dates": "Nov 2025 – Present",
+      "bullets": [
+        "Implemented conversion tracking on a rebuilt website: Google Tag Manager, Meta Pixel and Conversions API, and Google Ads conversion tracking, with quote requests flowing straight into the CRM.",
+        "Set up offline conversion uploads sending CRM outcomes back to ad platforms, so campaigns optimize on qualified leads and sales rather than form fills.",
+        "Led a HubSpot Enterprise transformation: governance, lifecycle stages, ownership rules, deduplication, identity resolution, and Master Data Management.",
+        "Engineered an LLM enrichment pipeline into the CRM that writes personalized outreach and powers a lead-scoring model prioritizing high-value accounts.",
+        "Built attribution frameworks and leadership dashboards; consolidated the stack by replacing Tableau and Airtable, and leading a HubSpot-to-in-house migration."
+      ]
+    },
+    {
+      "org": "TRANZACT",
+      "role": "Sr. Data Analyst, CRM",
+      "dates": "May 2022 – Nov 2025",
+      "bullets": [
+        "Engineered CRM/ESP integrations (SQL, JSON REST APIs) syncing behavioral data into Iterable for 10+ lifecycle campaigns.",
+        "Ran multi-touch attribution modeling and built paid-media measurement and forecasting frameworks, delivered as executive recommendations.",
+        "Ran a structured A/B testing program for segmentation: 50% test win rate and a 30% CTR improvement."
+      ]
+    },
+    {
+      "org": "American Kennel Club",
+      "role": "Email Marketing Associate",
+      "dates": "Apr 2021 – May 2022",
+      "bullets": [
+        "Automated customer journeys with dynamic email content and built Tableau-driven audience insights."
+      ]
+    },
+    {
+      "org": "OnPoint",
+      "role": "Marketing Manager",
+      "dates": "Oct 2020 – Apr 2021",
+      "bullets": [
+        "Led lifecycle strategy and targeting across email and paid social, aligning C-suite stakeholders."
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "phase": "Days 1–30 · Audit the stack",
+      "items": [
+        "Map every tool, integration, and data flow: Marketo or HubSpot, Salesforce, the warehouse, product events, enrichment, and ad platforms, with owners and contract dates.",
+        "Trace one self-serve signup and one sales-assisted deal end to end, and list where records duplicate, drop, or lose their source.",
+        "Agree funnel stage definitions and the lead-to-opportunity SLA with SalesOps and RevOps."
+      ]
+    },
+    {
+      "phase": "Days 31–60 · Fix the foundation",
+      "items": [
+        "Ship governance: required fields, dedupe rules, a UTM and campaign taxonomy, and a consent and privacy review for GDPR and CCPA.",
+        "Pipe product usage signals (signup, first run, usage thresholds) into marketing automation and scoring for PLG conversion and expansion.",
+        "Rebuild routing and scoring on the cleaned data, and start SLA tracking."
+      ]
+    },
+    {
+      "phase": "Days 61–90 · Prove ROI",
+      "items": [
+        "Deliver an executive pipeline and ROI dashboard with multi-touch attribution, checked against at least one lift test.",
+        "Present a stack roadmap and budget: what to consolidate, renew, or cut, and the savings.",
+        "Write the hiring plan for the Marketing Ops team based on the gaps found."
+      ]
+    }
+  ],
+  "resume": {
+    "title": "Marketing Operations & MarTech",
+    "summary": "Marketing operations and MarTech practitioner with 6 years building the systems that connect marketing to revenue, most recently owning HubSpot Enterprise architecture, conversion tracking, and attribution at flyExclusive. Implements tag management, server-side conversion APIs, offline conversion uploads, CRM governance, and lead scoring, and writes the integrations in SQL, Python, and REST APIs. M.S. in Data Science.",
+    "skillGroups": [
+      {
+        "label": "MarTech & Attribution",
+        "items": "HubSpot Enterprise (all hubs), Iterable, Google Tag Manager, Meta Pixel and Conversions API, Google Ads conversion tracking, offline conversion uploads, multi-touch attribution, lead scoring, GA4, A/B testing"
+      },
+      {
+        "label": "Data & Integrations",
+        "items": "SQL, Python, REST APIs, Databricks, Postgres, data governance, Master Data Management, identity resolution, privacy-aware tracking (consent, GPC), Stripe Billing"
+      },
+      {
+        "label": "AI & Reporting",
+        "items": "LLM enrichment pipelines, RAG, LangGraph agents, executive dashboards, Tableau, Power BI, Claude Code with MCP"
+      }
+    ],
+    "projectsTitle": "Featured Projects",
+    "projects": [
+      "utm-journey-tracker",
+      "attribution-to-ad-spend"
+    ]
+  },
+  "skills": [
+    "Marketing operations",
+    "HubSpot Enterprise",
+    "Multi-touch attribution",
+    "Lead scoring",
+    "Google Tag Manager",
+    "Meta Conversions API",
+    "Offline conversion uploads",
+    "Data governance",
+    "REST APIs",
+    "SQL",
+    "Python",
+    "Iterable",
+    "Databricks",
+    "Executive dashboards",
+    "LLM pipelines",
+    "Privacy-aware tracking"
+  ]
+}
