@@ -8,7 +8,7 @@ const path = require('path')
 
 // Single source of truth: content/career-master.md (also the basis for every
 // tailored resume). HTML comments hold editing notes and open questions for
-// Chris, so they're stripped before anything reaches the model.
+// Christopher, so they're stripped before anything reaches the model.
 const CAREER_CONTEXT_PATH = path.join(__dirname, '..', 'content', 'career-master.md')
 const RESUME_CONTEXT = fs.readFileSync(CAREER_CONTEXT_PATH, 'utf8')
   .replace(/<!--[\s\S]*?-->/g, '')
@@ -150,15 +150,16 @@ function buildSystemPrompt(retrievedChunks) {
   // The model's training cutoff can make recent dates look like the future
   // (it called a finished Dec 2025 degree "expected"), so give it today.
   const today = new Date().toISOString().slice(0, 10)
-  return `You are the AI assistant embedded on Christopher Neale's personal portfolio site. You answer visitor questions about Chris's professional background, skills, and experience, using ONLY the context below as your source of truth.
+  return `You are the AI assistant embedded on Christopher Neale's personal portfolio site. You answer visitor questions about Christopher's professional background, skills, and experience, using ONLY the context below as your source of truth.
 
 Today's date is ${today}. Anything dated before today has already happened: finished degrees are completed, not expected.
 
 Rules:
 - Be concise, friendly, and professional — a few sentences per answer, not an essay.
 - Only state facts that are in the context below. Do not invent employers, dates, or accomplishments.
-- If asked something the context doesn't cover (or something unrelated to Chris's professional background), say you don't have that information and suggest emailing cjneale.analyst@gmail.com directly.
-- Speak about Chris in the third person (e.g. "Chris led...", not "I led...").
+- If asked something the context doesn't cover (or something unrelated to Christopher's professional background), say you don't have that information and suggest emailing cjneale.analyst@gmail.com directly.
+- Speak about Christopher in the third person (e.g. "Christopher led...", not "I led...").
+- Always call him Christopher. Never shorten it to "Chris", even if the visitor does.
 
 CONTEXT:
 ${context}`
@@ -183,8 +184,8 @@ function loadJob(slug) {
 
 function buildJobBrief(job) {
   const lines = [`Role: ${job.role} at ${job.company}`]
-  if (job.pitch) lines.push(`Chris's pitch for this role (written in his voice): ${job.pitch}`)
-  lines.push('', 'What the role asks for, and Chris\'s evidence (strength: direct = done it in a job; adjacent = built it or close to it; building = still ramping):')
+  if (job.pitch) lines.push(`Christopher's pitch for this role (written in his voice): ${job.pitch}`)
+  lines.push('', 'What the role asks for, and Christopher\'s evidence (strength: direct = done it in a job; adjacent = built it or close to it; building = still ramping):')
   for (const r of job.requirements || []) lines.push(`- ${r.need} [${r.strength}]: ${r.evidence}`)
   if (job.featured && job.featured.length) {
     lines.push('', 'Work most relevant to this role (all on cjneale.xyz):')
@@ -200,14 +201,14 @@ function buildJobBrief(job) {
 function buildJobPrompt(retrievedChunks, job) {
   return `${buildSystemPrompt(retrievedChunks)}
 
-THIS CONVERSATION IS ON CHRIS'S APPLICATION PAGE FOR ${job.company.toUpperCase()}.
-The visitor is most likely a recruiter or hiring manager at ${job.company} deciding whether to interview Chris for ${job.role}. Answer like a well-prepared advocate who knows both Chris and this role:
+THIS CONVERSATION IS ON CHRISTOPHER'S APPLICATION PAGE FOR ${job.company.toUpperCase()}.
+The visitor is most likely a recruiter or hiring manager at ${job.company} deciding whether to interview Christopher for ${job.role}. Answer like a well-prepared advocate who knows both Christopher and this role:
 - Connect every answer to what ${job.company} needs. Lead with the most relevant evidence for ${job.role}, name the specific tools, systems, and numbers, and say in one plain clause why it matters for this role.
 - Prefer concrete proof over adjectives. Never use hype or filler words ("perfect", "perfectly", "extensive", "significant", "passionate", "strong background"); let the specifics make the case.
 - Keep it to one short paragraph, or two when the question asks for a full picture.
 - On a requirement marked [building], be honest that it is a gap, then say what transfers and how he'd ramp. Candor about a small gap makes the rest more credible.
-- When it helps, point to a project on the site or end with a short next step (for example, emailing Chris at cjneale.analyst@gmail.com to set up a conversation). Don't do this every time.
-- The brief below is written in Chris's first person; still speak about him in the third person. The same fact rules apply: use only the context and this brief.
+- When it helps, point to a project on the site or end with a short next step (for example, emailing Christopher at cjneale.analyst@gmail.com to set up a conversation). Don't do this every time.
+- The brief below is written in Christopher's first person; still speak about him in the third person. The same fact rules apply: use only the context and this brief.
 
 APPLICATION BRIEF:
 ${buildJobBrief(job)}`

@@ -2,7 +2,7 @@
 MASTER CAREER CONTEXT — Christopher Neale
 
 This is the single source of truth for two things:
-  1. The "Ask about Chris" chat (api/chat.js loads this file, splits it on
+  1. The "Ask about Christopher" chat (api/chat.js loads this file, splits it on
      ## / ### headings, and retrieves the best-matching sections per question).
   2. Every tailored resume and /for/<slug> page. Tailoring = selecting and
      tightening facts from here, never adding facts that aren't here.
@@ -16,7 +16,7 @@ Rules for editing:
   - Each ### section should make sense on its own (name the company in the
     heading); the chat retrieves sections one at a time.
   - Put a number on anything you can: volumes, %, $, time saved, team size.
-  - Open questions for Chris are in comments marked TODO(Chris).
+  - Open questions for Christopher are in comments marked TODO(Christopher).
   - content/resume.json holds the resume's fixed structure (contact, titles,
     dates, education, project write-ups). Keep its facts consistent with this file.
 -->
@@ -24,7 +24,7 @@ Rules for editing:
 # Christopher Neale — Master Career Context
 
 ## Personal
-- Name: Christopher Neale ("Chris")
+- Name: Christopher Neale. He goes by Christopher, never "Chris".
 - Positioning: marketing data and applied-AI practitioner. He builds measurement, CRM data, and attribution systems and the pipelines under them, and he builds LLM-powered tools end to end.
 - Currently: Senior Manager, Marketing Insights & CRM Analytics at flyExclusive (Nov 2025 – present)
 - Location: Raleigh, North Carolina (since 2014); grew up in Landenberg, Pennsylvania (Chester County)
@@ -34,7 +34,7 @@ Rules for editing:
 - Portfolio: https://cjneale.xyz
 - Hobbies: golf (former high-school #1 player; builds his own data-tracking dashboards to analyze his game and built TensorFit, a club-fitting analytics platform), fantasy football analytics, American Civil War history (avid reader; deep knowledge of battles, generals, and outcomes)
 <!-- PRIVATE (not confirmed OK for the chat to say): not open to relocation; open to travel incl. 25–50%. -->
-<!-- TODO(Chris): work authorization (US citizen?) — recruiters ask; add only what you're happy for the chat to say. -->
+<!-- TODO(Christopher): work authorization (US citizen?) — recruiters ask; add only what you're happy for the chat to say. -->
 
 ## Career Summary
 - About 6 years across marketing and data roles (Oct 2020 – present): lifecycle and email marketing, then CRM data analytics, then leading marketing insights, CRM analytics, and marketing data infrastructure.
@@ -53,7 +53,7 @@ Rules for editing:
 - Reports to the Chief Commercial Officer.
 - HubSpot Enterprise: has used every hub included in the HubSpot Enterprise package.
 - Budget: manages a marketing tools budget of about $500K a year and digital ad spend of about $300K a month.
-<!-- TODO(Chris): confirm both budgets are at flyExclusive (assumed). -->
+<!-- TODO(Christopher): confirm both budgets are at flyExclusive (assumed). -->
 
 ### flyExclusive — interim leadership of the retail sales team
 - Since about May 2026 (roughly six months as of Nov 2026), has also served as interim manager of flyExclusive's retail sales team, about 20 people, which does roughly $10M in sales revenue per month.
@@ -63,12 +63,12 @@ Rules for editing:
 ### flyExclusive — sales forecasting and pricing concessions
 - At the start of H2 2026, revised flyExclusive's financial plan with new sales projections for the rest of 2026. So far, actual results have tracked much closer to his revised projections than to the original plan.
 - Manages decision analytics on sales concessions in contracts (analyzing the discounts and concessions reps give, to inform approval decisions).
-<!-- TODO(Chris): you wrote "80% closer to my forecast" — what exactly is 80%? (e.g. forecast error cut by 80% vs. original plan, or actuals within X% of forecast). Any result from the concessions analysis (margin recovered, concession rate change)? -->
+<!-- TODO(Christopher): you wrote "80% closer to my forecast" — what exactly is 80%? (e.g. forecast error cut by 80% vs. original plan, or actuals within X% of forecast). Any result from the concessions analysis (margin recovered, concession rate change)? -->
 
 ### flyExclusive — sales and marketing onboarding
 - Onboarded 10 new sales reps and 5 new marketing team members to HubSpot: CRM process, data standards, and the tools the team uses day to day.
 - Runs biweekly office hours for the sales team: a planned lesson, then an open forum for questions on the CRM and the other tools he owns. This is how he drives adoption of new systems and AI tools.
-<!-- TODO(Chris): any ramp numbers (time to first deal, time to productivity) or adoption metrics? -->
+<!-- TODO(Christopher): any ramp numbers (time to first deal, time to productivity) or adoption metrics? -->
 
 ### flyExclusive — how he runs projects and sets priorities
 - Writes a PRD (product requirements document) before every build and gets sign-off before building.
@@ -89,13 +89,13 @@ Rules for editing:
 ### flyExclusive — GTM tool consolidation and replacement
 - Replaced Tableau and Airtable at flyExclusive with tools he built himself using agentic coding (AI coding tools). The new systems cost little beyond cloud hosting, so the license costs went away.
 - Currently leading the replacement of HubSpot with an internal tool built in-house.
-<!-- TODO(Chris): license dollars saved from dropping Tableau and Airtable? why the move off HubSpot (cost, flexibility)? Check you're OK with the chat saying the HubSpot replacement publicly. -->
+<!-- TODO(Christopher): license dollars saved from dropping Tableau and Airtable? why the move off HubSpot (cost, flexibility)? Check you're OK with the chat saying the HubSpot replacement publicly. -->
 
 ### flyExclusive — billing and payments integrations
 - Hands-on experience with Stripe Billing.
 - Currently building a Plaid integration (bank-account connectivity for payments).
 - Currently building a billing integration into the CRM and the flyExclusive mobile app.
-<!-- TODO(Chris): was Stripe Billing at flyExclusive or elsewhere? what is the Plaid integration for? -->
+<!-- TODO(Christopher): was Stripe Billing at flyExclusive or elsewhere? what is the Plaid integration for? -->
 
 ### flyExclusive — website migration, conversion tracking, and ad-platform data
 - Migrated and redesigned the company website off its legacy CMS onto a custom-built site, with data pipelines feeding active quoting (quote requests flow into the CRM).
@@ -103,7 +103,7 @@ Rules for editing:
 - Implemented the Meta Pixel and the Meta Conversions API (CAPI) so conversions are captured both in the browser and server-side.
 - Set up Google Ads conversion tracking for website conversions.
 - Set up offline conversion uploads: sending downstream CRM outcomes (qualified leads and closed sales that happen after the website visit) back to the ad platforms so campaigns can optimize on real business results, not just form fills.
-<!-- TODO(Chris): fill in specifics. Each one makes this section much stronger:
+<!-- TODO(Christopher): fill in specifics. Each one makes this section much stronger:
   - Which ad platforms received offline conversions (Google Ads, Meta, LinkedIn?) and from which CRM stages?
   - Google Ads Enhanced Conversions (for leads)? Server-side GTM? Consent Mode / a CMP (OneTrust, Cookiebot...)?
   - GA4 setup on the new site? BigQuery export?
@@ -116,21 +116,21 @@ Rules for editing:
 - Identity resolution and data hygiene: merging duplicate contacts and companies and standardizing records across sources.
 - Consolidated about 300 contact properties down to about 100 governed properties that act as the sources of truth in the CRM.
 - Built lead routing: leads for certain products go to the reps with the most experience selling that product; other new leads go to a round robin.
-<!-- TODO(Chris): record counts (contacts deduped, % duplicates removed), time saved for reps. -->
+<!-- TODO(Christopher): record counts (contacts deduped, % duplicates removed), time saved for reps. -->
 
 ### flyExclusive — attribution and performance dashboards
 - Built new measurement and attribution frameworks connecting marketing activity to customer acquisition, retention, and high-value audience segments.
 - Redesigned retail performance dashboards so leadership can see marketing's contribution through the funnel.
 - Architected integrated marketing data operations and conversational reporting interfaces (ask-a-question style access to data), giving cross-functional teams on-demand data and insights. The conversational reporting is used by the entire executive leadership team (ELT) and the whole sales team.
 - Data platform: Azure at flyExclusive; he builds and runs the ETL and daily data jobs.
-<!-- TODO(Chris): which BI tool at flyExclusive? attribution model used? channels covered? -->
+<!-- TODO(Christopher): which BI tool at flyExclusive? attribution model used? channels covered? -->
 
 ### flyExclusive — LLM enrichment pipeline and lead scoring
 - Engineered an autonomous data enrichment pipeline that connects LLM APIs directly to the CRM database.
 - It generates hyper-personalized outreach content, such as dynamic subject lines and cold openers, for sales outreach.
 - It powers an intelligent lead-scoring model that prioritizes high-value accounts for the sales team.
 - Scale and results: enriched about 500,000 CRM records. Personalized emails got a 150% better response rate than non-personalized ones, and reps spend much less time personalizing cold outreach by hand.
-<!-- TODO(Chris): which LLM/API, how the scoring model works (rules vs ML, features). -->
+<!-- TODO(Christopher): which LLM/API, how the scoring model works (rules vs ML, features). -->
 
 ### flyExclusive — pricing tool and sales AI tools
 - Shipped a Python-based competitive pricing web app for the retail sales team that analyzes competitor and market pricing. It directly informed the 2026 pricing tables and strategy.
@@ -157,7 +157,7 @@ Rules for editing:
 ### TRANZACT — attribution, paid-media measurement, and forecasting
 - Ran multi-touch attribution modeling and turned campaign performance into recommendations that guided cross-functional digital investment decisions.
 - Established measurement frameworks and forecasting models for higher-funnel paid media strategy, translating complex commercial data into executive recommendations on customer acquisition and pipeline growth.
-<!-- TODO(Chris): attribution method (position-based? data-driven?), tools (SQL warehouse? Databricks?), paid channels covered, budget scale. -->
+<!-- TODO(Christopher): attribution method (position-based? data-driven?), tools (SQL warehouse? Databricks?), paid channels covered, budget scale. -->
 
 ### TRANZACT — experimentation program
 - Built and ran a structured A/B testing framework for segmentation and campaign optimization.
@@ -172,15 +172,15 @@ Rules for editing:
 ### OnPoint — Marketing Manager (Oct 2020 – Apr 2021)
 - Raleigh, NC. Led lifecycle strategy and targeting across email and paid social.
 - Championed data-driven marketing execution and built alignment with C-suite stakeholders.
-<!-- TODO(Chris): older resumes say "GTM execution" here. Is that go-to-market or Google Tag Manager? Recruiters for growth-data roles will read it as Tag Manager. -->
+<!-- TODO(Christopher): older resumes say "GTM execution" here. Is that go-to-market or Google Tag Manager? Recruiters for growth-data roles will read it as Tag Manager. -->
 
 ### International nonprofit internship
 - Interned for an international nonprofit and lived outside the US for two years, working closely with international colleagues.
-<!-- TODO(Chris): organization, country, years, and what you did there. -->
+<!-- TODO(Christopher): organization, country, years, and what you did there. -->
 
 ### Golf industry — Professional Golf Management internships (college)
 - At NC State, initially studied Professional Golf Management, including industry internships, before switching to a statistically focused psychology major.
-<!-- TODO(Chris): where/when were the internships? relevant for golf-industry applications (e.g. PGA). -->
+<!-- TODO(Christopher): where/when were the internships? relevant for golf-industry applications (e.g. PGA). -->
 
 ## Projects
 
@@ -213,7 +213,7 @@ Rules for editing:
 - Streamlit app on OpenRouter, with Supabase for auth and saved recipes. Previously called "Recipe Wiz."
 - Live demo: https://chefai-noemgucqmarbfwe2euwdsl.streamlit.app/
 
-### Resume Chat — the "Ask about Chris" widget on this site
+### Resume Chat — the "Ask about Christopher" widget on this site
 - Retrieval-augmented chat: this master career file is split by section, each section is ranked against the visitor's question with TF-IDF cosine similarity (plus query-side synonym expansion), and only the top sections go to the model.
 - Grounded generation via OpenRouter, server-side only so the API key never reaches the browser.
 - Automated eval harness that checks factual grounding and out-of-scope refusal behavior.

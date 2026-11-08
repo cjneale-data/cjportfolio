@@ -92,7 +92,7 @@
     .skills{display:flex;flex-wrap:wrap;gap:6px}
     .skill{font-family:var(--font-mono);font-size:11px;padding:4px 9px;border-radius:3px;color:var(--muted);background:var(--glass);border:1px solid var(--line)}
 
-    /* Chat: same look as the home page's "Ask about Chris", scoped to this role. */
+    /* Chat: same look as the home page's "Ask about Christopher", scoped to this role. */
     .chat{padding:0;overflow:hidden;scroll-margin-top:16px}
     .chat-head{padding:22px 24px 4px}
     .chat-head h2{font-size:21px}
@@ -193,7 +193,7 @@
           <h1>${esc(job.headline)}</h1>
           <p>${esc(job.pitch)}</p>
           <div class="ctas">
-            <a class="btn primary" href="mailto:cjneale.analyst@gmail.com?subject=${subject}">Email Chris</a>
+            <a class="btn primary" href="mailto:cjneale.analyst@gmail.com?subject=${subject}">Email Christopher</a>
             <a class="btn" href="${LINKEDIN}" target="_blank" rel="noopener">LinkedIn</a>
             <a class="btn" href="/resumes/${esc(job.slug)}.pdf" download="ChristopherNeale_Resume_${esc(job.company.replace(/[^A-Za-z0-9]+/g, ''))}.pdf">Resume (PDF)</a>
             <a class="btn" href="#chat">Ask about my fit</a>
@@ -203,7 +203,7 @@
         <section class="card chat" id="chat">
           <div class="chat-head">
             <div class="section-title" style="border:none;padding:0;margin-bottom:8px">Ask about this role</div>
-            <h2>Is Chris right for ${esc(job.role)}?</h2>
+            <h2>Is Christopher right for ${esc(job.role)}?</h2>
             <p>Ask anything about my background as it relates to ${esc(job.company)}. Answers come only from my resume, my notes, and this page.</p>
           </div>
           <div class="chat-prompts" id="chat-prompts"></div>
@@ -260,10 +260,10 @@
         prompts: document.getElementById('chat-prompts'),
       }
       const prompts = job.chatPrompts || [
-        `Why is Chris a strong fit for ${job.role}?`,
-        `What has Chris built that's relevant to ${job.company}?`,
-        `What would Chris focus on in his first 90 days?`,
-        `What's Chris's educational background?`,
+        `Why is Christopher a strong fit for ${job.role}?`,
+        `What has Christopher built that's relevant to ${job.company}?`,
+        `What would Christopher focus on in his first 90 days?`,
+        `What's Christopher's educational background?`,
       ]
       els.prompts.innerHTML = prompts.map(p => `<button type="button" class="chat-prompt" data-prompt="${esc(p)}">${esc(p)}</button>`).join('')
 

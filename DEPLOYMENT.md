@@ -21,7 +21,7 @@ This repo was created fresh (`C:\Users\seejn\portfolio-site`), separate from `C:
    - `OPENROUTER_MODEL` — optional, defaults to `openai/gpt-4o-mini`
    - `SITE_URL` — your production URL once you know it (e.g. `https://portfolio-site.vercel.app`)
 4. Deploy. Vercel auto-detects `api/chat.js` as a serverless function at `/api/chat`.
-5. Visit the deployed URL and test the "Ask about Chris" chat widget.
+5. Visit the deployed URL and test the "Ask about Christopher" chat widget.
 
 ## Local testing
 

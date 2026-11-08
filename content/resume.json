@@ -123,7 +123,7 @@
     "resume-chat": {
       "name": "Resume Chat, Retrieval-Augmented Q&A (portfolio site)",
       "bullets": [
-        "Built the site's \"Ask about Chris\" chat: section-chunked retrieval ranked by TF-IDF cosine similarity, grounded generation via OpenRouter, and an automated eval harness scoring factual grounding and out-of-scope refusals."
+        "Built the site's \"Ask about Christopher\" chat: section-chunked retrieval ranked by TF-IDF cosine similarity, grounded generation via OpenRouter, and an automated eval harness scoring factual grounding and out-of-scope refusals."
       ],
       "link": "https://cjneale.xyz"
     }

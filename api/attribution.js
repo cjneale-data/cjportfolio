@@ -5,7 +5,7 @@
 //   ?view=export       dry-run offline-conversion payloads shaped for Google Ads,
 //                      Meta CAPI, TikTok Events API, and LinkedIn CAPI — built, never sent
 // All views take ?days=N (default 30, max 365). Requires STATS_TOKEN as a
-// Bearer header or ?token= — campaign names reveal where Chris is applying.
+// Bearer header or ?token= — campaign names reveal where Christopher is applying.
 
 const crypto = require('crypto')
 const { CONVERSION_EVENTS, CHANNEL_SQL, getPool, ensureSchema } = require('../lib/events')
